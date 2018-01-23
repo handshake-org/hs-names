@@ -33371,6 +33371,7 @@ module.exports = {
   'handluggageonly': ['co.uk', 99809, 0],
   'handong': ['edu', 68540, 0],
   'hands': ['net', 62443, 0],
+  'handshake': ['', 0, 0],
   'handsonaswegrow': ['com', 67386, 0],
   'handy': ['com', 91312, 0],
   'handy-porn': ['net', 25018, 0],

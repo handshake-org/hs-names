@@ -27,7 +27,8 @@ const BLACKLIST = [
 
 const CUSTOM = [
   'bit',
-  'eth'
+  'eth',
+  'handshake'
 ];
 
 const TLD = [
@@ -126,24 +127,24 @@ const ALEXA = (() => {
 
 fs.writeFileSync(
   path.resolve(__dirname, 'names', 'blacklist.json'),
-  JSON.stringify(BLACKLIST, null, 2));
+  JSON.stringify(BLACKLIST, null, 2) + '\n');
 
 fs.writeFileSync(
   path.resolve(__dirname, 'names', 'custom.json'),
-  JSON.stringify(CUSTOM, null, 2));
+  JSON.stringify(CUSTOM, null, 2) + '\n');
 
 fs.writeFileSync(
   path.resolve(__dirname, 'names', 'tld.json'),
-  JSON.stringify(TLD, null, 2));
+  JSON.stringify(TLD, null, 2) + '\n');
 
 fs.writeFileSync(
   path.resolve(__dirname, 'names', 'cctld.json'),
-  JSON.stringify(CCTLD, null, 2));
+  JSON.stringify(CCTLD, null, 2) + '\n');
 
 fs.writeFileSync(
   path.resolve(__dirname, 'names', 'gtld.json'),
-  JSON.stringify(GTLD, null, 2));
+  JSON.stringify(GTLD, null, 2) + '\n');
 
 fs.writeFileSync(
   path.resolve(__dirname, 'names', 'alexa.json'),
-  JSON.stringify(ALEXA, null, 2));
+  JSON.stringify(ALEXA, null, 2) + '\n');
