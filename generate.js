@@ -24,15 +24,15 @@ function compile() {
     names.push(data);
   };
 
-  // (Original) TLDs
+  // (Original) TLDs.
   for (const name of TLD)
     insert(name, '', 0);
 
-  // Custom TLDs (.bit & .eth)
+  // Custom TLDs (.bit & .eth).
   for (const name of CUSTOM)
     insert(name, '', 0);
 
-  // Country Code TLDs
+  // Country Code TLDs.
   for (const name of CCTLD)
     insert(name, '', 0);
 
