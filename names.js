@@ -35694,6 +35694,7 @@ module.exports = {
   'hsex': ['tv', 11047, 0],
   'hshighlight': ['club', 16747, 2],
   'hsionlineorders': ['net', 71915, 0],
+  'hsk': ['', 0, 0],
   'hsl': ['fi', 50006, 0],
   'hslu': ['ch', 83508, 0],
   'hsn': ['com', 5026, 0],

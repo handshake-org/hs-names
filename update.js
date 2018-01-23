@@ -20,6 +20,7 @@ const ALEXA_PATH = path.resolve(__dirname, 'data', 'top-1m.csv');
 
 const BLACKLIST = [
   'example',
+  'h',
   'local',
   'localhost',
   'onion'
@@ -28,7 +29,8 @@ const BLACKLIST = [
 const CUSTOM = [
   'bit',
   'eth',
-  'handshake'
+  'handshake',
+  'hsk'
 ];
 
 const TLD = [
