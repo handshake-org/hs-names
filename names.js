@@ -88930,5 +88930,5 @@ module.exports = {
   'zzu': ['edu.cn', 29951, 0],
   'zzz': ['com.ua', 79382, 0],
   'zzzpan': ['com', 97934, 0],
-  'zzztube': ['com', 33839, 0],
+  'zzztube': ['com', 33839, 0]
 };

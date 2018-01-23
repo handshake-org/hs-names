@@ -139,6 +139,7 @@ const names = compile();
   for (const [name, tld, rank, collisions] of names)
     out += `  '${name}': ['${tld}', ${rank}, ${collisions}],\n`;
 
+  out = out.slice(0, -2) + '\n';
   out += '};\n';
 
   fs.writeFileSync(path.resolve(__dirname, 'names.js'), out);
@@ -154,6 +155,7 @@ const names = compile();
   for (const [name] of names)
     out += `  '${name}',\n`;
 
+  out = out.slice(0, -2) + '\n';
   out += ']);\n';
 
   fs.writeFileSync(path.resolve(__dirname, 'names.min.js'), out);
