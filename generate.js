@@ -24,17 +24,21 @@ function compile() {
     names.push(data);
   };
 
+  // (Original) TLDs
   for (const name of TLD)
     insert(name, '', 0);
 
+  // Custom TLDs (.bit & .eth)
   for (const name of CUSTOM)
     insert(name, '', 0);
 
+  // Country Code TLDs
   for (const name of CCTLD)
     insert(name, '', 0);
 
   assert(ALEXA.length >= 100000);
 
+  // Alexa top 100,000 second-level domains.
   for (let i = 0; i < 100000; i++) {
     const domain = ALEXA[i];
     const parts = domain.split('.');
