@@ -24,15 +24,15 @@ function compile() {
     names.push(data);
   };
 
-  // (Original) TLDs.
-  for (const name of TLD)
-    insert(name, '', 0);
-
-  // Custom TLDs (.bit & .eth).
+  // Custom TLDs (e.g. `.eth`).
   for (const name of CUSTOM)
     insert(name, '', 0);
 
-  // Country Code TLDs.
+  // Original TLDs (com, net, org, etc).
+  for (const name of TLD)
+    insert(name, '', 0);
+
+  // Country Code TLDs (e.g. `.io`).
   for (const name of CCTLD)
     insert(name, '', 0);
 
@@ -48,6 +48,10 @@ function compile() {
 
     const name = parts.shift();
     assert(name.length > 0);
+
+    // Cannot be longer than 64 bytes.
+    if (name.length > 64)
+      continue;
 
     // Single letter domains only
     // reserved for the alexa top 1,000.
@@ -84,10 +88,6 @@ function compile() {
     }
 
     const tld = parts.join('.');
-
-    // Cannot be longer than 64 bytes.
-    if (name.length > 64)
-      continue;
 
     // Cannot contain non alphanumeric characters.
     if (!/^[a-z0-9\-_]+$/.test(name))
@@ -127,17 +127,34 @@ function compile() {
 
 const names = compile();
 
-let out = '';
+{
+  let out = '';
 
-out += '\'use strict\';\n';
-out += '\n';
-out += '// Format:\n';
-out += '// [name]: [[owner-tld], [alexa-rank], [collisions]]\n';
-out += 'module.exports = {\n';
+  out += '\'use strict\';\n';
+  out += '\n';
+  out += '// Format:\n';
+  out += '// [name]: [[owner-tld], [alexa-rank], [collisions]]\n';
+  out += 'module.exports = {\n';
 
-for (const [name, tld, rank, collisions] of names)
-  out += `  '${name}': ['${tld}', ${rank}, ${collisions}],\n`;
+  for (const [name, tld, rank, collisions] of names)
+    out += `  '${name}': ['${tld}', ${rank}, ${collisions}],\n`;
 
-out += '};\n';
+  out += '};\n';
 
-fs.writeFileSync(path.resolve(__dirname, 'names.js'), out);
+  fs.writeFileSync(path.resolve(__dirname, 'names.js'), out);
+}
+
+{
+  let out = '';
+
+  out += '\'use strict\';\n';
+  out += '\n';
+  out += 'module.exports = new Set([\n';
+
+  for (const [name] of names)
+    out += `  '${name}',\n`;
+
+  out += ']);\n';
+
+  fs.writeFileSync(path.resolve(__dirname, 'names.min.js'), out);
+}
