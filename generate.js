@@ -201,19 +201,15 @@ const names = compile();
 {
   let out = '';
 
-  out += '\'use strict\';\n';
-  out += '\n';
-  out += '// Format:\n';
-  out += '// [name]: [[owner-tld], [alexa-rank], [collisions]]\n';
-  out += 'module.exports = {\n';
+  out += '{\n';
 
   for (const [name, tld, rank, collisions] of names)
-    out += `  '${name}': ['${tld}', ${rank}, ${collisions}],\n`;
+    out += `  "${name}": ["${tld}", ${rank}, ${collisions}],\n`;
 
   out = out.slice(0, -2) + '\n';
-  out += '};\n';
+  out += '}\n';
 
-  fs.writeFileSync(path.resolve(__dirname, 'names.js'), out);
+  fs.writeFileSync(path.resolve(__dirname, 'reserved.json'), out);
 }
 
 {
@@ -229,5 +225,5 @@ const names = compile();
   out = out.slice(0, -2) + '\n';
   out += ']);\n';
 
-  fs.writeFileSync(path.resolve(__dirname, 'names.min.js'), out);
+  fs.writeFileSync(path.resolve(__dirname, 'reserved.js'), out);
 }
