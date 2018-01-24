@@ -17,29 +17,9 @@ const WORDS = require('./names/words.json');
 const blacklist = new Set(BLACKLIST);
 const words = new Set(WORDS);
 
-function sortAlpha([a], [b]) {
-  return util.compare(a, b);
-}
-
-function sortRank([an, ar], [bn, br]) {
-  if (ar < br)
-    return -1;
-
-  if (ar > br)
-    return 1;
-
-  return util.compare(an, bn);
-}
-
-function sortNamesRank([an,, ar], [bn,, br]) {
-  if (ar < br)
-    return -1;
-
-  if (ar > br)
-    return 1;
-
-  return util.compare(an, bn);
-}
+/*
+ * Compilation
+ */
 
 function compile() {
   const table = new Map();
@@ -48,53 +28,70 @@ function compile() {
   const collisions = [];
 
   const ignore = (domain, rank, reason) => {
+    const name = domain;
+    invalid.push({
+      domain,
+      rank,
+      name,
+      reason
+    });
     console.error('Ignoring %s (%d) (reason=%s).', domain, rank, reason);
-    invalid.push([domain, rank, reason]);
   };
 
-  const collide = (domain, rank, cache) => {
-    const [wname, wtld, wrank] = cache;
-    const wdomain = `${wname}.${wtld}`;
+  const collide = (domain, rank, winner) => {
+    const name = domain;
+    collisions.push({
+      domain,
+      rank,
+      name,
+      winner
+    });
     console.error('%s (%d) collided with %s (%d).',
-      domain, rank, wdomain, wrank);
-    collisions.push([domain, rank, wdomain, wrank]);
+      domain, rank, winner.domain, winner.rank);
   };
 
-  const insert = (name, tld, rank) => {
+  const insert = (domain, rank, name, tld) => {
     // Ignore blacklist.
     if (blacklist.has(name)) {
-      ignore(`${name}.${tld}`, rank, 'blacklist');
+      ignore(domain, rank, 'blacklist');
       return;
     }
 
     // Check for collisions.
     const cache = table.get(name);
     if (cache) {
-      collide(`${name}.${tld}`, rank, cache);
-      cache[3] += 1;
+      collide(domain, rank, cache);
+      cache.collisions += 1;
       return;
     }
 
-    const item = [name, tld, rank, 0];
+    const item = {
+      domain,
+      rank,
+      name,
+      tld,
+      collisions: 0
+    };
+
     table.set(name, item);
     names.push(item);
   };
 
   // Custom TLDs (e.g. `.hsk`).
   for (const name of CUSTOM)
-    insert(name, '', 0);
+    insert(name, 0, name, '');
 
   // Original TLDs (com, net, org, etc).
   for (const name of TLD)
-    insert(name, '', 0);
+    insert(name, 0, name, '');
 
   // Country Code TLDs (e.g. `.io`).
   for (const name of CCTLD)
-    insert(name, '', 0);
+    insert(name, 0, name, '');
 
   // Generic TLDs (e.g. `.lol`).
   // for (const name of GTLD)
-  //   insert(name, '', 0);
+  //   insert(name, 0, name, '');
 
   assert(ALEXA.length >= 100000);
 
@@ -211,10 +208,28 @@ function compile() {
 
     const tld = parts.join('.');
 
-    insert(name, tld, rank);
+    insert(domain, rank, name, tld);
   }
 
   return [names, invalid, collisions];
+}
+
+/*
+ * Helpers
+ */
+
+function sortAlpha(a, b) {
+  return util.compare(a.name, b.name);
+}
+
+function sortRank(a, b) {
+  if (a.rank < b.rank)
+    return -1;
+
+  if (a.rank > b.rank)
+    return 1;
+
+  return util.compare(a.name, b.name);
 }
 
 /*
@@ -228,9 +243,9 @@ const [names, invalid, collisions] = compile();
 
   out += '{\n';
 
-  names.sort(sortNamesRank);
+  names.sort(sortRank);
 
-  for (const [name, tld, rank, collisions] of names)
+  for (const {name, tld, rank, collisions} of names)
     out += `  "${name}": ["${tld}", ${rank}, ${collisions}],\n`;
 
   out = out.slice(0, -2) + '\n';
@@ -248,7 +263,7 @@ const [names, invalid, collisions] = compile();
 
   names.sort(sortAlpha);
 
-  for (const [name] of names)
+  for (const {name} of names)
     out += `  '${name}',\n`;
 
   out = out.slice(0, -2) + '\n';
@@ -264,7 +279,7 @@ const [names, invalid, collisions] = compile();
 
   invalid.sort(sortRank);
 
-  for (const [domain, rank, reason] of invalid)
+  for (const {domain, rank, reason} of invalid)
     out += `  ["${domain}", ${rank}, "${reason}"],\n`;
 
   out = out.slice(0, -2) + '\n';
@@ -280,8 +295,8 @@ const [names, invalid, collisions] = compile();
 
   collisions.sort(sortRank);
 
-  for (const [domain, rank, wdomain, wrank] of collisions)
-    out += `  ["${domain}", ${rank}, "${wdomain}", ${wrank}],\n`;
+  for (const {domain, rank, winner} of collisions)
+    out += `  ["${domain}", ${rank}, "${winner.domain}", ${winner.rank}],\n`;
 
   out = out.slice(0, -2) + '\n';
   out += ']\n';
