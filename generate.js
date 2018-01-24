@@ -20,11 +20,20 @@ const words = new Set(WORDS);
 function compile() {
   const table = new Map();
   const names = [];
-  const ignored = [];
+  const invalid = [];
+  const collisions = [];
 
   const ignore = (domain, rank, reason) => {
     console.error('Ignoring %s (%d) (reason=%s).', domain, rank, reason);
-    ignored.push([domain, rank, reason]);
+    invalid.push([domain, rank, reason]);
+  };
+
+  const collide = (domain, rank, cache) => {
+    const [wname, wtld, wrank] = cache;
+    const wdomain = `${wname}.${wtld}`;
+    console.error('%s (%d) collided with %s (%d).',
+      domain, rank, wdomain, wrank);
+    collisions.push([domain, rank, wdomain, wrank]);
   };
 
   const insert = (name, tld, rank) => {
@@ -37,6 +46,7 @@ function compile() {
     // Check for collisions.
     const cache = table.get(name);
     if (cache) {
+      collide(`${name}.${tld}`, rank, cache);
       cache[3] += 1;
       return;
     }
@@ -91,16 +101,9 @@ function compile() {
       continue;
     }
 
-    // Check for collisions early.
-    const cache = table.get(name);
-    if (cache) {
-      cache[3] += 1;
-      continue;
-    }
-
     // Must match HSK standards.
     if (!util.isHSK(name)) {
-      ignore(domain, rank, 'invalid');
+      ignore(domain, rank, 'formatting');
       continue;
     }
 
@@ -193,18 +196,23 @@ function compile() {
   });
 
   // Sort lexicographically.
-  ignored.sort(([a], [b]) => {
+  invalid.sort(([a], [b]) => {
     return util.compare(a, b);
   });
 
-  return [names, ignored];
+  // Sort lexicographically.
+  collisions.sort(([a], [b]) => {
+    return util.compare(a, b);
+  });
+
+  return [names, invalid, collisions];
 }
 
 /*
  * Execute
  */
 
-const [names, ignored] = compile();
+const [names, invalid, collisions] = compile();
 
 {
   let out = '';
@@ -239,13 +247,27 @@ const [names, ignored] = compile();
 {
   let out = '';
 
-  out += '{\n';
+  out += '[\n';
 
-  for (const [domain, rank, reason] of ignored)
-    out += `  "${domain}": [${rank}, "${reason}"],\n`;
+  for (const [domain, rank, reason] of invalid)
+    out += `  ["${domain}", ${rank}, "${reason}"],\n`;
 
   out = out.slice(0, -2) + '\n';
-  out += '}\n';
+  out += ']\n';
 
-  fs.writeFileSync(path.resolve(__dirname, 'build', 'ignored.json'), out);
+  fs.writeFileSync(path.resolve(__dirname, 'build', 'invalid.json'), out);
+}
+
+{
+  let out = '';
+
+  out += '[\n';
+
+  for (const [domain, rank, wdomain, wrank] of collisions)
+    out += `  ["${domain}", ${rank}, "${wdomain}", ${wrank}],\n`;
+
+  out = out.slice(0, -2) + '\n';
+  out += ']\n';
+
+  fs.writeFileSync(path.resolve(__dirname, 'build', 'collisions.json'), out);
 }
