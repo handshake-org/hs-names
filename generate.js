@@ -11,11 +11,15 @@ const BLACKLIST = require('./names/blacklist.json');
 const CUSTOM = require('./names/custom.json');
 const TLD = require('./names/tld.json');
 const CCTLD = require('./names/cctld.json');
-const GTLD = require('./names/gtld.json');
+// const GTLD = require('./names/gtld.json');
 const ALEXA = require('./names/alexa.json');
 const WORDS = require('./names/words.json');
 const blacklist = new Set(BLACKLIST);
 const words = new Set(WORDS);
+
+function ignore(domain, reason) {
+  console.error('Ignoring %s (reason=%s).', domain, reason);
+}
 
 function compile() {
   const table = new Map();
@@ -23,8 +27,10 @@ function compile() {
 
   const insert = (name, tld, rank) => {
     // Ignore blacklist.
-    if (blacklist.has(name))
+    if (blacklist.has(name)) {
+      ignore(`${name}.${tld}`, 'blacklist');
       return;
+    }
 
     // Check for collisions.
     const item = table.get(name);
@@ -50,6 +56,10 @@ function compile() {
   for (const name of CCTLD)
     insert(name, '', 0);
 
+  // Generic TLDs (e.g. `.lol`).
+  // for (const name of GTLD)
+  //   insert(name, '', 0);
+
   assert(ALEXA.length >= 100000);
 
   // Alexa top 100,000 second-level domains.
@@ -63,33 +73,40 @@ function compile() {
     const name = parts.shift();
 
     // Must match HSK standards.
-    if (!util.isHSK(name))
+    if (!util.isHSK(name)) {
+      ignore(domain, 'invalid');
       continue;
-
-    // Single letter domains only
-    // reserved for the alexa top 1,000.
-    if (rank > 1000) {
-      if (name.length === 1)
-        continue;
     }
 
-    // Ignore english words after 10k.
-    // if (rank > 10000) {
-    //   if (words.has(name))
-    //     continue;
-    // }
+    // Ignore single letter domains.
+    if (name.length === 1) {
+      ignore(domain, 'single-letter');
+      continue;
+    }
+
+    // Ignore english words after 50k.
+    if (rank > 50000) {
+      if (words.has(name)) {
+        ignore(domain, 'english-word');
+        continue;
+      }
+    }
 
     // Ignore deeply nested domains.
-    if (parts.length > 2)
+    if (parts.length > 2) {
+      ignore(domain, 'deeply-nested');
       continue;
+    }
 
     // Third-level domain.
     if (parts.length === 2) {
       const [sld, tld] = parts;
 
-      // Country Codes only (e.g. co.uk).
-      if (tld.length !== 2)
+      // Country Codes only (e.g. co.uk, com.cn).
+      if (tld.length !== 2) {
+        ignore(domain, 'second-level');
         continue;
+      }
 
       // The SLD must be a known TLD (or `co`).
       switch (sld) {
@@ -102,6 +119,7 @@ function compile() {
         case 'co':
           break;
         default:
+          ignore(domain, 'second-level');
           continue;
       }
     }
