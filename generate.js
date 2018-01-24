@@ -26,7 +26,7 @@ function compile() {
   const names = [];
   const invalid = [];
 
-  const ignore = (domain, rank, reason, winner = null) => {
+  const invalidate = (domain, rank, reason, winner = null) => {
     const name = domain;
 
     invalid.push({
@@ -46,14 +46,14 @@ function compile() {
   const insert = (domain, rank, name, tld) => {
     // Ignore blacklist.
     if (blacklist.has(name)) {
-      ignore(domain, rank, 'blacklist');
+      invalidate(domain, rank, 'blacklist');
       return;
     }
 
     // Check for collisions.
     const cache = table.get(name);
     if (cache) {
-      ignore(domain, rank, 'collision', cache);
+      invalidate(domain, rank, 'collision', cache);
       cache.collisions += 1;
       return;
     }
@@ -102,57 +102,23 @@ function compile() {
 
     // Ignore plain `www`.
     if (parts[0] === 'www') {
-      ignore(domain, rank, 'plain-www');
+      invalidate(domain, rank, 'plain-www');
       continue;
-    }
-
-    // Get lowest-level name.
-    const name = parts.shift();
-
-    // Check blacklist early.
-    if (blacklist.has(name)) {
-      ignore(domain, rank, 'blacklist');
-      continue;
-    }
-
-    // Must match HSK standards.
-    if (!util.isHSK(name)) {
-      ignore(domain, rank, 'formatting');
-      continue;
-    }
-
-    // Ignore single letter domains.
-    if (name.length === 1) {
-      ignore(domain, rank, 'one-letter');
-      continue;
-    }
-
-    // Ignore two-letter domains after 50k.
-    // Ignore english words after 50k.
-    if (rank > 50000) {
-      if (name.length === 2) {
-        ignore(domain, rank, 'two-letter');
-        continue;
-      }
-      if (words.has(name)) {
-        ignore(domain, rank, 'english-word');
-        continue;
-      }
     }
 
     // Ignore deeply nested domains.
-    if (parts.length > 2) {
-      ignore(domain, rank, 'deeply-nested');
+    if (parts.length > 3) {
+      invalidate(domain, rank, 'deeply-nested');
       continue;
     }
 
     // Third-level domain.
-    if (parts.length === 2) {
-      const [sld, tld] = parts;
+    if (parts.length === 3) {
+      const [, sld, tld] = parts;
 
       // Country Codes only (e.g. co.uk, com.cn).
       if (!util.isCCTLD(tld)) {
-        ignore(domain, rank, 'deeply-nested');
+        invalidate(domain, rank, 'deeply-nested');
         continue;
       }
 
@@ -194,8 +160,37 @@ function compile() {
         case 'ed': // common in ao and jp (3)
           break;
         default:
-          ignore(domain, rank, 'deeply-nested');
+          invalidate(domain, rank, 'deeply-nested');
           continue;
+      }
+    }
+
+    // Get lowest-level name.
+    const name = parts.shift();
+
+    // Must match HSK standards.
+    if (!util.isHSK(name)) {
+      invalidate(domain, rank, 'formatting');
+      continue;
+    }
+
+    // Ignore single letter domains.
+    if (name.length === 1) {
+      invalidate(domain, rank, 'one-letter');
+      continue;
+    }
+
+    // Use stricter rules after rank 50k.
+    if (rank > 50000) {
+      // Ignore two-letter domains after 50k.
+      if (name.length === 2) {
+        invalidate(domain, rank, 'two-letter');
+        continue;
+      }
+      // Ignore english words after 50k.
+      if (words.has(name)) {
+        invalidate(domain, rank, 'english-word');
+        continue;
       }
     }
 
