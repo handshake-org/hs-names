@@ -214,11 +214,6 @@ function compile() {
     insert(name, tld, rank);
   }
 
-  // Sort names.
-  names.sort(sortNamesRank);
-  invalid.sort(sortRank);
-  collisions.sort(sortRank);
-
   return [names, invalid, collisions];
 }
 
@@ -232,6 +227,8 @@ const [names, invalid, collisions] = compile();
   let out = '';
 
   out += '{\n';
+
+  names.sort(sortNamesRank);
 
   for (const [name, tld, rank, collisions] of names)
     out += `  "${name}": ["${tld}", ${rank}, ${collisions}],\n`;
@@ -249,6 +246,8 @@ const [names, invalid, collisions] = compile();
   out += '\n';
   out += 'module.exports = new Set([\n';
 
+  names.sort(sortAlpha);
+
   for (const [name] of names)
     out += `  '${name}',\n`;
 
@@ -263,6 +262,8 @@ const [names, invalid, collisions] = compile();
 
   out += '[\n';
 
+  invalid.sort(sortRank);
+
   for (const [domain, rank, reason] of invalid)
     out += `  ["${domain}", ${rank}, "${reason}"],\n`;
 
@@ -276,6 +277,8 @@ const [names, invalid, collisions] = compile();
   let out = '';
 
   out += '[\n';
+
+  collisions.sort(sortRank);
 
   for (const [domain, rank, wdomain, wrank] of collisions)
     out += `  ["${domain}", ${rank}, "${wdomain}", ${wrank}],\n`;
