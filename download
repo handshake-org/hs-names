@@ -1,0 +1,16 @@
+#!/bin/bash
+
+die() {
+  echo 'Failed.' >& 2
+  exit 1
+}
+
+wget https://data.iana.org/TLD/tlds-alpha-by-domain.txt || die
+mv tlds-alpha-by-domain.txt data/ || die
+
+wget http://s3.amazonaws.com/alexa-static/top-1m.csv.zip || die
+unzip top-1m.csv.zip || die
+rm top-1m.csv.zip || die
+mv top-1m.csv data/ || die
+
+git commit -a -m 'data: update name data.'
