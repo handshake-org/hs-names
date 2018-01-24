@@ -9,7 +9,7 @@
 // SLD Resources:
 // https://www.google.com/search?q=alexa+top+100000
 // https://www.quora.com/What-are-the-top-100-000-most-visited-websites
-// http://s3.amazonaws.com/alexa-static/top-1m.csv.zip
+// https://s3.amazonaws.com/alexa-static/top-1m.csv.zip
 
 const assert = require('assert');
 const fs = require('fs');

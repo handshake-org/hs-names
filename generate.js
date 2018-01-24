@@ -33,15 +33,15 @@ function compile() {
     }
 
     // Check for collisions.
-    const item = table.get(name);
-    if (item) {
-      item[3] += 1;
+    const cache = table.get(name);
+    if (cache) {
+      cache[3] += 1;
       return;
     }
 
-    const data = [name, tld, rank, 0];
-    table.set(name, data);
-    names.push(data);
+    const item = [name, tld, rank, 0];
+    table.set(name, item);
+    names.push(item);
   };
 
   // Custom TLDs (e.g. `.hsk`).
@@ -68,15 +68,16 @@ function compile() {
     const parts = domain.split('.');
     const rank = i + 1;
 
+    // Strip leading `www`.
+    while (parts.length > 2 && parts[0] === 'www')
+      parts.shift();
+
     assert(parts.length >= 2);
 
-    // Strip and ignore `www`.
+    // Ignore plain `www`.
     if (parts[0] === 'www') {
-      parts.shift();
-      if (parts.length === 1) {
-        ignore(domain, 'plain-www');
-        continue;
-      }
+      ignore(domain, 'plain-www');
+      continue;
     }
 
     // Get lowest-level name.
@@ -89,9 +90,9 @@ function compile() {
     }
 
     // Check for collisions early.
-    const item = table.get(name);
-    if (item) {
-      item[3] += 1;
+    const cache = table.get(name);
+    if (cache) {
+      cache[3] += 1;
       continue;
     }
 
