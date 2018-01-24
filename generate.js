@@ -70,7 +70,30 @@ function compile() {
 
     assert(parts.length >= 2);
 
+    // Strip and ignore `www`.
+    if (parts[0] === 'www') {
+      parts.shift();
+      if (parts.length === 1) {
+        ignore(domain, 'plain-www');
+        continue;
+      }
+    }
+
+    // Get lowest-level name.
     const name = parts.shift();
+
+    // Check blacklist early.
+    if (blacklist.has(name)) {
+      ignore(domain, 'blacklist');
+      continue;
+    }
+
+    // Check for collisions early.
+    const item = table.get(name);
+    if (item) {
+      item[3] += 1;
+      continue;
+    }
 
     // Must match HSK standards.
     if (!util.isHSK(name)) {
@@ -103,23 +126,50 @@ function compile() {
       const [sld, tld] = parts;
 
       // Country Codes only (e.g. co.uk, com.cn).
-      if (tld.length !== 2) {
-        ignore(domain, 'second-level');
+      if (!util.isCCTLD(tld)) {
+        ignore(domain, 'deeply-nested');
         continue;
       }
 
-      // The SLD must be a known TLD (or `co`).
+      // The SLD must be a known TLD
+      // (or a widley used second-level
+      // domain like `co` or `ac`).
+      // Prioritize SLDs that have at
+      // least 3 in the top 100k.
       switch (sld) {
         case 'com':
-        case 'org':
-        case 'net':
         case 'edu':
         case 'gov':
         case 'mil':
-        case 'co':
+        case 'net':
+        case 'org':
+        case 'co': // common everywhere (1795)
+        case 'ac': // common everywhere (572)
+        case 'go': // govt for jp, kr, id, ke, th, tz (169)
+        case 'gob': // govt for mx, ar, ve, pe, es (134)
+        case 'nic': // govt for in (97)
+        case 'or': // common in jp, kr, id (64)
+        case 'ne': // common in jp (55)
+        case 'gouv': // govt for fr (32)
+        case 'jus': // govt for br (28)
+        case 'gc': // govt for ca (19)
+        case 'lg': // common in jp (15)
+        case 'in': // common in th (14)
+        case 'govt': // govt for nz (11)
+        case 'gv': // common in au (8)
+        case 'spb': // common in ru (6)
+        case 'on': // ontario domain for ca (6)
+        case 'gen': // common in tr (6)
+        case 'res': // common in in (6)
+        case 'qc': // quebec domain for ca (5)
+        case 'kiev': // kiev domain for ua (5)
+        case 'fi': // common in cr (4)
+        case 'ab': // alberta domain for ca (3)
+        case 'dn': // common in ua (3)
+        case 'ed': // common in ao and jp (3)
           break;
         default:
-          ignore(domain, 'second-level');
+          ignore(domain, 'invalid-second-level');
           continue;
       }
     }
