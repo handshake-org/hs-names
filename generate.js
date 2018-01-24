@@ -25,29 +25,22 @@ function compile() {
   const table = new Map();
   const names = [];
   const invalid = [];
-  const collisions = [];
 
-  const ignore = (domain, rank, reason) => {
+  const ignore = (domain, rank, reason, winner = null) => {
     const name = domain;
+
     invalid.push({
       domain,
       rank,
       name,
-      reason
-    });
-    console.error('Ignoring %s (%d) (reason=%s).', domain, rank, reason);
-  };
-
-  const collide = (domain, rank, winner) => {
-    const name = domain;
-    collisions.push({
-      domain,
-      rank,
-      name,
+      reason,
       winner
     });
-    console.error('%s (%d) collided with %s (%d).',
-      domain, rank, winner.domain, winner.rank);
+
+    if (winner)
+      reason += ` with ${winner.domain} (${winner.rank})`;
+
+    console.error('Ignoring %s (%d) (reason=%s).', domain, rank, reason);
   };
 
   const insert = (domain, rank, name, tld) => {
@@ -60,7 +53,7 @@ function compile() {
     // Check for collisions.
     const cache = table.get(name);
     if (cache) {
-      collide(domain, rank, cache);
+      ignore(domain, rank, 'collision', cache);
       cache.collisions += 1;
       return;
     }
@@ -79,15 +72,15 @@ function compile() {
 
   // Custom TLDs (e.g. `.hsk`).
   for (const name of CUSTOM)
-    insert(name, 0, name, '');
+    insert(name, -3, name, '');
 
   // Original TLDs (com, net, org, etc).
   for (const name of TLD)
-    insert(name, 0, name, '');
+    insert(name, -2, name, '');
 
   // Country Code TLDs (e.g. `.io`).
   for (const name of CCTLD)
-    insert(name, 0, name, '');
+    insert(name, -1, name, '');
 
   // Generic TLDs (e.g. `.lol`).
   // for (const name of GTLD)
@@ -211,7 +204,7 @@ function compile() {
     insert(domain, rank, name, tld);
   }
 
-  return [names, invalid, collisions];
+  return [names, invalid];
 }
 
 /*
@@ -236,7 +229,7 @@ function sortRank(a, b) {
  * Execute
  */
 
-const [names, invalid, collisions] = compile();
+const [names, invalid] = compile();
 
 {
   let out = '';
@@ -279,27 +272,18 @@ const [names, invalid, collisions] = compile();
 
   invalid.sort(sortRank);
 
-  for (const {domain, rank, reason} of invalid)
-    out += `  ["${domain}", ${rank}, "${reason}"],\n`;
+  for (const {domain, rank, reason, winner} of invalid) {
+    if (winner) {
+      const wd = winner.domain;
+      const wr = winner.rank;
+      out += `  ["${domain}", ${rank}, "${reason}", ["${wd}", ${wr}]],\n`;
+    } else {
+      out += `  ["${domain}", ${rank}, "${reason}"],\n`;
+    }
+  }
 
   out = out.slice(0, -2) + '\n';
   out += ']\n';
 
   fs.writeFileSync(path.resolve(__dirname, 'build', 'invalid.json'), out);
-}
-
-{
-  let out = '';
-
-  out += '[\n';
-
-  collisions.sort(sortRank);
-
-  for (const {domain, rank, winner} of collisions)
-    out += `  ["${domain}", ${rank}, "${winner.domain}", ${winner.rank}],\n`;
-
-  out = out.slice(0, -2) + '\n';
-  out += ']\n';
-
-  fs.writeFileSync(path.resolve(__dirname, 'build', 'collisions.json'), out);
 }
