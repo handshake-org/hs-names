@@ -38,7 +38,7 @@ function compile() {
     names.push(data);
   };
 
-  // Custom TLDs (e.g. `.eth`).
+  // Custom TLDs (e.g. `.hsk`).
   for (const name of CUSTOM)
     insert(name, '', 0);
 
