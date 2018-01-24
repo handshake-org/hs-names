@@ -14,6 +14,7 @@
 const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
+const util = require('./util');
 
 const TLD_PATH = path.resolve(__dirname, 'data', 'tlds-alpha-by-domain.txt');
 const ALEXA_PATH = path.resolve(__dirname, 'data', 'top-1m.csv');
@@ -47,18 +48,6 @@ const TLD = [
   'org'
 ];
 
-function isTLD(name) {
-  return TLD.indexOf(name) !== -1;
-}
-
-function isCCTLD(name) {
-  return name.length === 2 || name.startsWith('xn--');
-}
-
-function isGTLD(name) {
-  return !isTLD(name) && !isCCTLD(name);
-}
-
 const CCTLD = (() => {
   const data = fs.readFileSync(TLD_PATH, 'utf8');
   const lines = data.split('\n');
@@ -76,7 +65,7 @@ const CCTLD = (() => {
     assert(name.length <= 63);
 
     // ccTLDs only!
-    if (isCCTLD(name))
+    if (util.isCCTLD(name))
       result.push(name);
   }
 
@@ -100,7 +89,7 @@ const GTLD = (() => {
     assert(name.length <= 63);
 
     // gTLDs only!
-    if (isGTLD(name))
+    if (util.isGTLD(name))
       result.push(name);
   }
 
@@ -146,19 +135,8 @@ const WORDS = (() => {
   for (const line of lines) {
     const word = line.trim();
 
-    if (word.length === 0)
-      continue;
-
-    if (word.length > 64)
-      continue;
-
-    if (!/^[a-z0-9\-_]+$/.test(word))
-      continue;
-
-    if (/^[\-_]|[\-_]$/.test(word))
-      continue;
-
-    result.push(word);
+    if (util.isHSK(word))
+      result.push(word);
   }
 
   return result;

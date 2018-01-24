@@ -5,6 +5,7 @@
 const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
+const util = require('./util');
 
 const BLACKLIST = require('./names/blacklist.json');
 const CUSTOM = require('./names/custom.json');
@@ -60,10 +61,9 @@ function compile() {
     assert(parts.length >= 2);
 
     const name = parts.shift();
-    assert(name.length > 0);
 
-    // Cannot be longer than 64 bytes.
-    if (name.length > 64)
+    // Must match HSK standards.
+    if (!util.isHSK(name))
       continue;
 
     // Single letter domains only
@@ -107,14 +107,6 @@ function compile() {
     }
 
     const tld = parts.join('.');
-
-    // Cannot contain non alphanumeric characters.
-    if (!/^[a-z0-9\-_]+$/.test(name))
-      continue;
-
-    // Cannot have leading/trailing dashes/underscores.
-    if (/^[\-_]|[\-_]$/.test(name))
-      continue;
 
     insert(name, tld, rank);
   }
