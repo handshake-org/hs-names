@@ -113,7 +113,7 @@ function compile() {
 
   // Sort lexicographically.
   names.sort(([a], [b]) => {
-    return a.localeCompare(b);
+    return util.compare(a, b);
   });
 
   return names;

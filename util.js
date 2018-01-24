@@ -38,3 +38,23 @@ exports.isCCTLD = function isCCTLD(name) {
 exports.isGTLD = function isGTLD(name) {
   return !exports.isTLD(name) && !exports.isCCTLD(name);
 };
+
+exports.compare = function compare(a, b) {
+  const len = Math.min(a.length, b.length);
+
+  for (let i = 0; i < len; i++) {
+    if (a[i] < b[i])
+      return -1;
+
+    if (a[i] > b[i])
+      return 1;
+  }
+
+  if (a.length < b.length)
+    return -1;
+
+  if (a.length > b.length)
+    return 1;
+
+  return 0;
+};
