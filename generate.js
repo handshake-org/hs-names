@@ -13,16 +13,27 @@ const CCTLD = require('./names/cctld.json');
 const GTLD = require('./names/gtld.json');
 const ALEXA = require('./names/alexa.json');
 const WORDS = require('./names/words.json');
+const blacklist = new Set(BLACKLIST);
 const words = new Set(WORDS);
 
 function compile() {
-  const table = Object.create(null);
+  const table = new Map();
   const names = [];
 
   const insert = (name, tld, rank) => {
-    assert(!table[name]);
+    // Ignore blacklist.
+    if (blacklist.has(name))
+      return;
+
+    // Check for collisions.
+    const item = table.get(name);
+    if (item) {
+      item[3] += 1;
+      return;
+    }
+
     const data = [name, tld, rank, 0];
-    table[name] = data;
+    table.set(name, data);
     names.push(data);
   };
 
@@ -104,19 +115,6 @@ function compile() {
     // Cannot have leading/trailing dashes/underscores.
     if (/^[\-_]|[\-_]$/.test(name))
       continue;
-
-    // Ignore blacklist.
-    if (BLACKLIST.indexOf(name) !== -1)
-      continue;
-
-    // Check for collisions.
-    const item = table[name];
-
-    if (item) {
-      // Collision (keep the higher ranked one).
-      item[3] += 1;
-      continue;
-    }
 
     insert(name, tld, rank);
   }

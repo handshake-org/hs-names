@@ -47,6 +47,18 @@ const TLD = [
   'org'
 ];
 
+function isTLD(name) {
+  return TLD.indexOf(name) !== -1;
+}
+
+function isCCTLD(name) {
+  return name.length === 2 || name.startsWith('xn--');
+}
+
+function isGTLD(name) {
+  return !isTLD(name) && !isCCTLD(name);
+}
+
 const CCTLD = (() => {
   const data = fs.readFileSync(TLD_PATH, 'utf8');
   const lines = data.split('\n');
@@ -64,14 +76,8 @@ const CCTLD = (() => {
     assert(name.length <= 63);
 
     // ccTLDs only!
-    if (name.length !== 2 && !name.startsWith('xn--'))
-      continue;
-
-    // No collisions.
-    if (BLACKLIST.indexOf(name) !== -1 || CUSTOM.indexOf(name) !== -1)
-      continue;
-
-    result.push(name);
+    if (isCCTLD(name))
+      result.push(name);
   }
 
   return result;
@@ -94,17 +100,8 @@ const GTLD = (() => {
     assert(name.length <= 63);
 
     // gTLDs only!
-    if (name.length === 2
-        || name.startsWith('xn--')
-        || TLD.indexOf(name) !== -1) {
-      continue;
-    }
-
-    // No collisions.
-    if (BLACKLIST.indexOf(name) !== -1 || CUSTOM.indexOf(name) !== -1)
-      continue;
-
-    result.push(name);
+    if (isGTLD(name))
+      result.push(name);
   }
 
   return result;
