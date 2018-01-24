@@ -12,6 +12,8 @@ const TLD = require('./names/tld.json');
 const CCTLD = require('./names/cctld.json');
 const GTLD = require('./names/gtld.json');
 const ALEXA = require('./names/alexa.json');
+const WORDS = require('./names/words.json');
+const words = new Set(WORDS);
 
 function compile() {
   const table = Object.create(null);
@@ -59,6 +61,12 @@ function compile() {
       if (name.length === 1)
         continue;
     }
+
+    // Ignore english words after 10k.
+    // if (rank > 10000) {
+    //   if (words.has(name))
+    //     continue;
+    // }
 
     // Ignore deeply nested domains.
     if (parts.length > 2)

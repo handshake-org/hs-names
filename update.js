@@ -141,6 +141,32 @@ const ALEXA = (() => {
   return result;
 })();
 
+const WORDS = (() => {
+  const data = fs.readFileSync('/usr/share/dict/words', 'utf8');
+  const lines = data.split('\n');
+  const result = [];
+
+  for (const line of lines) {
+    const word = line.trim();
+
+    if (word.length === 0)
+      continue;
+
+    if (word.length > 64)
+      continue;
+
+    if (!/^[a-z0-9\-_]+$/.test(word))
+      continue;
+
+    if (/^[\-_]|[\-_]$/.test(word))
+      continue;
+
+    result.push(word);
+  }
+
+  return result;
+})();
+
 fs.writeFileSync(
   path.resolve(__dirname, 'names', 'blacklist.json'),
   JSON.stringify(BLACKLIST, null, 2) + '\n');
@@ -164,3 +190,7 @@ fs.writeFileSync(
 fs.writeFileSync(
   path.resolve(__dirname, 'names', 'alexa.json'),
   JSON.stringify(ALEXA, null, 2) + '\n');
+
+fs.writeFileSync(
+  path.resolve(__dirname, 'names', 'words.json'),
+  JSON.stringify(WORDS, null, 2) + '\n');
