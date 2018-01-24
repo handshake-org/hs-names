@@ -103,12 +103,17 @@ function compile() {
 
     // Ignore single letter domains.
     if (name.length === 1) {
-      ignore(domain, 'single-letter');
+      ignore(domain, 'one-letter');
       continue;
     }
 
+    // Ignore two-letter domains after 50k.
     // Ignore english words after 50k.
     if (rank > 50000) {
+      if (name.length === 2) {
+        ignore(domain, 'two-letter');
+        continue;
+      }
       if (words.has(name)) {
         ignore(domain, 'english-word');
         continue;
