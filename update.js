@@ -19,18 +19,21 @@ const TLD_PATH = path.resolve(__dirname, 'data', 'tlds-alpha-by-domain.txt');
 const ALEXA_PATH = path.resolve(__dirname, 'data', 'top-1m.csv');
 
 const BLACKLIST = [
-  'example',
-  'h',
-  'local',
-  'localhost',
-  'onion'
+  'bit', // Namecoin
+  'eth', // ENS
+  'example', // ICANN reserved
+  'h', // Handshake compat
+  'i', // ICANN compat
+  'invalid', // ICANN reserved
+  'local', // mDNS
+  'localhost', // ICANN reserved
+  'onion', // Tor
+  'test' // ICANN reserved
 ];
 
 const CUSTOM = [
-  'bit',
-  'eth',
-  'handshake',
-  'hsk'
+  'handshake', // Handshake TLD
+  'hsk' // Handshake TLD
 ];
 
 const TLD = [
@@ -61,8 +64,14 @@ const CCTLD = (() => {
     assert(name.length <= 63);
 
     // ccTLDs only!
-    if (name.length === 2)
-      result.push(name);
+    if (name.length !== 2 && !name.startsWith('xn--'))
+      continue;
+
+    // No collisions.
+    if (BLACKLIST.indexOf(name) !== -1 || CUSTOM.indexOf(name) !== -1)
+      continue;
+
+    result.push(name);
   }
 
   return result;
@@ -85,12 +94,17 @@ const GTLD = (() => {
     assert(name.length <= 63);
 
     // gTLDs only!
-    if (name.startsWith('xn--'))
+    if (name.length === 2
+        || name.startsWith('xn--')
+        || TLD.indexOf(name) !== -1) {
+      continue;
+    }
+
+    // No collisions.
+    if (BLACKLIST.indexOf(name) !== -1 || CUSTOM.indexOf(name) !== -1)
       continue;
 
-    // gTLDs only!
-    if (name.length !== 2 && TLD.indexOf(name) === -1)
-      result.push(name);
+    result.push(name);
   }
 
   return result;
