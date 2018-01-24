@@ -17,6 +17,30 @@ const WORDS = require('./names/words.json');
 const blacklist = new Set(BLACKLIST);
 const words = new Set(WORDS);
 
+function sortAlpha([a], [b]) {
+  return util.compare(a, b);
+}
+
+function sortRank([an, ar], [bn, br]) {
+  if (ar < br)
+    return -1;
+
+  if (ar > br)
+    return 1;
+
+  return util.compare(an, bn);
+}
+
+function sortNamesRank([an,, ar], [bn,, br]) {
+  if (ar < br)
+    return -1;
+
+  if (ar > br)
+    return 1;
+
+  return util.compare(an, bn);
+}
+
 function compile() {
   const table = new Map();
   const names = [];
@@ -190,20 +214,10 @@ function compile() {
     insert(name, tld, rank);
   }
 
-  // Sort lexicographically.
-  names.sort(([a], [b]) => {
-    return util.compare(a, b);
-  });
-
-  // Sort lexicographically.
-  invalid.sort(([a], [b]) => {
-    return util.compare(a, b);
-  });
-
-  // Sort lexicographically.
-  collisions.sort(([a], [b]) => {
-    return util.compare(a, b);
-  });
+  // Sort names.
+  names.sort(sortNamesRank);
+  invalid.sort(sortRank);
+  collisions.sort(sortRank);
 
   return [names, invalid, collisions];
 }
