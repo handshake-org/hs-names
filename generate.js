@@ -17,18 +17,20 @@ const WORDS = require('./names/words.json');
 const blacklist = new Set(BLACKLIST);
 const words = new Set(WORDS);
 
-function ignore(domain, reason) {
-  console.error('Ignoring %s (reason=%s).', domain, reason);
-}
-
 function compile() {
   const table = new Map();
   const names = [];
+  const ignored = [];
+
+  const ignore = (domain, rank, reason) => {
+    console.error('Ignoring %s (%d) (reason=%s).', domain, rank, reason);
+    ignored.push([domain, rank, reason]);
+  };
 
   const insert = (name, tld, rank) => {
     // Ignore blacklist.
     if (blacklist.has(name)) {
-      ignore(`${name}.${tld}`, 'blacklist');
+      ignore(`${name}.${tld}`, rank, 'blacklist');
       return;
     }
 
@@ -76,7 +78,7 @@ function compile() {
 
     // Ignore plain `www`.
     if (parts[0] === 'www') {
-      ignore(domain, 'plain-www');
+      ignore(domain, rank, 'plain-www');
       continue;
     }
 
@@ -85,7 +87,7 @@ function compile() {
 
     // Check blacklist early.
     if (blacklist.has(name)) {
-      ignore(domain, 'blacklist');
+      ignore(domain, rank, 'blacklist');
       continue;
     }
 
@@ -98,13 +100,13 @@ function compile() {
 
     // Must match HSK standards.
     if (!util.isHSK(name)) {
-      ignore(domain, 'invalid');
+      ignore(domain, rank, 'invalid');
       continue;
     }
 
     // Ignore single letter domains.
     if (name.length === 1) {
-      ignore(domain, 'one-letter');
+      ignore(domain, rank, 'one-letter');
       continue;
     }
 
@@ -112,18 +114,18 @@ function compile() {
     // Ignore english words after 50k.
     if (rank > 50000) {
       if (name.length === 2) {
-        ignore(domain, 'two-letter');
+        ignore(domain, rank, 'two-letter');
         continue;
       }
       if (words.has(name)) {
-        ignore(domain, 'english-word');
+        ignore(domain, rank, 'english-word');
         continue;
       }
     }
 
     // Ignore deeply nested domains.
     if (parts.length > 2) {
-      ignore(domain, 'deeply-nested');
+      ignore(domain, rank, 'deeply-nested');
       continue;
     }
 
@@ -133,7 +135,7 @@ function compile() {
 
       // Country Codes only (e.g. co.uk, com.cn).
       if (!util.isCCTLD(tld)) {
-        ignore(domain, 'deeply-nested');
+        ignore(domain, rank, 'deeply-nested');
         continue;
       }
 
@@ -175,7 +177,7 @@ function compile() {
         case 'ed': // common in ao and jp (3)
           break;
         default:
-          ignore(domain, 'invalid-second-level');
+          ignore(domain, rank, 'deeply-nested');
           continue;
       }
     }
@@ -190,14 +192,19 @@ function compile() {
     return util.compare(a, b);
   });
 
-  return names;
+  // Sort lexicographically.
+  ignored.sort(([a], [b]) => {
+    return util.compare(a, b);
+  });
+
+  return [names, ignored];
 }
 
 /*
  * Execute
  */
 
-const names = compile();
+const [names, ignored] = compile();
 
 {
   let out = '';
@@ -210,7 +217,7 @@ const names = compile();
   out = out.slice(0, -2) + '\n';
   out += '}\n';
 
-  fs.writeFileSync(path.resolve(__dirname, 'reserved.json'), out);
+  fs.writeFileSync(path.resolve(__dirname, 'build', 'reserved.json'), out);
 }
 
 {
@@ -226,5 +233,19 @@ const names = compile();
   out = out.slice(0, -2) + '\n';
   out += ']);\n';
 
-  fs.writeFileSync(path.resolve(__dirname, 'reserved.js'), out);
+  fs.writeFileSync(path.resolve(__dirname, 'build', 'reserved.js'), out);
+}
+
+{
+  let out = '';
+
+  out += '{\n';
+
+  for (const [domain, rank, reason] of ignored)
+    out += `  "${domain}": [${rank}, "${reason}"],\n`;
+
+  out = out.slice(0, -2) + '\n';
+  out += '}\n';
+
+  fs.writeFileSync(path.resolve(__dirname, 'build', 'ignored.json'), out);
 }
