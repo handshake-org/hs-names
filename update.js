@@ -116,7 +116,14 @@ const ALEXA = (() => {
     const rank = parseInt(num, 10);
 
     assert((rank >>> 0) === rank);
-    assert(rank === cur);
+
+    // No idea why alexa does this.
+    if (rank !== cur) {
+      assert(rank > cur);
+      console.error('Warning: rank inconsistency!');
+      console.error('Rank %d is missing.', cur);
+      cur = rank;
+    }
 
     result.push(domain);
     cur += 1;
