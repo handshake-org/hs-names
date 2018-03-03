@@ -13,4 +13,8 @@ unzip top-1m.csv.zip || die
 rm top-1m.csv.zip || die
 mv top-1m.csv data/ || die
 
-git commit -a -m 'data: update name data.'
+wget ftp://rs.internic.net/domain/named.root || die
+# wget http://www.internic.net/domain/root.zone || die
+mv root.zone data/ || die
+
+git commit -a -m 'data: update name data.' || die
