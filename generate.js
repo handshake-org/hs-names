@@ -11,7 +11,7 @@ const BLACKLIST = require('./names/blacklist.json');
 const CUSTOM = require('./names/custom.json');
 const TLD = require('./names/tld.json');
 const CCTLD = require('./names/cctld.json');
-// const GTLD = require('./names/gtld.json');
+const GTLD = require('./names/gtld.json');
 const ALEXA = require('./names/alexa.json');
 const WORDS = require('./names/words.json');
 const blacklist = new Set(BLACKLIST);
@@ -83,8 +83,8 @@ function compile() {
     insert(name, -1, name, '');
 
   // Generic TLDs (e.g. `.lol`).
-  // for (const name of GTLD)
-  //   insert(name, 0, name, '');
+  for (const name of GTLD)
+    insert(name, 0, name, '');
 
   assert(ALEXA.length >= 100000);
 
@@ -225,6 +225,36 @@ function sortRank(a, b) {
  */
 
 const [names, invalid] = compile();
+
+{
+  let out = '';
+
+  out += '\'use strict\';\n';
+  out += '\n';
+  out += 'module.exports = new Set([\n';
+
+  const names = [];
+
+  for (const name of CUSTOM)
+    names.push(name);
+
+  for (const name of TLD)
+    names.push(name);
+
+  for (const name of CCTLD)
+    names.push(name);
+
+  for (const name of GTLD)
+    names.push(name);
+
+  for (const name of names)
+    out += `  '${name}',\n`;
+
+  out = out.slice(0, -2) + '\n';
+  out += ']);\n';
+
+  fs.writeFileSync(path.resolve(__dirname, 'build', 'tld.js'), out);
+}
 
 {
   let out = '';

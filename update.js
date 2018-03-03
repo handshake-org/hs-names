@@ -23,8 +23,8 @@ const BLACKLIST = [
   'bit', // Namecoin
   'eth', // ENS
   'example', // ICANN reserved
-  'h', // Handshake compat
-  'i', // ICANN compat
+  // 'h', // Handshake compat
+  // 'i', // ICANN compat
   'invalid', // ICANN reserved
   'local', // mDNS
   'localhost', // ICANN reserved
