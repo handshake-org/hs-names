@@ -1,20 +1,16 @@
 #!/bin/bash
 
-die() {
-  echo 'Failed.' >& 2
-  exit 1
-}
+set -ex
 
-wget https://data.iana.org/TLD/tlds-alpha-by-domain.txt || die
-mv tlds-alpha-by-domain.txt data/ || die
+wget https://data.iana.org/TLD/tlds-alpha-by-domain.txt
+mv tlds-alpha-by-domain.txt data/
 
-wget https://s3.amazonaws.com/alexa-static/top-1m.csv.zip || die
-unzip top-1m.csv.zip || die
-rm top-1m.csv.zip || die
-mv top-1m.csv data/ || die
+wget https://s3.amazonaws.com/alexa-static/top-1m.csv.zip
+unzip top-1m.csv.zip
+rm top-1m.csv.zip
+mv top-1m.csv data/
 
-wget ftp://rs.internic.net/domain/named.root || die
-# wget http://www.internic.net/domain/root.zone || die
-mv root.zone data/ || die
+wget https://www.internic.net/domain/root.zone
+mv root.zone data/
 
-git commit -a -m 'data: update name data.' || die
+git commit -a -m 'data: update name data.'
