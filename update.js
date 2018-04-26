@@ -14,10 +14,13 @@
 const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
+const bns = require('bns');
 const util = require('./util');
+const {wire} = bns;
 
 const TLD_PATH = path.resolve(__dirname, 'data', 'tlds-alpha-by-domain.txt');
 const ALEXA_PATH = path.resolve(__dirname, 'data', 'top-1m.csv');
+const ROOT_PATH = path.resolve(__dirname, 'data', 'root.zone');
 
 const BLACKLIST = [
   'bit', // Namecoin
@@ -96,6 +99,29 @@ const GTLD = (() => {
   return result;
 })();
 
+const RTLD = (() => {
+  const text = fs.readFileSync(ROOT_PATH, 'utf8');
+  const records = wire.fromZone(text);
+  const set = new Set();
+  const result = [];
+
+  for (const rr of records) {
+    if (bns.util.countLabels(rr.name) !== 1)
+      continue;
+
+    const name = rr.name.toLowerCase();
+
+    if (set.has(name))
+      continue;
+
+    set.add(name);
+
+    result.push(bns.util.trimFQDN(name));
+  }
+
+  return result;
+})();
+
 const ALEXA = (() => {
   const data = fs.readFileSync(ALEXA_PATH, 'utf8');
   const lines = data.split('\n');
@@ -168,6 +194,10 @@ fs.writeFileSync(
 fs.writeFileSync(
   path.resolve(__dirname, 'names', 'gtld.json'),
   JSON.stringify(GTLD, null, 2) + '\n');
+
+fs.writeFileSync(
+  path.resolve(__dirname, 'names', 'rtld.json'),
+  JSON.stringify(RTLD, null, 2) + '\n');
 
 fs.writeFileSync(
   path.resolve(__dirname, 'names', 'alexa.json'),

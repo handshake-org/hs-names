@@ -12,6 +12,7 @@ const CUSTOM = require('./names/custom.json');
 const TLD = require('./names/tld.json');
 const CCTLD = require('./names/cctld.json');
 const GTLD = require('./names/gtld.json');
+const RTLD = require('./names/rtld.json');
 const ALEXA = require('./names/alexa.json');
 const WORDS = require('./names/words.json');
 const blacklist = new Set(BLACKLIST);
@@ -72,8 +73,13 @@ function compile() {
 
   // Custom TLDs (e.g. `.hsk`).
   for (const name of CUSTOM)
-    insert(name, -3, name, '');
+    insert(name, -1, name, '');
 
+  // Root TLDs
+  for (const name of RTLD)
+    insert(name, 0, name, '');
+
+/*
   // Original TLDs (com, net, org, etc).
   for (const name of TLD)
     insert(name, -2, name, '');
@@ -85,6 +91,7 @@ function compile() {
   // Generic TLDs (e.g. `.lol`).
   for (const name of GTLD)
     insert(name, 0, name, '');
+*/
 
   assert(ALEXA.length >= 100000);
 
