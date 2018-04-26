@@ -15,7 +15,7 @@ const glue = new Map();
 
 for (const rr of records) {
   if (rr.type === types.A || rr.type === types.AAAA) {
-    const name = util.trimFQDN(rr.name.toLowerCase());
+    const name = rr.name.toLowerCase();
 
     if (!glue.has(name))
       glue.set(name, { name, inet4: null, inet6: null });
@@ -42,10 +42,10 @@ for (const rr of records) {
   if (rr.type !== types.NS && rr.type !== types.DS)
     continue;
 
-  const name = util.trimFQDN(rr.name.toLowerCase());
+  const name = rr.name.toLowerCase();
 
   if (!domains.has(name))
-    domains.set(name, { ttl: 0, ds: [], ns: [], auth: [] });
+    domains.set(name, { ttl: 0, ds: [], ns: [], glue: [] });
 
   const item = domains.get(name);
 
@@ -54,7 +54,7 @@ for (const rr of records) {
 
   switch (rr.type) {
     case types.NS: {
-      const ns = util.trimFQDN(rr.data.ns.toLowerCase());
+      const ns = rr.data.ns.toLowerCase();
       const auth = glue.get(ns);
       assert(auth);
 
@@ -64,7 +64,18 @@ for (const rr of records) {
       if (auth.inet6)
         item.ns.push(auth.inet6);
 
-      item.auth.push(auth);
+      const ips = [];
+
+      if (auth.inet4)
+        ips.push(auth.inet4);
+
+      if (auth.inet6)
+        ips.push(auth.inet6);
+
+      if (ips.length > 0)
+        item.glue.push(`${auth.name}@${ips.join(',')}`);
+      else
+        item.glue.push(auth.name);
 
       break;
     }
