@@ -3767,6 +3767,7 @@
   ["emag.pl", 37003, "collision", ["emag.ro", 2279]],
   ["loveread.me", 37019, "collision", ["loveread.ec", 8266]],
   ["6vhao.net", 37023, "collision", ["6vhao.tv", 2544]],
+  ["i2p.com", 37031, "blacklist"],
   ["tiantangsan.tmall.com", 37036, "deeply-nested"],
   ["wdc.tmall.com", 37037, "deeply-nested"],
   ["expedia.ie", 37045, "collision", ["expedia.com", 579]],

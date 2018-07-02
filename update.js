@@ -26,8 +26,10 @@ const BLACKLIST = [
   'bit', // Namecoin
   'eth', // ENS
   'example', // ICANN reserved
-  // 'h', // Handshake compat
-  // 'i', // ICANN compat
+  'handshake', // Permanently Disallowed (to prevent phishing)
+  'hns', // Permanently Disallowed (to prevent phishing)
+  'hsk', // Permanently Disallowed (to prevent phishing)
+  'i2p', // Invisible Internet Project
   'invalid', // ICANN reserved
   'local', // mDNS
   'localhost', // ICANN reserved
@@ -35,10 +37,7 @@ const BLACKLIST = [
   'test' // ICANN reserved
 ];
 
-const CUSTOM = [
-  'handshake', // Handshake TLD
-  'hsk' // Handshake TLD
-];
+const CUSTOM = [];
 
 const TLD = [
   'arpa',

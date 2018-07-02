@@ -23,15 +23,19 @@ and processes them to pick the reserved names. Feel free to audit the
 In order to have your domain pre-reserved, there are a few rules implemented in
 `generate.js` that it must conform to:
 
-1. The domain must not be in the blacklist. This includes:
+1. The domain's deepest subdomain must not be in the blacklist. This includes:
   - `bit` - Namecoin.
   - `eth` - Ethereum Name Service.
-  - `example` - Reserved.
-  - `invalid` - Reserved.
+  - `example` - ICANN Reserved.
+  - `handshake` - Permanently Disallowed (to prevent phishing).
+  - `hns` - Permanently Disallowed (to prevent phishing).
+  - `hsk` - Permanently Disallowed (to prevent phishing).
+  - `i2p` - Invisible Internet Project.
+  - `invalid` - ICANN Reserved.
   - `local` - mDNS.
-  - `localhost` - Reserved.
+  - `localhost` - ICANN Reserved.
   - `onion` - Tor.
-  - `test` - Reserved.
+  - `test` - ICANN Reserved.
 2. The domain must not collide with an existing top-level domain in ICANN's
    root zone, as all existing TLDs are also pre-reserved. For example,
    `google.com` would lose to `google`.

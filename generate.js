@@ -18,6 +18,67 @@ const WORDS = require('./names/words.json');
 const blacklist = new Set(BLACKLIST);
 const words = new Set(WORDS);
 
+// This part is not fun.
+//
+// Explanation:
+//
+// The United States has trade
+// embargoes against a number of
+// countries on the grounds of
+// human rights violations, among
+// other things.
+//
+// In particular, the US state
+// department reserves this right:
+// "Authority to prohibit any U.S.
+// citizen from engaging in a
+// financial transaction with a
+// terrorist-list government
+// without a Treasury Department
+// license."
+//
+// See: https://www.state.gov/j/ct/rls/crt/2009/140889.htm
+//
+// Whether we find these embargoes
+// justified or not, the fact is,
+// several handshake contributors
+// are American citizens and must
+// abide by American laws.
+//
+// The handshake blockchain is not a
+// system of money or funding, but to
+// avoid creating some kind of
+// international incident, we do not
+// allow any handshake coins to be
+// redeemed as a reward for name
+// claiming by these countries.
+// Offering claim rewards could be
+// seen as "funding" of these nations'
+// governments.
+//
+// If Nathan Fielder has taught us
+// anything, it's that wikipedia has
+// good answers to legal questions,
+// so take a look at wikipedia for
+// more info:
+//   https://en.wikipedia.org/wiki/United_States_embargoes
+//   https://en.wikipedia.org/wiki/United_States_embargoes#Countries
+const embargoes = new Set([
+  'ir', // Iran
+  'xn--mgba3a4f16a', // Iran (punycode)
+  'kp', // North Korea
+  'sy', // Syria
+  'xn--ogbpf8fl', // Syria (punycode)
+  'sd', // Sudan
+  'xn--mgbpl2fh', // Sudan (punycode)
+
+  // Sanctions exist for these countries,
+  // despite them not being specifically
+  // listed as "terrorist governments".
+  'cu', // Cuba
+  've'  // Venezuela
+]);
+
 /*
  * Compilation
  */
@@ -78,20 +139,6 @@ function compile() {
   // Root TLDs
   for (const name of RTLD)
     insert(name, 0, name, '');
-
-/*
-  // Original TLDs (com, net, org, etc).
-  for (const name of TLD)
-    insert(name, -2, name, '');
-
-  // Country Code TLDs (e.g. `.io`).
-  for (const name of CCTLD)
-    insert(name, -1, name, '');
-
-  // Generic TLDs (e.g. `.lol`).
-  for (const name of GTLD)
-    insert(name, 0, name, '');
-*/
 
   assert(ALEXA.length >= 100000);
 
@@ -282,17 +329,49 @@ const [names, invalid] = compile();
 {
   let out = '';
 
+  const share = 102e6 * 1e6; // 7.5%
+  const value = Math.floor(share / (names.length - embargoes.size));
+  const tldValue = value + Math.floor(share / (RTLD.length - embargoes.size));
+
   out += '\'use strict\';\n';
   out += '\n';
-  out += 'module.exports = new Set([\n';
+  out += '/* eslint max-len: off */';
+  out += '\n';
+  out += 'const reserved = {\n';
 
   names.sort(sortAlpha);
 
-  for (const {name} of names)
-    out += `  '${name}',\n`;
+  for (const {name, domain, rank} of names) {
+    let tld = '0';
+    let val = value;
+
+    if (rank === 0) {
+      tld = '1';
+      val = tldValue;
+    }
+
+    if (embargoes.has(domain))
+      val = 0;
+
+    out += `  '${name}': ['${domain}.', ${val}, ${tld}],\n`;
+  }
 
   out = out.slice(0, -2) + '\n';
-  out += ']);\n';
+  out += '};\n';
+
+  out += '\n';
+  out += 'const map = new Map();\n';
+  out += '\n';
+  out += 'for (const key of Object.keys(reserved)) {\n';
+  out += '  const item = reserved[key];\n';
+  out += '  map.set(key, {\n';
+  out += '    target: item[0],\n';
+  out += '    value: item[1],\n';
+  out += '    root: item[2] === 1\n';
+  out += '  });\n';
+  out += '}\n';
+  out += '\n';
+  out += 'module.exports = map;\n';
 
   fs.writeFileSync(path.resolve(__dirname, 'build', 'reserved.js'), out);
 }
