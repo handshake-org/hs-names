@@ -7,8 +7,9 @@ const bns = require('bns');
 const StubResolver = require('bns/lib/resolver/stub');
 const fs = require('bfile');
 const root = require('./build/root.json');
-const {util, wire, dnssec} = bns;
+const {util, wire, dnssec, constants} = bns;
 const {types, DSRecord} = wire;
+const {hashes} = constants;
 
 const names = Object.keys(root).sort();
 
@@ -45,8 +46,13 @@ const records = [];
     const ds = zone.ds.map(json => DSRecord.fromJSON(json));
     const dsMap = new Map();
 
-    for (const rd of ds)
-      dsMap.set(rd.keyTag, rd);
+    for (const rd of ds) {
+      if (!dsMap.get(rd.keyTag))
+        dsMap.set(rd.keyTag, new Map());
+
+      const map = dsMap.get(rd.keyTag);
+      map.set(rd.digestType, rd);
+    }
 
     let res;
 
@@ -64,27 +70,37 @@ const records = [];
         continue;
 
       const rd = rr.data;
-      const parent = dsMap.get(rd.keyTag());
+      const map = dsMap.get(rd.keyTag());
 
-      if (!parent)
+      if (!map)
         continue;
 
-      const ds = dnssec.createDS(rr, parent.digestType);
+      for (const parent of map.values()) {
+        const ds = dnssec.createDS(rr, parent.digestType);
 
-      if (!ds.data.digest.equals(parent.digest))
-        continue;
+        if (!ds)
+          continue;
 
-      if (ds.data.algorithm !== parent.algorithm)
-        continue;
+        if (parent.digestType === hashes.SHA1 && map.size > 1)
+          continue;
 
-      console.log(rr.toString());
+        if (!ds.data.digest.equals(parent.digest))
+          continue;
 
-      found += 1;
+        if (ds.data.algorithm !== parent.algorithm)
+          continue;
 
-      records.push(rr);
+        console.log(rr.toString());
+
+        found += 1;
+        records.push(rr);
+
+        break;
+      }
     }
 
-    records.push(null);
+    if (found)
+      records.push(null);
 
     if (found < dsMap.size)
       console.log(`Missing DNS keys for: ${name} (${found} < ${dsMap.size}).`);
