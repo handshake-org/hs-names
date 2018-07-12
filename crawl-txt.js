@@ -2,7 +2,6 @@
 
 'use strict';
 
-const assert = require('assert');
 const Path = require('path');
 const fs = require('bfile');
 const constants = require('bns/lib/constants');

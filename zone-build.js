@@ -2,47 +2,27 @@
 
 'use strict';
 
+/* eslint quotes: off */
+
 const assert = require('assert');
 const Path = require('path');
 const fs = require('bfile');
-const bio = require('bufio');
 const Resource = require('hskd/lib/dns/resource');
+const {compare} = require('./util');
 
 const ZONE_JSON = Path.resolve(__dirname, 'build', 'root.json');
 const TLD_H = Path.resolve(__dirname, 'build', 'tld.h');
 const TLD_JS = Path.resolve(__dirname, 'build', 'tld.js');
 
-function compare(a, b) {
-  const len = Math.min(a.length, b.length);
-
-  for (let i = 0; i < len; i++) {
-    const x = a.charCodeAt(i);
-    const y = b.charCodeAt(i);
-
-    if (x < y)
-      return -1;
-
-    if (x > y)
-      return 1;
-  }
-
-  if (a.length < b.length)
-    return -1;
-
-  if (a.length > b.length)
-    return 1;
-
-  return 0;
-}
-
 function prepend(data) {
   assert(data.length <= 512);
 
-  const bw = bio.write(2 + data.length);
-  bw.writeU16(data.length);
-  bw.writeBytes(data);
+  const out = Buffer.allocUnsafe(2 + data.length);
 
-  return bw.render();
+  out.writeUInt16LE(data.length, 0);
+  data.copy(out, 2);
+
+  return out;
 }
 
 function toHex(data) {
@@ -110,8 +90,6 @@ for (const key of keys) {
   code.push('');
   code.push('#endif');
   code.push('');
-
-  const file = Path.resolve(__dirname, 'build', 'tld.h');
 
   fs.writeFileSync(TLD_H, code.join('\n'));
 }

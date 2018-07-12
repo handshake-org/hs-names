@@ -120,10 +120,13 @@ exports.compare = function compare(a, b) {
   const len = Math.min(a.length, b.length);
 
   for (let i = 0; i < len; i++) {
-    if (a[i] < b[i])
+    const x = a.charCodeAt(i);
+    const y = b.charCodeAt(i);
+
+    if (x < y)
       return -1;
 
-    if (a[i] > b[i])
+    if (x > y)
       return 1;
   }
 

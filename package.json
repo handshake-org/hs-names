@@ -1,0 +1,31 @@
+{
+  "name": "handshake-names",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Naming bike-shed",
+  "keywords": [
+    "handshake"
+  ],
+  "license": "MIT",
+  "repository": "git://github.com/handshake-org/handshake-names.git",
+  "homepage": "https://github.com/handshake-org/handshake-names",
+  "bugs": {
+    "url": "https://github.com/handshake-org/handshake-names/issues"
+  },
+  "author": "Christopher Jeffrey <chjjeffrey@gmail.com>",
+  "main": "./lib/util.js",
+  "scripts": {
+    "lint": "eslint *.js || exit 0"
+  },
+  "dependencies": {
+    "bns": "~0.1.6",
+    "bfile": "~0.1.0",
+    "hskd": "~0.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  }
+}

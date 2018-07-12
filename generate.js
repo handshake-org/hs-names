@@ -18,7 +18,7 @@ const WORDS = require('./names/words.json');
 const blacklist = new Set(BLACKLIST);
 const words = new Set(WORDS);
 
-const TLD_PATH = Path.resolve(__dirname, 'build', 'tld.js');
+const NAMES_PATH = Path.resolve(__dirname, 'build', 'names.js');
 const RESERVED_JSON = Path.resolve(__dirname, 'build', 'reserved.json');
 const RESERVED_JS = Path.resolve(__dirname, 'build', 'reserved.js');
 const INVALID_PATH = Path.resolve(__dirname, 'build', 'invalid.json');
@@ -312,7 +312,30 @@ const [names, invalid] = compile();
   out = out.slice(0, -2) + '\n';
   out += ']);\n';
 
-  fs.writeFileSync(TLD_PATH, out);
+  fs.writeFileSync(NAMES_PATH, out);
+}
+
+{
+  let out = '';
+
+  out += '[\n';
+
+  invalid.sort(sortRank);
+
+  for (const {domain, rank, reason, winner} of invalid) {
+    if (winner) {
+      const wd = winner.domain;
+      const wr = winner.rank;
+      out += `  ["${domain}", ${rank}, "${reason}", ["${wd}", ${wr}]],\n`;
+    } else {
+      out += `  ["${domain}", ${rank}, "${reason}"],\n`;
+    }
+  }
+
+  out = out.slice(0, -2) + '\n';
+  out += ']\n';
+
+  fs.writeFileSync(INVALID_PATH, out);
 }
 
 {
@@ -340,7 +363,7 @@ const [names, invalid] = compile();
 
   out += '\'use strict\';\n';
   out += '\n';
-  out += '/* eslint max-len: off */';
+  out += '/* eslint max-len: off */\n';
   out += '\n';
   out += 'const reserved = {\n';
 
@@ -379,27 +402,13 @@ const [names, invalid] = compile();
   out += 'module.exports = map;\n';
 
   fs.writeFileSync(RESERVED_JS, out);
-}
 
-{
-  let out = '';
+  const reserved = require('./build/reserved.js');
 
-  out += '[\n';
+  let total = 0;
 
-  invalid.sort(sortRank);
+  for (const item of reserved.values())
+    total += item.value;
 
-  for (const {domain, rank, reason, winner} of invalid) {
-    if (winner) {
-      const wd = winner.domain;
-      const wr = winner.rank;
-      out += `  ["${domain}", ${rank}, "${reason}", ["${wd}", ${wr}]],\n`;
-    } else {
-      out += `  ["${domain}", ${rank}, "${reason}"],\n`;
-    }
-  }
-
-  out = out.slice(0, -2) + '\n';
-  out += ']\n';
-
-  fs.writeFileSync(INVALID_PATH, out);
+  console.log('Final value: %d out of %d.', total / 1e6, (share * 2) / 1e6);
 }
