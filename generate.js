@@ -5,7 +5,6 @@
 const assert = require('assert');
 const Path = require('path');
 const fs = require('bfile');
-const sha3 = require('bcrypto/lib/sha3');
 const util = require('./util');
 
 const BLACKLIST = require('./names/blacklist.json');
@@ -19,11 +18,10 @@ const WORDS = require('./names/words.json');
 const blacklist = new Set(BLACKLIST);
 const words = new Set(WORDS);
 
-const NAMES_PATH = Path.resolve(__dirname, 'build', 'names.js');
-const RESERVED_JSON = Path.resolve(__dirname, 'build', 'reserved.json');
+const RESERVED_JSON = Path.resolve(__dirname, 'build', 'reserved-names.json');
 const RESERVED_JS = Path.resolve(__dirname, 'build', 'reserved.js');
 const HASHED_JS = Path.resolve(__dirname, 'build', 'hashed.js');
-const INVALID_PATH = Path.resolve(__dirname, 'build', 'invalid.json');
+const INVALID_PATH = Path.resolve(__dirname, 'build', 'invalid-names.json');
 const SHARE = 102e6 * 1e6; // 7.5%
 
 // This part is not fun.
@@ -140,11 +138,11 @@ function compile() {
     names.push(item);
   };
 
-  // Custom TLDs (e.g. `.hsk`).
+  // Custom TLDs.
   for (const name of CUSTOM)
     insert(name, -1, name, '');
 
-  // Root TLDs
+  // Root TLDs.
   for (const name of RTLD)
     insert(name, 0, name, '');
 
@@ -289,39 +287,9 @@ function sortRank(a, b) {
 const [names, invalid] = compile();
 
 {
-  let out = '';
+  const json = [];
 
-  out += '\'use strict\';\n';
-  out += '\n';
-  out += 'module.exports = new Set([\n';
-
-  const names = [];
-
-  for (const name of CUSTOM)
-    names.push(name);
-
-  for (const name of TLD)
-    names.push(name);
-
-  for (const name of CCTLD)
-    names.push(name);
-
-  for (const name of GTLD)
-    names.push(name);
-
-  for (const name of names)
-    out += `  '${name}',\n`;
-
-  out = out.slice(0, -2) + '\n';
-  out += ']);\n';
-
-  fs.writeFileSync(NAMES_PATH, out);
-}
-
-{
-  let out = '';
-
-  out += '[\n';
+  json.push('[');
 
   invalid.sort(sortRank);
 
@@ -329,101 +297,162 @@ const [names, invalid] = compile();
     if (winner) {
       const wd = winner.domain;
       const wr = winner.rank;
-      out += `  ["${domain}", ${rank}, "${reason}", ["${wd}", ${wr}]],\n`;
+      json.push(`  ["${domain}", ${rank}, "${reason}", ["${wd}", ${wr}]],`);
     } else {
-      out += `  ["${domain}", ${rank}, "${reason}"],\n`;
+      json.push(`  ["${domain}", ${rank}, "${reason}"],`);
     }
   }
 
-  out = out.slice(0, -2) + '\n';
-  out += ']\n';
+  json[json.length - 1] = json[json.length - 1].slice(0, -1);
+  json.push(']');
+  json.push('');
+
+  const out = json.join('\n');
 
   fs.writeFileSync(INVALID_PATH, out);
 }
 
 {
-  let out = '';
+  const json = [];
 
-  out += '{\n';
+  json.push('{');
 
   names.sort(sortRank);
 
   for (const {name, tld, rank, collisions} of names)
-    out += `  "${name}": ["${tld}", ${rank}, ${collisions}],\n`;
+    json.push(`  "${name}": ["${tld}", ${rank}, ${collisions}],`);
 
-  out = out.slice(0, -2) + '\n';
-  out += '}\n';
+  json[json.length - 1] = json[json.length - 1].slice(0, -1);
+  json.push('}');
+  json.push('');
+
+  const out = json.join('\n');
 
   fs.writeFileSync(RESERVED_JSON, out);
 }
 
-function generateReserved(file, hash) {
+function getList() {
   const VALUE = Math.floor(SHARE / (names.length - embargoes.size));
   const TLD_VALUE = VALUE + Math.floor(SHARE / (RTLD.length - embargoes.size));
-
-  let out = '';
-
-  out += '\'use strict\';\n';
-  out += '\n';
-  out += '/* eslint max-len: off */\n';
-  out += '\n';
-  out += 'const reserved = {\n';
+  const items = [];
 
   names.sort(sortAlpha);
 
   for (const {name, domain, rank} of names) {
-    let tld = '0';
-    let val = VALUE;
+    let root = false;
+    let value = VALUE;
 
     if (rank === 0) {
-      tld = '1';
-      val = TLD_VALUE;
+      root = true;
+      value = TLD_VALUE;
     }
 
     if (embargoes.has(domain))
-      val = 0;
+      value = 0;
 
-    out += `  '${hash(name)}': ['${domain}.', ${val}, ${tld}],\n`;
+    items.push({
+      name: name,
+      hash: util.hashName(name),
+      target: `${domain}.`,
+      value,
+      root
+    });
   }
 
-  out = out.slice(0, -2) + '\n';
-  out += '};\n';
-
-  out += '\n';
-  out += 'const map = new Map();\n';
-  out += '\n';
-  out += 'for (const key of Object.keys(reserved)) {\n';
-  out += '  const item = reserved[key];\n';
-  out += '  map.set(key, {\n';
-  out += '    target: item[0],\n';
-  out += '    value: item[1],\n';
-  out += '    root: item[2] === 1\n';
-  out += '  });\n';
-  out += '}\n';
-  out += '\n';
-  out += 'module.exports = map;\n';
-
-  fs.writeFileSync(file, out);
+  return items;
 }
 
-function hashNone(name) {
-  return name;
+function generateJS(items) {
+  const code = [
+    `'use strict';`,
+    '',
+    '/* eslint max-len: off */',
+    '',
+    'const reserved = {'
+  ];
+
+  for (const {name, target, value, root} of items) {
+    const tld = root ? '1' : '0';
+    code.push(`  '${name}': ['${target}', ${value}, ${tld}],`);
+  }
+
+  code[code.length - 1] = code[code.length - 1].slice(0, -1);
+  code.push('};');
+  code.push('');
+  code.push('');
+
+  const extra = [
+    'const map = new Map();',
+    '',
+    'for (const key of Object.keys(reserved)) {',
+    '  const item = reserved[key];',
+    '  map.set(key, {',
+    '    target: item[0],',
+    '    value: item[1],',
+    '    root: item[2] === 1',
+    '  });',
+    '}',
+    '',
+    'module.exports = map;',
+    ''
+  ];
+
+  const out = code.join('\n') + extra.join('\n');
+
+  fs.writeFileSync(RESERVED_JS, out);
 }
 
-function hashName(name) {
-  const raw = Buffer.from(name, 'ascii');
-  const hash = sha3.digest(raw);
-  return hash.toString('hex');
+function generateHashedJS(items) {
+  const code = [
+    `'use strict';`,
+    '',
+    '/* eslint max-len: off */',
+    '',
+    'const reserved = {'
+  ];
+
+  for (const {hash, name, target, value, root} of items) {
+    const tld = root ? '1' : '0';
+    code.push(`  '${hash}': ['${name}', '${target}', ${value}, ${tld}],`);
+  }
+
+  code[code.length - 1] = code[code.length - 1].slice(0, -1);
+  code.push('};');
+  code.push('');
+  code.push('');
+
+  const extra = [
+    'const map = new Map();',
+    '',
+    'for (const key of Object.keys(reserved)) {',
+    '  const item = reserved[key];',
+    '  map.set(key, {',
+    '    name: item[0],',
+    '    target: item[1],',
+    '    value: item[2],',
+    '    root: item[3] === 1',
+    '  });',
+    '}',
+    '',
+    'module.exports = map;',
+    ''
+  ];
+
+  const out = code.join('\n') + extra.join('\n');
+
+  fs.writeFileSync(HASHED_JS, out);
 }
 
-generateReserved(RESERVED_JS, hashNone);
-generateReserved(HASHED_JS, hashName);
+const items = getList();
 
-const reserved = require('./build/reserved.js');
+generateJS(items);
+generateHashedJS(items);
 
-let total = 0;
+{
+  let total = 0;
 
-for (const item of reserved.values())
-  total += item.value;
+  for (const item of items)
+    total += item.value;
 
-console.log('Final value: %d out of %d.', total / 1e6, (SHARE * 2) / 1e6);
+  console.log('Final value: %d out of %d.', total / 1e6, (SHARE * 2) / 1e6);
+}

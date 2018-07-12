@@ -1,5 +1,8 @@
 'use strict';
 
+const assert = require('assert');
+const sha3 = require('bcrypto/lib/sha3');
+
 const TLD = new Set([
   'arpa',
   'com',
@@ -89,6 +92,8 @@ const ICCTLD = new Set([
 ]);
 
 exports.isHSK = function isHSK(name) {
+  assert(typeof name === 'string');
+
   if (name.length === 0)
     return false;
 
@@ -105,18 +110,24 @@ exports.isHSK = function isHSK(name) {
 };
 
 exports.isTLD = function isTLD(tld) {
+  assert(typeof tld === 'string');
   return TLD.has(tld);
 };
 
 exports.isCCTLD = function isCCTLD(tld) {
+  assert(typeof tld === 'string');
   return tld.length === 2 || ICCTLD.has(tld);
 };
 
 exports.isGTLD = function isGTLD(tld) {
+  assert(typeof tld === 'string');
   return !exports.isTLD(tld) && !exports.isCCTLD(tld);
 };
 
 exports.compare = function compare(a, b) {
+  assert(typeof a === 'string');
+  assert(typeof b === 'string');
+
   const len = Math.min(a.length, b.length);
 
   for (let i = 0; i < len; i++) {
@@ -137,4 +148,12 @@ exports.compare = function compare(a, b) {
     return 1;
 
   return 0;
+};
+
+exports.hashName = function hashName(name) {
+  assert(typeof name === 'string');
+
+  const raw = Buffer.from(name, 'ascii');
+
+  return sha3.digest(raw);
 };
