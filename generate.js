@@ -18,10 +18,10 @@ const WORDS = require('./names/words.json');
 const blacklist = new Set(BLACKLIST);
 const words = new Set(WORDS);
 
-const RESERVED_JSON = Path.resolve(__dirname, 'build', 'reserved.json');
+const NAMES_PATH = Path.resolve(__dirname, 'build', 'names.json');
+const INVALID_PATH = Path.resolve(__dirname, 'build', 'invalid.json');
 const RESERVED_JS = Path.resolve(__dirname, 'build', 'reserved.js');
 const HASHED_JS = Path.resolve(__dirname, 'build', 'hashed.js');
-const INVALID_PATH = Path.resolve(__dirname, 'build', 'invalid.json');
 const SHARE = 102e6 * 1e6; // 7.5%
 
 // This part is not fun.
@@ -289,6 +289,25 @@ const [names, invalid] = compile();
 {
   const json = [];
 
+  json.push('{');
+
+  names.sort(sortRank);
+
+  for (const {name, tld, rank, collisions} of names)
+    json.push(`  "${name}": ["${tld}", ${rank}, ${collisions}],`);
+
+  json[json.length - 1] = json[json.length - 1].slice(0, -1);
+  json.push('}');
+  json.push('');
+
+  const out = json.join('\n');
+
+  fs.writeFileSync(NAMES_PATH, out);
+}
+
+{
+  const json = [];
+
   json.push('[');
 
   invalid.sort(sortRank);
@@ -310,25 +329,6 @@ const [names, invalid] = compile();
   const out = json.join('\n');
 
   fs.writeFileSync(INVALID_PATH, out);
-}
-
-{
-  const json = [];
-
-  json.push('{');
-
-  names.sort(sortRank);
-
-  for (const {name, tld, rank, collisions} of names)
-    json.push(`  "${name}": ["${tld}", ${rank}, ${collisions}],`);
-
-  json[json.length - 1] = json[json.length - 1].slice(0, -1);
-  json.push('}');
-  json.push('');
-
-  const out = json.join('\n');
-
-  fs.writeFileSync(RESERVED_JSON, out);
 }
 
 function getList() {
