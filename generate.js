@@ -18,10 +18,10 @@ const WORDS = require('./names/words.json');
 const blacklist = new Set(BLACKLIST);
 const words = new Set(WORDS);
 
-const RESERVED_JSON = Path.resolve(__dirname, 'build', 'reserved-names.json');
+const RESERVED_JSON = Path.resolve(__dirname, 'build', 'reserved.json');
 const RESERVED_JS = Path.resolve(__dirname, 'build', 'reserved.js');
 const HASHED_JS = Path.resolve(__dirname, 'build', 'hashed.js');
-const INVALID_PATH = Path.resolve(__dirname, 'build', 'invalid-names.json');
+const INVALID_PATH = Path.resolve(__dirname, 'build', 'invalid.json');
 const SHARE = 102e6 * 1e6; // 7.5%
 
 // This part is not fun.
