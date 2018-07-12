@@ -96,7 +96,7 @@ issue.
 
 ## Which domains made the cut?
 
-Please have a look at `build/names.json` for a full list of pre-reserved names
+Please have a look at `build/valid.json` for a full list of pre-reserved names
 and their pre-converted counterparts.
 
 ## Late Additions

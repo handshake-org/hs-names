@@ -17,10 +17,10 @@ const WORDS = require('./names/words.json');
 const blacklist = new Set(BLACKLIST);
 const words = new Set(WORDS);
 
-const NAMES_PATH = Path.resolve(__dirname, 'build', 'names.json');
+const VALID_PATH = Path.resolve(__dirname, 'build', 'valid.json');
 const INVALID_PATH = Path.resolve(__dirname, 'build', 'invalid.json');
-const RESERVED_PATH = Path.resolve(__dirname, 'build', 'reserved.json');
-const RESERVED_DB = Path.resolve(__dirname, 'build', 'reserved.db');
+const NAMES_JSON = Path.resolve(__dirname, 'build', 'names.json');
+const NAMES_DB = Path.resolve(__dirname, 'build', 'names.db');
 
 // This part is not fun.
 //
@@ -305,7 +305,7 @@ const ROOT_VALUE = NAME_VALUE + floor(SHARE / (RTLD.length - embargoes.size));
 
   const out = json.join('\n');
 
-  fs.writeFileSync(NAMES_PATH, out);
+  fs.writeFileSync(VALID_PATH, out);
 }
 
 {
@@ -387,7 +387,7 @@ items.sort(sortHash);
 
   const out = json.join('\n');
 
-  fs.writeFileSync(RESERVED_PATH, out);
+  fs.writeFileSync(NAMES_JSON, out);
 }
 
 {
@@ -429,5 +429,5 @@ items.sort(sortHash);
 
   const raw = bw.slice();
 
-  fs.writeFileSync(RESERVED_DB, raw);
+  fs.writeFileSync(NAMES_DB, raw);
 }
