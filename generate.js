@@ -5,6 +5,7 @@
 const assert = require('assert');
 const Path = require('path');
 const fs = require('bfile');
+const bio = require('bufio');
 const util = require('./util');
 
 const BLACKLIST = require('./names/blacklist.json');
@@ -22,7 +23,6 @@ const NAMES_PATH = Path.resolve(__dirname, 'build', 'names.json');
 const INVALID_PATH = Path.resolve(__dirname, 'build', 'invalid.json');
 const RESERVED_JS = Path.resolve(__dirname, 'build', 'reserved.js');
 const HASHED_JS = Path.resolve(__dirname, 'build', 'hashed.js');
-const SHARE = 102e6 * 1e6; // 7.5%
 
 // This part is not fun.
 //
@@ -280,6 +280,10 @@ function sortRank(a, b) {
   return util.compare(a.name, b.name);
 }
 
+function sortHash(a, b) {
+  return a.hash.compare(b.hash);
+}
+
 /*
  * Execute
  */
@@ -331,16 +335,18 @@ const [names, invalid] = compile();
   fs.writeFileSync(INVALID_PATH, out);
 }
 
+const SHARE = 102e6 * 1e6; // 7.5%
+const NAME_VALUE = Math.floor(SHARE / (names.length - embargoes.size));
+const TLD_VALUE = NAME_VALUE + Math.floor(SHARE / (RTLD.length - embargoes.size));
+
 function getList() {
-  const VALUE = Math.floor(SHARE / (names.length - embargoes.size));
-  const TLD_VALUE = VALUE + Math.floor(SHARE / (RTLD.length - embargoes.size));
   const items = [];
 
   names.sort(sortAlpha);
 
   for (const {name, domain, rank} of names) {
     let root = false;
-    let value = VALUE;
+    let value = NAME_VALUE;
 
     if (rank === 0) {
       root = true;
@@ -450,9 +456,399 @@ generateHashedJS(items);
 
 {
   let total = 0;
+  let largest = 0;
 
-  for (const item of items)
+  for (const item of items) {
+    if (item.target.length > largest)
+      largest = item.target.length;
     total += item.value;
+  }
 
   console.log('Final value: %d out of %d.', total / 1e6, (SHARE * 2) / 1e6);
+  console.log('Largest domain name: %d', largest);
 }
+
+function generateRaw(items) {
+  let largestName = 0;
+  let largestTarget = 0;
+
+  for (const item of items) {
+    if (item.name.length > largestName)
+      largestName = item.name.length;
+
+    if (item.target.length > largestTarget)
+      largestTarget = item.target.length;
+  }
+
+  assert(largestName <= 63);
+  assert(largestTarget <= 255);
+
+  const bw = bio.write(20 << 20);
+
+  bw.writeU32(items.length);
+  bw.writeU8(largestName);
+  bw.writeU64(NAME_VALUE);
+  bw.writeU64(TLD_VALUE);
+
+  for (const item of items) {
+    bw.writeU8(item.name.length);
+    bw.writeString(item.name, 'ascii');
+    bw.fill(0x00, largestName - item.name.length);
+    item.pos = bw.offset;
+    bw.writeU32(0);
+  }
+
+  for (const item of items) {
+    bw.data.writeUInt32LE(bw.offset, item.pos);
+
+    let flags = 0;
+
+    if (item.root)
+      flags |= 1;
+
+    if (embargoes.has(item.name))
+      flags |= 2;
+
+    if (item.customValue != null)
+      flags |= 4;
+
+    bw.writeU8(item.target.length);
+    bw.writeString(item.target, 'ascii');
+    bw.writeU8(flags);
+
+    if (item.customValue != null)
+      bw.writeU64(item.customValue);
+  }
+
+  return bw.slice();
+}
+
+(() => {
+'use strict';
+
+const assert = require('assert');
+
+const DATA = generateRaw(items);
+
+function readU32(data, off) {
+  return data.readUInt32LE(off);
+}
+
+function readU64(data, off) {
+  const lo = data.readUInt32LE(off);
+  const hi = data.readUInt32LE(off + 4);
+  return hi * 0x100000000 + lo;
+}
+
+class Reserved {
+  constructor(data) {
+    this.data = data;
+    this.size = readU32(data, 0);
+    this.nameSize = data[4];
+    this.nameValue = readU64(data, 5);
+    this.rootValue = readU64(data, 13);
+    this.offset = 21;
+    this.indexSize = 1 + this.nameSize + 4;
+  }
+
+  _compare(b, off) {
+    const a = this.data;
+    const alen = a[off - 1];
+    const blen = b.length;
+    const len = alen < blen ? alen : blen;
+
+    for (let i = 0; i < len; i++) {
+      const x = a[off + i];
+      const y = b[i];
+
+      if (x < y)
+        return -1;
+
+      if (x > y)
+        return 1;
+    }
+
+    if (alen < blen)
+      return -1;
+
+    if (alen > blen)
+      return 1;
+
+    return 0;
+  }
+
+  _find(key) {
+    let start = 0;
+    let end = this.size - 1;
+
+    while (start <= end) {
+      const index = (start + end) >>> 1;
+      const pos = this.offset + (index * this.indexSize);
+      const cmp = this._compare(key, pos + 1);
+
+      if (cmp === 0)
+        return readU32(this.data, pos + 1 + this.nameSize);
+
+      if (cmp < 0)
+        start = index + 1;
+      else
+        end = index - 1;
+    }
+
+    return -1;
+  }
+
+  _target(pos) {
+    const len = this.data[pos];
+    return this.data.toString('ascii', pos + 1, pos + 1 + len);
+  }
+
+  _flags(pos) {
+    const len = this.data[pos];
+    return this.data[pos + 1 + len];
+  }
+
+  _value(pos) {
+    const len = this.data[pos];
+    const off = pos + 1 + len + 1;
+    return readU64(this.data, off);
+  }
+
+  has(name) {
+    assert(typeof name === 'string');
+
+    if (name.length === 0 || name.length > this.nameSize)
+      return null;
+
+    const key = Buffer.from(name, 'ascii');
+    const pos = this._find(key);
+
+    return pos !== -1;
+  }
+
+  get(name) {
+    assert(typeof name === 'string');
+
+    if (name.length === 0 || name.length > this.nameSize)
+      return null;
+
+    const key = Buffer.from(name, 'ascii');
+    const pos = this._find(key);
+
+    if (pos === -1)
+      return null;
+
+    const target = this._target(pos);
+    const flags = this._flags(pos);
+    const root = (flags & 1) !== 0;
+    const zero = (flags & 2) !== 0;
+    const custom = (flags & 4) !== 0;
+
+    let value = root ? this.rootValue : this.nameValue;
+
+    if (zero)
+      value = 0;
+
+    if (custom)
+      value = this._value(pos);
+
+    return {
+      target,
+      value,
+      root
+    };
+  }
+}
+
+const reserved = new Reserved(DATA);
+
+console.log(reserved.get('cloudflare'));
+console.log(reserved.get('com'));
+console.log(reserved.get('coinmarketcap'));
+console.log(reserved.get('bitcoin'));
+console.log(DATA.length / 1024 / 1024);
+})();
+
+function generateRawHash(items) {
+  items.sort(sortHash);
+
+  const bw = bio.write(20 << 20);
+
+  bw.writeU32(items.length);
+  bw.writeU64(NAME_VALUE);
+  bw.writeU64(TLD_VALUE);
+
+  for (const item of items) {
+    bw.writeBytes(item.hash);
+    item.pos = bw.offset;
+    bw.writeU32(0);
+  }
+
+  for (const item of items) {
+    bw.data.writeUInt32LE(bw.offset, item.pos);
+
+    let flags = 0;
+
+    if (item.root)
+      flags |= 1;
+
+    if (embargoes.has(item.name))
+      flags |= 2;
+
+    if (item.customValue != null)
+      flags |= 4;
+
+    assert(item.target.length <= 255);
+
+    bw.writeU8(item.target.length);
+    bw.writeString(item.target, 'ascii');
+    bw.writeU8(flags);
+    bw.writeU8(item.target.indexOf('.'));
+
+    if (item.customValue != null)
+      bw.writeU64(item.customValue);
+  }
+
+  return bw.slice();
+}
+
+(() => {
+'use strict';
+
+const assert = require('assert');
+
+const DATA = generateRawHash(items);
+
+function readU32(data, off) {
+  return data.readUInt32LE(off);
+}
+
+function readU64(data, off) {
+  const lo = data.readUInt32LE(off);
+  const hi = data.readUInt32LE(off + 4);
+  return hi * 0x100000000 + lo;
+}
+
+class Reserved {
+  constructor(data) {
+    this.data = data;
+    this.size = readU32(data, 0);
+    this.nameValue = readU64(data, 4);
+    this.rootValue = readU64(data, 12);
+  }
+
+  _compare(b, off) {
+    const a = this.data;
+
+    for (let i = 0; i < 32; i++) {
+      const x = a[off + i];
+      const y = b[i];
+
+      if (x < y)
+        return -1;
+
+      if (x > y)
+        return 1;
+    }
+
+    return 0;
+  }
+
+  _find(key) {
+    let start = 0;
+    let end = this.size - 1;
+
+    while (start <= end) {
+      const index = (start + end) >>> 1;
+      const pos = 20 + (index * 36);
+      const cmp = this._compare(key, pos);
+
+      if (cmp === 0)
+        return readU32(this.data, pos + 32);
+
+      if (cmp < 0)
+        start = index + 1;
+      else
+        end = index - 1;
+    }
+
+    return -1;
+  }
+
+  _target(pos) {
+    const len = this.data[pos];
+    return this.data.toString('ascii', pos + 1, pos + 1 + len);
+  }
+
+  _flags(pos) {
+    const len = this.data[pos];
+    return this.data[pos + 1 + len];
+  }
+
+  _index(pos) {
+    const len = this.data[pos];
+    return this.data[pos + 1 + len + 1];
+  }
+
+  _value(pos) {
+    const len = this.data[pos];
+    const off = pos + 1 + len + 1 + 1;
+    return readU64(this.data, off);
+  }
+
+  has(hash) {
+    assert(Buffer.isBuffer(hash) && hash.length === 32);
+
+    return this._find(hash) !== -1;
+  }
+
+  get(hash) {
+    assert(Buffer.isBuffer(hash) && hash.length === 32);
+
+    const pos = this._find(hash);
+
+    if (pos === -1)
+      return null;
+
+    const target = this._target(pos);
+    const flags = this._flags(pos);
+    const index = this._index(pos);
+
+    const root = (flags & 1) !== 0;
+    const zero = (flags & 2) !== 0;
+    const custom = (flags & 4) !== 0;
+    const name = target.substring(0, index);
+
+    let value = root ? this.rootValue : this.nameValue;
+
+    if (zero)
+      value = 0;
+
+    if (custom)
+      value = this._value(pos);
+
+    return {
+      name,
+      target,
+      value,
+      root
+    };
+  }
+
+  hasByName(name) {
+    return this.has(util.hashName(name));
+  }
+
+  getByName(name) {
+    return this.get(util.hashName(name));
+  }
+}
+
+const reserved = new Reserved(DATA);
+
+console.log(reserved.getByName('cloudflare'));
+console.log(reserved.getByName('com'));
+console.log(reserved.getByName('coinmarketcap'));
+console.log(reserved.getByName('bitcoin'));
+console.log(DATA.length / 1024 / 1024);
+})();
