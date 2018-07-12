@@ -18,6 +18,11 @@ const WORDS = require('./names/words.json');
 const blacklist = new Set(BLACKLIST);
 const words = new Set(WORDS);
 
+const TLD_PATH = Path.resolve(__dirname, 'build', 'tld.js');
+const RESERVED_JSON = Path.resolve(__dirname, 'build', 'reserved.json');
+const RESERVED_JS = Path.resolve(__dirname, 'build', 'reserved.js');
+const INVALID_PATH = Path.resolve(__dirname, 'build', 'invalid.json');
+
 // This part is not fun.
 //
 // Explanation:
@@ -307,7 +312,7 @@ const [names, invalid] = compile();
   out = out.slice(0, -2) + '\n';
   out += ']);\n';
 
-  fs.writeFileSync(Path.resolve(__dirname, 'build', 'tld.js'), out);
+  fs.writeFileSync(TLD_PATH, out);
 }
 
 {
@@ -323,7 +328,7 @@ const [names, invalid] = compile();
   out = out.slice(0, -2) + '\n';
   out += '}\n';
 
-  fs.writeFileSync(Path.resolve(__dirname, 'build', 'reserved.json'), out);
+  fs.writeFileSync(RESERVED_JSON, out);
 }
 
 {
@@ -373,7 +378,7 @@ const [names, invalid] = compile();
   out += '\n';
   out += 'module.exports = map;\n';
 
-  fs.writeFileSync(Path.resolve(__dirname, 'build', 'reserved.js'), out);
+  fs.writeFileSync(RESERVED_JS, out);
 }
 
 {
@@ -396,5 +401,5 @@ const [names, invalid] = compile();
   out = out.slice(0, -2) + '\n';
   out += ']\n';
 
-  fs.writeFileSync(Path.resolve(__dirname, 'build', 'invalid.json'), out);
+  fs.writeFileSync(INVALID_PATH, out);
 }

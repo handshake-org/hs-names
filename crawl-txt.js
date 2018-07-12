@@ -3,11 +3,14 @@
 'use strict';
 
 const assert = require('assert');
+const Path = require('path');
 const fs = require('bfile');
 const constants = require('bns/lib/constants');
 const StubResolver = require('bns/lib/resolver/stub');
 const root = require('./build/root.json');
 const {types} = constants;
+
+const TXT_PATH = Path.resolve(__dirname, 'build', 'txt.zone');
 
 const names = Object.keys(root).sort();
 
@@ -73,7 +76,7 @@ const records = [];
     text += rr.toString() + '\n';
   }
 
-  fs.writeFileSync(`${__dirname}/build/txt.zone`, text);
+  fs.writeFileSync(TXT_PATH, text);
 
   await stub.close();
 })().catch((err) => {

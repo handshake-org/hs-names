@@ -28,9 +28,13 @@ for (const rr of records) {
 
     switch (rr.type) {
       case types.A:
+        if (item.inet4)
+          console.log('Duplicate IPv4 address for: %s', name);
         item.inet4 = rr.data.address;
         break;
       case types.AAAA:
+        if (item.inet6)
+          console.log('Duplicate IPv6 address for: %s', name);
         item.inet6 = rr.data.address;
         break;
     }
@@ -62,12 +66,6 @@ for (const rr of records) {
       const auth = glue.get(ns);
       assert(auth);
 
-      // if (auth.inet4)
-      //   item.ns.push(auth.inet4);
-
-      // if (auth.inet6)
-      //   item.ns.push(auth.inet6);
-
       const ips = [];
 
       if (auth.inet4)
@@ -76,10 +74,12 @@ for (const rr of records) {
       if (auth.inet6)
         ips.push(auth.inet6);
 
-      if (ips.length > 0)
-        item.ns.push(`${auth.name}@${ips.join(',')}`);
-      else
+      if (ips.length === 0) {
+        console.log('No glue found for: %s', ns);
         item.ns.push(auth.name);
+      } else {
+        item.ns.push(`${auth.name}@${ips.join(',')}`);
+      }
 
       break;
     }

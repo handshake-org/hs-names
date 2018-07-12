@@ -3,12 +3,15 @@
 'use strict';
 
 const assert = require('assert');
+const Path = require('path');
 const fs = require('bfile');
 const StubResolver = require('bns/lib/resolver/stub');
 const dnssec = require('bns/lib/dnssec');
 const wire = require('bns/lib/wire');
 const root = require('./build/root.json');
 const {types, DSRecord, hashes} = wire;
+
+const KEYS_PATH = Path.resolve(__dirname, 'build', 'keys.zone');
 
 const names = Object.keys(root).sort();
 
@@ -119,7 +122,7 @@ const records = [];
     text += rr.toString() + '\n';
   }
 
-  fs.writeFileSync(`${__dirname}/build/keys.zone`, text);
+  fs.writeFileSync(KEYS_PATH, text);
 
   await stub.close();
 })().catch((err) => {
