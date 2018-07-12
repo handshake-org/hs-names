@@ -45,7 +45,7 @@ for (const rr of records) {
   const name = rr.name.toLowerCase();
 
   if (!domains.has(name))
-    domains.set(name, { ttl: 0, ds: [], ns: [], glue: [] });
+    domains.set(name, { ttl: 0, ds: [], ns: [] });
 
   const item = domains.get(name);
 
@@ -58,11 +58,11 @@ for (const rr of records) {
       const auth = glue.get(ns);
       assert(auth);
 
-      if (auth.inet4)
-        item.ns.push(auth.inet4);
+      // if (auth.inet4)
+      //   item.ns.push(auth.inet4);
 
-      if (auth.inet6)
-        item.ns.push(auth.inet6);
+      // if (auth.inet6)
+      //   item.ns.push(auth.inet6);
 
       const ips = [];
 
@@ -73,9 +73,9 @@ for (const rr of records) {
         ips.push(auth.inet6);
 
       if (ips.length > 0)
-        item.glue.push(`${auth.name}@${ips.join(',')}`);
+        item.ns.push(`${auth.name}@${ips.join(',')}`);
       else
-        item.glue.push(auth.name);
+        item.ns.push(auth.name);
 
       break;
     }
