@@ -3,12 +3,16 @@
 'use strict';
 
 const assert = require('assert');
-const bns = require('bns');
+const Path = require('path');
 const fs = require('bfile');
-const {util, wire} = bns;
+const util = require('bns/lib/util');
+const wire = require('bns/lib/wire');
 const {types} = wire;
 
-const text = fs.readFileSync(`${__dirname}/data/root.zone`, 'utf8');
+const ZONE_FILE = Path.resolve(__dirname, 'data', 'root.zone');
+const ZONE_JSON = Path.resolve(__dirname, 'build', 'root.json');
+
+const text = fs.readFileSync(ZONE_FILE, 'utf8');
 const records = wire.fromZone(text);
 
 const glue = new Map();
@@ -88,17 +92,7 @@ for (const rr of records) {
 
 const out = Object.create(null);
 
-let size = 0;
-
-for (const [key, value] of domains) {
-  size += key.length;
-  size += 16;
-  size += 40;
+for (const [key, value] of domains)
   out[key] = value;
-}
 
-fs.writeFileSync(
-  `${__dirname}/build/root.json`,
-  JSON.stringify(out, null, 2) + '\n');
-
-console.log('Estimated size: %d', size);
+fs.writeFileSync(ZONE_JSON, JSON.stringify(out, null, 2) + '\n');

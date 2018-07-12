@@ -4,12 +4,13 @@
 
 const assert = require('assert');
 const Path = require('path');
-const bio = require('bufio');
-const bns = require('bns');
 const fs = require('bfile');
+const bio = require('bufio');
 const Resource = require('hskd/lib/dns/resource');
-const {util, wire} = bns;
-const {types} = wire;
+
+const ZONE_JSON = Path.resolve(__dirname, 'build', 'root.json');
+const TLD_H = Path.resolve(__dirname, 'build', 'tld.h');
+const TLD_JS = Path.resolve(__dirname, 'build', 'tld.js');
 
 function compare(a, b) {
   const len = Math.min(a.length, b.length);
@@ -59,21 +60,17 @@ function toHex(data) {
 
 function toBase64(data) {
   const b64 = data.toString('base64');
-  // const chunks = [`Buffer.from(''`];
   const chunks = [`''`];
 
-  for (let i = 0; i < b64.length; i += 42)
-    chunks.push(`    + '${b64.slice(i, i + 42)}'`);
-
-  // chunks[chunks.length - 1] += ',';
-  // chunks.push(`    'hex')`);
+  for (let i = 0; i < b64.length; i += 52)
+    chunks.push(`    + '${b64.slice(i, i + 52)}'`);
 
   const str = chunks.join('\n');
 
   return `${str},`;
 }
 
-const json = fs.readFileSync(`${__dirname}/build/root.json`, 'utf8');
+const json = fs.readFileSync(ZONE_JSON, 'utf8');
 const root = JSON.parse(json);
 const keys = Object.keys(root).sort(compare);
 const items = [];
@@ -116,7 +113,7 @@ for (const key of keys) {
 
   const file = Path.resolve(__dirname, 'build', 'tld.h');
 
-  fs.writeFileSync(file, code.join('\n'));
+  fs.writeFileSync(TLD_H, code.join('\n'));
 }
 
 {
@@ -135,7 +132,5 @@ for (const key of keys) {
   code.push('};');
   code.push('');
 
-  const file = Path.resolve(__dirname, 'build', 'tld.js');
-
-  fs.writeFileSync(file, code.join('\n'));
+  fs.writeFileSync(TLD_JS, code.join('\n'));
 }

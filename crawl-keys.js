@@ -5,12 +5,10 @@
 const assert = require('assert');
 const fs = require('bfile');
 const StubResolver = require('bns/lib/resolver/stub');
-const constants = require('bns/lib/constants');
 const dnssec = require('bns/lib/dnssec');
 const wire = require('bns/lib/wire');
 const root = require('./build/root.json');
-const {types, DSRecord} = wire;
-const {hashes} = constants;
+const {types, DSRecord, hashes} = wire;
 
 const names = Object.keys(root).sort();
 
