@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -ex
+
+./download
+./update.js
+./generate.js
+./zone.js
+./zone-build.js
+
+# git commit -a -m 'names: rebuild.'

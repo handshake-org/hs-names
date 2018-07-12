@@ -3,12 +3,11 @@
 'use strict';
 
 const assert = require('assert');
-const bns = require('bns');
-const StubResolver = require('bns/lib/resolver/stub');
 const fs = require('bfile');
+const constants = require('bns/lib/constants');
+const StubResolver = require('bns/lib/resolver/stub');
 const root = require('./build/root.json');
-const {wire} = bns;
-const {types} = wire;
+const {types} = constants;
 
 const names = Object.keys(root).sort();
 

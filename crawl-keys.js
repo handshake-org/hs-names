@@ -3,11 +3,12 @@
 'use strict';
 
 const assert = require('assert');
-const bns = require('bns');
-const StubResolver = require('bns/lib/resolver/stub');
 const fs = require('bfile');
+const StubResolver = require('bns/lib/resolver/stub');
+const constants = require('bns/lib/constants');
+const dnssec = require('bns/lib/dnssec');
+const wire = require('bns/lib/wire');
 const root = require('./build/root.json');
-const {util, wire, dnssec, constants} = bns;
 const {types, DSRecord} = wire;
 const {hashes} = constants;
 

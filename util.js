@@ -92,7 +92,7 @@ exports.isHSK = function isHSK(name) {
   if (name.length === 0)
     return false;
 
-  if (name.length > 64)
+  if (name.length > 63)
     return false;
 
   if (!/^[a-z0-9\-_]+$/.test(name))

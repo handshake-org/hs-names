@@ -2,15 +2,15 @@
 
 set -ex
 
+# wget https://s3.amazonaws.com/alexa-static/top-1m.csv.zip
+# unzip top-1m.csv.zip
+# rm top-1m.csv.zip
+# mv top-1m.csv data/
+
 wget https://data.iana.org/TLD/tlds-alpha-by-domain.txt
 mv tlds-alpha-by-domain.txt data/
-
-wget https://s3.amazonaws.com/alexa-static/top-1m.csv.zip
-unzip top-1m.csv.zip
-rm top-1m.csv.zip
-mv top-1m.csv data/
 
 wget https://www.internic.net/domain/root.zone
 mv root.zone data/
 
-git commit -a -m 'data: update name data.'
+# git commit -a -m 'data: update name data.'

@@ -5,6 +5,7 @@
 // TLD Resources:
 // https://www.icann.org/resources/pages/tlds-2012-02-25-en
 // https://data.iana.org/TLD/tlds-alpha-by-domain.txt
+// https://www.internic.net/domain/root.zone
 
 // SLD Resources:
 // https://www.google.com/search?q=alexa+top+100000
@@ -12,15 +13,16 @@
 // https://s3.amazonaws.com/alexa-static/top-1m.csv.zip
 
 const assert = require('assert');
-const fs = require('fs');
-const path = require('path');
-const bns = require('bns');
+const fs = require('bfile');
+const Path = require('path');
+const {fromZone} = require('bns/lib/wire');
+const {countLabels, trimFQDN} = require('bns/lib/util');
 const util = require('./util');
-const {wire} = bns;
 
-const TLD_PATH = path.resolve(__dirname, 'data', 'tlds-alpha-by-domain.txt');
-const ALEXA_PATH = path.resolve(__dirname, 'data', 'top-1m.csv');
-const ROOT_PATH = path.resolve(__dirname, 'data', 'root.zone');
+const TLD_PATH = Path.resolve(__dirname, 'data', 'tlds-alpha-by-domain.txt');
+const ALEXA_PATH = Path.resolve(__dirname, 'data', 'top-1m.csv');
+const ROOT_PATH = Path.resolve(__dirname, 'data', 'root.zone');
+const WORDS_PATH = '/usr/share/dict/words';
 
 const BLACKLIST = [
   'bit', // Namecoin
@@ -100,12 +102,12 @@ const GTLD = (() => {
 
 const RTLD = (() => {
   const text = fs.readFileSync(ROOT_PATH, 'utf8');
-  const records = wire.fromZone(text);
+  const records = fromZone(text);
   const set = new Set();
   const result = [];
 
   for (const rr of records) {
-    if (bns.util.countLabels(rr.name) !== 1)
+    if (countLabels(rr.name) !== 1)
       continue;
 
     const name = rr.name.toLowerCase();
@@ -115,7 +117,7 @@ const RTLD = (() => {
 
     set.add(name);
 
-    result.push(bns.util.trimFQDN(name));
+    result.push(trimFQDN(name));
   }
 
   return result;
@@ -160,7 +162,7 @@ const ALEXA = (() => {
 })();
 
 const WORDS = (() => {
-  const data = fs.readFileSync('/usr/share/dict/words', 'utf8');
+  const data = fs.readFileSync(WORDS_PATH, 'utf8');
   const lines = data.split('\n');
   const result = [];
 
@@ -175,33 +177,33 @@ const WORDS = (() => {
 })();
 
 fs.writeFileSync(
-  path.resolve(__dirname, 'names', 'blacklist.json'),
+  Path.resolve(__dirname, 'names', 'blacklist.json'),
   JSON.stringify(BLACKLIST, null, 2) + '\n');
 
 fs.writeFileSync(
-  path.resolve(__dirname, 'names', 'custom.json'),
+  Path.resolve(__dirname, 'names', 'custom.json'),
   JSON.stringify(CUSTOM, null, 2) + '\n');
 
 fs.writeFileSync(
-  path.resolve(__dirname, 'names', 'tld.json'),
+  Path.resolve(__dirname, 'names', 'tld.json'),
   JSON.stringify(TLD, null, 2) + '\n');
 
 fs.writeFileSync(
-  path.resolve(__dirname, 'names', 'cctld.json'),
+  Path.resolve(__dirname, 'names', 'cctld.json'),
   JSON.stringify(CCTLD, null, 2) + '\n');
 
 fs.writeFileSync(
-  path.resolve(__dirname, 'names', 'gtld.json'),
+  Path.resolve(__dirname, 'names', 'gtld.json'),
   JSON.stringify(GTLD, null, 2) + '\n');
 
 fs.writeFileSync(
-  path.resolve(__dirname, 'names', 'rtld.json'),
+  Path.resolve(__dirname, 'names', 'rtld.json'),
   JSON.stringify(RTLD, null, 2) + '\n');
 
 fs.writeFileSync(
-  path.resolve(__dirname, 'names', 'alexa.json'),
+  Path.resolve(__dirname, 'names', 'alexa.json'),
   JSON.stringify(ALEXA, null, 2) + '\n');
 
 fs.writeFileSync(
-  path.resolve(__dirname, 'names', 'words.json'),
+  Path.resolve(__dirname, 'names', 'words.json'),
   JSON.stringify(WORDS, null, 2) + '\n');

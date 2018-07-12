@@ -3,8 +3,8 @@
 'use strict';
 
 const assert = require('assert');
-const fs = require('fs');
-const path = require('path');
+const fs = require('bfile');
+const Path = require('path');
 const util = require('./util');
 
 const BLACKLIST = require('./names/blacklist.json');
@@ -307,7 +307,7 @@ const [names, invalid] = compile();
   out = out.slice(0, -2) + '\n';
   out += ']);\n';
 
-  fs.writeFileSync(path.resolve(__dirname, 'build', 'tld.js'), out);
+  fs.writeFileSync(Path.resolve(__dirname, 'build', 'tld.js'), out);
 }
 
 {
@@ -323,7 +323,7 @@ const [names, invalid] = compile();
   out = out.slice(0, -2) + '\n';
   out += '}\n';
 
-  fs.writeFileSync(path.resolve(__dirname, 'build', 'reserved.json'), out);
+  fs.writeFileSync(Path.resolve(__dirname, 'build', 'reserved.json'), out);
 }
 
 {
@@ -373,7 +373,7 @@ const [names, invalid] = compile();
   out += '\n';
   out += 'module.exports = map;\n';
 
-  fs.writeFileSync(path.resolve(__dirname, 'build', 'reserved.js'), out);
+  fs.writeFileSync(Path.resolve(__dirname, 'build', 'reserved.js'), out);
 }
 
 {
@@ -396,5 +396,5 @@ const [names, invalid] = compile();
   out = out.slice(0, -2) + '\n';
   out += ']\n';
 
-  fs.writeFileSync(path.resolve(__dirname, 'build', 'invalid.json'), out);
+  fs.writeFileSync(Path.resolve(__dirname, 'build', 'invalid.json'), out);
 }
