@@ -3,8 +3,9 @@
 'use strict';
 
 const assert = require('assert');
-const fs = require('bfile');
 const Path = require('path');
+const fs = require('bfile');
+const sha3 = require('bcrypto/lib/sha3');
 const util = require('./util');
 
 const BLACKLIST = require('./names/blacklist.json');
@@ -21,7 +22,9 @@ const words = new Set(WORDS);
 const NAMES_PATH = Path.resolve(__dirname, 'build', 'names.js');
 const RESERVED_JSON = Path.resolve(__dirname, 'build', 'reserved.json');
 const RESERVED_JS = Path.resolve(__dirname, 'build', 'reserved.js');
+const HASHED_JS = Path.resolve(__dirname, 'build', 'hashed.js');
 const INVALID_PATH = Path.resolve(__dirname, 'build', 'invalid.json');
+const SHARE = 102e6 * 1e6; // 7.5%
 
 // This part is not fun.
 //
@@ -354,12 +357,11 @@ const [names, invalid] = compile();
   fs.writeFileSync(RESERVED_JSON, out);
 }
 
-{
-  let out = '';
+function generateReserved(file, hash) {
+  const VALUE = Math.floor(SHARE / (names.length - embargoes.size));
+  const TLD_VALUE = VALUE + Math.floor(SHARE / (RTLD.length - embargoes.size));
 
-  const share = 102e6 * 1e6; // 7.5%
-  const value = Math.floor(share / (names.length - embargoes.size));
-  const tldValue = value + Math.floor(share / (RTLD.length - embargoes.size));
+  let out = '';
 
   out += '\'use strict\';\n';
   out += '\n';
@@ -371,17 +373,17 @@ const [names, invalid] = compile();
 
   for (const {name, domain, rank} of names) {
     let tld = '0';
-    let val = value;
+    let val = VALUE;
 
     if (rank === 0) {
       tld = '1';
-      val = tldValue;
+      val = TLD_VALUE;
     }
 
     if (embargoes.has(domain))
       val = 0;
 
-    out += `  '${name}': ['${domain}.', ${val}, ${tld}],\n`;
+    out += `  '${hash(name)}': ['${domain}.', ${val}, ${tld}],\n`;
   }
 
   out = out.slice(0, -2) + '\n';
@@ -401,14 +403,27 @@ const [names, invalid] = compile();
   out += '\n';
   out += 'module.exports = map;\n';
 
-  fs.writeFileSync(RESERVED_JS, out);
-
-  const reserved = require('./build/reserved.js');
-
-  let total = 0;
-
-  for (const item of reserved.values())
-    total += item.value;
-
-  console.log('Final value: %d out of %d.', total / 1e6, (share * 2) / 1e6);
+  fs.writeFileSync(file, out);
 }
+
+function hashNone(name) {
+  return name;
+}
+
+function hashName(name) {
+  const raw = Buffer.from(name, 'ascii');
+  const hash = sha3.digest(raw);
+  return hash.toString('hex');
+}
+
+generateReserved(RESERVED_JS, hashNone);
+generateReserved(HASHED_JS, hashName);
+
+const reserved = require('./build/reserved.js');
+
+let total = 0;
+
+for (const item of reserved.values())
+  total += item.value;
+
+console.log('Final value: %d out of %d.', total / 1e6, (SHARE * 2) / 1e6);
