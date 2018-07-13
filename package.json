@@ -20,7 +20,7 @@
   "dependencies": {
     "bcrypto": "~0.3.7",
     "bfile": "~0.1.0",
-    "bns": "~0.1.6",
+    "bns": "~0.1.8",
     "hskd": "~0.0.1"
   },
   "devDependencies": {
