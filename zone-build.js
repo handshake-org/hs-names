@@ -40,18 +40,6 @@ function toHex(data) {
   return `${cstr},`;
 }
 
-function toBase64(data) {
-  const b64 = data.toString('base64');
-  const chunks = [`''`];
-
-  for (let i = 0; i < b64.length; i += 52)
-    chunks.push(`    + '${b64.slice(i, i + 52)}'`);
-
-  const str = chunks.join('\n');
-
-  return `${str},`;
-}
-
 const json = fs.readFileSync(ZONE_JSON, 'utf8');
 const root = JSON.parse(json);
 const keys = Object.keys(root).sort(util.compare);
@@ -141,7 +129,7 @@ for (const key of keys) {
   }
 
   for (let i = 0; i < items.length; i++) {
-    const [name, blob] = items[i];
+    const [, blob] = items[i];
     const {offset} = bw;
     const pos = offsets[i];
 
