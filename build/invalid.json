@@ -348,6 +348,7 @@
   ["lidl.de", 2419, "collision", ["lidl", 0]],
   ["gemius.com", 2424, "collision", ["gemius.pl", 2354]],
   ["tripadvisor.in", 2430, "collision", ["tripadvisor.com", 205]],
+  ["inc.com", 2433, "collision", ["inc", 0]],
   ["xvideos.blog.br", 2461, "deeply-nested"],
   ["hgtv.com", 2463, "collision", ["hgtv", 0]],
   ["nfl.com", 2474, "collision", ["nfl", 0]],

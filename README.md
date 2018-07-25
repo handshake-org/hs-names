@@ -104,3 +104,4 @@ and their pre-converted counterparts.
 Names which were added _after_ the final snapshot.
 
 - `charity` - A new TLD added on ICANN's system.
+- `inc` - A new TLD added on ICANN's system.

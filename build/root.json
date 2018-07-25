@@ -3181,7 +3181,7 @@
     "ds": [],
     "ns": [
       "ns1.barbadosdomain.net.@200.50.92.195",
-      "ns2.barbadosdomain.net.@204.212.242.113"
+      "ns2.barbadosdomain.net.@64.119.204.139"
     ]
   },
   "bbc.": {
@@ -8206,6 +8206,14 @@
         "digest": "120f74309a773f74d4afa9dc4190097b9bcd2c9a6a4f83f164346adf430ac84a",
         "algName": "RSASHA256",
         "hashName": "SHA256"
+      },
+      {
+        "keyTag": 39844,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "53273c8ac1d0acf9030d907c3a731be98241e5ef6dbb51f5ce91cdb09534ab1c",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
       }
     ],
     "ns": [
@@ -8816,14 +8824,6 @@
   "day.": {
     "ttl": 86400,
     "ds": [
-      {
-        "keyTag": 6004,
-        "algorithm": 8,
-        "digestType": 2,
-        "digest": "b234546b39e5d53111e51b0033450f18aac3b6489347ba2790fc7f6163aeba89",
-        "algName": "RSASHA256",
-        "hashName": "SHA256"
-      },
       {
         "keyTag": 41746,
         "algorithm": 8,
@@ -12716,18 +12716,18 @@
     "ttl": 86400,
     "ds": [
       {
-        "keyTag": 8152,
-        "algorithm": 8,
-        "digestType": 2,
-        "digest": "28a56d69ea7f1d02a3a5452f5301c46341605c630dc0aa1b6b731d7b0517cee4",
-        "algName": "RSASHA256",
-        "hashName": "SHA256"
-      },
-      {
         "keyTag": 10474,
         "algorithm": 8,
         "digestType": 2,
         "digest": "24e7c4016ddf988172a375fb491541050980b3905ba31cb72d8deb7f51696deb",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
+        "keyTag": 44230,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "50f935219610318d526521f0e31c70705b462bde2c9fdba142969b27207b3b7f",
         "algName": "RSASHA256",
         "hashName": "SHA256"
       }
@@ -15276,6 +15276,7 @@
     "ns": [
       "c.hkirc.net.hk.@203.119.2.218,2001:dca:4000::cb77:2da",
       "d.hkirc.net.hk.@203.119.87.218,2001:dca:2000::cb77:57da",
+      "t.hkirc.net.hk.@202.12.31.53,2001:dd8:12::53",
       "u.hkirc.net.hk.@210.201.138.58,2404:0:10a0::58",
       "v.hkirc.net.hk.@204.61.216.46,2001:500:14:6046:ad::1",
       "w.hkirc.net.hk.@202.12.28.140,2001:dc0:1:0:4777::140",
@@ -16595,6 +16596,65 @@
       "b1.in.afilias-nst.in.@180.179.215.70,2401:8800:411:8::70",
       "b2.in.afilias-nst.org.@199.249.125.1,2001:500:4d::1",
       "c0.in.afilias-nst.info.@199.253.57.1,2001:500:51::1"
+    ]
+  },
+  "inc.": {
+    "ttl": 86400,
+    "ds": [
+      {
+        "keyTag": 13636,
+        "algorithm": 8,
+        "digestType": 1,
+        "digest": "6eaebc6ddc7e32668027d425fe37084d6cb2d13d",
+        "algName": "RSASHA256",
+        "hashName": "SHA1"
+      },
+      {
+        "keyTag": 13636,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "1f6e64cbe2f9ff7a4d33195d8ee394e09e58cb89477523a1b5b1113b0cd6c3f5",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
+        "keyTag": 30851,
+        "algorithm": 8,
+        "digestType": 1,
+        "digest": "3aade4cbdc3f21a19c9226a1a1024f5ded2258b4",
+        "algName": "RSASHA256",
+        "hashName": "SHA1"
+      },
+      {
+        "keyTag": 30851,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "8b99ee96e8af9a793a6739cf31a1459c6511c31a50c42f4021b832de7d2862c5",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
+        "keyTag": 54391,
+        "algorithm": 8,
+        "digestType": 1,
+        "digest": "fa3586612fb945097862a24e9aa44b93833dd849",
+        "algName": "RSASHA256",
+        "hashName": "SHA1"
+      },
+      {
+        "keyTag": 54391,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "2b6cec19fdeb49e6bac193cde6b3548fc1630292ae19ee07b5d4b501429d5693",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      }
+    ],
+    "ns": [
+      "ns1.uniregistry.net.@64.96.1.1,2620:57:4000:1::1",
+      "ns2.uniregistry.info.@64.96.245.53",
+      "ns3.uniregistry.net.@185.159.197.3,2620:10a:80aa::3",
+      "ns4.uniregistry.info.@185.159.198.3,2620:10a:80ab::3"
     ]
   },
   "industries.": {
@@ -20564,10 +20624,10 @@
     "ttl": 86400,
     "ds": [
       {
-        "keyTag": 35365,
+        "keyTag": 51914,
         "algorithm": 8,
         "digestType": 2,
-        "digest": "d593e38a4cd1f00fdc48a7fc4dfbe23344efd1517e05b398e4d8a3e849f01c76",
+        "digest": "22363eb0900ecb4b34c041a952c7151ffc5b56439af354c954ca3a4ea818fbd8",
         "algName": "RSASHA256",
         "hashName": "SHA256"
       }
@@ -31840,17 +31900,8 @@
     ]
   },
   "sy.": {
-    "ttl": 86400,
-    "ds": [
-      {
-        "keyTag": 54706,
-        "algorithm": 8,
-        "digestType": 2,
-        "digest": "f6e4245dcb9e41854e1cf8d0eb2ed1623194a22cfac8b9eb185e6f017a808aeb",
-        "algName": "RSASHA256",
-        "hashName": "SHA256"
-      }
-    ],
+    "ttl": 172800,
+    "ds": [],
     "ns": [
       "sy.cctld.authdns.ripe.net.@193.0.9.113,2001:67c:e0::113",
       "ns1.tld.sy.@82.137.200.85",
@@ -38513,6 +38564,7 @@
     "ns": [
       "c.hkirc.net.hk.@203.119.2.218,2001:dca:4000::cb77:2da",
       "d.hkirc.net.hk.@203.119.87.218,2001:dca:2000::cb77:57da",
+      "t.hkirc.net.hk.@202.12.31.53,2001:dd8:12::53",
       "u.hkirc.net.hk.@210.201.138.58,2404:0:10a0::58",
       "v.hkirc.net.hk.@204.61.216.46,2001:500:14:6046:ad::1",
       "w.hkirc.net.hk.@202.12.28.140,2001:dc0:1:0:4777::140",
@@ -39508,17 +39560,8 @@
     ]
   },
   "xn--ogbpf8fl.": {
-    "ttl": 86400,
-    "ds": [
-      {
-        "keyTag": 5389,
-        "algorithm": 8,
-        "digestType": 2,
-        "digest": "bda5ebba132a69f16af0ac54e75c67a11b767f3d7134ae19a8a916874fccbc0c",
-        "algName": "RSASHA256",
-        "hashName": "SHA256"
-      }
-    ],
+    "ttl": 172800,
+    "ds": [],
     "ns": [
       "sy.cctld.authdns.ripe.net.@193.0.9.113,2001:67c:e0::113",
       "ns1.tld.sy.@82.137.200.85",
@@ -40308,25 +40351,6 @@
       "ns3.conac.cn.@111.235.163.1,2401:b400:9::1",
       "ns4.conac.cn.@111.235.164.1",
       "ns5.conac.cn.@111.235.165.1"
-    ]
-  },
-  "xperia.": {
-    "ttl": 86400,
-    "ds": [
-      {
-        "keyTag": 37065,
-        "algorithm": 8,
-        "digestType": 2,
-        "digest": "2e012da7d761dace324a8fbd345d372a8507ec6392f6a1bdcbd2bbb061c412d5",
-        "algName": "RSASHA256",
-        "hashName": "SHA256"
-      }
-    ],
-    "ns": [
-      "ac1.nstld.com.@192.42.173.30,2001:500:120::30",
-      "ac2.nstld.com.@192.42.174.30,2001:500:121::30",
-      "ac3.nstld.com.@192.42.175.30,2001:500:122::30",
-      "ac4.nstld.com.@192.42.176.30,2001:500:123::30"
     ]
   },
   "xxx.": {

@@ -22,7 +22,7 @@
     "bfile": "~0.1.1",
     "bns": "~0.2.0",
     "bsert": "~0.0.3",
-    "hskd": "~0.0.1"
+    "hskd": "~0.0.0"
   },
   "devDependencies": {
     "eslint": "^5.1.0"
