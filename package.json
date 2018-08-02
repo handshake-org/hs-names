@@ -1,16 +1,17 @@
 {
-  "name": "handshake-names",
+  "name": "hs-names",
   "version": "0.0.0",
   "private": true,
-  "description": "Naming bike-shed",
+  "description": "Pre-reserved handshake names",
   "keywords": [
-    "handshake"
+    "handshake",
+    "hns"
   ],
   "license": "MIT",
-  "repository": "git://github.com/handshake-org/handshake-names.git",
-  "homepage": "https://github.com/handshake-org/handshake-names",
+  "repository": "git://github.com/handshake-org/hs-names.git",
+  "homepage": "https://github.com/handshake-org/hs-names",
   "bugs": {
-    "url": "https://github.com/handshake-org/handshake-names/issues"
+    "url": "https://github.com/handshake-org/hs-names/issues"
   },
   "author": "Christopher Jeffrey <chjjeffrey@gmail.com>",
   "main": "./lib/util.js",
@@ -21,8 +22,8 @@
     "bcrypto": "~1.0.0",
     "bfile": "~0.1.1",
     "bns": "~0.2.0",
-    "bsert": "~0.0.3",
-    "hskd": "~0.0.0"
+    "bsert": "~0.0.4",
+    "hsd": "~0.0.0"
   },
   "devDependencies": {
     "eslint": "^5.1.0"

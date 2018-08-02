@@ -91,7 +91,7 @@ const ICCTLD = new Set([
   'xn--mgbb7fyab'
 ]);
 
-exports.isHSK = function isHSK(name) {
+exports.isHNS = function isHNS(name) {
   assert(typeof name === 'string');
 
   if (name.length === 0)

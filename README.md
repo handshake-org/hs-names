@@ -27,9 +27,6 @@ In order to have your domain pre-reserved, there are a few rules implemented in
   - `bit` - Namecoin.
   - `eth` - Ethereum Name Service.
   - `example` - ICANN Reserved.
-  - `handshake` - Permanently Disallowed (to prevent phishing).
-  - `hns` - Permanently Disallowed (to prevent phishing).
-  - `hsk` - Permanently Disallowed (to prevent phishing).
   - `i2p` - Invisible Internet Project.
   - `invalid` - ICANN Reserved.
   - `local` - mDNS.

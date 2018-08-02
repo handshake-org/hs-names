@@ -28,9 +28,6 @@ const BLACKLIST = [
   'bit', // Namecoin
   'eth', // ENS
   'example', // ICANN reserved
-  'handshake', // Permanently Disallowed (to prevent phishing)
-  'hns', // Permanently Disallowed (to prevent phishing)
-  'hsk', // Permanently Disallowed (to prevent phishing)
   'i2p', // Invisible Internet Project
   'invalid', // ICANN reserved
   'local', // mDNS
@@ -169,7 +166,7 @@ const WORDS = (() => {
   for (const line of lines) {
     const word = line.trim();
 
-    if (util.isHSK(word))
+    if (util.isHNS(word))
       result.push(word);
   }
 

@@ -226,8 +226,8 @@ function compile() {
     // Get lowest-level name.
     const name = parts.shift();
 
-    // Must match HSK standards.
-    if (!util.isHSK(name)) {
+    // Must match HNS standards.
+    if (!util.isHNS(name)) {
       invalidate(domain, rank, 'formatting');
       continue;
     }
