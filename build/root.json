@@ -8200,14 +8200,6 @@
     "ttl": 86400,
     "ds": [
       {
-        "keyTag": 13334,
-        "algorithm": 8,
-        "digestType": 2,
-        "digest": "120f74309a773f74d4afa9dc4190097b9bcd2c9a6a4f83f164346adf430ac84a",
-        "algName": "RSASHA256",
-        "hashName": "SHA256"
-      },
-      {
         "keyTag": 39844,
         "algorithm": 8,
         "digestType": 2,
@@ -11330,6 +11322,22 @@
     "ttl": 86400,
     "ds": [
       {
+        "keyTag": 9160,
+        "algorithm": 8,
+        "digestType": 1,
+        "digest": "96ef89014b0022d3d69079a2b148909ad3c24882",
+        "algName": "RSASHA256",
+        "hashName": "SHA1"
+      },
+      {
+        "keyTag": 9160,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "d41201493bc82422ed89e1e746a176520a4dec17438632dd0f8b520fe6aee311",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
         "keyTag": 15952,
         "algorithm": 8,
         "digestType": 1,
@@ -11350,7 +11358,11 @@
       "a.nic.fan.@194.169.218.57,2001:67c:13cc::1:57",
       "b.nic.fan.@185.24.64.57,2a04:2b00:13cc::1:57",
       "c.nic.fan.@212.18.248.57,2a04:2b00:13ee::57",
-      "d.nic.fan.@212.18.249.57,2a04:2b00:13ff::57"
+      "d.nic.fan.@212.18.249.57,2a04:2b00:13ff::57",
+      "demand.beta.aridns.net.au.@37.209.194.7,2001:dcd:2::7",
+      "demand.alpha.aridns.net.au.@37.209.192.7,2001:dcd:1::7",
+      "demand.delta.aridns.net.au.@37.209.198.7,2001:dcd:4::7",
+      "demand.gamma.aridns.net.au.@37.209.196.7,2001:dcd:3::7"
     ]
   },
   "fans.": {
