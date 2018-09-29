@@ -19,15 +19,13 @@
     "lint": "eslint *.js || exit 0"
   },
   "dependencies": {
-    "bcrypto": "~1.1.0",
-    "bfile": "~0.1.1",
-    "bns": "~0.3.0",
+    "bcrypto": "~2.0.0",
+    "bfile": "~0.1.2",
+    "bns": "~0.4.0",
     "bsert": "~0.0.4",
     "hsd": "~0.0.0"
   },
-  "devDependencies": {
-    "eslint": "^5.1.0"
-  },
+  "devDependencies": {},
   "engines": {
     "node": ">=8.0.0"
   }
