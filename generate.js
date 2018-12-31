@@ -10,10 +10,10 @@ const util = require('./util');
 const floor = Math.floor;
 
 const BLACKLIST = require('./names/blacklist.json');
-const CUSTOM = require('./names/custom.json');
 const RTLD = require('./names/rtld.json');
 const ALEXA = require('./names/alexa.json');
 const WORDS = require('./names/words.json');
+const TRADEMARKS = require('./names/trademarks.json');
 const blacklist = new Set(BLACKLIST);
 const words = new Set(WORDS);
 
@@ -136,9 +136,11 @@ function compile() {
     names.push(item);
   };
 
-  // Custom TLDs.
-  for (const name of CUSTOM)
-    insert(name, -1, name, '');
+  // Trademarked TLDs (these are domains
+  // who submitted a trademark claim).
+  // TODO: Figure out how to do these.
+  // for (const [name, address] of TRADEMARKS)
+  //   insert(name, -1, name, '');
 
   // Root TLDs.
   for (const name of RTLD)

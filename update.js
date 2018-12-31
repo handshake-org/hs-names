@@ -36,8 +36,6 @@ const BLACKLIST = [
   'test' // ICANN reserved
 ];
 
-const CUSTOM = [];
-
 const TLD = [
   'arpa',
   'com',
@@ -176,10 +174,6 @@ const WORDS = (() => {
 fs.writeFileSync(
   Path.resolve(__dirname, 'names', 'blacklist.json'),
   JSON.stringify(BLACKLIST, null, 2) + '\n');
-
-fs.writeFileSync(
-  Path.resolve(__dirname, 'names', 'custom.json'),
-  JSON.stringify(CUSTOM, null, 2) + '\n');
 
 fs.writeFileSync(
   Path.resolve(__dirname, 'names', 'tld.json'),
