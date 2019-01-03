@@ -27,12 +27,16 @@ In order to have your domain pre-reserved, there are a few rules implemented in
   - `bit` - Namecoin.
   - `eth` - Ethereum Name Service.
   - `example` - ICANN Reserved.
+  - `exit` - Tor.
+  - `gnu` - GNUnet (GNS).
   - `i2p` - Invisible Internet Project.
   - `invalid` - ICANN Reserved.
   - `local` - mDNS.
   - `localhost` - ICANN Reserved.
   - `onion` - Tor.
   - `test` - ICANN Reserved.
+  - `tor` - OnioNS.
+  - `zkey` - GNS.
 2. The domain must not collide with an existing top-level domain in ICANN's
    root zone, as all existing TLDs are also pre-reserved. For example,
    `google.com` would lose to `google`.

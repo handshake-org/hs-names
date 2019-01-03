@@ -28,12 +28,16 @@ const BLACKLIST = [
   'bit', // Namecoin
   'eth', // ENS
   'example', // ICANN reserved
+  'exit', // Tor
+  'gnu', // GNUnet (GNS)
   'i2p', // Invisible Internet Project
   'invalid', // ICANN reserved
   'local', // mDNS
   'localhost', // ICANN reserved
   'onion', // Tor
-  'test' // ICANN reserved
+  'test', // ICANN reserved
+  'tor', // OnioNS
+  'zkey' // GNS
 ];
 
 const TLD = [
