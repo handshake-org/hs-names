@@ -98,7 +98,17 @@ and their pre-converted counterparts.
 
 ## Late Additions
 
-Names which were added _after_ the final snapshot.
+Names which were added _after_ the final snapshot:
 
 - `charity` - A new TLD added on ICANN's system.
 - `inc` - A new TLD added on ICANN's system.
+
+Names which were removed _after_ the final snapshot:
+
+- `goodhands` - A TLD removed from ICANN's system.
+- `jlc` - A TLD removed from ICANN's system.
+- `panerai` - A TLD removed from ICANN's system.
+- `spiegel` - A TLD removed from ICANN's system.
+- `statoil` - A TLD removed from ICANN's system.
+- `telecity` - A TLD removed from ICANN's system.
+- `vista` - A TLD removed from ICANN's system.
