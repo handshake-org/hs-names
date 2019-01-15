@@ -138,9 +138,8 @@ function compile() {
 
   // Trademarked TLDs (these are domains
   // who submitted a trademark claim).
-  // TODO: Figure out how to do these.
-  // for (const [name, address] of TRADEMARKS)
-  //   insert(name, -1, name, '');
+  for (const [name, domain] of TRADEMARKS)
+    insert(domain, -1, name, '');
 
   // Root TLDs.
   for (const name of RTLD)
