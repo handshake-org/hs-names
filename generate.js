@@ -14,13 +14,11 @@ const RTLD = require('./names/rtld.json');
 const ALEXA = require('./names/alexa.json');
 const WORDS = require('./names/words.json');
 const TRADEMARKS = require('./names/trademarks.json');
-const alexaSet = new Set(ALEXA);
 const blacklist = new Set(BLACKLIST);
 const words = new Set(WORDS);
 
 const VALID_PATH = Path.resolve(__dirname, 'build', 'valid.json');
 const INVALID_PATH = Path.resolve(__dirname, 'build', 'invalid.json');
-const ALIAS_PATH = Path.resolve(__dirname, 'build', 'alias.json');
 const NAMES_JSON = Path.resolve(__dirname, 'build', 'names.json');
 const NAMES_DB = Path.resolve(__dirname, 'build', 'names.db');
 
@@ -143,23 +141,12 @@ function compile() {
 
   // Trademarked TLDs (these are domains
   // who submitted a trademark claim).
-  for (const [name, domain, , owned] of TRADEMARKS.names) {
-    const tld = domain.split('.').slice(1);
-
-    if (owned)
-      assert(alexaSet.has(domain));
-    else
-      assert(!alexaSet.has(domain));
+  for (const [name, domain] of TRADEMARKS) {
+    const tld = domain.split('.').slice(1).join('.');
 
     assert(!blacklist.has(name));
 
     insert(domain, -1, name, tld);
-  }
-
-  for (const [name, domain] of TRADEMARKS.alias) {
-    assert(!alexaSet.has(domain));
-    assert(!blacklist.has(name));
-    insert(domain, -1, name, domain);
   }
 
   // Root TLDs.
@@ -453,10 +440,3 @@ items.sort(sortHash);
 
   fs.writeFileSync(NAMES_DB, raw);
 }
-
-const alias = [];
-
-for (const [name, domain] of TRADEMARKS.alias)
-  alias.push([`${domain}.`, name]);
-
-fs.writeFileSync(ALIAS_PATH, JSON.stringify(alias, null, 2) + '\n');
