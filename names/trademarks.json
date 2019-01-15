@@ -295,6 +295,12 @@
       true
     ],
     [
+      "privateinternetaccess",
+      "privateinternetaccess.com",
+      "hs1qy4r9ew2e3yaa2g7dhepfsn4vsjydszgtl2cfgp",
+      true
+    ],
+    [
       "showclix",
       "showclix.com",
       "hs1qp05mlr3sm3m7wvw7qkv3t980ttukhlt2f6c8m0",
@@ -404,11 +410,6 @@
       null
     ],
     [
-      "privateinternetaccess",
-      "londontrustmedia.com",
-      "hs1qy4r9ew2e3yaa2g7dhepfsn4vsjydszgtl2cfgp"
-    ],
-    [
       "socialchess",
       "carlson.net",
       null
@@ -417,6 +418,11 @@
       "spontaneous",
       "handshake.org",
       "hs1qe87af6nq4ctwf4h60ell4mqqnc5tyetaslx5vl"
+    ],
+    [
+      "userland",
+      "londontrustmedia.com",
+      "hs1qrqchz5xdzmql8dddz504cy6kage9e9tdjzjgtu"
     ],
     [
       "vaporware",
@@ -430,12 +436,6 @@
       "tiki.org",
       "hs1qqyjf3r3rd3z49nrm525yukyuspq60xk0eam8du",
       "duplicate-owned"
-    ],
-    [
-      "userland",
-      "londontrustmedia.com",
-      "hs1qrqchz5xdzmql8dddz504cy6kage9e9tdjzjgtu",
-      "duplicate-alias"
     ]
   ],
   "old": [
