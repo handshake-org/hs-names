@@ -10,6 +10,7 @@ const util = require('./util');
 const floor = Math.floor;
 
 const BLACKLIST = require('./names/blacklist.json');
+const CUSTOM = require('./names/custom.json');
 const RTLD = require('./names/rtld.json');
 const ALEXA = require('./names/alexa.json');
 const WORDS = require('./names/words.json');
@@ -119,7 +120,9 @@ function compile() {
     // Check for collisions.
     const cache = table.get(name);
     if (cache) {
-      if (cache.rank === -1)
+      if (cache.rank === -2)
+        invalidate(domain, rank, 'existing-naming-project', cache);
+      else if (cache.rank === -1)
         invalidate(domain, rank, 'trademarked', cache);
       else
         invalidate(domain, rank, 'collision', cache);
@@ -138,6 +141,16 @@ function compile() {
     table.set(name, item);
     names.push(item);
   };
+
+  // Custom TLDs (these are domains
+  // for existing naming projects).
+  for (const [name, domain] of CUSTOM) {
+    const tld = domain.split('.').slice(1).join('.');
+
+    assert(!blacklist.has(name));
+
+    insert(domain, -2, name, tld);
+  }
 
   // Trademarked TLDs (these are domains
   // who submitted a trademark claim).

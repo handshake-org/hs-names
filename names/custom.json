@@ -1,0 +1,34 @@
+[
+  [
+    "bit",
+    "bit.namecoin.org"
+  ],
+  [
+    "eth",
+    "eth.ens.domains"
+  ],
+  [
+    "exit",
+    "exit.torproject.org"
+  ],
+  [
+    "gnu",
+    "gnu.gnunet.org"
+  ],
+  [
+    "i2p",
+    "i2p.geti2p.net"
+  ],
+  [
+    "onion",
+    "onion.torproject.org"
+  ],
+  [
+    "tor",
+    "tor.torproject.org"
+  ],
+  [
+    "zkey",
+    "zkey.gnunet.org"
+  ]
+]

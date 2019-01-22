@@ -24,20 +24,31 @@ const ALEXA_PATH = Path.resolve(__dirname, 'data', 'top-1m.csv');
 const ROOT_PATH = Path.resolve(__dirname, 'data', 'root.zone');
 const WORDS_PATH = '/usr/share/dict/words';
 
+// These names are blacklisted entirely.
 const BLACKLIST = [
-  'bit', // Namecoin
-  'eth', // ENS
   'example', // ICANN reserved
-  'exit', // Tor
-  'gnu', // GNUnet (GNS)
-  'i2p', // Invisible Internet Project
   'invalid', // ICANN reserved
   'local', // mDNS
   'localhost', // ICANN reserved
-  'onion', // Tor
-  'test', // ICANN reserved
-  'tor', // OnioNS
-  'zkey' // GNS
+  'test' // ICANN reserved
+];
+
+// These names are also blacklisted
+// by policy rules, but are given to
+// other naming projects in case they
+// want to create some kind of
+// compatibility bridge. Their name
+// can be removed from policy rules
+// later.
+const CUSTOM = [
+  ['bit', 'bit.namecoin.org'], // Namecoin
+  ['eth', 'eth.ens.domains'], // ENS
+  ['exit', 'exit.torproject.org'], // Tor
+  ['gnu', 'gnu.gnunet.org'], // GNUnet (GNS)
+  ['i2p', 'i2p.geti2p.net'], // Invisible Internet Project
+  ['onion', 'onion.torproject.org'], // Tor
+  ['tor', 'tor.torproject.org'], // Tor (OnioNS)
+  ['zkey', 'zkey.gnunet.org'] // GNS
 ];
 
 const TLD = [
@@ -178,6 +189,10 @@ const WORDS = (() => {
 fs.writeFileSync(
   Path.resolve(__dirname, 'names', 'blacklist.json'),
   JSON.stringify(BLACKLIST, null, 2) + '\n');
+
+fs.writeFileSync(
+  Path.resolve(__dirname, 'names', 'custom.json'),
+  JSON.stringify(CUSTOM, null, 2) + '\n');
 
 fs.writeFileSync(
   Path.resolve(__dirname, 'names', 'tld.json'),

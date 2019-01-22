@@ -24,34 +24,38 @@ In order to have your domain pre-reserved, there are a few rules implemented in
 `generate.js` that it must conform to:
 
 1. The domain's deepest subdomain must not be in the blacklist. This includes:
-  - `bit` - Namecoin.
-  - `eth` - Ethereum Name Service.
   - `example` - ICANN Reserved.
-  - `exit` - Tor.
-  - `gnu` - GNUnet (GNS).
-  - `i2p` - Invisible Internet Project.
   - `invalid` - ICANN Reserved.
   - `local` - mDNS.
   - `localhost` - ICANN Reserved.
-  - `onion` - Tor.
   - `test` - ICANN Reserved.
+2. The domain's deepest subdomain must not be a pseudo-TLD for an existing
+   naming project. This includes:
+  - `bit` - Namecoin.
+  - `eth` - Ethereum Name Service.
+  - `exit` - Tor.
+  - `gnu` - GNUnet (GNS).
+  - `i2p` - Invisible Internet Project.
+  - `onion` - Tor.
   - `tor` - OnioNS.
   - `zkey` - GNS.
-2. The domain must not collide with an existing top-level domain in ICANN's
+3. The domain's deepest subdomain must not be a trademarked name. See
+   `names/trademarks.json` for a list.
+4. The domain must not collide with an existing top-level domain in ICANN's
    root zone, as all existing TLDs are also pre-reserved. For example,
    `google.com` would lose to `google`.
-3. The domain must not collide with a higher-ranked domain. For example,
+5. The domain must not collide with a higher-ranked domain. For example,
    `google.co.uk` would lose to `google.com`. Only the owner of the
    _higher-ranked_ domain is able to redeem it.
-4. The domain must not be deeply nested. `bbc.co.uk` will work, but
+6. The domain must not be deeply nested. `bbc.co.uk` will work, but
    `jeffs-blog.wordpress.com` will not (see `generate.js` for acceptable
    third-level domains).
-5. The domain must abide by Handshake policy standards (no leading or trailing
+7. The domain must abide by Handshake policy standards (no leading or trailing
    hyphens or underscores).
-6. The domain must not be a single letter.
-7. If the domain is ranked lower than 50,000, the domain must not be two
+8. The domain must not be a single letter.
+9. If the domain is ranked lower than 50,000, the domain must not be two
    letters.
-8. If the domain is ranked lower than 50,000, the domain must not be an
+10. If the domain is ranked lower than 50,000, the domain must not be an
    English word.
 
 The `download` script was last run on June 4th, 2018, at 6:18pm PDT. This is
