@@ -9,10 +9,12 @@ const bio = require('bufio');
 const util = require('./util');
 const floor = Math.floor;
 
+const BLACKLIST = require('./names/blacklist.json');
 const RTLD = require('./names/rtld.json');
 const ALEXA = require('./names/alexa.json');
 const WORDS = require('./names/words.json');
 const TRADEMARKS = require('./names/trademarks.json');
+const blacklist = new Set(BLACKLIST);
 const words = new Set(WORDS);
 
 const VALID_PATH = Path.resolve(__dirname, 'build', 'valid.json');
@@ -108,6 +110,12 @@ function compile() {
   };
 
   const insert = (domain, rank, name, tld) => {
+    // Ignore blacklist.
+    if (blacklist.has(name)) {
+      invalidate(domain, rank, 'blacklist');
+      return;
+    }
+
     // Check for collisions.
     const cache = table.get(name);
     if (cache) {
@@ -135,6 +143,8 @@ function compile() {
   // who submitted a trademark claim).
   for (const [name, domain] of TRADEMARKS) {
     const tld = domain.split('.').slice(1).join('.');
+
+    assert(!blacklist.has(name));
 
     insert(domain, -1, name, tld);
   }
