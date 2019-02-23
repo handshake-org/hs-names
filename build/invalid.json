@@ -6575,6 +6575,7 @@
   ["glassdoor.ch", 61369, "collision", ["glassdoor.com", 529]],
   ["alfabank.com.ua", 61382, "collision", ["alfabank.ru", 4662]],
   ["barter.vg", 61383, "english-word"],
+  ["keybase.pub", 61404, "existing-naming-project", ["keybase.io", -2]],
   ["jogosonline.uol.com.br", 61421, "deeply-nested"],
   ["lmu.de", 61426, "collision", ["lmu.edu", 40253]],
   ["grad.bg", 61428, "english-word"],

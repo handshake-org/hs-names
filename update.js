@@ -48,15 +48,24 @@ const CUSTOM = [
   ['i2p', 'i2p.geti2p.net'], // Invisible Internet Project
   ['onion', 'onion.torproject.org'], // Tor
   ['tor', 'tor.torproject.org'], // Tor (OnioNS)
-  ['zkey', 'zkey.gnunet.org'] // GNS
+  ['zkey', 'zkey.gnunet.org'], // GNS
+
+  // Required to make the custom values work:
+  ['brave', 'brave.com'], // Brave (english word)
+  ['keybase', 'keybase.io'], // Keybase (keybase.pub takes precedence)
+  ['blockstack', 'blockstack.com'], // Blockstack (does not rank)
+  ['pir', 'pir.org'], // Public Internet Registry (does not rank)
+  ['afilias', 'afilias.info'], // Afilias plc (does not rank)
+  ['identrust', 'identrust.com'], // IdenTrust (does not rank)
+  ['globalsign', 'globalsign.com'] // GMO GlobalSign (does not rank)
 ];
 
 const VALUES = [
   ['icann.org', 27880000], // ICANN
-  ['ens.domains', 10200000], // ENS
+  ['eth.ens.domains', 10200000], // ENS (old: ens.domains)
   ['blockstack.com', 10200000], // Blockstack
   ['cloudflare.com', 6800000], // Cloudflare
-  ['verisign.com', 6800000], // Verisign
+  ['verisign', 6800000], // Verisign (old: verisign.com)
   ['keybase.io', 3400000], // Keybase
   ['pir.org', 3400000], // Public Internet Registry
   ['afilias.info', 3400000], // Afilias plc
@@ -65,7 +74,7 @@ const VALUES = [
   ['comodo.com', 3400000], // Comodo
   ['namecheap.com', 2720000], // Namecheap
   ['digicert.com', 2720000], // Digicert
-  ['godaddy.com', 2720000], // Godaddy
+  ['godaddy', 2720000], // Godaddy (old: godaddy.com)
   ['globalsign.com', 1360000] // GMO GlobalSign
 ];
 

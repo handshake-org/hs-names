@@ -30,5 +30,33 @@
   [
     "zkey",
     "zkey.gnunet.org"
+  ],
+  [
+    "brave",
+    "brave.com"
+  ],
+  [
+    "keybase",
+    "keybase.io"
+  ],
+  [
+    "blockstack",
+    "blockstack.com"
+  ],
+  [
+    "pir",
+    "pir.org"
+  ],
+  [
+    "afilias",
+    "afilias.info"
+  ],
+  [
+    "identrust",
+    "identrust.com"
+  ],
+  [
+    "globalsign",
+    "globalsign.com"
   ]
 ]

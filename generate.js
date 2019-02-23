@@ -311,8 +311,7 @@ const items = [];
 
 const SHARE = 102e6 * 1e6; // 7.5%
 const HALF_SHARE = SHARE / 2;
-const NAME_VALUE =
-  floor(HALF_SHARE / (names.length - embargoes.size - values.size));
+const NAME_VALUE = floor(HALF_SHARE / (names.length - embargoes.size));
 const ROOT_VALUE =
   NAME_VALUE + floor(HALF_SHARE / (RTLD.length - embargoes.size));
 
@@ -365,12 +364,16 @@ const ROOT_VALUE =
  * Compile
  */
 
+let totalTLDS = 0;
+
 for (const {name, domain, rank} of names) {
   let flags = 0;
   let custom = -1;
 
-  if (rank === 0)
+  if (rank === 0) {
     flags |= 1; // Root
+    totalTLDS += 1;
+  }
 
   if (embargoes.has(name))
     flags |= 2; // Embargoed
@@ -394,6 +397,8 @@ for (const {name, domain, rank} of names) {
     custom
   });
 }
+
+assert(totalTLDS === RTLD.length);
 
 if (values.size !== 0) {
   console.error('Custom values not satisfied:');
