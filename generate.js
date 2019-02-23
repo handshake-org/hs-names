@@ -11,12 +11,14 @@ const floor = Math.floor;
 
 const BLACKLIST = require('./names/blacklist.json');
 const CUSTOM = require('./names/custom.json');
+const VALUES = require('./names/values.json');
 const RTLD = require('./names/rtld.json');
 const ALEXA = require('./names/alexa.json');
 const WORDS = require('./names/words.json');
 const TRADEMARKS = require('./names/trademarks.json');
 const blacklist = new Set(BLACKLIST);
 const words = new Set(WORDS);
+const values = new Map(VALUES);
 
 const VALID_PATH = Path.resolve(__dirname, 'build', 'valid.json');
 const INVALID_PATH = Path.resolve(__dirname, 'build', 'invalid.json');
@@ -308,8 +310,11 @@ const [names, invalid] = compile();
 const items = [];
 
 const SHARE = 102e6 * 1e6; // 7.5%
-const NAME_VALUE = floor(SHARE / (names.length - embargoes.size));
-const ROOT_VALUE = NAME_VALUE + floor(SHARE / (RTLD.length - embargoes.size));
+const HALF_SHARE = SHARE / 2;
+const NAME_VALUE =
+  floor(HALF_SHARE / (names.length - embargoes.size - values.size));
+const ROOT_VALUE =
+  NAME_VALUE + floor(HALF_SHARE / (RTLD.length - embargoes.size));
 
 {
   const json = [];
@@ -362,6 +367,7 @@ const ROOT_VALUE = NAME_VALUE + floor(SHARE / (RTLD.length - embargoes.size));
 
 for (const {name, domain, rank} of names) {
   let flags = 0;
+  let custom = -1;
 
   if (rank === 0)
     flags |= 1; // Root
@@ -369,8 +375,11 @@ for (const {name, domain, rank} of names) {
   if (embargoes.has(name))
     flags |= 2; // Embargoed
 
-  // if (customValue != null)
-  //   flags |= 4; // Custom Value
+  if (values.has(domain)) {
+    flags |= 4; // Custom Value
+    custom = values.get(domain) * 1e6;
+    values.delete(domain);
+  }
 
   const hash = util.hashName(name);
   const hex = hash.toString('hex');
@@ -382,8 +391,14 @@ for (const {name, domain, rank} of names) {
     hex,
     target,
     flags,
-    custom: -1
+    custom
   });
+}
+
+if (values.size !== 0) {
+  console.error('Custom values not satisfied:');
+  console.error(values);
+  process.exit(1);
 }
 
 items.sort(sortHash);

@@ -51,6 +51,24 @@ const CUSTOM = [
   ['zkey', 'zkey.gnunet.org'] // GNS
 ];
 
+const VALUES = [
+  ['icann.org', 27880000], // ICANN
+  ['ens.domains', 10200000], // ENS
+  ['blockstack.com', 10200000], // Blockstack
+  ['cloudflare.com', 6800000], // Cloudflare
+  ['verisign.com', 6800000], // Verisign
+  ['keybase.io', 3400000], // Keybase
+  ['pir.org', 3400000], // Public Internet Registry
+  ['afilias.info', 3400000], // Afilias plc
+  ['identrust.com', 3400000], // IdenTrust
+  ['brave.com', 3400000], // Brave
+  ['comodo.com', 3400000], // Comodo
+  ['namecheap.com', 2720000], // Namecheap
+  ['digicert.com', 2720000], // Digicert
+  ['godaddy.com', 2720000], // Godaddy
+  ['globalsign.com', 1360000] // GMO GlobalSign
+];
+
 const TLD = [
   'arpa',
   'com',
@@ -193,6 +211,10 @@ fs.writeFileSync(
 fs.writeFileSync(
   Path.resolve(__dirname, 'names', 'custom.json'),
   JSON.stringify(CUSTOM, null, 2) + '\n');
+
+fs.writeFileSync(
+  Path.resolve(__dirname, 'names', 'values.json'),
+  JSON.stringify(VALUES, null, 2) + '\n');
 
 fs.writeFileSync(
   Path.resolve(__dirname, 'names', 'tld.json'),
