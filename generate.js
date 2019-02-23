@@ -310,10 +310,15 @@ const [names, invalid] = compile();
 const items = [];
 
 const SHARE = 102e6 * 1e6; // 7.5%
-const HALF_SHARE = SHARE / 2;
+const HALF_SHARE = floor(SHARE / 2);
 const NAME_VALUE = floor(HALF_SHARE / (names.length - embargoes.size));
 const ROOT_VALUE =
   NAME_VALUE + floor(HALF_SHARE / (RTLD.length - embargoes.size));
+
+// Note: One of the naming/CA recipients preferred to use an address instead of
+// a name to redeem their coins. As such, their coins are given to them in the
+// faucet merkle tree instead.
+const EXTRA_VALUE = 10200000 * 1e6;
 
 {
   const json = [];
@@ -365,6 +370,8 @@ const ROOT_VALUE =
  */
 
 let totalTLDS = 0;
+let totalValue = 0;
+let totalEmbargoes = 0;
 
 for (const {name, domain, rank} of names) {
   let flags = 0;
@@ -375,13 +382,25 @@ for (const {name, domain, rank} of names) {
     totalTLDS += 1;
   }
 
-  if (embargoes.has(name))
+  if (embargoes.has(domain)) {
     flags |= 2; // Embargoed
+    totalEmbargoes += 1;
+  }
 
   if (values.has(domain)) {
     flags |= 4; // Custom Value
     custom = values.get(domain) * 1e6;
     values.delete(domain);
+  }
+
+  if (!(flags & 2)) {
+    if (flags & 1)
+      totalValue += ROOT_VALUE;
+    else
+      totalValue += NAME_VALUE;
+
+    if (flags & 4)
+      totalValue += custom;
   }
 
   const hash = util.hashName(name);
@@ -398,7 +417,10 @@ for (const {name, domain, rank} of names) {
   });
 }
 
-assert(totalTLDS === RTLD.length);
+assert.strictEqual(totalTLDS, RTLD.length);
+assert.strictEqual(totalEmbargoes, embargoes.size);
+assert(totalValue + EXTRA_VALUE <= SHARE * 2);
+assert.strictEqual(totalValue + EXTRA_VALUE, 203999999936738);
 
 if (values.size !== 0) {
   console.error('Custom values not satisfied:');
