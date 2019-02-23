@@ -58,7 +58,9 @@ const CUSTOM = [
   ['afilias', 'afilias.info'], // Afilias plc (does not rank)
   ['identrust', 'identrust.com'], // IdenTrust (does not rank)
   ['globalsign', 'globalsign.com'] // GMO GlobalSign (does not rank)
-];
+].sort(([a], [b]) => {
+  return a.localeCompare(b);
+});
 
 const VALUES = [
   ['icann.org', 27880000], // ICANN

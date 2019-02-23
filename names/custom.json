@@ -1,7 +1,19 @@
 [
   [
+    "afilias",
+    "afilias.info"
+  ],
+  [
     "bit",
     "bit.namecoin.org"
+  ],
+  [
+    "blockstack",
+    "blockstack.com"
+  ],
+  [
+    "brave",
+    "brave.com"
   ],
   [
     "eth",
@@ -12,6 +24,10 @@
     "exit.torproject.org"
   ],
   [
+    "globalsign",
+    "globalsign.com"
+  ],
+  [
     "gnu",
     "gnu.gnunet.org"
   ],
@@ -20,8 +36,20 @@
     "i2p.geti2p.net"
   ],
   [
+    "identrust",
+    "identrust.com"
+  ],
+  [
+    "keybase",
+    "keybase.io"
+  ],
+  [
     "onion",
     "onion.torproject.org"
+  ],
+  [
+    "pir",
+    "pir.org"
   ],
   [
     "tor",
@@ -30,33 +58,5 @@
   [
     "zkey",
     "zkey.gnunet.org"
-  ],
-  [
-    "brave",
-    "brave.com"
-  ],
-  [
-    "keybase",
-    "keybase.io"
-  ],
-  [
-    "blockstack",
-    "blockstack.com"
-  ],
-  [
-    "pir",
-    "pir.org"
-  ],
-  [
-    "afilias",
-    "afilias.info"
-  ],
-  [
-    "identrust",
-    "identrust.com"
-  ],
-  [
-    "globalsign",
-    "globalsign.com"
   ]
 ]
