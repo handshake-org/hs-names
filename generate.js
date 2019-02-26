@@ -420,7 +420,7 @@ for (const {name, domain, rank} of names) {
 assert.strictEqual(totalTLDS, RTLD.length);
 assert.strictEqual(totalEmbargoes, embargoes.size);
 assert(totalValue + EXTRA_VALUE <= SHARE * 2);
-assert.strictEqual(totalValue + EXTRA_VALUE, 203999999936738);
+assert.strictEqual(totalValue + EXTRA_VALUE, 203999999937640);
 
 if (values.size !== 0) {
   console.error('Custom values not satisfied:');

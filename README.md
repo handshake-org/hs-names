@@ -108,15 +108,21 @@ and their pre-converted counterparts.
 
 Names which were added _after_ the final snapshot:
 
-- `charity` - A new TLD added on ICANN's system.
-- `inc` - A new TLD added on ICANN's system.
+- `charity` - A new gTLD added on ICANN's system.
+- `inc` - A new gTLD added on ICANN's system.
+- `ss` - ccTLD for South Sudan.
+- `xn--mgbah1a3hjkrd` - iccTLD for Mauritania.
 
 Names which were removed _after_ the final snapshot:
 
-- `goodhands` - A TLD removed from ICANN's system.
-- `jlc` - A TLD removed from ICANN's system.
-- `panerai` - A TLD removed from ICANN's system.
-- `spiegel` - A TLD removed from ICANN's system.
-- `statoil` - A TLD removed from ICANN's system.
-- `telecity` - A TLD removed from ICANN's system.
-- `vista` - A TLD removed from ICANN's system.
+- `goodhands` - A gTLD removed from ICANN's system.
+- `jlc` - A gTLD removed from ICANN's system.
+- `panerai` - A gTLD removed from ICANN's system.
+- `spiegel` - A gTLD removed from ICANN's system.
+- `statoil` - A gTLD removed from ICANN's system.
+- `telecity` - A gTLD removed from ICANN's system.
+- `vista` - A gTLD removed from ICANN's system.
+- `epost` - A gTLD removed from ICANN's system.
+- `zippo` - A gTLD removed from ICANN's system.
+- `blanco` - A gTLD removed from ICANN's system.
+- `active` - A gTLD removed from ICANN's system.
