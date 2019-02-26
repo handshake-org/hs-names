@@ -43,12 +43,12 @@ const BLACKLIST = [
 const CUSTOM = [
   ['bit', 'bit.namecoin.org'], // Namecoin
   ['eth', 'eth.ens.domains'], // ENS
-  ['exit', 'exit.torproject.org'], // Tor
-  ['gnu', 'gnu.gnunet.org'], // GNUnet (GNS)
+  ['exit', 'exit.torproject.com'], // Tor
+  ['gnu', 'gnu.gplv3.com'], // GNUnet (GNS)
   ['i2p', 'i2p.geti2p.net'], // Invisible Internet Project
-  ['onion', 'onion.torproject.org'], // Tor
-  ['tor', 'tor.torproject.org'], // Tor (OnioNS)
-  ['zkey', 'zkey.gnunet.org'], // GNS
+  ['onion', 'onion.torproject.com'], // Tor
+  ['tor', 'tor.torproject.com'], // Tor (OnioNS)
+  ['zkey', 'zkey.gplv3.com'], // GNS
 
   // Required to make the custom values work:
   ['brave', 'brave.com'], // Brave (english word)
