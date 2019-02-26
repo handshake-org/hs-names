@@ -21,7 +21,7 @@
   ],
   [
     "exit",
-    "exit.torproject.org"
+    "exit.torproject.com"
   ],
   [
     "globalsign",
@@ -29,7 +29,7 @@
   ],
   [
     "gnu",
-    "gnu.gnunet.org"
+    "gnu.gplv3.com"
   ],
   [
     "i2p",
@@ -45,7 +45,7 @@
   ],
   [
     "onion",
-    "onion.torproject.org"
+    "onion.torproject.com"
   ],
   [
     "pir",
@@ -53,10 +53,10 @@
   ],
   [
     "tor",
-    "tor.torproject.org"
+    "tor.torproject.com"
   ],
   [
     "zkey",
-    "zkey.gnunet.org"
+    "zkey.gplv3.com"
   ]
 ]
