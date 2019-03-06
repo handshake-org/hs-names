@@ -41,7 +41,7 @@ const BLACKLIST = [
 // can be removed from policy rules
 // later.
 const CUSTOM = [
-  ['bit', 'bit.namecoin.org'], // Namecoin
+  ['bit', 'bit.domob.eu'], // Namecoin
   ['eth', 'eth.ens.domains'], // ENS
   ['exit', 'exit.torproject.com'], // Tor
   ['gnu', 'gnu.gplv3.com'], // GNUnet (GNS)
