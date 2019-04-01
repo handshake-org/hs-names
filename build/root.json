@@ -872,10 +872,7 @@
     "ds": [],
     "ns": [
       "ns.cocca.fr.@185.17.236.93,2a03:dd40:3::93",
-      "ns1.pair.com.@209.68.1.11",
-      "ns2.offshore.ai.@108.166.113.245",
-      "pch.whois.ai.@204.61.216.123,2001:500:14:6123:ad::1",
-      "whois.ai.@209.59.119.1"
+      "pch.whois.ai.@204.61.216.123,2001:500:14:6123:ad::1"
     ]
   },
   "aig.": {
@@ -1137,6 +1134,14 @@
     "ttl": 86400,
     "ds": [
       {
+        "keyTag": 11155,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "2337b2a34993e96d38fc18da0873463c467385bfe16e09e51245673f027f913a",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
         "keyTag": 39881,
         "algorithm": 8,
         "digestType": 2,
@@ -1146,10 +1151,10 @@
       }
     ],
     "ns": [
-      "ns1a.ksregistry.net.@203.119.88.75,2001:dd8:7:6075:dc::1",
-      "ns1b.ksregistry.net.@72.0.48.75,2620:171:a00:ad::75",
-      "ns2a.ksregistry.com.@203.119.88.76,2001:dd8:7:6076:dc::1",
-      "ns2b.ksregistry.com.@72.0.48.76,2620:171:a00:ad::76"
+      "a.nic.allfinanz.@194.169.218.75,2001:67c:13cc::1:75",
+      "b.nic.allfinanz.@185.24.64.75,2a04:2b00:13cc::1:75",
+      "c.nic.allfinanz.@212.18.248.75,2a04:2b00:13ee::75",
+      "d.nic.allfinanz.@212.18.249.75,2a04:2b00:13ff::75"
     ]
   },
   "allstate.": {
@@ -1701,7 +1706,6 @@
     "ns": [
       "a.aq.dyntld.net.@162.88.52.6,2600:2000:3000::6",
       "b.aq.dyntld.net.@162.88.53.6,2600:2000:3001::6",
-      "ns1.dns.aq.@203.119.56.132",
       "fork.sth.dnsnode.net.@77.72.229.254,2a01:3f0:0:306::53",
       "ns99.dns.net.nz.@202.46.190.131,2001:dce:2000:2::131"
     ]
@@ -2280,12 +2284,13 @@
       }
     ],
     "ns": [
-      "ns1.dns.nic.audible.@156.154.144.17,2610:a1:1071::11",
-      "ns2.dns.nic.audible.@156.154.145.17,2610:a1:1072::11",
-      "ns3.dns.nic.audible.@156.154.159.17,2610:a1:1073::11",
       "ns4.dns.nic.audible.@156.154.156.17,2610:a1:1074::11",
       "ns5.dns.nic.audible.@156.154.157.17,2610:a1:1075::11",
-      "ns6.dns.nic.audible.@156.154.158.17,2610:a1:1076::11"
+      "ns6.dns.nic.audible.@156.154.158.17,2610:a1:1076::11",
+      "dns1.nic.audible.@213.248.218.56,2a01:618:402::56",
+      "dns2.nic.audible.@103.49.82.56,2401:fd80:402::56",
+      "dns3.nic.audible.@213.248.222.56,2a01:618:406::56",
+      "dns4.nic.audible.@43.230.50.56,2401:fd80:406::56"
     ]
   },
   "audio.": {
@@ -2419,12 +2424,13 @@
       }
     ],
     "ns": [
-      "ns1.dns.nic.author.@156.154.144.18,2610:a1:1071::12",
-      "ns2.dns.nic.author.@156.154.145.18,2610:a1:1072::12",
-      "ns3.dns.nic.author.@156.154.159.18,2610:a1:1073::12",
       "ns4.dns.nic.author.@156.154.156.18,2610:a1:1074::12",
       "ns5.dns.nic.author.@156.154.157.18,2610:a1:1075::12",
-      "ns6.dns.nic.author.@156.154.158.18,2610:a1:1076::12"
+      "ns6.dns.nic.author.@156.154.158.18,2610:a1:1076::12",
+      "dns1.nic.author.@213.248.218.60,2a01:618:402::60",
+      "dns2.nic.author.@103.49.82.60,2401:fd80:402::60",
+      "dns3.nic.author.@213.248.222.60,2a01:618:406::60",
+      "dns4.nic.author.@43.230.50.60,2401:fd80:406::60"
     ]
   },
   "auto.": {
@@ -2727,6 +2733,22 @@
     "ttl": 86400,
     "ds": [
       {
+        "keyTag": 11182,
+        "algorithm": 8,
+        "digestType": 1,
+        "digest": "2f9e0e7e8927dc3be61ac15eb79dd5caeaf1b303",
+        "algName": "RSASHA256",
+        "hashName": "SHA1"
+      },
+      {
+        "keyTag": 11182,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "6b39ccc9ba6c73c818d68522547e5d56db46e13607dc0e83047d6e111067dcb2",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
         "keyTag": 19240,
         "algorithm": 8,
         "digestType": 1,
@@ -2760,12 +2782,10 @@
       }
     ],
     "ns": [
-      "ns1.dns.nic.baby.@156.154.144.199,2610:a1:1071::c7",
-      "ns2.dns.nic.baby.@156.154.145.199,2610:a1:1072::c7",
-      "ns3.dns.nic.baby.@156.154.159.199,2610:a1:1073::c7",
-      "ns4.dns.nic.baby.@156.154.156.199,2610:a1:1074::c7",
-      "ns5.dns.nic.baby.@156.154.157.199,2610:a1:1075::c7",
-      "ns6.dns.nic.baby.@156.154.158.199,2610:a1:1076::c7"
+      "a.nic.baby.@194.169.218.101,2001:67c:13cc::1:101",
+      "b.nic.baby.@185.24.64.101,2a04:2b00:13cc::1:101",
+      "c.nic.baby.@212.18.248.101,2a04:2b00:13ee::101",
+      "d.nic.baby.@212.18.249.101,2a04:2b00:13ff::101"
     ]
   },
   "baidu.": {
@@ -4184,13 +4204,21 @@
         "digest": "6c86d7e525248df05c8dd7720648d4cb629daae2dcd163bfc74d28312fd5311a",
         "algName": "RSASHA256",
         "hashName": "SHA256"
+      },
+      {
+        "keyTag": 43579,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "b543b5adba44e6e32d11c93bb4e729d80fa1197f59b2ae505a1e292605234793",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
       }
     ],
     "ns": [
-      "ns1a.ksregistry.net.@203.119.88.75,2001:dd8:7:6075:dc::1",
-      "ns1b.ksregistry.net.@72.0.48.75,2620:171:a00:ad::75",
-      "ns2a.ksregistry.com.@203.119.88.76,2001:dd8:7:6076:dc::1",
-      "ns2b.ksregistry.com.@72.0.48.76,2620:171:a00:ad::76"
+      "a.nic.bmw.@194.169.218.76,2001:67c:13cc::1:76",
+      "b.nic.bmw.@185.24.64.76,2a04:2b00:13cc::1:76",
+      "c.nic.bmw.@212.18.248.76,2a04:2b00:13ee::76",
+      "d.nic.bmw.@212.18.249.76,2a04:2b00:13ff::76"
     ]
   },
   "bn.": {
@@ -4453,12 +4481,13 @@
       }
     ],
     "ns": [
-      "ns1.dns.nic.book.@156.154.144.204,2610:a1:1071::cc",
-      "ns2.dns.nic.book.@156.154.145.204,2610:a1:1072::cc",
-      "ns3.dns.nic.book.@156.154.159.204,2610:a1:1073::cc",
       "ns4.dns.nic.book.@156.154.156.204,2610:a1:1074::cc",
       "ns5.dns.nic.book.@156.154.157.204,2610:a1:1075::cc",
-      "ns6.dns.nic.book.@156.154.158.204,2610:a1:1076::cc"
+      "ns6.dns.nic.book.@156.154.158.204,2610:a1:1076::cc",
+      "dns1.nic.book.@213.248.218.61,2a01:618:402::61",
+      "dns2.nic.book.@103.49.82.61,2401:fd80:402::61",
+      "dns3.nic.book.@213.248.222.61,2a01:618:406::61",
+      "dns4.nic.book.@43.230.50.61,2401:fd80:406::61"
     ]
   },
   "booking.": {
@@ -4735,6 +4764,14 @@
         "digest": "5d155187401107875e2f6093a83aa143dcc64b9c6b016dd1826b7797c42d3fcf",
         "algName": "RSASHA256",
         "hashName": "SHA256"
+      },
+      {
+        "keyTag": 8575,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "aa4b874cf014a4df2e7dc9e5a6b8b3efa5dc966a834f4802beb19b5cd7442403",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
       }
     ],
     "ns": [
@@ -4789,6 +4826,14 @@
   "brother.": {
     "ttl": 86400,
     "ds": [
+      {
+        "keyTag": 6875,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "8955e563809e8dfe8f6b18fb0b23ad043dc6957e2aac1a5f2c8b4ca3244270eb",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
       {
         "keyTag": 63860,
         "algorithm": 8,
@@ -4854,9 +4899,8 @@
     "ttl": 172800,
     "ds": [],
     "ns": [
-      "dns.nic.bs.@65.75.73.213",
       "ns36.cdns.net.@194.0.1.36,2001:678:4::24",
-      "anyns.dns.bs.@204.61.216.68",
+      "anyns.dns.bs.@204.61.216.68,2001:500:14:6068:ad::1",
       "anyns.pch.net.@204.61.216.4,2001:500:14:6004:ad::1"
     ]
   },
@@ -5050,12 +5094,13 @@
       }
     ],
     "ns": [
-      "ns1.dns.nic.buy.@156.154.144.206,2610:a1:1071::ce",
-      "ns2.dns.nic.buy.@156.154.145.206,2610:a1:1072::ce",
-      "ns3.dns.nic.buy.@156.154.159.206,2610:a1:1073::ce",
       "ns4.dns.nic.buy.@156.154.156.206,2610:a1:1074::ce",
       "ns5.dns.nic.buy.@156.154.157.206,2610:a1:1075::ce",
-      "ns6.dns.nic.buy.@156.154.158.206,2610:a1:1076::ce"
+      "ns6.dns.nic.buy.@156.154.158.206,2610:a1:1076::ce",
+      "dns1.nic.buy.@213.248.218.62,2a01:618:402::62",
+      "dns2.nic.buy.@103.49.82.62,2401:fd80:402::62",
+      "dns3.nic.buy.@213.248.222.62,2a01:618:406::62",
+      "dns4.nic.buy.@43.230.50.62,2401:fd80:406::62"
     ]
   },
   "buzz.": {
@@ -5362,12 +5407,13 @@
       }
     ],
     "ns": [
-      "ns1.dns.nic.call.@156.154.144.30,2610:a1:1071::1e",
-      "ns2.dns.nic.call.@156.154.145.30,2610:a1:1072::1e",
-      "ns3.dns.nic.call.@156.154.159.30,2610:a1:1073::1e",
       "ns4.dns.nic.call.@156.154.156.30,2610:a1:1074::1e",
       "ns5.dns.nic.call.@156.154.157.30,2610:a1:1075::1e",
-      "ns6.dns.nic.call.@156.154.158.30,2610:a1:1076::1e"
+      "ns6.dns.nic.call.@156.154.158.30,2610:a1:1076::1e",
+      "dns1.nic.call.@213.248.218.63,2a01:618:402::63",
+      "dns2.nic.call.@103.49.82.63,2401:fd80:402::63",
+      "dns3.nic.call.@213.248.222.63,2a01:618:406::63",
+      "dns4.nic.call.@43.230.50.63,2401:fd80:406::63"
     ]
   },
   "calvinklein.": {
@@ -5419,6 +5465,14 @@
     "ttl": 86400,
     "ds": [
       {
+        "keyTag": 5089,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "a17021ada565f6b13749741dc51a25b0f524bae6b753343155cfe8426cd29462",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
         "keyTag": 27179,
         "algorithm": 8,
         "digestType": 2,
@@ -5428,10 +5482,10 @@
       }
     ],
     "ns": [
-      "ns1a.ksregistry.net.@203.119.88.75,2001:dd8:7:6075:dc::1",
-      "ns1b.ksregistry.net.@72.0.48.75,2620:171:a00:ad::75",
-      "ns2a.ksregistry.com.@203.119.88.76,2001:dd8:7:6076:dc::1",
-      "ns2b.ksregistry.com.@72.0.48.76,2620:171:a00:ad::76"
+      "a.nic.cam.@194.169.218.77,2001:67c:13cc::1:77",
+      "b.nic.cam.@185.24.64.77,2a04:2b00:13cc::1:77",
+      "c.nic.cam.@212.18.248.77,2a04:2b00:13ee::77",
+      "d.nic.cam.@212.18.249.77,2a04:2b00:13ff::77"
     ]
   },
   "camera.": {
@@ -5518,6 +5572,14 @@
   "canon.": {
     "ttl": 86400,
     "ds": [
+      {
+        "keyTag": 5225,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "9a1fc16a90acf3c7d3233480f45f595debdef3f71ae637bf3f8093670dda7d8a",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
       {
         "keyTag": 65201,
         "algorithm": 8,
@@ -6944,12 +7006,13 @@
       }
     ],
     "ns": [
-      "ns1.dns.nic.circle.@156.154.144.43,2610:a1:1071::2b",
-      "ns2.dns.nic.circle.@156.154.145.43,2610:a1:1072::2b",
-      "ns3.dns.nic.circle.@156.154.159.43,2610:a1:1073::2b",
       "ns4.dns.nic.circle.@156.154.156.43,2610:a1:1074::2b",
       "ns5.dns.nic.circle.@156.154.157.43,2610:a1:1075::2b",
-      "ns6.dns.nic.circle.@156.154.158.43,2610:a1:1076::2b"
+      "ns6.dns.nic.circle.@156.154.158.43,2610:a1:1076::2b",
+      "dns1.nic.circle.@213.248.218.64,2a01:618:402::64",
+      "dns2.nic.circle.@103.49.82.64,2401:fd80:402::64",
+      "dns3.nic.circle.@213.248.222.64,2a01:618:406::64",
+      "dns4.nic.circle.@43.230.50.64,2401:fd80:406::64"
     ]
   },
   "cisco.": {
@@ -7184,7 +7247,8 @@
       "c.nic.cl.@200.16.112.16",
       "cl1.dnsnode.net.@194.146.106.34,2001:67c:1010:8::53",
       "cl-ns.anycast.pch.net.@204.61.216.30,2001:500:14:6030:ad::1",
-      "sns-pb.isc.org.@192.5.4.1,2001:500:2e::1"
+      "cl1-tld.d-zone.ca.@185.159.197.56,2620:10a:80aa::56",
+      "cl2-tld.d-zone.ca.@185.159.198.56,2620:10a:80ab::56"
     ]
   },
   "claims.": {
@@ -8151,6 +8215,22 @@
         "digest": "6ee6b796b61c72e15174930066aa40b92e0183a406561272e6b574770551652e",
         "algName": "RSASHA256",
         "hashName": "SHA256"
+      },
+      {
+        "keyTag": 28444,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "4b4f87a36b53c3b32e01e850a40f3e2513427afc8d685609cbe6e2f633fac5d5",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
+        "keyTag": 36424,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "11200c3276096aaf5c427492437d031f24d2b059a194aa99b938f69576ee7324",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
       }
     ],
     "ns": [
@@ -8861,6 +8941,14 @@
     "ttl": 86400,
     "ds": [
       {
+        "keyTag": 11344,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "fb16fd51d18855f4127721bab619ca805d69817a84ce73b90be152205ca31a40",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
         "keyTag": 29492,
         "algorithm": 8,
         "digestType": 2,
@@ -9005,12 +9093,13 @@
       }
     ],
     "ns": [
-      "ns1.dns.nic.deal.@156.154.144.222,2610:a1:1071::de",
-      "ns2.dns.nic.deal.@156.154.145.222,2610:a1:1072::de",
-      "ns3.dns.nic.deal.@156.154.159.222,2610:a1:1073::de",
       "ns4.dns.nic.deal.@156.154.156.222,2610:a1:1074::de",
       "ns5.dns.nic.deal.@156.154.157.222,2610:a1:1075::de",
-      "ns6.dns.nic.deal.@156.154.158.222,2610:a1:1076::de"
+      "ns6.dns.nic.deal.@156.154.158.222,2610:a1:1076::de",
+      "dns1.nic.deal.@213.248.218.65,2a01:618:402::65",
+      "dns2.nic.deal.@103.49.82.65,2401:fd80:402::65",
+      "dns3.nic.deal.@213.248.222.65,2a01:618:406::65",
+      "dns4.nic.deal.@43.230.50.65,2401:fd80:406::65"
     ]
   },
   "dealer.": {
@@ -9789,6 +9878,14 @@
     "ttl": 86400,
     "ds": [
       {
+        "keyTag": 45296,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "51c787a8914386558c84d6cc426e45e73445a0d91094d2a8fb8f4d0ecdb60293",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
         "keyTag": 47647,
         "algorithm": 8,
         "digestType": 2,
@@ -10278,6 +10375,14 @@
     "ttl": 86400,
     "ds": [
       {
+        "keyTag": 3200,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "4544410064854638c7273c4481902b0b3218f905e6dae266a181dec2ab700bd3",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
         "keyTag": 26666,
         "algorithm": 8,
         "digestType": 2,
@@ -10287,10 +10392,10 @@
       }
     ],
     "ns": [
-      "ns1a.ksregistry.net.@203.119.88.75,2001:dd8:7:6075:dc::1",
-      "ns1b.ksregistry.net.@72.0.48.75,2620:171:a00:ad::75",
-      "ns2a.ksregistry.com.@203.119.88.76,2001:dd8:7:6076:dc::1",
-      "ns2b.ksregistry.com.@72.0.48.76,2620:171:a00:ad::76"
+      "a.nic.dvag.@194.169.218.84,2001:67c:13cc::1:84",
+      "b.nic.dvag.@185.24.64.84,2a04:2b00:13cc::1:84",
+      "c.nic.dvag.@212.18.248.84,2a04:2b00:13ee::84",
+      "d.nic.dvag.@212.18.249.84,2a04:2b00:13ff::84"
     ]
   },
   "dvr.": {
@@ -10715,6 +10820,14 @@
         "algorithm": 8,
         "digestType": 2,
         "digest": "e3f47a7db58a6c33f7ee93198b00f5f34279dee21be60747863f79b7e34c616f",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
+        "keyTag": 61387,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "9183de01e842231d1f1f951de9b25c160dfddbab7411aadfc6fa69764b7d44e2",
         "algName": "RSASHA256",
         "hashName": "SHA256"
       }
@@ -11545,12 +11658,13 @@
       }
     ],
     "ns": [
-      "ns1.dns.nic.fast.@156.154.144.56,2610:a1:1071::38",
-      "ns2.dns.nic.fast.@156.154.145.56,2610:a1:1072::38",
-      "ns3.dns.nic.fast.@156.154.159.56,2610:a1:1073::38",
       "ns4.dns.nic.fast.@156.154.156.56,2610:a1:1074::38",
       "ns5.dns.nic.fast.@156.154.157.56,2610:a1:1075::38",
-      "ns6.dns.nic.fast.@156.154.158.56,2610:a1:1076::38"
+      "ns6.dns.nic.fast.@156.154.158.56,2610:a1:1076::38",
+      "dns1.nic.fast.@213.248.218.66,2a01:618:402::66",
+      "dns2.nic.fast.@103.49.82.66,2401:fd80:402::66",
+      "dns3.nic.fast.@213.248.222.66,2a01:618:406::66",
+      "dns4.nic.fast.@43.230.50.66,2401:fd80:406::66"
     ]
   },
   "fedex.": {
@@ -11687,14 +11801,6 @@
         "algorithm": 8,
         "digestType": 2,
         "digest": "80cd184a31c50d5dc44b4f98811f298315986b44edcc0666455c6aef7dbd997e",
-        "algName": "RSASHA256",
-        "hashName": "SHA256"
-      },
-      {
-        "keyTag": 48592,
-        "algorithm": 8,
-        "digestType": 2,
-        "digest": "8194468a0c3a0d49e2c9c038cffc79e7190401b454f3c15b12d2fb13de0d975b",
         "algName": "RSASHA256",
         "hashName": "SHA256"
       }
@@ -11931,12 +12037,13 @@
       }
     ],
     "ns": [
-      "ns1.dns.nic.fire.@156.154.144.59,2610:a1:1071::3b",
-      "ns2.dns.nic.fire.@156.154.145.59,2610:a1:1072::3b",
-      "ns3.dns.nic.fire.@156.154.159.59,2610:a1:1073::3b",
       "ns4.dns.nic.fire.@156.154.156.59,2610:a1:1074::3b",
       "ns5.dns.nic.fire.@156.154.157.59,2610:a1:1075::3b",
-      "ns6.dns.nic.fire.@156.154.158.59,2610:a1:1076::3b"
+      "ns6.dns.nic.fire.@156.154.158.59,2610:a1:1076::3b",
+      "dns1.nic.fire.@213.248.218.57,2a01:618:402::57",
+      "dns2.nic.fire.@103.49.82.57,2401:fd80:402::57",
+      "dns3.nic.fire.@213.248.222.57,2a01:618:406::57",
+      "dns4.nic.fire.@43.230.50.57,2401:fd80:406::57"
     ]
   },
   "firestone.": {
@@ -11947,6 +12054,14 @@
         "algorithm": 8,
         "digestType": 2,
         "digest": "e185d089ab8b3d90485ee6212215c9c769883c4286aef4f8e0d387447debf9f9",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
+        "keyTag": 9944,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "4ffb2b67bad9d7c6d0def9ec1dc4ac201ef4137364729662e19f329c10801634",
         "algName": "RSASHA256",
         "hashName": "SHA256"
       }
@@ -12705,17 +12820,26 @@
       }
     ],
     "ns": [
-      "ns1.dns.nic.free.@156.154.144.237,2610:a1:1071::ed",
-      "ns2.dns.nic.free.@156.154.145.237,2610:a1:1072::ed",
-      "ns3.dns.nic.free.@156.154.159.237,2610:a1:1073::ed",
       "ns4.dns.nic.free.@156.154.156.237,2610:a1:1074::ed",
       "ns5.dns.nic.free.@156.154.157.237,2610:a1:1075::ed",
-      "ns6.dns.nic.free.@156.154.158.237,2610:a1:1076::ed"
+      "ns6.dns.nic.free.@156.154.158.237,2610:a1:1076::ed",
+      "dns1.nic.free.@213.248.218.67,2a01:618:402::67",
+      "dns2.nic.free.@103.49.82.67,2401:fd80:402::67",
+      "dns3.nic.free.@213.248.222.67,2a01:618:406::67",
+      "dns4.nic.free.@43.230.50.67,2401:fd80:406::67"
     ]
   },
   "fresenius.": {
     "ttl": 86400,
     "ds": [
+      {
+        "keyTag": 14099,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "3a1c09d9328367d2077aa1418dacab1e9799c6e419409c35416ed57ad0d61dd2",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
       {
         "keyTag": 43201,
         "algorithm": 8,
@@ -12726,10 +12850,10 @@
       }
     ],
     "ns": [
-      "ns1a.ksregistry.net.@203.119.88.75,2001:dd8:7:6075:dc::1",
-      "ns1b.ksregistry.net.@72.0.48.75,2620:171:a00:ad::75",
-      "ns2a.ksregistry.com.@203.119.88.76,2001:dd8:7:6076:dc::1",
-      "ns2b.ksregistry.com.@72.0.48.76,2620:171:a00:ad::76"
+      "a.nic.fresenius.@194.169.218.86,2001:67c:13cc::1:86",
+      "b.nic.fresenius.@185.24.64.86,2a04:2b00:13cc::1:86",
+      "c.nic.fresenius.@212.18.248.86,2a04:2b00:13ee::86",
+      "d.nic.fresenius.@212.18.249.86,2a04:2b00:13ff::86"
     ]
   },
   "frl.": {
@@ -12903,6 +13027,14 @@
         "algorithm": 8,
         "digestType": 2,
         "digest": "ea87258c23f2d96a54991c5a963f12754276ce207f3a67b3142d68847d17a7c9",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
+        "keyTag": 38612,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "b04465dafdf63b8c89ef0baefd4c6e602c6ac778794f8f196941169ba669db4b",
         "algName": "RSASHA256",
         "hashName": "SHA256"
       }
@@ -13397,7 +13529,8 @@
       "ge.hostmaster.ua.@195.47.253.18,2001:67c:258::18",
       "ns.uu.net.@137.39.1.3",
       "ns.nic.ge.@212.72.130.11",
-      "ns2.nic.fr.@192.93.0.4,2001:660:3005:1::1:2"
+      "ns2.nic.fr.@192.93.0.4,2001:660:3005:1::1:2",
+      "ns2.nic.ge.@185.19.98.98"
     ]
   },
   "gea.": {
@@ -13522,6 +13655,14 @@
   "ggee.": {
     "ttl": 86400,
     "ds": [
+      {
+        "keyTag": 602,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "0d54d07bebf1a6afe76ecf6d55c48698d8f233b719009329e4465b75078479d5",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
       {
         "keyTag": 17114,
         "algorithm": 8,
@@ -13907,6 +14048,14 @@
         "digest": "4bc7a9b24999eb615554594cbb235fa79dd29e410f73882c8146a6f0cf21297b",
         "algName": "RSASHA256",
         "hashName": "SHA256"
+      },
+      {
+        "keyTag": 44245,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "a4cd5d4fc4b18dc7162e94a9f9ac801ad4e67a5db3048691bee28e4f2cc7666b",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
       }
     ],
     "ns": [
@@ -13948,7 +14097,6 @@
       }
     ],
     "ns": [
-      "ns1.dns.aq.@203.119.56.132",
       "rip.psg.com.@147.28.0.39,2001:418:1::39",
       "fork.sth.dnsnode.net.@77.72.229.254,2a01:3f0:0:306::53",
       "ns-gn.afrinic.net.@196.216.168.49,2001:43f8:120::49"
@@ -14012,6 +14160,14 @@
     "ttl": 86400,
     "ds": [
       {
+        "keyTag": 44254,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "b83db888a853c9309a732e6ae3fdbb3ffaee325641b4f2f33ef6a4c468ac206c",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
         "keyTag": 53452,
         "algorithm": 8,
         "digestType": 2,
@@ -14057,6 +14213,14 @@
   "goo.": {
     "ttl": 86400,
     "ds": [
+      {
+        "keyTag": 6266,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "cdb2048d86d951bfc2320c25ec2211b19e22b00f8a1fbc6a6a7cbc9d5d9a9924",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
       {
         "keyTag": 57262,
         "algorithm": 8,
@@ -14208,12 +14372,13 @@
       }
     ],
     "ns": [
-      "ns1.dns.nic.got.@156.154.144.67,2610:a1:1071::43",
-      "ns2.dns.nic.got.@156.154.145.67,2610:a1:1072::43",
-      "ns3.dns.nic.got.@156.154.159.67,2610:a1:1073::43",
       "ns4.dns.nic.got.@156.154.156.67,2610:a1:1074::43",
       "ns5.dns.nic.got.@156.154.157.67,2610:a1:1075::43",
-      "ns6.dns.nic.got.@156.154.158.67,2610:a1:1076::43"
+      "ns6.dns.nic.got.@156.154.158.67,2610:a1:1076::43",
+      "dns1.nic.got.@213.248.218.68,2a01:618:402::68",
+      "dns2.nic.got.@103.49.82.68,2401:fd80:402::68",
+      "dns3.nic.got.@213.248.222.68,2a01:618:406::68",
+      "dns4.nic.got.@43.230.50.68,2401:fd80:406::68"
     ]
   },
   "gov.": {
@@ -15228,6 +15393,14 @@
         "digest": "e2e117f8433f1b561a20bdbb88faf157194e9897b71df74c40afacddc1da2ef5",
         "algName": "RSASHA256",
         "hashName": "SHA256"
+      },
+      {
+        "keyTag": 30364,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "02836f0e9fdb7e3ca5983577ccfed953698bd173d92a2e65650f73f14c39ac8d",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
       }
     ],
     "ns": [
@@ -15245,6 +15418,14 @@
         "algorithm": 8,
         "digestType": 2,
         "digest": "241a4cb95b3f88fcbf7022b5f187b30774308a0c03b2bbb2685655accebbc540",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
+        "keyTag": 14525,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "03ea91ac19aeb9ffa37874a5f0f27f2a04c6eeae162fd7d9c87f083447d31e5f",
         "algName": "RSASHA256",
         "hashName": "SHA256"
       }
@@ -15635,6 +15816,14 @@
         "digest": "e99de850d466563aa916d949b16139535e72bb1725b31f5d53205a9e3b7b4f01",
         "algName": "RSASHA256",
         "hashName": "SHA256"
+      },
+      {
+        "keyTag": 25744,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "4214b1e2ffb881035440b32cb3c90675e1051a23ab5424fc07111eb917643338",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
       }
     ],
     "ns": [
@@ -15862,12 +16051,13 @@
       }
     ],
     "ns": [
-      "ns1.dns.nic.hot.@156.154.144.251,2610:a1:1071::fb",
-      "ns2.dns.nic.hot.@156.154.145.251,2610:a1:1072::fb",
-      "ns3.dns.nic.hot.@156.154.159.251,2610:a1:1073::fb",
       "ns4.dns.nic.hot.@156.154.156.251,2610:a1:1074::fb",
       "ns5.dns.nic.hot.@156.154.157.251,2610:a1:1075::fb",
-      "ns6.dns.nic.hot.@156.154.158.251,2610:a1:1076::fb"
+      "ns6.dns.nic.hot.@156.154.158.251,2610:a1:1076::fb",
+      "dns1.nic.hot.@213.248.218.69,2a01:618:402::69",
+      "dns2.nic.hot.@103.49.82.69,2401:fd80:402::69",
+      "dns3.nic.hot.@213.248.222.69,2a01:618:406::69",
+      "dns4.nic.hot.@43.230.50.69,2401:fd80:406::69"
     ]
   },
   "hoteles.": {
@@ -16210,6 +16400,14 @@
         "algorithm": 8,
         "digestType": 2,
         "digest": "8baa367547efe4641e025f151f6722b0a83ca1584c16fb69a23dcfc45abe4aec",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
+        "keyTag": 48091,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "d4178e0bd6ef00a383544da7d1856cb37034c64a64cf70d1e08d67bb9ee2e3b2",
         "algName": "RSASHA256",
         "hashName": "SHA256"
       }
@@ -16780,6 +16978,14 @@
   "infiniti.": {
     "ttl": 86400,
     "ds": [
+      {
+        "keyTag": 54241,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "4ba4a2e65269a0d1e93c17c160c744302700307d21c67889b9abac72644c5227",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
       {
         "keyTag": 57317,
         "algorithm": 8,
@@ -17531,6 +17737,14 @@
     "ttl": 86400,
     "ds": [
       {
+        "keyTag": 8039,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "a21f8529ce9b38a28a4b03251ca112bf0528655d5cd28901b8585389de8261fd",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
         "keyTag": 23987,
         "algorithm": 8,
         "digestType": 2,
@@ -17921,12 +18135,13 @@
       }
     ],
     "ns": [
-      "ns1.dns.nic.jot.@156.154.144.90,2610:a1:1071::5a",
-      "ns2.dns.nic.jot.@156.154.145.90,2610:a1:1072::5a",
-      "ns3.dns.nic.jot.@156.154.159.90,2610:a1:1073::5a",
       "ns4.dns.nic.jot.@156.154.156.90,2610:a1:1074::5a",
       "ns5.dns.nic.jot.@156.154.157.90,2610:a1:1075::5a",
-      "ns6.dns.nic.jot.@156.154.158.90,2610:a1:1076::5a"
+      "ns6.dns.nic.jot.@156.154.158.90,2610:a1:1076::5a",
+      "dns1.nic.jot.@213.248.218.70,2a01:618:402::70",
+      "dns2.nic.jot.@103.49.82.70,2401:fd80:402::70",
+      "dns3.nic.jot.@213.248.222.70,2a01:618:406::70",
+      "dns4.nic.jot.@43.230.50.70,2401:fd80:406::70"
     ]
   },
   "joy.": {
@@ -17974,12 +18189,13 @@
       }
     ],
     "ns": [
-      "ns1.dns.nic.joy.@156.154.144.91,2610:a1:1071::5b",
-      "ns2.dns.nic.joy.@156.154.145.91,2610:a1:1072::5b",
-      "ns3.dns.nic.joy.@156.154.159.91,2610:a1:1073::5b",
       "ns4.dns.nic.joy.@156.154.156.91,2610:a1:1074::5b",
       "ns5.dns.nic.joy.@156.154.157.91,2610:a1:1075::5b",
-      "ns6.dns.nic.joy.@156.154.158.91,2610:a1:1076::5b"
+      "ns6.dns.nic.joy.@156.154.158.91,2610:a1:1076::5b",
+      "dns1.nic.joy.@213.248.218.71,2a01:618:402::71",
+      "dns2.nic.joy.@103.49.82.71,2401:fd80:402::71",
+      "dns3.nic.joy.@213.248.222.71,2a01:618:406::71",
+      "dns4.nic.joy.@43.230.50.71,2401:fd80:406::71"
     ]
   },
   "jp.": {
@@ -18195,6 +18411,14 @@
     "ttl": 86400,
     "ds": [
       {
+        "keyTag": 2134,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "871a87191b82d082df95647615db803c3cf6e7b80578b018118c2dd27d7fa00b",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
         "keyTag": 9641,
         "algorithm": 8,
         "digestType": 2,
@@ -18379,6 +18603,14 @@
     "ttl": 86400,
     "ds": [
       {
+        "keyTag": 2195,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "f0e9a6aaf2b84cdd23a98ec5926f0d9f921351207278b1d02ef8067895466377",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
         "keyTag": 33385,
         "algorithm": 8,
         "digestType": 2,
@@ -18511,12 +18743,13 @@
       }
     ],
     "ns": [
-      "ns1.dns.nic.kindle.@156.154.144.97,2610:a1:1071::61",
-      "ns2.dns.nic.kindle.@156.154.145.97,2610:a1:1072::61",
-      "ns3.dns.nic.kindle.@156.154.159.97,2610:a1:1073::61",
       "ns4.dns.nic.kindle.@156.154.156.97,2610:a1:1074::61",
       "ns5.dns.nic.kindle.@156.154.157.97,2610:a1:1075::61",
-      "ns6.dns.nic.kindle.@156.154.158.97,2610:a1:1076::61"
+      "ns6.dns.nic.kindle.@156.154.158.97,2610:a1:1076::61",
+      "dns1.nic.kindle.@213.248.218.58,2a01:618:402::58",
+      "dns2.nic.kindle.@103.49.82.58,2401:fd80:402::58",
+      "dns3.nic.kindle.@213.248.222.58,2a01:618:406::58",
+      "dns4.nic.kindle.@43.230.50.58,2401:fd80:406::58"
     ]
   },
   "kitchen.": {
@@ -18603,6 +18836,14 @@
   "komatsu.": {
     "ttl": 86400,
     "ds": [
+      {
+        "keyTag": 11065,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "2bad7d0a51246fef1f7924da2d095396b030d518f3e6fb791299b4618ef8b2fc",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
       {
         "keyTag": 25835,
         "algorithm": 8,
@@ -18756,10 +18997,10 @@
     ],
     "ns": [
       "b.dns.kr.@61.74.75.1",
-      "c.dns.kr.@203.248.246.220",
+      "c.dns.kr.@210.101.61.1",
       "d.dns.kr.@203.83.159.1,2001:dcc:4::1",
       "e.dns.kr.@202.30.124.100,2001:dcc:5::100",
-      "f.dns.kr.@218.38.181.90",
+      "f.dns.kr.@210.101.62.1,2001:dcc:6::1",
       "g.dns.kr.@202.31.190.1,2001:dc5:a::1"
     ]
   },
@@ -18869,8 +19110,17 @@
     ]
   },
   "kw.": {
-    "ttl": 172800,
-    "ds": [],
+    "ttl": 86400,
+    "ds": [
+      {
+        "keyTag": 53599,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "c5646a4e1bee8c2699d3cc3c4f597f8767b85a134fe5ee5dfe8b3d25b1534d3a",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      }
+    ],
     "ns": [
       "a.nic.kw.@51.141.6.252",
       "b.nic.kw.@23.97.177.111",
@@ -18948,6 +19198,14 @@
         "algorithm": 8,
         "digestType": 2,
         "digest": "1d7d2b2df1e5c68997e78f8cb6460066ef625553deb151da1c639e8368c2e528",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
+        "keyTag": 36767,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "e5237b981fa00a1f097e791e68f746f2596b7b111f07a2f824c265f98ae5d861",
         "algName": "RSASHA256",
         "hashName": "SHA256"
       }
@@ -19411,7 +19669,6 @@
       }
     ],
     "ns": [
-      "ns1.dns.aq.@203.119.56.132",
       "rip.psg.com.@147.28.0.39,2001:418:1::39",
       "fork.sth.dnsnode.net.@77.72.229.254,2a01:3f0:0:306::53",
       "zeina.aub.edu.lb.@193.188.128.14"
@@ -19599,6 +19856,14 @@
         "algorithm": 8,
         "digestType": 2,
         "digest": "24f748bb3d6d7f2a30517a9bf6fe74991b2ef35a375c11f27071e73873b9314f",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
+        "keyTag": 59681,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "5e836746a8e2e867c1eb27292293f5af3e849c0b5f2462c86ffa9ee85668348d",
         "algName": "RSASHA256",
         "hashName": "SHA256"
       }
@@ -19885,12 +20150,13 @@
       }
     ],
     "ns": [
-      "ns1.dns.nic.like.@156.154.144.103,2610:a1:1071::67",
-      "ns2.dns.nic.like.@156.154.145.103,2610:a1:1072::67",
-      "ns3.dns.nic.like.@156.154.159.103,2610:a1:1073::67",
       "ns4.dns.nic.like.@156.154.156.103,2610:a1:1074::67",
       "ns5.dns.nic.like.@156.154.157.103,2610:a1:1075::67",
-      "ns6.dns.nic.like.@156.154.158.103,2610:a1:1076::67"
+      "ns6.dns.nic.like.@156.154.158.103,2610:a1:1076::67",
+      "dns1.nic.like.@213.248.218.72,2a01:618:402::72",
+      "dns2.nic.like.@103.49.82.72,2401:fd80:402::72",
+      "dns3.nic.like.@213.248.222.72,2a01:618:406::72",
+      "dns4.nic.like.@43.230.50.72,2401:fd80:406::72"
     ]
   },
   "lilly.": {
@@ -20183,6 +20449,14 @@
   "lixil.": {
     "ttl": 86400,
     "ds": [
+      {
+        "keyTag": 52865,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "325d70cde69242071c68da325ac825f77e8bcffdd82daa56ea017a80598c94af",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
       {
         "keyTag": 61715,
         "algorithm": 8,
@@ -20509,6 +20783,14 @@
   "lotte.": {
     "ttl": 86400,
     "ds": [
+      {
+        "keyTag": 34387,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "5d13945c642b308e7d91b7653614033529d3c6b95c38c0edb47913efc809d769",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
       {
         "keyTag": 53770,
         "algorithm": 8,
@@ -21391,11 +21673,19 @@
     ]
   },
   "md.": {
-    "ttl": 172800,
-    "ds": [],
+    "ttl": 86400,
+    "ds": [
+      {
+        "keyTag": 45147,
+        "algorithm": 13,
+        "digestType": 2,
+        "digest": "d6e49dafc6bac4cf25198093fc45b39c7b97d64f560fe0acd23a043b76f567b9",
+        "algName": "ECDSAP256SHA256",
+        "hashName": "SHA256"
+      }
+    ],
     "ns": [
       "nsb.dns.md.@217.26.144.15",
-      "nsf.dns.md.@86.106.212.21",
       "nsca.dns.md.@144.217.93.2",
       "nsfr.dns.md.@92.222.76.179",
       "dns-md.rotld.ro.@192.162.16.19,2a03:5e80:0:4:192:162:16:19",
@@ -21774,6 +22064,14 @@
     "ttl": 86400,
     "ds": [
       {
+        "keyTag": 82,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "6f84e8b483f6fefc9832a282ea80d4f30497393b5353cc6854431fa7fcb240f6",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
         "keyTag": 54260,
         "algorithm": 8,
         "digestType": 2,
@@ -21783,10 +22081,10 @@
       }
     ],
     "ns": [
-      "ns1a.ksregistry.net.@203.119.88.75,2001:dd8:7:6075:dc::1",
-      "ns1b.ksregistry.net.@72.0.48.75,2620:171:a00:ad::75",
-      "ns2a.ksregistry.com.@203.119.88.76,2001:dd8:7:6076:dc::1",
-      "ns2b.ksregistry.com.@72.0.48.76,2620:171:a00:ad::76"
+      "a.nic.mini.@194.169.218.95,2001:67c:13cc::1:95",
+      "b.nic.mini.@185.24.64.95,2a04:2b00:13cc::1:95",
+      "c.nic.mini.@212.18.248.95,2a04:2b00:13ee::95",
+      "d.nic.mini.@212.18.249.95,2a04:2b00:13ff::95"
     ]
   },
   "mint.": {
@@ -21869,6 +22167,14 @@
         "algorithm": 8,
         "digestType": 2,
         "digest": "ba7cffd3b3369455466dc28582534a6c963a1750632321da487554028bd81231",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
+        "keyTag": 45959,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "1e5bc196fd959fbefb2cbd681475be0ff1de7fbd074b2ce338894ec2b011c0dc",
         "algName": "RSASHA256",
         "hashName": "SHA256"
       }
@@ -21955,13 +22261,19 @@
         "digest": "4494d7d0a0196ba6b36fb055b227d400043ada39c0bec75c14320271264660cb",
         "algName": "RSASHA256",
         "hashName": "SHA256"
+      },
+      {
+        "keyTag": 63482,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "84a8b5964a7017a28e640ead02169e7dd92092a42729acf08f924935a12f975e",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
       }
     ],
     "ns": [
-      "ac1.nstld.com.@192.42.173.30,2001:500:120::30",
-      "ac2.nstld.com.@192.42.174.30,2001:500:121::30",
-      "ac3.nstld.com.@192.42.175.30,2001:500:122::30",
-      "ac4.nstld.com.@192.42.176.30,2001:500:123::30"
+      "a.ns.nic.mls.@185.159.197.8,2620:10a:80aa::8",
+      "b.ns.nic.mls.@185.159.198.8,2620:10a:80ab::8"
     ]
   },
   "mm.": {
@@ -22281,12 +22593,13 @@
       }
     ],
     "ns": [
-      "ns1.dns.nic.moi.@156.154.144.115,2610:a1:1071::73",
-      "ns2.dns.nic.moi.@156.154.145.115,2610:a1:1072::73",
-      "ns3.dns.nic.moi.@156.154.159.115,2610:a1:1073::73",
       "ns4.dns.nic.moi.@156.154.156.115,2610:a1:1074::73",
       "ns5.dns.nic.moi.@156.154.157.115,2610:a1:1075::73",
-      "ns6.dns.nic.moi.@156.154.158.115,2610:a1:1076::73"
+      "ns6.dns.nic.moi.@156.154.158.115,2610:a1:1076::73",
+      "dns1.nic.moi.@213.248.218.54,2a01:618:402::54",
+      "dns2.nic.moi.@103.49.82.54,2401:fd80:402::54",
+      "dns3.nic.moi.@213.248.222.54,2a01:618:406::54",
+      "dns4.nic.moi.@43.230.50.54,2401:fd80:406::54"
     ]
   },
   "mom.": {
@@ -22951,9 +23264,9 @@
     "ns": [
       "a.nic.my.@103.44.108.53,2001:ddc:0:53::53",
       "a.mynic.centralnic-dns.com.@194.169.218.114,2001:67c:13cc::1:114",
+      "b.mynic.centralnic-dns.com.@185.24.64.114,2a04:2b00:13cc::1:114",
       "a1.mynic.my.@202.171.47.204",
-      "ns2.cuhk.edu.hk.@137.189.6.21,2405:3000:3:6::15",
-      "ns30.cdns.net.@194.0.1.30,2001:678:4::1e"
+      "ns2.cuhk.edu.hk.@137.189.6.21,2405:3000:3:6::15"
     ]
   },
   "mz.": {
@@ -23035,6 +23348,14 @@
         "algorithm": 8,
         "digestType": 2,
         "digest": "5f7f0b46328922a9b26acb4a8c54f89f570d00a9e841b666798b311693e2ce4a",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
+        "keyTag": 44545,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "c856432f455a59b06c6964821f01a64fc0957dcb854eb10435e79caeb6c2486d",
         "algName": "RSASHA256",
         "hashName": "SHA256"
       }
@@ -23215,6 +23536,14 @@
   "nec.": {
     "ttl": 86400,
     "ds": [
+      {
+        "keyTag": 3352,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "077c18d635da43d7201764e89118f552f72428b12763f1bc258a5619b71458e7",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
       {
         "keyTag": 26531,
         "algorithm": 8,
@@ -23640,6 +23969,14 @@
     "ttl": 86400,
     "ds": [
       {
+        "keyTag": 26765,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "6e9c65a3131229436d4c649a5b32377024f1a8d74ae38dfbadde3a007d00c6ae",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
         "keyTag": 49991,
         "algorithm": 8,
         "digestType": 2,
@@ -23676,6 +24013,14 @@
         "algorithm": 8,
         "digestType": 2,
         "digest": "c994b57dbe327170bd144e310d3abb9f8a43c65d54d6afffca2d8c293d40a6da",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
+        "keyTag": 48460,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "3f35a47bf0b6846b18a619300c133843de302c9606273a21a965f49da2f23e0a",
         "algName": "RSASHA256",
         "hashName": "SHA256"
       }
@@ -23786,6 +24131,14 @@
         "algorithm": 8,
         "digestType": 2,
         "digest": "9e6d50b3c76a032c63585583daa232f62f3697cb579c2adfa0017c071e034a26",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
+        "keyTag": 37324,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "2f8edb59d650bf63c13e67695e5254d4ceeeb25ffaf456727e367da003182256",
         "algName": "RSASHA256",
         "hashName": "SHA256"
       }
@@ -23992,12 +24345,13 @@
       }
     ],
     "ns": [
-      "ns1.dns.nic.now.@156.154.169.23,2610:a1:1071::1:17",
-      "ns2.dns.nic.now.@156.154.170.23,2610:a1:1072::1:17",
-      "ns3.dns.nic.now.@156.154.171.23,2610:a1:1073::1:17",
       "ns4.dns.nic.now.@156.154.172.23,2610:a1:1074::1:17",
       "ns5.dns.nic.now.@156.154.173.23,2610:a1:1075::1:17",
-      "ns6.dns.nic.now.@156.154.174.23,2610:a1:1076::1:17"
+      "ns6.dns.nic.now.@156.154.174.23,2610:a1:1076::1:17",
+      "dns1.nic.now.@213.248.218.73,2a01:618:402::73",
+      "dns2.nic.now.@103.49.82.73,2401:fd80:402::73",
+      "dns3.nic.now.@213.248.222.73,2a01:618:406::73",
+      "dns4.nic.now.@43.230.50.73,2401:fd80:406::73"
     ]
   },
   "nowruz.": {
@@ -24370,6 +24724,14 @@
         "algorithm": 8,
         "digestType": 2,
         "digest": "c39fda6b372a191434e512a1e062b769ab0fb40ad7e4f76480056fd3750cfc92",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
+        "keyTag": 33736,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "ed3cf17ef5286ee0af90213fd802871a672213fece32038557dd2a0375a2e6c2",
         "algName": "RSASHA256",
         "hashName": "SHA256"
       }
@@ -24917,6 +25279,14 @@
     "ttl": 86400,
     "ds": [
       {
+        "keyTag": 1147,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "99fa7ba5260c1c400fc5d65616fd3d796a6ab5aea557314cab10392de8fc90b3",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
         "keyTag": 40279,
         "algorithm": 8,
         "digestType": 2,
@@ -25026,6 +25396,14 @@
         "algorithm": 8,
         "digestType": 2,
         "digest": "50665c85642ab83f2e6e454034a9e151caf3ab3d1470fa6b44121aa5a58247db",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
+        "keyTag": 45016,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "a4b88bfb2b883fdf8ca5630562061fd5d7979f203962d1f4c5a0c9d79c4d3aff",
         "algName": "RSASHA256",
         "hashName": "SHA256"
       }
@@ -25271,12 +25649,13 @@
       }
     ],
     "ns": [
-      "ns1.dns.nic.pay.@156.154.169.26,2610:a1:1071::1:1a",
-      "ns2.dns.nic.pay.@156.154.170.26,2610:a1:1072::1:1a",
-      "ns3.dns.nic.pay.@156.154.171.26,2610:a1:1073::1:1a",
       "ns4.dns.nic.pay.@156.154.172.26,2610:a1:1074::1:1a",
       "ns5.dns.nic.pay.@156.154.173.26,2610:a1:1075::1:1a",
-      "ns6.dns.nic.pay.@156.154.174.26,2610:a1:1076::1:1a"
+      "ns6.dns.nic.pay.@156.154.174.26,2610:a1:1076::1:1a",
+      "dns1.nic.pay.@213.248.218.74,2a01:618:402::74",
+      "dns2.nic.pay.@103.49.82.74,2401:fd80:402::74",
+      "dns3.nic.pay.@213.248.222.74,2a01:618:406::74",
+      "dns4.nic.pay.@43.230.50.74,2401:fd80:406::74"
     ]
   },
   "pccw.": {
@@ -25908,12 +26287,13 @@
       }
     ],
     "ns": [
-      "ns1.dns.nic.pin.@156.154.169.28,2610:a1:1071::1:1c",
-      "ns2.dns.nic.pin.@156.154.170.28,2610:a1:1072::1:1c",
-      "ns3.dns.nic.pin.@156.154.171.28,2610:a1:1073::1:1c",
       "ns4.dns.nic.pin.@156.154.172.28,2610:a1:1074::1:1c",
       "ns5.dns.nic.pin.@156.154.173.28,2610:a1:1075::1:1c",
-      "ns6.dns.nic.pin.@156.154.174.28,2610:a1:1076::1:1c"
+      "ns6.dns.nic.pin.@156.154.174.28,2610:a1:1076::1:1c",
+      "dns1.nic.pin.@213.248.218.75,2a01:618:402::75",
+      "dns2.nic.pin.@103.49.82.75,2401:fd80:402::75",
+      "dns3.nic.pin.@213.248.222.75,2a01:618:406::75",
+      "dns4.nic.pin.@43.230.50.75,2401:fd80:406::75"
     ]
   },
   "ping.": {
@@ -25998,6 +26378,14 @@
         "digest": "33bdb54aa23a338797b662c326ba4ffb1e7366231bebf45ccd5b1ded30e3e2b2",
         "algName": "RSASHA256",
         "hashName": "SHA256"
+      },
+      {
+        "keyTag": 7342,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "3ec0f6a04f0365ab5311410a9074be1c8025df8120817b92d96bf8fae973e27d",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
       }
     ],
     "ns": [
@@ -26053,14 +26441,6 @@
         "algorithm": 8,
         "digestType": 2,
         "digest": "40fa53cb1daff433b7a8d45a05a624ecff4a3bd1c8f1469b008a2e0b9f721a49",
-        "algName": "RSASHA256",
-        "hashName": "SHA256"
-      },
-      {
-        "keyTag": 57374,
-        "algorithm": 8,
-        "digestType": 2,
-        "digest": "93e8fa22cc596aed57fc2d2093353d46077413356ffb2a3bf9cdcf6d1951d1ad",
         "algName": "RSASHA256",
         "hashName": "SHA256"
       }
@@ -26132,6 +26512,14 @@
         "algorithm": 8,
         "digestType": 2,
         "digest": "bf07dc2b242e3888cc520c8d1502188ac6613f4c61f4288cb13d36d0c2fa0b4e",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
+        "keyTag": 32839,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "a730646c6d6a5e9ad966881eea96e688600d163a409ae2bfe3a33bdbc780211a",
         "algName": "RSASHA256",
         "hashName": "SHA256"
       }
@@ -26266,6 +26654,14 @@
     "ttl": 86400,
     "ds": [
       {
+        "keyTag": 41627,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "d31963884932152ac788383aba38b83f187291afb59092a43185734ec561f506",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
         "keyTag": 52324,
         "algorithm": 8,
         "digestType": 2,
@@ -26275,10 +26671,10 @@
       }
     ],
     "ns": [
-      "ns1a.ksregistry.net.@203.119.88.75,2001:dd8:7:6075:dc::1",
-      "ns1b.ksregistry.net.@72.0.48.75,2620:171:a00:ad::75",
-      "ns2a.ksregistry.com.@203.119.88.76,2001:dd8:7:6076:dc::1",
-      "ns2b.ksregistry.com.@72.0.48.76,2620:171:a00:ad::76"
+      "a.nic.pohl.@194.169.218.96,2001:67c:13cc::1:96",
+      "b.nic.pohl.@185.24.64.96,2a04:2b00:13cc::1:96",
+      "c.nic.pohl.@212.18.248.96,2a04:2b00:13ee::96",
+      "d.nic.pohl.@212.18.249.96,2a04:2b00:13ff::96"
     ]
   },
   "poker.": {
@@ -27382,12 +27778,13 @@
       }
     ],
     "ns": [
-      "ns1.dns.nic.read.@156.154.144.144,2610:a1:1071::90",
-      "ns2.dns.nic.read.@156.154.145.144,2610:a1:1072::90",
-      "ns3.dns.nic.read.@156.154.159.144,2610:a1:1073::90",
       "ns4.dns.nic.read.@156.154.156.144,2610:a1:1074::90",
       "ns5.dns.nic.read.@156.154.157.144,2610:a1:1075::90",
-      "ns6.dns.nic.read.@156.154.158.144,2610:a1:1076::90"
+      "ns6.dns.nic.read.@156.154.158.144,2610:a1:1076::90",
+      "dns1.nic.read.@213.248.218.76,2a01:618:402::76",
+      "dns2.nic.read.@103.49.82.76,2401:fd80:402::76",
+      "dns3.nic.read.@213.248.222.76,2a01:618:406::76",
+      "dns4.nic.read.@43.230.50.76,2401:fd80:406::76"
     ]
   },
   "realestate.": {
@@ -28059,6 +28456,14 @@
     "ttl": 86400,
     "ds": [
       {
+        "keyTag": 7006,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "60ff4ce45e722bc253d21348e4b285a44c77c60f75bfe704b033685bddd4f63d",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
         "keyTag": 9199,
         "algorithm": 8,
         "digestType": 2,
@@ -28383,12 +28788,13 @@
       }
     ],
     "ns": [
-      "ns1.dns.nic.room.@156.154.144.146,2610:a1:1071::92",
-      "ns2.dns.nic.room.@156.154.145.146,2610:a1:1072::92",
-      "ns3.dns.nic.room.@156.154.159.146,2610:a1:1073::92",
       "ns4.dns.nic.room.@156.154.156.146,2610:a1:1074::92",
       "ns5.dns.nic.room.@156.154.157.146,2610:a1:1075::92",
-      "ns6.dns.nic.room.@156.154.158.146,2610:a1:1076::92"
+      "ns6.dns.nic.room.@156.154.158.146,2610:a1:1076::92",
+      "dns1.nic.room.@213.248.218.77,2a01:618:402::77",
+      "dns2.nic.room.@103.49.82.77,2401:fd80:402::77",
+      "dns3.nic.room.@213.248.222.77,2a01:618:406::77",
+      "dns4.nic.room.@43.230.50.77,2401:fd80:406::77"
     ]
   },
   "rs.": {
@@ -28557,6 +28963,14 @@
         "digest": "5582b9e7d73ab685908d1ba1a8a6da4193653718842e3df886dc3d3ac9f7fb3b",
         "algName": "RSASHA256",
         "hashName": "SHA256"
+      },
+      {
+        "keyTag": 52505,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "a19f9645f1832c3a1550f695dba8f68e26daa32be47967f71b29a4a865d834b8",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
       }
     ],
     "ns": [
@@ -28660,12 +29074,13 @@
       }
     ],
     "ns": [
-      "ns1.dns.nic.safe.@156.154.144.147,2610:a1:1071::93",
-      "ns2.dns.nic.safe.@156.154.145.147,2610:a1:1072::93",
-      "ns3.dns.nic.safe.@156.154.159.147,2610:a1:1073::93",
       "ns4.dns.nic.safe.@156.154.156.147,2610:a1:1074::93",
       "ns5.dns.nic.safe.@156.154.157.147,2610:a1:1075::93",
-      "ns6.dns.nic.safe.@156.154.158.147,2610:a1:1076::93"
+      "ns6.dns.nic.safe.@156.154.158.147,2610:a1:1076::93",
+      "dns1.nic.safe.@213.248.218.78,2a01:618:402::78",
+      "dns2.nic.safe.@103.49.82.78,2401:fd80:402::78",
+      "dns3.nic.safe.@213.248.222.78,2a01:618:406::78",
+      "dns4.nic.safe.@43.230.50.78,2401:fd80:406::78"
     ]
   },
   "safety.": {
@@ -29037,12 +29452,13 @@
       }
     ],
     "ns": [
-      "ns1.dns.nic.save.@156.154.169.40,2610:a1:1071::1:28",
-      "ns2.dns.nic.save.@156.154.170.40,2610:a1:1072::1:28",
-      "ns3.dns.nic.save.@156.154.171.40,2610:a1:1073::1:28",
       "ns4.dns.nic.save.@156.154.172.40,2610:a1:1074::1:28",
       "ns5.dns.nic.save.@156.154.173.40,2610:a1:1075::1:28",
-      "ns6.dns.nic.save.@156.154.174.40,2610:a1:1076::1:28"
+      "ns6.dns.nic.save.@156.154.174.40,2610:a1:1076::1:28",
+      "dns1.nic.save.@213.248.218.79,2a01:618:402::79",
+      "dns2.nic.save.@103.49.82.79,2401:fd80:402::79",
+      "dns3.nic.save.@213.248.222.79,2a01:618:406::79",
+      "dns4.nic.save.@43.230.50.79,2401:fd80:406::79"
     ]
   },
   "saxo.": {
@@ -29615,12 +30031,13 @@
       }
     ],
     "ns": [
-      "ns1.dns.nic.secure.@156.154.169.43,2610:a1:1071::1:2b",
-      "ns2.dns.nic.secure.@156.154.170.43,2610:a1:1072::1:2b",
-      "ns3.dns.nic.secure.@156.154.171.43,2610:a1:1073::1:2b",
       "ns4.dns.nic.secure.@156.154.172.43,2610:a1:1074::1:2b",
       "ns5.dns.nic.secure.@156.154.173.43,2610:a1:1075::1:2b",
-      "ns6.dns.nic.secure.@156.154.174.43,2610:a1:1076::1:2b"
+      "ns6.dns.nic.secure.@156.154.174.43,2610:a1:1076::1:2b",
+      "dns1.nic.secure.@213.248.218.80,2a01:618:402::80",
+      "dns2.nic.secure.@103.49.82.80,2401:fd80:402::80",
+      "dns3.nic.secure.@213.248.222.80,2a01:618:406::80",
+      "dns4.nic.secure.@43.230.50.80,2401:fd80:406::80"
     ]
   },
   "security.": {
@@ -30037,6 +30454,14 @@
     "ttl": 86400,
     "ds": [
       {
+        "keyTag": 3872,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "9fbcf0afcb45e677cb42680ff35defd79f8accacaaa47df92cfd08e73a8afcb6",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
         "keyTag": 17582,
         "algorithm": 8,
         "digestType": 2,
@@ -30178,6 +30603,14 @@
         "algorithm": 8,
         "digestType": 2,
         "digest": "af340595fd0ad0bdab71a7a8a6b6686cac037d8454e07767ec72f7fac1fc6d9f",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
+        "keyTag": 50701,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "30f44f9e79f1119aebed349d3ec34f7aedd83a58f1e706d8303c3bbfe83bc7ec",
         "algName": "RSASHA256",
         "hashName": "SHA256"
       }
@@ -30375,12 +30808,13 @@
       }
     ],
     "ns": [
-      "ns1.dns.nic.silk.@156.154.144.150,2610:a1:1071::96",
-      "ns2.dns.nic.silk.@156.154.145.150,2610:a1:1072::96",
-      "ns3.dns.nic.silk.@156.154.159.150,2610:a1:1073::96",
       "ns4.dns.nic.silk.@156.154.156.150,2610:a1:1074::96",
       "ns5.dns.nic.silk.@156.154.157.150,2610:a1:1075::96",
-      "ns6.dns.nic.silk.@156.154.158.150,2610:a1:1076::96"
+      "ns6.dns.nic.silk.@156.154.158.150,2610:a1:1076::96",
+      "dns1.nic.silk.@213.248.218.59,2a01:618:402::59",
+      "dns2.nic.silk.@103.49.82.59,2401:fd80:402::59",
+      "dns3.nic.silk.@213.248.222.59,2a01:618:406::59",
+      "dns4.nic.silk.@43.230.50.59,2401:fd80:406::59"
     ]
   },
   "sina.": {
@@ -30714,12 +31148,13 @@
       }
     ],
     "ns": [
-      "ns1.dns.nic.smile.@156.154.144.152,2610:a1:1071::98",
-      "ns2.dns.nic.smile.@156.154.145.152,2610:a1:1072::98",
-      "ns3.dns.nic.smile.@156.154.159.152,2610:a1:1073::98",
       "ns4.dns.nic.smile.@156.154.156.152,2610:a1:1074::98",
       "ns5.dns.nic.smile.@156.154.157.152,2610:a1:1075::98",
-      "ns6.dns.nic.smile.@156.154.158.152,2610:a1:1076::98"
+      "ns6.dns.nic.smile.@156.154.158.152,2610:a1:1076::98",
+      "dns1.nic.smile.@213.248.218.81,2a01:618:402::81",
+      "dns2.nic.smile.@103.49.82.81,2401:fd80:402::81",
+      "dns3.nic.smile.@213.248.222.81,2a01:618:406::81",
+      "dns4.nic.smile.@43.230.50.81,2401:fd80:406::81"
     ]
   },
   "sn.": {
@@ -30846,6 +31281,14 @@
         "algorithm": 8,
         "digestType": 2,
         "digest": "533c77edfb9e60e2544a4e9ba53c783021c118ab8e7cf7767073350f54d2270e",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
+        "keyTag": 34384,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "7a7cde44c2c68ce4d0440e7f9f01a1a0358ede57a9e007ae01ff94cb0506513a",
         "algName": "RSASHA256",
         "hashName": "SHA256"
       }
@@ -31016,6 +31459,14 @@
         "digest": "bcb15b51804b9b9b40a0e3f6031636ce1112590eb66478d1201e5f0411fe0766",
         "algName": "RSASHA256",
         "hashName": "SHA256"
+      },
+      {
+        "keyTag": 31580,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "f783850c3c82680a57c926b79098ee5de999772dcf6745a56fcab20ce9330de5",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
       }
     ],
     "ns": [
@@ -31136,12 +31587,13 @@
       }
     ],
     "ns": [
-      "ns1.dns.nic.spot.@156.154.169.48,2610:a1:1071::1:30",
-      "ns2.dns.nic.spot.@156.154.170.48,2610:a1:1072::1:30",
-      "ns3.dns.nic.spot.@156.154.171.48,2610:a1:1073::1:30",
       "ns4.dns.nic.spot.@156.154.172.48,2610:a1:1074::1:30",
       "ns5.dns.nic.spot.@156.154.173.48,2610:a1:1075::1:30",
-      "ns6.dns.nic.spot.@156.154.174.48,2610:a1:1076::1:30"
+      "ns6.dns.nic.spot.@156.154.174.48,2610:a1:1076::1:30",
+      "dns1.nic.spot.@213.248.218.82,2a01:618:402::82",
+      "dns2.nic.spot.@103.49.82.82,2401:fd80:402::82",
+      "dns3.nic.spot.@213.248.222.82,2a01:618:406::82",
+      "dns4.nic.spot.@43.230.50.82,2401:fd80:406::82"
     ]
   },
   "spreadbetting.": {
@@ -31891,6 +32343,14 @@
         "digest": "0a9f95c53dff5e7f70351bcf0eafdaafe33ab48dc2754fffdc0bac3bb6eaae10",
         "algName": "RSASHA256",
         "hashName": "SHA256"
+      },
+      {
+        "keyTag": 33941,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "dc04eaae9d4e306eec2a2d1ebd1f146b8e555ff28e0924ee22e36555ac44c386",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
       }
     ],
     "ns": [
@@ -32232,12 +32692,13 @@
       }
     ],
     "ns": [
-      "ns1.dns.nic.talk.@156.154.169.51,2610:a1:1071::1:33",
-      "ns2.dns.nic.talk.@156.154.170.51,2610:a1:1072::1:33",
-      "ns3.dns.nic.talk.@156.154.171.51,2610:a1:1073::1:33",
       "ns4.dns.nic.talk.@156.154.172.51,2610:a1:1074::1:33",
       "ns5.dns.nic.talk.@156.154.173.51,2610:a1:1075::1:33",
-      "ns6.dns.nic.talk.@156.154.174.51,2610:a1:1076::1:33"
+      "ns6.dns.nic.talk.@156.154.174.51,2610:a1:1076::1:33",
+      "dns1.nic.talk.@213.248.218.83,2a01:618:402::83",
+      "dns2.nic.talk.@103.49.82.83,2401:fd80:402::83",
+      "dns3.nic.talk.@213.248.222.83,2a01:618:406::83",
+      "dns4.nic.talk.@43.230.50.83,2401:fd80:406::83"
     ]
   },
   "taobao.": {
@@ -33433,6 +33894,14 @@
         "digest": "c301d350b1b82710795f436f257dd10b840d3a2ff480a4cb431cea38a09c8c19",
         "algName": "RSASHA256",
         "hashName": "SHA256"
+      },
+      {
+        "keyTag": 34775,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "009538d854dc2b09a147c657b496a8cd5151bc2fbadd83cf0c322f625fa5a7ce",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
       }
     ],
     "ns": [
@@ -33496,6 +33965,14 @@
     "ttl": 86400,
     "ds": [
       {
+        "keyTag": 53057,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "940a6f87f2d2482fc5541e20e646f38bb0535e7700d3317690bb42030c822d2c",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
         "keyTag": 56617,
         "algorithm": 8,
         "digestType": 2,
@@ -33514,6 +33991,14 @@
   "toshiba.": {
     "ttl": 86400,
     "ds": [
+      {
+        "keyTag": 38891,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "3ef24a44f5ffda39fe23e4e4e4d2449e55a0b3001ec68a075a38313b6a4ff0d5",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
       {
         "keyTag": 42680,
         "algorithm": 8,
@@ -33613,6 +34098,14 @@
   "toyota.": {
     "ttl": 86400,
     "ds": [
+      {
+        "keyTag": 1172,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "d29f5d4ba40bdfed42adbd4a710003739220b1d361d1a29e8e31f03bb067d738",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
       {
         "keyTag": 64432,
         "algorithm": 8,
@@ -34006,13 +34499,21 @@
         "digest": "d53c138ead14027d6192dfb0c2cd0b7cff36986e47fe680d8b05f84ac78d633b",
         "algName": "RSASHA256",
         "hashName": "SHA256"
+      },
+      {
+        "keyTag": 35342,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "60bac1e816660ea6cc89bbe453c4cac50ee7fbc9bbac3ca6f8eebfb1a24af721",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
       }
     ],
     "ns": [
-      "ns1a.ksregistry.net.@203.119.88.75,2001:dd8:7:6075:dc::1",
-      "ns1b.ksregistry.net.@72.0.48.75,2620:171:a00:ad::75",
-      "ns2a.ksregistry.com.@203.119.88.76,2001:dd8:7:6076:dc::1",
-      "ns2b.ksregistry.com.@72.0.48.76,2620:171:a00:ad::76"
+      "a.nic.tui.@194.169.218.103,2001:67c:13cc::1:103",
+      "b.nic.tui.@185.24.64.103,2a04:2b00:13cc::1:103",
+      "c.nic.tui.@212.18.248.103,2a04:2b00:13ee::103",
+      "d.nic.tui.@212.18.249.103,2a04:2b00:13ff::103"
     ]
   },
   "tunes.": {
@@ -34060,12 +34561,13 @@
       }
     ],
     "ns": [
-      "ns1.dns.nic.tunes.@156.154.144.168,2610:a1:1071::a8",
-      "ns2.dns.nic.tunes.@156.154.145.168,2610:a1:1072::a8",
-      "ns3.dns.nic.tunes.@156.154.159.168,2610:a1:1073::a8",
       "ns4.dns.nic.tunes.@156.154.156.168,2610:a1:1074::a8",
       "ns5.dns.nic.tunes.@156.154.157.168,2610:a1:1075::a8",
-      "ns6.dns.nic.tunes.@156.154.158.168,2610:a1:1076::a8"
+      "ns6.dns.nic.tunes.@156.154.158.168,2610:a1:1076::a8",
+      "dns1.nic.tunes.@213.248.218.84,2a01:618:402::84",
+      "dns2.nic.tunes.@103.49.82.84,2401:fd80:402::84",
+      "dns3.nic.tunes.@213.248.222.84,2a01:618:406::84",
+      "dns4.nic.tunes.@43.230.50.84,2401:fd80:406::84"
     ]
   },
   "tushu.": {
@@ -34113,12 +34615,13 @@
       }
     ],
     "ns": [
-      "ns1.dns.nic.tushu.@156.154.144.169,2610:a1:1071::a9",
-      "ns2.dns.nic.tushu.@156.154.145.169,2610:a1:1072::a9",
-      "ns3.dns.nic.tushu.@156.154.159.169,2610:a1:1073::a9",
       "ns4.dns.nic.tushu.@156.154.156.169,2610:a1:1074::a9",
       "ns5.dns.nic.tushu.@156.154.157.169,2610:a1:1075::a9",
-      "ns6.dns.nic.tushu.@156.154.158.169,2610:a1:1076::a9"
+      "ns6.dns.nic.tushu.@156.154.158.169,2610:a1:1076::a9",
+      "dns1.nic.tushu.@213.248.218.85,2a01:618:402::85",
+      "dns2.nic.tushu.@103.49.82.85,2401:fd80:402::85",
+      "dns3.nic.tushu.@213.248.222.85,2a01:618:406::85",
+      "dns4.nic.tushu.@43.230.50.85,2401:fd80:406::85"
     ]
   },
   "tv.": {
@@ -34203,14 +34706,6 @@
   "tz.": {
     "ttl": 86400,
     "ds": [
-      {
-        "keyTag": 5298,
-        "algorithm": 10,
-        "digestType": 2,
-        "digest": "4733fc12533637b5f4600487511f6c228bed53fe00c1a6d319904878fed76799",
-        "algName": "RSASHA512",
-        "hashName": "SHA256"
-      },
       {
         "keyTag": 35251,
         "algorithm": 10,
@@ -35705,12 +36200,13 @@
       }
     ],
     "ns": [
-      "ns1.dns.nic.wanggou.@156.154.144.177,2610:a1:1071::b1",
-      "ns2.dns.nic.wanggou.@156.154.145.177,2610:a1:1072::b1",
-      "ns3.dns.nic.wanggou.@156.154.159.177,2610:a1:1073::b1",
       "ns4.dns.nic.wanggou.@156.154.156.177,2610:a1:1074::b1",
       "ns5.dns.nic.wanggou.@156.154.157.177,2610:a1:1075::b1",
-      "ns6.dns.nic.wanggou.@156.154.158.177,2610:a1:1076::b1"
+      "ns6.dns.nic.wanggou.@156.154.158.177,2610:a1:1076::b1",
+      "dns1.nic.wanggou.@213.248.218.86,2a01:618:402::86",
+      "dns2.nic.wanggou.@103.49.82.86,2401:fd80:402::86",
+      "dns3.nic.wanggou.@213.248.222.86,2a01:618:406::86",
+      "dns4.nic.wanggou.@43.230.50.86,2401:fd80:406::86"
     ]
   },
   "warman.": {
@@ -36588,12 +37084,13 @@
       }
     ],
     "ns": [
-      "ns1.dns.nic.wow.@156.154.169.63,2610:a1:1071::1:3f",
-      "ns2.dns.nic.wow.@156.154.170.63,2610:a1:1072::1:3f",
-      "ns3.dns.nic.wow.@156.154.171.63,2610:a1:1073::1:3f",
       "ns4.dns.nic.wow.@156.154.172.63,2610:a1:1074::1:3f",
       "ns5.dns.nic.wow.@156.154.173.63,2610:a1:1075::1:3f",
-      "ns6.dns.nic.wow.@156.154.174.63,2610:a1:1076::1:3f"
+      "ns6.dns.nic.wow.@156.154.174.63,2610:a1:1076::1:3f",
+      "dns1.nic.wow.@213.248.218.87,2a01:618:402::87",
+      "dns2.nic.wow.@103.49.82.87,2401:fd80:402::87",
+      "dns3.nic.wow.@213.248.222.87,2a01:618:406::87",
+      "dns4.nic.wow.@43.230.50.87,2401:fd80:406::87"
     ]
   },
   "ws.": {
@@ -36986,10 +37483,10 @@
     ],
     "ns": [
       "b.dns.kr.@61.74.75.1",
-      "c.dns.kr.@203.248.246.220",
+      "c.dns.kr.@210.101.61.1",
       "d.dns.kr.@203.83.159.1,2001:dcc:4::1",
       "e.dns.kr.@202.30.124.100,2001:dcc:5::100",
-      "f.dns.kr.@218.38.181.90",
+      "f.dns.kr.@210.101.62.1,2001:dcc:6::1",
       "g.dns.kr.@202.31.190.1,2001:dc5:a::1"
     ]
   },
@@ -39633,9 +40130,9 @@
     "ns": [
       "a.nic.my.@103.44.108.53,2001:ddc:0:53::53",
       "a.mynic.centralnic-dns.com.@194.169.218.114,2001:67c:13cc::1:114",
+      "b.mynic.centralnic-dns.com.@185.24.64.114,2a04:2b00:13cc::1:114",
       "a1.mynic.my.@202.171.47.204",
-      "ns2.cuhk.edu.hk.@137.189.6.21,2405:3000:3:6::15",
-      "ns30.cdns.net.@194.0.1.30,2001:678:4::1e"
+      "ns2.cuhk.edu.hk.@137.189.6.21,2405:3000:3:6::15"
     ]
   },
   "xn--mix891f.": {
@@ -40439,13 +40936,21 @@
         "digest": "7f669ea129f71b09eb87d520812d21758207ebdaae560cbb5019fbba4a20a016",
         "algName": "RSASHA256",
         "hashName": "SHA256"
+      },
+      {
+        "keyTag": 60320,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "bd736c840d3b1b3fdd1679d500c5f5bd82cf0323e9706932bc5b2d847d5644b5",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
       }
     ],
     "ns": [
-      "ns1a.ksregistry.net.@203.119.88.75,2001:dd8:7:6075:dc::1",
-      "ns1b.ksregistry.net.@72.0.48.75,2620:171:a00:ad::75",
-      "ns2a.ksregistry.com.@203.119.88.76,2001:dd8:7:6076:dc::1",
-      "ns2b.ksregistry.com.@72.0.48.76,2620:171:a00:ad::76"
+      "a.nic.xn--vermgensberater-ctb.@194.169.218.105,2001:67c:13cc::1:105",
+      "b.nic.xn--vermgensberater-ctb.@185.24.64.105,2a04:2b00:13cc::1:105",
+      "c.nic.xn--vermgensberater-ctb.@212.18.248.105,2a04:2b00:13ee::105",
+      "d.nic.xn--vermgensberater-ctb.@212.18.249.105,2a04:2b00:13ff::105"
     ]
   },
   "xn--vermgensberatung-pwb.": {
@@ -40458,13 +40963,21 @@
         "digest": "4eee971c6228837580afa24873862426612e75b8c6f2b79ba370e5a6a0403b08",
         "algName": "RSASHA256",
         "hashName": "SHA256"
+      },
+      {
+        "keyTag": 30509,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "b1d9b6e7e50bd1ac597183b160050a398919dde4a33fac3714bccaedd4bfd2ef",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
       }
     ],
     "ns": [
-      "ns1a.ksregistry.net.@203.119.88.75,2001:dd8:7:6075:dc::1",
-      "ns1b.ksregistry.net.@72.0.48.75,2620:171:a00:ad::75",
-      "ns2a.ksregistry.com.@203.119.88.76,2001:dd8:7:6076:dc::1",
-      "ns2b.ksregistry.com.@72.0.48.76,2620:171:a00:ad::76"
+      "a.nic.xn--vermgensberatung-pwb.@194.169.218.106,2001:67c:13cc::1:106",
+      "b.nic.xn--vermgensberatung-pwb.@185.24.64.106,2a04:2b00:13cc::1:106",
+      "c.nic.xn--vermgensberatung-pwb.@212.18.248.106,2a04:2b00:13ee::106",
+      "d.nic.xn--vermgensberatung-pwb.@212.18.249.106,2a04:2b00:13ff::106"
     ]
   },
   "xn--vhquv.": {
@@ -40915,12 +41428,13 @@
       }
     ],
     "ns": [
-      "ns1.dns.nic.yamaxun.@156.154.144.185,2610:a1:1071::b9",
-      "ns2.dns.nic.yamaxun.@156.154.145.185,2610:a1:1072::b9",
-      "ns3.dns.nic.yamaxun.@156.154.159.185,2610:a1:1073::b9",
       "ns4.dns.nic.yamaxun.@156.154.156.185,2610:a1:1074::b9",
       "ns5.dns.nic.yamaxun.@156.154.157.185,2610:a1:1075::b9",
-      "ns6.dns.nic.yamaxun.@156.154.158.185,2610:a1:1076::b9"
+      "ns6.dns.nic.yamaxun.@156.154.158.185,2610:a1:1076::b9",
+      "dns1.nic.yamaxun.@213.248.218.88,2a01:618:402::88",
+      "dns2.nic.yamaxun.@103.49.82.88,2401:fd80:402::88",
+      "dns3.nic.yamaxun.@213.248.222.88,2a01:618:406::88",
+      "dns4.nic.yamaxun.@43.230.50.88,2401:fd80:406::88"
     ]
   },
   "yandex.": {
@@ -40982,6 +41496,14 @@
     "ttl": 86400,
     "ds": [
       {
+        "keyTag": 40387,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "f2a6e4458136145067fca10141180bac9fd4ca768908707d98e5e2412039a1e3",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
         "keyTag": 60050,
         "algorithm": 8,
         "digestType": 2,
@@ -41023,6 +41545,14 @@
   "yokohama.": {
     "ttl": 86400,
     "ds": [
+      {
+        "keyTag": 40754,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "e03e2af9c07c1acde150dc51e5a2d8803f70626fb5b6deecdabc5f8fdd0bdbaa",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
       {
         "keyTag": 42466,
         "algorithm": 8,
@@ -41084,12 +41614,13 @@
       }
     ],
     "ns": [
-      "ns1.dns.nic.you.@156.154.169.77,2610:a1:1071::1:4d",
-      "ns2.dns.nic.you.@156.154.170.77,2610:a1:1072::1:4d",
-      "ns3.dns.nic.you.@156.154.171.77,2610:a1:1073::1:4d",
       "ns4.dns.nic.you.@156.154.172.77,2610:a1:1074::1:4d",
       "ns5.dns.nic.you.@156.154.173.77,2610:a1:1075::1:4d",
-      "ns6.dns.nic.you.@156.154.174.77,2610:a1:1076::1:4d"
+      "ns6.dns.nic.you.@156.154.174.77,2610:a1:1076::1:4d",
+      "dns1.nic.you.@213.248.218.89,2a01:618:402::89",
+      "dns2.nic.you.@103.49.82.89,2401:fd80:402::89",
+      "dns3.nic.you.@213.248.222.89,2a01:618:406::89",
+      "dns4.nic.you.@43.230.50.89,2401:fd80:406::89"
     ]
   },
   "youtube.": {
@@ -41389,6 +41920,14 @@
     "ttl": 86400,
     "ds": [
       {
+        "keyTag": 7399,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "69407fe45988e2c569855c70330a24520db734481082c668317e8bbb764551d3",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
         "keyTag": 52375,
         "algorithm": 8,
         "digestType": 2,
@@ -41398,10 +41937,10 @@
       }
     ],
     "ns": [
-      "ns1a.ksregistry.net.@203.119.88.75,2001:dd8:7:6075:dc::1",
-      "ns1b.ksregistry.net.@72.0.48.75,2620:171:a00:ad::75",
-      "ns2a.ksregistry.com.@203.119.88.76,2001:dd8:7:6076:dc::1",
-      "ns2b.ksregistry.com.@72.0.48.76,2620:171:a00:ad::76"
+      "a.nic.zuerich.@194.169.218.107,2001:67c:13cc::1:107",
+      "b.nic.zuerich.@185.24.64.107,2a04:2b00:13cc::1:107",
+      "c.nic.zuerich.@212.18.248.107,2a04:2b00:13ee::107",
+      "d.nic.zuerich.@212.18.249.107,2a04:2b00:13ff::107"
     ]
   },
   "zw.": {
