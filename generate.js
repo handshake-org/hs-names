@@ -172,8 +172,8 @@ function compile() {
 
   // Alexa top 100,000 second-level domains.
   for (let i = 0; i < 100000; i++) {
-    const domain = ALEXA[i];
-    const parts = domain.split('.');
+    const domain_ = ALEXA[i];
+    const parts = domain_.split('.');
     const rank = i + 1;
 
     // Strip leading `www`.
@@ -181,6 +181,8 @@ function compile() {
       parts.shift();
 
     assert(parts.length >= 2);
+
+    const domain = parts.join('.');
 
     // Ignore plain `www`.
     if (parts[0] === 'www') {
