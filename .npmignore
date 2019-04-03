@@ -1,0 +1,15 @@
+.babel*
+.bmocharc*
+.bpkgignore
+.editorconfig
+.eslint*
+.mocharc*
+.yarnignore
+bench/
+docs/
+node_modules/
+npm-debug.log
+package-lock.json
+test/
+webpack.*.js
+yarn.lock
