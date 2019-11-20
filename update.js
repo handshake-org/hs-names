@@ -56,28 +56,50 @@ const CUSTOM = [
   ['blockstack', 'blockstack.com'], // Blockstack (does not rank)
   ['pir', 'pir.org'], // Public Internet Registry (does not rank)
   ['afilias', 'afilias.info'], // Afilias plc (does not rank)
-  ['identrust', 'identrust.com'], // IdenTrust (does not rank)
-  ['globalsign', 'globalsign.com'] // GMO GlobalSign (does not rank)
+  ['gnunet', 'gnunet.org'], // GNUnet (does not rank)
+
+  ['datprotocol', 'datprotocol.com'], // Dat Project (does not rank)
+  ['dnscrypt', 'dnscrypt.info'], // DNScrypt (does not rank)
+  ['nlnetlabs', 'nlnetlabs.nl'], // Unbound (does not rank)
+  ['darksi', 'darksi.de'], // Individual (does not rank)
+  // ['cr', 'cr.yp.to'], // Individual (does not rank)
+  ['m-d', 'm-d.net'], // Individual (does not rank)
+  ['marples', 'marples.name'] // Individual (does not rank)
 ].sort(([a], [b]) => {
   return a.localeCompare(b);
 });
 
 const VALUES = [
-  ['icann.org', 27880000], // ICANN
-  ['eth.ens.domains', 10200000], // ENS (old: ens.domains)
-  ['blockstack.com', 10200000], // Blockstack
+  // Naming
+  ['icann.org', 24480000], // ICANN
+  ['eth.ens.domains', 136000], // ENS
+  ['blockstack.com', 408000], // Blockstack
   ['cloudflare.com', 6800000], // Cloudflare
-  ['verisign', 6800000], // Verisign (old: verisign.com)
+  ['verisign', 6800000], // Verisign
   ['keybase.io', 3400000], // Keybase
   ['pir.org', 3400000], // Public Internet Registry
   ['afilias.info', 3400000], // Afilias plc
-  ['identrust.com', 3400000], // IdenTrust
   ['brave.com', 3400000], // Brave
-  ['comodo.com', 3400000], // Comodo
   ['namecheap.com', 2720000], // Namecheap
-  ['digicert.com', 2720000], // Digicert
-  ['godaddy', 2720000], // Godaddy (old: godaddy.com)
-  ['globalsign.com', 1360000] // GMO GlobalSign
+  ['godaddy', 2720000], // Godaddy
+  ['gnunet.org', 136000], // GNUnet
+
+  // FOSS
+  ['datprotocol.com', 405970], // Dat Project
+  ['dnscrypt.info', 202985], // DNScrypt
+  ['riseup.net', 202985], // Riseup Labs
+  ['debian.org', 1078847], // Reproducible Builds Debian
+  ['webtorrent.io', 405970], // WebTorrent LLC
+  ['tor.torproject.com', 1078847], // Tor Project
+  ['gnu.gplv3.com', 1078847], // GNU
+  ['eff.org', 811940], // Electronic Frontier Foundation
+  ['nlnetlabs.nl', 1078847], // Unbound
+  ['mozilla.org', 608955], // Mozilla Foundation
+  ['darksi.de', 608955], // Individual
+  ['ubuntu.com', 811940], // Ubuntu
+  // ['cr.yp.to', 811940], // Individual
+  ['m-d.net', 1014925], // Individual
+  ['marples.name', 202985] // openresolv
 ];
 
 const TLD = [

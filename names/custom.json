@@ -16,6 +16,18 @@
     "brave.com"
   ],
   [
+    "darksi",
+    "darksi.de"
+  ],
+  [
+    "datprotocol",
+    "datprotocol.com"
+  ],
+  [
+    "dnscrypt",
+    "dnscrypt.info"
+  ],
+  [
     "eth",
     "eth.ens.domains"
   ],
@@ -24,24 +36,32 @@
     "exit.torproject.com"
   ],
   [
-    "globalsign",
-    "globalsign.com"
-  ],
-  [
     "gnu",
     "gnu.gplv3.com"
+  ],
+  [
+    "gnunet",
+    "gnunet.org"
   ],
   [
     "i2p",
     "i2p.geti2p.net"
   ],
   [
-    "identrust",
-    "identrust.com"
-  ],
-  [
     "keybase",
     "keybase.io"
+  ],
+  [
+    "m-d",
+    "m-d.net"
+  ],
+  [
+    "marples",
+    "marples.name"
+  ],
+  [
+    "nlnetlabs",
+    "nlnetlabs.nl"
   ],
   [
     "onion",

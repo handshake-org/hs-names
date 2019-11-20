@@ -1,15 +1,15 @@
 [
   [
     "icann.org",
-    27880000
+    24480000
   ],
   [
     "eth.ens.domains",
-    10200000
+    136000
   ],
   [
     "blockstack.com",
-    10200000
+    408000
   ],
   [
     "cloudflare.com",
@@ -32,15 +32,7 @@
     3400000
   ],
   [
-    "identrust.com",
-    3400000
-  ],
-  [
     "brave.com",
-    3400000
-  ],
-  [
-    "comodo.com",
     3400000
   ],
   [
@@ -48,15 +40,67 @@
     2720000
   ],
   [
-    "digicert.com",
-    2720000
-  ],
-  [
     "godaddy",
     2720000
   ],
   [
-    "globalsign.com",
-    1360000
+    "gnunet.org",
+    136000
+  ],
+  [
+    "datprotocol.com",
+    405970
+  ],
+  [
+    "dnscrypt.info",
+    202985
+  ],
+  [
+    "riseup.net",
+    202985
+  ],
+  [
+    "debian.org",
+    1078847
+  ],
+  [
+    "webtorrent.io",
+    405970
+  ],
+  [
+    "tor.torproject.com",
+    1078847
+  ],
+  [
+    "gnu.gplv3.com",
+    1078847
+  ],
+  [
+    "eff.org",
+    811940
+  ],
+  [
+    "nlnetlabs.nl",
+    1078847
+  ],
+  [
+    "mozilla.org",
+    608955
+  ],
+  [
+    "darksi.de",
+    608955
+  ],
+  [
+    "ubuntu.com",
+    811940
+  ],
+  [
+    "m-d.net",
+    1014925
+  ],
+  [
+    "marples.name",
+    202985
   ]
 ]

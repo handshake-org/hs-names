@@ -112,6 +112,9 @@ Names which were added _after_ the final snapshot:
 - `inc` - A new gTLD added on ICANN's system.
 - `ss` - ccTLD for South Sudan.
 - `xn--mgbah1a3hjkrd` - iccTLD for Mauritania.
+- `cpa` - A new gTLD added on ICANN's system.
+- `gay` - A new gTLD added on ICANN's system.
+- `xn--qxa6a` - iccTLD for .eu in Greek.
 
 Names which were removed _after_ the final snapshot:
 
@@ -126,3 +129,21 @@ Names which were removed _after_ the final snapshot:
 - `zippo` - A gTLD removed from ICANN's system.
 - `blanco` - A gTLD removed from ICANN's system.
 - `active` - A gTLD removed from ICANN's system.
+- `bnl` - A gTLD removed from ICANN's system.
+- `cartier` - A gTLD removed from ICANN's system.
+- `chrysler` - A gTLD removed from ICANN's system.
+- `dodge` - A gTLD removed from ICANN's system.
+- `doha` - A gTLD removed from ICANN's system.
+- `duns` - A gTLD removed from ICANN's system.
+- `everbank` - A gTLD removed from ICANN's system.
+- `honeywell` - A gTLD removed from ICANN's system.
+- `iselect` - A gTLD removed from ICANN's system.
+- `ladbrokes` - A gTLD removed from ICANN's system.
+- `mobily` - A gTLD removed from ICANN's system.
+- `mopar` - A gTLD removed from ICANN's system.
+- `piaget` - A gTLD removed from ICANN's system.
+- `srt` - A gTLD removed from ICANN's system.
+- `starhub` - A gTLD removed from ICANN's system.
+- `uconnect` - A gTLD removed from ICANN's system.
+- `warman` - A gTLD removed from ICANN's system.
+- `xn--mgbb9fbpob` - An iccTLD removed from ICANN's system.

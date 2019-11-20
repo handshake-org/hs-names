@@ -311,16 +311,14 @@ function sortHash(a, b) {
 const [names, invalid] = compile();
 const items = [];
 
-const SHARE = 102e6 * 1e6; // 7.5%
+const SHARE = 136e6 * 1e6; // 10%
 const HALF_SHARE = floor(SHARE / 2);
 const NAME_VALUE = floor(HALF_SHARE / (names.length - embargoes.size));
 const ROOT_VALUE =
   NAME_VALUE + floor(HALF_SHARE / (RTLD.length - embargoes.size));
 
-// Note: One of the naming/CA recipients preferred to use an address instead of
-// a name to redeem their coins. As such, their coins are given to them in the
-// faucet merkle tree instead.
-const EXTRA_VALUE = 10200000 * 1e6;
+// FOSS and naming projects who preferred addresses.
+const EXTRA_VALUE = (16768000 + 10200000) * 1e6;
 
 {
   const json = [];
@@ -422,7 +420,7 @@ for (const {name, domain, rank} of names) {
 assert.strictEqual(totalTLDS, RTLD.length);
 assert.strictEqual(totalEmbargoes, embargoes.size);
 assert(totalValue + EXTRA_VALUE <= SHARE * 2);
-assert.strictEqual(totalValue + EXTRA_VALUE, 203999999937640);
+assert.strictEqual(totalValue + EXTRA_VALUE, 230360997976906);
 
 if (values.size !== 0) {
   console.error('Custom values not satisfied:');
