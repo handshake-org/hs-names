@@ -95,6 +95,8 @@ function compile() {
   const names = [];
   const invalid = [];
 
+  let top100 = 0;
+
   const invalidate = (domain, rank, reason, winner = null) => {
     const name = domain;
 
@@ -139,6 +141,9 @@ function compile() {
       tld,
       collisions: 0
     };
+
+    if (rank > 0 && rank <= 100)
+      top100 += 1;
 
     table.set(name, item);
     names.push(item);
@@ -283,7 +288,7 @@ function compile() {
     insert(domain, rank, name, tld);
   }
 
-  return [names, invalid];
+  return [names, invalid, top100];
 }
 
 /*
@@ -308,17 +313,18 @@ function sortHash(a, b) {
  * Execute
  */
 
-const [names, invalid] = compile();
+const [names, invalid, top100] = compile();
 const items = [];
 
-const SHARE = 136e6 * 1e6; // 10%
-const HALF_SHARE = floor(SHARE / 2);
-const NAME_VALUE = floor(HALF_SHARE / (names.length - embargoes.size));
-const ROOT_VALUE =
-  NAME_VALUE + floor(HALF_SHARE / (RTLD.length - embargoes.size));
+// 1/3 to TLDs, 1/3 to names, 1/3 to top 100
+const TOTAL = 136e6 * 1e6; // 10%
+const SHARE = floor(TOTAL / 3);
+const NAME_VALUE = floor(SHARE / (names.length - embargoes.size));
+const ROOT_VALUE = NAME_VALUE + floor(SHARE / (RTLD.length - embargoes.size));
+const TOP_VALUE = NAME_VALUE + floor(SHARE / top100);
 
 // FOSS and naming projects who preferred addresses.
-const EXTRA_VALUE = (16768000 + 10200000) * 1e6;
+const EXTRA_VALUE = (17115975 + 10200000) * 1e6;
 
 {
   const json = [];
@@ -370,8 +376,9 @@ const EXTRA_VALUE = (16768000 + 10200000) * 1e6;
  */
 
 let totalTLDS = 0;
-let totalValue = 0;
+let totalTop = 0;
 let totalEmbargoes = 0;
+let totalValue = 0;
 
 for (const {name, domain, rank} of names) {
   let flags = 0;
@@ -382,9 +389,10 @@ for (const {name, domain, rank} of names) {
     totalTLDS += 1;
   }
 
-  if (embargoes.has(domain)) {
-    flags |= 2; // Embargoed
-    totalEmbargoes += 1;
+  if (rank > 0 && rank <= 100) {
+    assert(!embargoes.has(domain));
+    flags |= 2; // Top 100
+    totalTop += 1;
   }
 
   if (values.has(domain)) {
@@ -393,9 +401,16 @@ for (const {name, domain, rank} of names) {
     values.delete(domain);
   }
 
-  if (!(flags & 2)) {
+  if (embargoes.has(domain)) {
+    flags |= 8; // Embargoed
+    totalEmbargoes += 1;
+  }
+
+  if (!(flags & 8)) {
     if (flags & 1)
       totalValue += ROOT_VALUE;
+    else if (flags & 2)
+      totalValue += TOP_VALUE;
     else
       totalValue += NAME_VALUE;
 
@@ -418,8 +433,8 @@ for (const {name, domain, rank} of names) {
 }
 
 assert.strictEqual(totalTLDS, RTLD.length);
+assert.strictEqual(totalTop, top100);
 assert.strictEqual(totalEmbargoes, embargoes.size);
-assert(totalValue + EXTRA_VALUE <= SHARE * 2);
 assert.strictEqual(totalValue + EXTRA_VALUE, 230360997976906);
 
 if (values.size !== 0) {
@@ -435,7 +450,8 @@ items.sort(sortHash);
 
   const json = [
     '{',
-    `  "${ZERO_HASH}": [${items.length}, ${NAME_VALUE}, ${ROOT_VALUE}],`
+    // eslint-disable-next-line
+    `  "${ZERO_HASH}": [${items.length}, ${ROOT_VALUE}, ${TOP_VALUE}, ${NAME_VALUE}],`
   ];
 
   for (const {hex, target, flags, custom} of items) {
@@ -459,8 +475,9 @@ items.sort(sortHash);
   const {data} = bw;
 
   bw.writeU32(items.length);
-  bw.writeU64(NAME_VALUE);
   bw.writeU64(ROOT_VALUE);
+  bw.writeU64(TOP_VALUE);
+  bw.writeU64(NAME_VALUE);
 
   const offsets = [];
 

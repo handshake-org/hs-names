@@ -51,55 +51,49 @@ const CUSTOM = [
   ['zkey', 'zkey.gplv3.com'], // GNS
 
   // Required to make the custom values work:
-  ['brave', 'brave.com'], // Brave (english word)
-  ['keybase', 'keybase.io'], // Keybase (keybase.pub takes precedence)
-  ['blockstack', 'blockstack.com'], // Blockstack (does not rank)
-  ['pir', 'pir.org'], // Public Internet Registry (does not rank)
   ['afilias', 'afilias.info'], // Afilias plc (does not rank)
-  ['gnunet', 'gnunet.org'], // GNUnet (does not rank)
-
+  ['blockstack', 'blockstack.com'], // Blockstack (does not rank)
+  ['brave', 'brave.com'], // Brave (english word)
+  ['darksi', 'darksi.de'], // Individual (does not rank)
   ['datprotocol', 'datprotocol.com'], // Dat Project (does not rank)
   ['dnscrypt', 'dnscrypt.info'], // DNScrypt (does not rank)
-  ['nlnetlabs', 'nlnetlabs.nl'], // Unbound (does not rank)
-  ['darksi', 'darksi.de'], // Individual (does not rank)
-  // ['cr', 'cr.yp.to'], // Individual (does not rank)
+  ['gnunet', 'gnunet.org'], // GNUnet (does not rank)
+  ['keybase', 'keybase.io'], // Keybase (keybase.pub takes precedence)
+  ['marples', 'marples.name'], // Individual (does not rank)
   ['m-d', 'm-d.net'], // Individual (does not rank)
-  ['marples', 'marples.name'] // Individual (does not rank)
+  ['nlnetlabs', 'nlnetlabs.nl'], // Unbound (does not rank)
+  ['pir', 'pir.org'] // Public Internet Registry (does not rank)
 ].sort(([a], [b]) => {
   return a.localeCompare(b);
 });
 
 const VALUES = [
-  // Naming
-  ['icann.org', 24480000], // ICANN
-  ['eth.ens.domains', 136000], // ENS
-  ['blockstack.com', 408000], // Blockstack
-  ['cloudflare.com', 6800000], // Cloudflare
-  ['verisign', 6800000], // Verisign
-  ['keybase.io', 3400000], // Keybase
-  ['pir.org', 3400000], // Public Internet Registry
   ['afilias.info', 3400000], // Afilias plc
+  ['blockstack.com', 408000], // Blockstack
   ['brave.com', 3400000], // Brave
-  ['namecheap.com', 2720000], // Namecheap
-  ['godaddy', 2720000], // Godaddy
-  ['gnunet.org', 136000], // GNUnet
-
-  // FOSS
-  ['datprotocol.com', 405970], // Dat Project
-  ['dnscrypt.info', 202985], // DNScrypt
-  ['riseup.net', 202985], // Riseup Labs
-  ['debian.org', 1078847], // Reproducible Builds Debian
-  ['webtorrent.io', 405970], // WebTorrent LLC
-  ['tor.torproject.com', 1078847], // Tor Project
-  ['gnu.gplv3.com', 1078847], // GNU
-  ['eff.org', 811940], // Electronic Frontier Foundation
-  ['nlnetlabs.nl', 1078847], // Unbound
-  ['mozilla.org', 608955], // Mozilla Foundation
+  ['cloudflare.com', 6800000], // Cloudflare
   ['darksi.de', 608955], // Individual
+  ['datprotocol.com', 405970], // Dat Project
+  ['debian.org', 1194838], // Reproducible Builds Debian
+  ['dnscrypt.info', 202985], // DNScrypt
+  ['eff.org', 811941], // Electronic Frontier Foundation
+  ['eth.ens.domains', 136000], // ENS
+  ['gnu.gplv3.com', 1194838], // GNU
+  ['gnunet.org', 136000], // GNUnet
+  ['godaddy', 2720000], // Godaddy
+  ['icann.org', 24480000], // ICANN
+  ['keybase.io', 3400000], // Keybase
+  ['m-d.net ', 1041987], // Individual
+  ['marples.name', 202985], // openresolv
+  ['mozilla.org', 608955], // Mozilla Foundation
+  ['namecheap.com', 2720000], // Namecheap
+  ['nlnetlabs.nl', 1194838], // Unbound
+  ['pir.org', 3400000], // Public Internet Registry
+  ['riseup.net', 202985], // Riseup Labs
+  ['tor.torproject.com', 1194838], // Tor Project
   ['ubuntu.com', 811940], // Ubuntu
-  // ['cr.yp.to', 811940], // Individual
-  ['m-d.net', 1014925], // Individual
-  ['marples.name', 202985] // openresolv
+  ['verisign', 6800000], // Verisign
+  ['webtorrent.io', 405970], // WebTorrent LLC
 ];
 
 const TLD = [
