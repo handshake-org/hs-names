@@ -435,7 +435,10 @@ for (const {name, domain, rank} of names) {
 assert.strictEqual(totalTLDS, RTLD.length);
 assert.strictEqual(totalTop, top100);
 assert.strictEqual(totalEmbargoes, embargoes.size);
-assert.strictEqual(totalValue + EXTRA_VALUE, 230360997976906);
+
+// 68000000 + 27200000 + 136000000 = 231200000
+// 0.046439 coins are burned due to rounding.
+assert.strictEqual(totalValue + EXTRA_VALUE, 231199999953561);
 
 if (values.size !== 0) {
   console.error('Custom values not satisfied:');

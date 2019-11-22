@@ -56,14 +56,14 @@ const CUSTOM = [
   ['brave', 'brave.com'], // Brave (english word)
   ['darksi', 'darksi.de'], // Individual (does not rank)
   ['datprotocol', 'datprotocol.com'], // Dat Project (does not rank)
-  ['debian', 'debian.net'], // Debian (does not rank)
+  ['debian', 'debian.net'], // Debian (prefer over .org)
   ['dnscrypt', 'dnscrypt.info'], // DNScrypt (does not rank)
-  ['eff', 'eff.com'], // Electronic Frontier Foundation (does not rank)
+  ['eff', 'eff.com'], // Electronic Frontier Foundation (prefer over .org)
   ['gnunet', 'gnunet.org'], // GNUnet (does not rank)
-  ['keybase', 'keybase.io'], // Keybase (keybase.pub takes precedence)
-  ['marples', 'marples.name'], // Individual (does not rank)
-  ['mozilla', 'mozilla.com'], // Mozilla Foundation (does not rank)
+  ['keybase', 'keybase.io'], // Keybase (prefer over keybase.pub)
   ['m-d', 'm-d.net'], // Individual (does not rank)
+  ['marples', 'marples.name'], // Individual (does not rank)
+  ['mozilla', 'mozilla.com'], // Mozilla Foundation (prefer over .org)
   ['nlnetlabs', 'nlnetlabs.nl'], // Unbound (does not rank)
   ['pir', 'pir.org'] // Public Internet Registry (does not rank)
 ].sort(([a], [b]) => {
@@ -86,7 +86,7 @@ const VALUES = [
   ['godaddy', 2720000], // Godaddy
   ['icann.org', 24480000], // ICANN
   ['keybase.io', 3400000], // Keybase
-  ['m-d.net ', 1041987], // Individual
+  ['m-d.net', 1041987], // Individual
   ['marples.name', 202985], // openresolv
   ['mozilla.com', 608955], // Mozilla Foundation
   ['namecheap.com', 2720000], // Namecheap

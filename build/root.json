@@ -2850,6 +2850,22 @@
     "ttl": 86400,
     "ds": [
       {
+        "keyTag": 24451,
+        "algorithm": 8,
+        "digestType": 1,
+        "digest": "ecac668f44cef85523ca91bf9cd89f4b48d7e786",
+        "algName": "RSASHA256",
+        "hashName": "SHA1"
+      },
+      {
+        "keyTag": 24451,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "c3dc580dd252cbb5d452bd595666ae843beda342ffcd30c920e01d62aee2796b",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
         "keyTag": 46041,
         "algorithm": 8,
         "digestType": 2,
@@ -2859,8 +2875,9 @@
       }
     ],
     "ns": [
-      "ac1.nstld.com.@192.42.173.30,2001:500:120::30",
-      "ac2.nstld.com.@192.42.174.30,2001:500:121::30",
+      "a.nic.bank.@156.154.100.27,2001:502:2eda::27",
+      "b.nic.bank.@156.154.101.27,2001:502:ad09::27",
+      "c.nic.bank.@156.154.102.27,2610:a1:1009::27",
       "ac3.nstld.com.@192.42.175.30,2001:500:122::30",
       "ac4.nstld.com.@192.42.176.30,2001:500:123::30"
     ]
@@ -6288,10 +6305,10 @@
     "ttl": 86400,
     "ds": [
       {
-        "keyTag": 11896,
+        "keyTag": 55966,
         "algorithm": 13,
         "digestType": 2,
-        "digest": "24ee6537b1c452d3aebf439dcf74024717054152da7f206d5fcba1a90f70711f",
+        "digest": "ceb479416e4efd770800434be1245e1b10d4cf018255c11d8544c448fa032b32",
         "algName": "ECDSAP256SHA256",
         "hashName": "SHA256"
       }
@@ -16340,11 +16357,28 @@
         "digest": "6fa68e9c22c5591ebb6baf0213849102af30b71b65b51ed890639f8299aad1d8",
         "algName": "RSASHA256",
         "hashName": "SHA256"
+      },
+      {
+        "keyTag": 48811,
+        "algorithm": 8,
+        "digestType": 1,
+        "digest": "b575048ba3d8644f995dbe7af524c6eaf5e0e40f",
+        "algName": "RSASHA256",
+        "hashName": "SHA1"
+      },
+      {
+        "keyTag": 48811,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "c6677658bfc5b11fec39e0d7f7266091fc7979eaae5aa6c51673b1a53bced3fa",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
       }
     ],
     "ns": [
-      "ac1.nstld.com.@192.42.173.30,2001:500:120::30",
-      "ac2.nstld.com.@192.42.174.30,2001:500:121::30",
+      "a.nic.insurance.@156.154.100.22,2001:502:2eda::22",
+      "b.nic.insurance.@156.154.101.22,2001:502:ad09::22",
+      "c.nic.insurance.@156.154.102.22,2610:a1:1009::22",
       "ac3.nstld.com.@192.42.175.30,2001:500:122::30",
       "ac4.nstld.com.@192.42.176.30,2001:500:123::30"
     ]
@@ -18926,10 +18960,10 @@
     "ttl": 86400,
     "ds": [
       {
-        "keyTag": 43587,
+        "keyTag": 30904,
         "algorithm": 13,
         "digestType": 2,
-        "digest": "b14d4cf3551db52cf024e85ceca6ac7d0d78356e95c67aa6cd75257d1cab268f",
+        "digest": "63725534b907cfc0e2326a640327c70c8e44d747aabeef0d1a14afb7836a7894",
         "algName": "ECDSAP256SHA256",
         "hashName": "SHA256"
       }
@@ -33463,6 +33497,7 @@
     "ns": [
       "ns1.nic.vi.@192.5.4.1,2001:500:2e::1",
       "ns3.nic.vi.@185.17.236.230",
+      "pch.nic.vi.@204.61.216.133,2001:500:14:6133:ad::1",
       "auth100.ns.uu.net.@198.6.1.202",
       "auth110.ns.uu.net.@198.6.1.114"
     ]

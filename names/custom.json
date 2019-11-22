@@ -24,8 +24,16 @@
     "datprotocol.com"
   ],
   [
+    "debian",
+    "debian.net"
+  ],
+  [
     "dnscrypt",
     "dnscrypt.info"
+  ],
+  [
+    "eff",
+    "eff.com"
   ],
   [
     "eth",
@@ -58,6 +66,10 @@
   [
     "marples",
     "marples.name"
+  ],
+  [
+    "mozilla",
+    "mozilla.com"
   ],
   [
     "nlnetlabs",

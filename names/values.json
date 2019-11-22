@@ -1,106 +1,106 @@
 [
   [
-    "icann.org",
-    24480000
-  ],
-  [
-    "eth.ens.domains",
-    136000
+    "afilias.info",
+    3400000
   ],
   [
     "blockstack.com",
     408000
   ],
   [
-    "cloudflare.com",
-    6800000
-  ],
-  [
-    "verisign",
-    6800000
-  ],
-  [
-    "keybase.io",
-    3400000
-  ],
-  [
-    "pir.org",
-    3400000
-  ],
-  [
-    "afilias.info",
-    3400000
-  ],
-  [
     "brave.com",
     3400000
   ],
   [
-    "namecheap.com",
-    2720000
-  ],
-  [
-    "godaddy",
-    2720000
-  ],
-  [
-    "gnunet.org",
-    136000
-  ],
-  [
-    "datprotocol.com",
-    405970
-  ],
-  [
-    "dnscrypt.info",
-    202985
-  ],
-  [
-    "riseup.net",
-    202985
-  ],
-  [
-    "debian.org",
-    1078847
-  ],
-  [
-    "webtorrent.io",
-    405970
-  ],
-  [
-    "tor.torproject.com",
-    1078847
-  ],
-  [
-    "gnu.gplv3.com",
-    1078847
-  ],
-  [
-    "eff.org",
-    811940
-  ],
-  [
-    "nlnetlabs.nl",
-    1078847
-  ],
-  [
-    "mozilla.org",
-    608955
+    "cloudflare.com",
+    6800000
   ],
   [
     "darksi.de",
     608955
   ],
   [
-    "ubuntu.com",
-    811940
+    "datprotocol.com",
+    405970
+  ],
+  [
+    "debian.net",
+    1194838
+  ],
+  [
+    "dnscrypt.info",
+    202985
+  ],
+  [
+    "eff.com",
+    811941
+  ],
+  [
+    "eth.ens.domains",
+    136000
+  ],
+  [
+    "gnu.gplv3.com",
+    1194838
+  ],
+  [
+    "gnunet.org",
+    136000
+  ],
+  [
+    "godaddy",
+    2720000
+  ],
+  [
+    "icann.org",
+    24480000
+  ],
+  [
+    "keybase.io",
+    3400000
   ],
   [
     "m-d.net",
-    1014925
+    1041987
   ],
   [
     "marples.name",
     202985
+  ],
+  [
+    "mozilla.com",
+    608955
+  ],
+  [
+    "namecheap.com",
+    2720000
+  ],
+  [
+    "nlnetlabs.nl",
+    1194838
+  ],
+  [
+    "pir.org",
+    3400000
+  ],
+  [
+    "riseup.net",
+    202985
+  ],
+  [
+    "tor.torproject.com",
+    1194838
+  ],
+  [
+    "ubuntu.com",
+    811940
+  ],
+  [
+    "verisign",
+    6800000
+  ],
+  [
+    "webtorrent.io",
+    405970
   ]
 ]
