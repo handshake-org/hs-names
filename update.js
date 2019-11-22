@@ -56,10 +56,13 @@ const CUSTOM = [
   ['brave', 'brave.com'], // Brave (english word)
   ['darksi', 'darksi.de'], // Individual (does not rank)
   ['datprotocol', 'datprotocol.com'], // Dat Project (does not rank)
+  ['debian', 'debian.net'], // Debian (does not rank)
   ['dnscrypt', 'dnscrypt.info'], // DNScrypt (does not rank)
+  ['eff', 'eff.com'], // Electronic Frontier Foundation (does not rank)
   ['gnunet', 'gnunet.org'], // GNUnet (does not rank)
   ['keybase', 'keybase.io'], // Keybase (keybase.pub takes precedence)
   ['marples', 'marples.name'], // Individual (does not rank)
+  ['mozilla', 'mozilla.com'], // Mozilla Foundation (does not rank)
   ['m-d', 'm-d.net'], // Individual (does not rank)
   ['nlnetlabs', 'nlnetlabs.nl'], // Unbound (does not rank)
   ['pir', 'pir.org'] // Public Internet Registry (does not rank)
@@ -74,9 +77,9 @@ const VALUES = [
   ['cloudflare.com', 6800000], // Cloudflare
   ['darksi.de', 608955], // Individual
   ['datprotocol.com', 405970], // Dat Project
-  ['debian.org', 1194838], // Reproducible Builds Debian
+  ['debian.net', 1194838], // Reproducible Builds Debian
   ['dnscrypt.info', 202985], // DNScrypt
-  ['eff.org', 811941], // Electronic Frontier Foundation
+  ['eff.com', 811941], // Electronic Frontier Foundation
   ['eth.ens.domains', 136000], // ENS
   ['gnu.gplv3.com', 1194838], // GNU
   ['gnunet.org', 136000], // GNUnet
@@ -85,7 +88,7 @@ const VALUES = [
   ['keybase.io', 3400000], // Keybase
   ['m-d.net ', 1041987], // Individual
   ['marples.name', 202985], // openresolv
-  ['mozilla.org', 608955], // Mozilla Foundation
+  ['mozilla.com', 608955], // Mozilla Foundation
   ['namecheap.com', 2720000], // Namecheap
   ['nlnetlabs.nl', 1194838], // Unbound
   ['pir.org', 3400000], // Public Internet Registry
@@ -93,7 +96,7 @@ const VALUES = [
   ['tor.torproject.com', 1194838], // Tor Project
   ['ubuntu.com', 811940], // Ubuntu
   ['verisign', 6800000], // Verisign
-  ['webtorrent.io', 405970], // WebTorrent LLC
+  ['webtorrent.io', 405970] // WebTorrent LLC
 ];
 
 const TLD = [
