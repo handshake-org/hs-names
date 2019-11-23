@@ -86,6 +86,31 @@ const embargoes = new Set([
   've'  // Venezuela
 ]);
 
+// Force top 100 status for these TLDs.
+// They don't rank on Alexa, but the
+// owners of these TLDs also own high
+// ranking SLDs.
+const forceTop100 = new Set([
+  'youtube', // youtube.com
+  'google', // google.com
+  'baidu', // baidu.com
+  'yahoo', // yahoo.com
+  'taobao', // taobao.com
+  'tmall', // tmall.com
+  'sohu', // sohu.com
+  'sina', // sina.com.cn
+  'weibo', // weibo.com
+  'yandex', // yandex.ru
+  'netflix', // netflix.com
+  'bing', // bing.com
+  'alipay', // alipay.com
+  'imdb', // imdb.com
+  'microsoft', // microsoft.com
+  'office', // office.com
+  'apple', // apple.com
+  'booking' // booking.com
+]);
+
 /*
  * Compilation
  */
@@ -123,6 +148,7 @@ function compile() {
 
     // Check for collisions.
     const cache = table.get(name);
+
     if (cache) {
       if (cache.rank === -2)
         invalidate(domain, rank, 'existing-naming-project', cache);
@@ -130,7 +156,9 @@ function compile() {
         invalidate(domain, rank, 'trademarked', cache);
       else
         invalidate(domain, rank, 'collision', cache);
+
       cache.collisions += 1;
+
       return;
     }
 
@@ -142,7 +170,7 @@ function compile() {
       collisions: 0
     };
 
-    if (rank > 0 && rank <= 100)
+    if ((rank > 0 && rank <= 100) || forceTop100.has(domain))
       top100 += 1;
 
     table.set(name, item);
@@ -320,8 +348,8 @@ const items = [];
 const TOTAL = 136e6 * 1e6; // 10%
 const SHARE = floor(TOTAL / 3);
 const NAME_VALUE = floor(SHARE / (names.length - embargoes.size));
-const ROOT_VALUE = NAME_VALUE + floor(SHARE / (RTLD.length - embargoes.size));
-const TOP_VALUE = NAME_VALUE + floor(SHARE / top100);
+const ROOT_VALUE = floor(SHARE / (RTLD.length - embargoes.size));
+const TOP_VALUE = floor(SHARE / top100);
 
 // FOSS and naming projects who preferred addresses.
 const EXTRA_VALUE = (17115975 + 10200000) * 1e6;
@@ -389,8 +417,7 @@ for (const {name, domain, rank} of names) {
     totalTLDS += 1;
   }
 
-  if (rank > 0 && rank <= 100) {
-    assert(!embargoes.has(domain));
+  if ((rank > 0 && rank <= 100) || forceTop100.has(domain)) {
     flags |= 2; // Top 100
     totalTop += 1;
   }
@@ -407,12 +434,13 @@ for (const {name, domain, rank} of names) {
   }
 
   if (!(flags & 8)) {
+    totalValue += NAME_VALUE;
+
     if (flags & 1)
       totalValue += ROOT_VALUE;
-    else if (flags & 2)
+
+    if (flags & 2)
       totalValue += TOP_VALUE;
-    else
-      totalValue += NAME_VALUE;
 
     if (flags & 4)
       totalValue += custom;
@@ -437,8 +465,8 @@ assert.strictEqual(totalTop, top100);
 assert.strictEqual(totalEmbargoes, embargoes.size);
 
 // 68000000 + 27200000 + 136000000 = 231200000
-// 0.046439 coins are burned due to rounding.
-assert.strictEqual(totalValue + EXTRA_VALUE, 231199999953561);
+// 0.046457 coins are burned due to rounding.
+assert.strictEqual(totalValue + EXTRA_VALUE, 231199999953543);
 
 if (values.size !== 0) {
   console.error('Custom values not satisfied:');
@@ -454,7 +482,7 @@ items.sort(sortHash);
   const json = [
     '{',
     // eslint-disable-next-line
-    `  "${ZERO_HASH}": [${items.length}, ${ROOT_VALUE}, ${TOP_VALUE}, ${NAME_VALUE}],`
+    `  "${ZERO_HASH}": [${items.length}, ${NAME_VALUE}, ${ROOT_VALUE}, ${TOP_VALUE}],`
   ];
 
   for (const {hex, target, flags, custom} of items) {
@@ -478,9 +506,9 @@ items.sort(sortHash);
   const {data} = bw;
 
   bw.writeU32(items.length);
+  bw.writeU64(NAME_VALUE);
   bw.writeU64(ROOT_VALUE);
   bw.writeU64(TOP_VALUE);
-  bw.writeU64(NAME_VALUE);
 
   const offsets = [];
 
