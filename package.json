@@ -19,9 +19,9 @@
     "lint": "eslint *.js || exit 0"
   },
   "dependencies": {
-    "bcrypto": "~4.2.3",
+    "bcrypto": "~4.3.0",
     "bfile": "~0.2.1",
-    "bns": "~0.8.0",
+    "bns": "~0.9.0",
     "bsert": "~0.0.10",
     "hsd": "~0.0.0"
   },
