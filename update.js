@@ -65,6 +65,7 @@ const CUSTOM = [
   ['marples', 'marples.name'], // Individual (does not rank)
   ['mozilla', 'mozilla.com'], // Mozilla Foundation (prefer over .org)
   ['nlnetlabs', 'nlnetlabs.nl'], // Unbound (does not rank)
+  ['numcalc', 'numcalc.com'], // Individual (does not rank)
   ['pir', 'pir.org'] // Public Internet Registry (does not rank)
 ].sort(([a], [b]) => {
   return a.localeCompare(b);
@@ -75,11 +76,11 @@ const VALUES = [
   ['blockstack.com', 408000], // Blockstack
   ['brave.com', 3400000], // Brave
   ['cloudflare.com', 6800000], // Cloudflare
-  ['darksi.de', 608955], // Individual
+  ['darksi.de', 608957], // Individual
   ['datprotocol.com', 405970], // Dat Project
   ['debian.net', 1194838], // Reproducible Builds Debian
   ['dnscrypt.info', 202985], // DNScrypt
-  ['eff.com', 811941], // Electronic Frontier Foundation
+  ['eff.com', 710448], // Electronic Frontier Foundation
   ['eth.ens.domains', 136000], // ENS
   ['gnu.gplv3.com', 1194838], // GNU
   ['gnunet.org', 136000], // GNUnet
@@ -91,12 +92,13 @@ const VALUES = [
   ['mozilla.com', 608955], // Mozilla Foundation
   ['namecheap.com', 2720000], // Namecheap
   ['nlnetlabs.nl', 1194838], // Unbound
+  ['numcalc.com', 710448], // Individual
   ['pir.org', 3400000], // Public Internet Registry
   ['riseup.net', 202985], // Riseup Labs
   ['tor.torproject.com', 1194838], // Tor Project
-  ['ubuntu.com', 811940], // Ubuntu
+  ['ubuntu.com', 710448], // Ubuntu
   ['verisign', 6800000], // Verisign
-  ['webtorrent.io', 405970] // WebTorrent LLC
+  ['webtorrent.io', 405970], // WebTorrent LLC
 ];
 
 const TLD = [
