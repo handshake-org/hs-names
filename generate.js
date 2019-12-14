@@ -352,7 +352,7 @@ const ROOT_VALUE = floor(SHARE / (RTLD.length - embargoes.size));
 const TOP_VALUE = floor(SHARE / top100);
 
 // FOSS and naming projects who preferred addresses.
-const EXTRA_VALUE = (17115975 + 10200000) * 1e6;
+const EXTRA_VALUE = (16608510 + 10200000) * 1e6;
 
 {
   const json = [];
@@ -465,8 +465,8 @@ assert.strictEqual(totalTop, top100);
 assert.strictEqual(totalEmbargoes, embargoes.size);
 
 // 68000000 + 27200000 + 136000000 = 231200000
-// 0.046457 coins are burned due to rounding.
-assert.strictEqual(totalValue + EXTRA_VALUE, 231199999953543);
+// 0.005032 coins are burned due to rounding.
+assert.strictEqual(totalValue + EXTRA_VALUE, 231199999994968);
 
 if (values.size !== 0) {
   console.error('Custom values not satisfied:');

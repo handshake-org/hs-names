@@ -2167,6 +2167,22 @@
     "ttl": 86400,
     "ds": [
       {
+        "keyTag": 18875,
+        "algorithm": 8,
+        "digestType": 1,
+        "digest": "a6362d938429477c0f5e51e1f47a3516b39d281b",
+        "algName": "RSASHA256",
+        "hashName": "SHA1"
+      },
+      {
+        "keyTag": 18875,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "fe773b2f77bb6a6dd31ba27eb19e8f64257937622cab98f3926ee77fea2be79f",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
         "keyTag": 20647,
         "algorithm": 8,
         "digestType": 1,
@@ -2878,8 +2894,9 @@
       "a.nic.bank.@156.154.100.27,2001:502:2eda::27",
       "b.nic.bank.@156.154.101.27,2001:502:ad09::27",
       "c.nic.bank.@156.154.102.27,2610:a1:1009::27",
-      "ac3.nstld.com.@192.42.175.30,2001:500:122::30",
-      "ac4.nstld.com.@192.42.176.30,2001:500:123::30"
+      "d.nic.bank.@156.154.103.27,2610:a1:1010::27",
+      "e.nic.bank.@156.154.104.27,2610:a1:1011::27",
+      "f.nic.bank.@156.154.105.27,2610:a1:1012::27"
     ]
   },
   "bar.": {
@@ -9596,8 +9613,7 @@
       "ns3.nic.mx.@200.33.111.1",
       "ns4.nic.do.@204.61.216.124,2001:500:14:6124:ad::1",
       "ns5.nic.do.@190.113.65.13,2001:13e0:0:1::13",
-      "phloem.uoregon.edu.@128.223.32.35,2001:468:d01:20::80df:2023",
-      "sns-pb.isc.org.@192.5.4.1,2001:500:2e::1"
+      "phloem.uoregon.edu.@128.223.32.35,2001:468:d01:20::80df:2023"
     ]
   },
   "docs.": {
@@ -11677,8 +11693,9 @@
     "ttl": 172800,
     "ds": [],
     "ns": [
-      "ns1.horizon.net.fk.@195.248.193.250",
-      "ns2.horizon.net.fk.@195.248.193.251"
+      "ns1.horizon.net.fk.@80.73.216.250",
+      "ns2.horizon.net.fk.@80.73.216.251",
+      "ns3.horizon.net.fk.@93.187.151.193"
     ]
   },
   "flickr.": {
@@ -14066,8 +14083,8 @@
       "ns.dns.br.@200.160.0.5,2001:12ff:0:a20::5",
       "ns3.nic.mx.@200.33.111.1",
       "pch.gt.@204.61.216.95,2001:500:14:6095:ad::1",
-      "ns-ext.nic.cl.@200.1.123.14,2001:1398:1:0:200:1:123:14",
-      "sns-pb.isc.org.@192.5.4.1,2001:500:2e::1"
+      "sns-pb.isc.org.@192.5.4.1,2001:500:2e::1",
+      "ssdns-tld.nic.cl.@200.7.5.14,2001:1398:276:0:200:7:5:14"
     ]
   },
   "gu.": {
@@ -14308,6 +14325,7 @@
       }
     ],
     "ns": [
+      "a.lactld.org.@200.0.68.10,2801:14:a000::10",
       "ns.cocca.fr.@185.17.236.93,2a03:dd40:3::93",
       "gy-ns.anycast.pch.net.@204.61.216.34,2001:500:14:6034:ad::1",
       "sns-pb.isc.org.@192.5.4.1,2001:500:2e::1"
@@ -14888,18 +14906,18 @@
     "ttl": 86400,
     "ds": [
       {
-        "keyTag": 53242,
+        "keyTag": 36746,
         "algorithm": 8,
         "digestType": 1,
-        "digest": "41968bd704ea60b99aad8615c4fae75f68a98847",
+        "digest": "3f84e13235ba03d337b1d95d1f2a9549dbd91636",
         "algName": "RSASHA256",
         "hashName": "SHA1"
       },
       {
-        "keyTag": 53242,
+        "keyTag": 36746,
         "algorithm": 8,
         "digestType": 2,
-        "digest": "872f269df7adf721cedfddf2204b1a98ae155a16edf7cc6f4a7478b704e4c563",
+        "digest": "2aa25edbea1519de7e1e264165bbc72627868f1a2b19dc7de5417add9b56e02e",
         "algName": "RSASHA256",
         "hashName": "SHA256"
       }
@@ -14964,7 +14982,7 @@
       }
     ],
     "ns": [
-      "sns-pb.isc.org.@192.5.4.1,2001:500:2e::1",
+      "a.lactld.org.@200.0.68.10,2801:14:a000::10",
       "pch-anycast.rds.org.hn.@204.61.216.64,2001:500:14:6064:ad::1",
       "nicmx-anycast.rds.org.hn.@200.33.111.1"
     ]
@@ -16379,8 +16397,9 @@
       "a.nic.insurance.@156.154.100.22,2001:502:2eda::22",
       "b.nic.insurance.@156.154.101.22,2001:502:ad09::22",
       "c.nic.insurance.@156.154.102.22,2610:a1:1009::22",
-      "ac3.nstld.com.@192.42.175.30,2001:500:122::30",
-      "ac4.nstld.com.@192.42.176.30,2001:500:123::30"
+      "d.nic.insurance.@156.154.103.22,2610:a1:1010::22",
+      "e.nic.insurance.@156.154.104.22,2610:a1:1011::22",
+      "f.nic.insurance.@156.154.105.22,2610:a1:1012::22"
     ]
   },
   "insure.": {
@@ -18459,25 +18478,6 @@
       "c0.nic.lancia.@65.22.126.9,2a01:8840:7c::9"
     ]
   },
-  "lancome.": {
-    "ttl": 86400,
-    "ds": [
-      {
-        "keyTag": 33216,
-        "algorithm": 8,
-        "digestType": 2,
-        "digest": "f9025313795abf357b985af24915fe6d457baa8e8c5f6cb4b44009861fab8475",
-        "algName": "RSASHA256",
-        "hashName": "SHA256"
-      }
-    ],
-    "ns": [
-      "ac1.nstld.com.@192.42.173.30,2001:500:120::30",
-      "ac2.nstld.com.@192.42.174.30,2001:500:121::30",
-      "ac3.nstld.com.@192.42.175.30,2001:500:122::30",
-      "ac4.nstld.com.@192.42.176.30,2001:500:123::30"
-    ]
-  },
   "land.": {
     "ttl": 86400,
     "ds": [
@@ -18610,8 +18610,11 @@
     ],
     "ns": [
       "c.mx-ns.mx.@192.100.224.1,2001:1258::1",
+      "e.mx-ns.mx.@189.201.244.1",
+      "i.mx-ns.mx.@207.248.68.1",
       "m.mx-ns.mx.@200.94.176.1,2001:13c7:7000::1",
-      "o.mx-ns.mx.@200.23.1.1"
+      "o.mx-ns.mx.@200.23.1.1",
+      "x.mx-ns.mx.@201.131.252.1"
     ]
   },
   "latino.": {
@@ -19546,6 +19549,33 @@
       "c0.nic.llc.@65.22.38.9,2a01:8840:28::9"
     ]
   },
+  "llp.": {
+    "ttl": 86400,
+    "ds": [
+      {
+        "keyTag": 27216,
+        "algorithm": 7,
+        "digestType": 1,
+        "digest": "5de35ece1ae46bba06281c8da6ffda34b167ac2e",
+        "algName": "RSASHA1NSEC3SHA1",
+        "hashName": "SHA1"
+      },
+      {
+        "keyTag": 27216,
+        "algorithm": 7,
+        "digestType": 2,
+        "digest": "b95649568bd88f57c7500a9e21d1d181065170cadbb881e299fd82e3a9909c23",
+        "algName": "RSASHA1NSEC3SHA1",
+        "hashName": "SHA256"
+      }
+    ],
+    "ns": [
+      "ns1.uniregistry.net.@64.96.1.1,2620:57:4000:1::1",
+      "ns2.uniregistry.info.@64.96.245.53",
+      "ns3.uniregistry.net.@185.159.197.3,2620:10a:80aa::3",
+      "ns4.uniregistry.info.@185.159.198.3,2620:10a:80ab::3"
+    ]
+  },
   "loan.": {
     "ttl": 86400,
     "ds": [
@@ -20149,13 +20179,21 @@
         "digest": "d602e8f4fd9729146d1fb1d249544dceece615e528eb2e4997fb1760b004d67e",
         "algName": "RSASHA256",
         "hashName": "SHA256"
+      },
+      {
+        "keyTag": 32039,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "deb7fe904a2e04500acc98f3f5b9d6db275139fbc92ebb2938bcf9e842812935",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
       }
     ],
     "ns": [
-      "a.nic.luxury.@37.209.192.10,2001:dcd:1::10",
-      "b.nic.luxury.@37.209.194.10,2001:dcd:2::10",
-      "c.nic.luxury.@37.209.196.10,2001:dcd:3::10",
-      "d.nic.luxury.@37.209.198.10,2001:dcd:4::10"
+      "a.nic.luxury.@194.169.218.98,2001:67c:13cc::1:98",
+      "b.nic.luxury.@185.24.64.98,2a04:2b00:13cc::1:98",
+      "c.nic.luxury.@212.18.248.98,2a04:2b00:13ee::85",
+      "d.nic.luxury.@212.18.249.98,2a04:2b00:13ff::98"
     ]
   },
   "lv.": {
@@ -20202,11 +20240,11 @@
       }
     ],
     "ns": [
+      "b.tld.ma.@81.192.171.132,2001:4288:1800:186::4",
+      "c.tld.ma.@81.192.171.139,2001:4288:1800:386::3",
       "d.tld.ma.@81.192.171.140,2001:4288:1800:386::4",
       "dns.inria.fr.@193.51.208.13",
       "ns1.registre.ma.@81.192.171.131,2001:4288:1800:186::3",
-      "ns2.registre.ma.@81.192.171.132,2001:4288:1800:186::4",
-      "ns3.registre.ma.@81.192.171.139,2001:4288:1800:386::3",
       "ns-ma.nic.fr.@194.0.9.1,2001:678:c::1",
       "sns-pb.isc.org.@192.5.4.1,2001:500:2e::1"
     ]
@@ -21980,6 +22018,14 @@
     "ttl": 86400,
     "ds": [
       {
+        "keyTag": 22289,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "229739df4f32a081b4e0e4c8d3eff6b263a61cf0cf812ea5c67b7640f1bb21a0",
+        "algName": "RSASHA256",
+        "hashName": "SHA256"
+      },
+      {
         "keyTag": 34597,
         "algorithm": 8,
         "digestType": 2,
@@ -22063,6 +22109,7 @@
       "mw.cctld.authdns.ripe.net.@193.0.9.99,2001:67c:e0::99",
       "ns4.apnic.net.@202.12.31.53,2001:dd8:12::53",
       "rip.psg.com.@147.28.0.39,2001:418:1::39",
+      "pch1.nic.mw.@204.61.216.131,2001:500:14:6131:ad::1",
       "domwe.sdn.mw.@196.45.190.9",
       "chambo.sdnp.org.mw.@196.45.188.5"
     ]
@@ -23258,18 +23305,18 @@
     "ttl": 86400,
     "ds": [
       {
-        "keyTag": 32356,
+        "keyTag": 8662,
         "algorithm": 8,
         "digestType": 1,
-        "digest": "a3a9a9ebae6d86f44364c73450ff1a501cfb37e0",
+        "digest": "9ead787c52d5a1ca7a332940f6fe7c5b9aadfb13",
         "algName": "RSASHA256",
         "hashName": "SHA1"
       },
       {
-        "keyTag": 32356,
+        "keyTag": 8662,
         "algorithm": 8,
         "digestType": 2,
-        "digest": "a01bf98f696e462ed25a58add583ef3966c6a68c3060e03c33d26ed856fa01c1",
+        "digest": "e1ecaa1409bfd92f37336045e45b2b2b58025815cebb7574f67917250f5fe92e",
         "algName": "RSASHA256",
         "hashName": "SHA256"
       }
@@ -27649,18 +27696,18 @@
     "ttl": 86400,
     "ds": [
       {
-        "keyTag": 1642,
+        "keyTag": 60460,
         "algorithm": 8,
         "digestType": 1,
-        "digest": "d42303f2a64f72945bdce501884d603af81eab71",
+        "digest": "071e83b0661541819fc857c7a302ff676e7b55bd",
         "algName": "RSASHA256",
         "hashName": "SHA1"
       },
       {
-        "keyTag": 1642,
+        "keyTag": 60460,
         "algorithm": 8,
         "digestType": 2,
-        "digest": "92aed341ca3a73289467cee9ae398571586952fc9391ecf9143ccbce7961ea60",
+        "digest": "b0e6bdd692505d03af28db042cc2b2d8459df752376a03cd762788d25b807e13",
         "algName": "RSASHA256",
         "hashName": "SHA256"
       }
@@ -33351,8 +33398,9 @@
     "ns": [
       "ns3.nic.ve.@190.9.129.56",
       "ns4.nic.ve.@190.202.128.43",
+      "ns5.nic.ve.@45.175.22.88,2801:18:8800:3:18ba:beff:fe61:d08b",
       "ns6.nic.ve.@45.175.22.4,2801:18:8800:1::4",
-      "ns-ext.nic.cl.@200.1.123.14,2001:1398:1:0:200:1:123:14"
+      "ssdns-tld.nic.cl.@200.7.5.14,2001:1398:276:0:200:7:5:14"
     ]
   },
   "vegas.": {
@@ -33495,7 +33543,6 @@
     "ttl": 172800,
     "ds": [],
     "ns": [
-      "ns1.nic.vi.@192.5.4.1,2001:500:2e::1",
       "ns3.nic.vi.@185.17.236.230",
       "pch.nic.vi.@204.61.216.133,2001:500:14:6133:ad::1",
       "auth100.ns.uu.net.@198.6.1.202",
@@ -34111,33 +34158,13 @@
     ]
   },
   "vu.": {
-    "ttl": 86400,
-    "ds": [
-      {
-        "keyTag": 32532,
-        "algorithm": 10,
-        "digestType": 1,
-        "digest": "77f5f1c79ba3382000ccd4bb82c1e39b1e8752b5",
-        "algName": "RSASHA512",
-        "hashName": "SHA1"
-      },
-      {
-        "keyTag": 32532,
-        "algorithm": 10,
-        "digestType": 2,
-        "digest": "33849e9d4718faf292f13d7ca863b5836871e63e8d432509a1e6ec11aa0d1596",
-        "algName": "RSASHA512",
-        "hashName": "SHA256"
-      }
-    ],
+    "ttl": 172800,
+    "ds": [],
     "ns": [
-      "rip.psg.com.@147.28.0.39,2001:418:1::39",
-      "fork.sth.dnsnode.net.@77.72.229.254,2a01:3f0:0:306::53",
-      "efate.vanuatu.com.vu.@202.80.32.5",
-      "santo.vanuatu.com.vu.@202.80.32.7",
-      "anytld.apnic.net.@202.12.31.53,2001:dd8:12::53",
-      "ns1-cctld.vunic.vu.@202.80.32.9",
-      "ns2-cctld.vunic.vu.@202.80.32.10"
+      "ns1.neustar.vu.@37.209.192.6,2001:dcd:1::6",
+      "ns2.neustar.vu.@37.209.194.6,2001:dcd:2::6",
+      "ns3.neustar.vu.@37.209.196.6,2001:dcd:3::6",
+      "ns4.neustar.vu.@37.209.198.6,2001:dcd:4::6"
     ]
   },
   "vuelos.": {
@@ -37163,18 +37190,18 @@
     "ttl": 86400,
     "ds": [
       {
-        "keyTag": 31385,
+        "keyTag": 26075,
         "algorithm": 8,
         "digestType": 1,
-        "digest": "01774442492a2e86f63ae5d095d2ecae3e1b4725",
+        "digest": "0133d22a9073faa4a81ddaa0935cfc8be26ac541",
         "algName": "RSASHA256",
         "hashName": "SHA1"
       },
       {
-        "keyTag": 31385,
+        "keyTag": 26075,
         "algorithm": 8,
         "digestType": 2,
-        "digest": "59c45c5e315bede7d55c3967a2697820aec7093a5daf98af5da9cbf26da86cc8",
+        "digest": "d7d919fb2cd703f70081fdf3c8fa293809340280e1e07778c069ad59f2b33f4d",
         "algName": "RSASHA256",
         "hashName": "SHA256"
       }
@@ -37694,10 +37721,10 @@
     "ttl": 172800,
     "ds": [],
     "ns": [
+      "b.tld.ma.@81.192.171.132,2001:4288:1800:186::4",
+      "c.tld.ma.@81.192.171.139,2001:4288:1800:386::3",
       "d.tld.ma.@81.192.171.140,2001:4288:1800:386::4",
       "ns1.registre.ma.@81.192.171.131,2001:4288:1800:186::3",
-      "ns2.registre.ma.@81.192.171.132,2001:4288:1800:186::4",
-      "ns3.registre.ma.@81.192.171.139,2001:4288:1800:386::3",
       "ns-ma.nic.fr.@194.0.9.1,2001:678:c::1"
     ]
   },

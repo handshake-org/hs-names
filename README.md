@@ -115,6 +115,7 @@ Names which were added _after_ the final snapshot:
 - `cpa` - A new gTLD added on ICANN's system.
 - `gay` - A new gTLD added on ICANN's system.
 - `xn--qxa6a` - iccTLD for .eu in Greek.
+- `llp` - A new gTLD added on ICANN's system.
 
 Names which were removed _after_ the final snapshot:
 
@@ -147,3 +148,4 @@ Names which were removed _after_ the final snapshot:
 - `uconnect` - A gTLD removed from ICANN's system.
 - `warman` - A gTLD removed from ICANN's system.
 - `xn--mgbb9fbpob` - An iccTLD removed from ICANN's system.
+- `lancome` - A gTLD removed from ICANN's system.
