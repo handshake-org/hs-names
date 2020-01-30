@@ -22,20 +22,16 @@ for (const rr of records) {
     const name = rr.name.toLowerCase();
 
     if (!glue.has(name))
-      glue.set(name, { name, inet4: null, inet6: null });
+      glue.set(name, { name, inet4: [], inet6: [] });
 
     const item = glue.get(name);
 
     switch (rr.type) {
       case types.A:
-        if (item.inet4)
-          console.log('Duplicate IPv4 address for: %s', name);
-        item.inet4 = rr.data.address;
+        item.inet4.push(rr.data.address);
         break;
       case types.AAAA:
-        if (item.inet6)
-          console.log('Duplicate IPv6 address for: %s', name);
-        item.inet6 = rr.data.address;
+        item.inet6.push(rr.data.address);
         break;
     }
   }
@@ -53,12 +49,9 @@ for (const rr of records) {
   const name = rr.name.toLowerCase();
 
   if (!domains.has(name))
-    domains.set(name, { ttl: 0, ds: [], ns: [] });
+    domains.set(name, []);
 
-  const item = domains.get(name);
-
-  if (item.ttl === 0 || rr.ttl < item.ttl)
-    item.ttl = rr.ttl;
+  const records = domains.get(name);
 
   switch (rr.type) {
     case types.NS: {
@@ -66,33 +59,49 @@ for (const rr of records) {
       const auth = glue.get(ns);
       assert(auth);
 
-      const ips = [];
+      records.push({
+        type: 'NS',
+        ns
+      });
 
-      if (auth.inet4)
-        ips.push(auth.inet4);
+      for (const address of auth.inet4) {
+        records.push({
+          type: 'GLUE4',
+          ns,
+          address
+        });
+      }
 
-      if (auth.inet6)
-        ips.push(auth.inet6);
-
-      if (ips.length === 0) {
-        console.log('No glue found for: %s', ns);
-        item.ns.push(auth.name);
-      } else {
-        item.ns.push(`${auth.name}@${ips.join(',')}`);
+      for (const address of auth.inet6) {
+        records.push({
+          type: 'GLUE6',
+          ns,
+          address
+        });
       }
 
       break;
     }
     case types.DS: {
-      item.ds.push(rr.data.toJSON());
+      records.push({
+        type: 'DS',
+        keyTag: rr.data.keyTag,
+        algorithm: rr.data.algorithm,
+        digestType: rr.data.digestType,
+        digest: rr.data.digest.toString('hex')
+      });
       break;
     }
   }
 }
 
+function cmp(a, b) {
+  return a.type.localeCompare(b.type);
+}
+
 const out = Object.create(null);
 
 for (const [key, value] of domains)
-  out[key] = value;
+  out[key] = { records: value.sort(cmp) };
 
 fs.writeFileSync(ZONE_JSON, JSON.stringify(out, null, 2) + '\n');

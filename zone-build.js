@@ -8,7 +8,7 @@ const assert = require('assert');
 const Path = require('path');
 const fs = require('bfile');
 const bio = require('bufio');
-const Resource = require('hsd/lib/dns/resource');
+const {Resource} = require('hsd/lib/dns/resource');
 const util = require('./util');
 
 const ZONE_JSON = Path.resolve(__dirname, 'build', 'root.json');
@@ -48,6 +48,8 @@ const items = [];
 for (const key of keys) {
   const res = Resource.fromJSON(root[key]);
   const blob = res.encode();
+
+  assert(blob.length <= 512);
 
   items.push([key.slice(0, -1), blob]);
 }
