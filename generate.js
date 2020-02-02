@@ -465,8 +465,8 @@ assert.strictEqual(totalTop, top100);
 assert.strictEqual(totalEmbargoes, embargoes.size);
 
 // 68000000 + 27200000 + 136000000 = 231200000
-// 0.005032 coins are burned due to rounding.
-assert.strictEqual(totalValue + EXTRA_VALUE, 231199999994968);
+// 0.046054 coins are burned due to rounding.
+assert.strictEqual(totalValue + EXTRA_VALUE, 231199999953946);
 
 if (values.size !== 0) {
   console.error('Custom values not satisfied:');

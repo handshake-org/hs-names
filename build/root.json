@@ -1445,11 +1445,6 @@
         "address": "194.158.74.9"
       },
       {
-        "type": "GLUE4",
-        "ns": "ns-ext.isc.org.",
-        "address": "204.152.184.64"
-      },
-      {
         "type": "GLUE6",
         "ns": "ad.cctld.authdns.ripe.net.",
         "address": "2001:67c:e0::53"
@@ -1470,11 +1465,6 @@
         "address": "2a02:8060:32fa::a"
       },
       {
-        "type": "GLUE6",
-        "ns": "ns-ext.isc.org.",
-        "address": "2001:4f8:0:2::13"
-      },
-      {
         "type": "NS",
         "ns": "ad.ns.nic.es."
       },
@@ -1493,10 +1483,6 @@
       {
         "type": "NS",
         "ns": "dnsm.ad."
-      },
-      {
-        "type": "NS",
-        "ns": "ns-ext.isc.org."
       }
     ]
   },
@@ -1771,11 +1757,6 @@
       },
       {
         "type": "GLUE4",
-        "ns": "sns-pb.isc.org.",
-        "address": "192.5.4.1"
-      },
-      {
-        "type": "GLUE4",
         "ns": "nsext-pch.aedns.ae.",
         "address": "199.4.137.1"
       },
@@ -1783,11 +1764,6 @@
         "type": "GLUE6",
         "ns": "ns4.apnic.net.",
         "address": "2001:dd8:12::53"
-      },
-      {
-        "type": "GLUE6",
-        "ns": "sns-pb.isc.org.",
-        "address": "2001:500:2e::1"
       },
       {
         "type": "GLUE6",
@@ -1805,10 +1781,6 @@
       {
         "type": "NS",
         "ns": "ns4.apnic.net."
-      },
-      {
-        "type": "NS",
-        "ns": "sns-pb.isc.org."
       },
       {
         "type": "NS",
@@ -4293,11 +4265,6 @@
         "address": "194.0.25.26"
       },
       {
-        "type": "GLUE4",
-        "ns": "sns-pb.isc.org.",
-        "address": "192.5.4.1"
-      },
-      {
         "type": "GLUE6",
         "ns": "ns1.nic.amsterdam.",
         "address": "2001:678:2c:0:194:0:28:4"
@@ -4313,11 +4280,6 @@
         "address": "2001:678:20::26"
       },
       {
-        "type": "GLUE6",
-        "ns": "sns-pb.isc.org.",
-        "address": "2001:500:2e::1"
-      },
-      {
         "type": "NS",
         "ns": "ns1.nic.amsterdam."
       },
@@ -4328,10 +4290,6 @@
       {
         "type": "NS",
         "ns": "ns3.nic.amsterdam."
-      },
-      {
-        "type": "NS",
-        "ns": "sns-pb.isc.org."
       }
     ]
   },
@@ -6233,6 +6191,13 @@
     "records": [
       {
         "type": "DS",
+        "keyTag": 5321,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "b3fbd024b6142319c06476d0fca53c2e5bd894b1b03b4c18ea9e27bdfb3ceaf3"
+      },
+      {
+        "type": "DS",
         "keyTag": 19294,
         "algorithm": 8,
         "digestType": 2,
@@ -7503,6 +7468,11 @@
       },
       {
         "type": "GLUE4",
+        "ns": "ns2.dns.aw.",
+        "address": "194.146.106.42"
+      },
+      {
+        "type": "GLUE4",
         "ns": "ns3.dns.aw.",
         "address": "194.0.25.25"
       },
@@ -7517,14 +7487,14 @@
         "address": "201.229.0.27"
       },
       {
-        "type": "GLUE4",
-        "ns": "sns-pb.isc.org.",
-        "address": "192.5.4.1"
-      },
-      {
         "type": "GLUE6",
         "ns": "ns1.dns.aw.",
         "address": "2001:678:2c:0:194:0:28:2"
+      },
+      {
+        "type": "GLUE6",
+        "ns": "ns2.dns.aw.",
+        "address": "2001:67c:1010:10::53"
       },
       {
         "type": "GLUE6",
@@ -7532,13 +7502,12 @@
         "address": "2001:678:20::25"
       },
       {
-        "type": "GLUE6",
-        "ns": "sns-pb.isc.org.",
-        "address": "2001:500:2e::1"
+        "type": "NS",
+        "ns": "ns1.dns.aw."
       },
       {
         "type": "NS",
-        "ns": "ns1.dns.aw."
+        "ns": "ns2.dns.aw."
       },
       {
         "type": "NS",
@@ -7551,10 +7520,6 @@
       {
         "type": "NS",
         "ns": "aw02.setarnet.aw."
-      },
-      {
-        "type": "NS",
-        "ns": "sns-pb.isc.org."
       }
     ]
   },
@@ -7963,19 +7928,9 @@
         "address": "195.130.35.3"
       },
       {
-        "type": "GLUE4",
-        "ns": "sns-pb.isc.org.",
-        "address": "192.5.4.1"
-      },
-      {
         "type": "GLUE6",
         "ns": "una.utic.net.ba.",
         "address": "2001:500:14:6117:ad::1"
-      },
-      {
-        "type": "GLUE6",
-        "ns": "sns-pb.isc.org.",
-        "address": "2001:500:2e::1"
       },
       {
         "type": "NS",
@@ -7988,10 +7943,6 @@
       {
         "type": "NS",
         "ns": "sava.utic.net.ba."
-      },
-      {
-        "type": "NS",
-        "ns": "sns-pb.isc.org."
       }
     ]
   },
@@ -8501,13 +8452,6 @@
         "algorithm": 8,
         "digestType": 2,
         "digest": "c3dc580dd252cbb5d452bd595666ae843beda342ffcd30c920e01d62aee2796b"
-      },
-      {
-        "type": "DS",
-        "keyTag": 46041,
-        "algorithm": 8,
-        "digestType": 2,
-        "digest": "b38a19166e8a6fdb02b4757b6455734191fd2928b48b1aa5312456df05d9db19"
       },
       {
         "type": "GLUE4",
@@ -10393,10 +10337,10 @@
     "records": [
       {
         "type": "DS",
-        "keyTag": 32542,
+        "keyTag": 2990,
         "algorithm": 8,
         "digestType": 2,
-        "digest": "d17630d166186d037bf97cce66c936ea45887ee9f8bb28333dcc5d839ec39a10"
+        "digest": "f711a9e9b09a45c487a324b22de34db2831e2a8a0368d0bd0d8d3461470e5ffd"
       },
       {
         "type": "DS",
@@ -10451,34 +10395,6 @@
   },
   "best.": {
     "records": [
-      {
-        "type": "DS",
-        "keyTag": 13891,
-        "algorithm": 8,
-        "digestType": 1,
-        "digest": "7ba8044052dd9ee3800258f6a74e2ea71758d63d"
-      },
-      {
-        "type": "DS",
-        "keyTag": 13891,
-        "algorithm": 8,
-        "digestType": 2,
-        "digest": "1ea72b6c84425b7be18766b90cf3afd3b8c410656b306d8d9134e905dde6792b"
-      },
-      {
-        "type": "DS",
-        "keyTag": 23074,
-        "algorithm": 8,
-        "digestType": 1,
-        "digest": "2e44114fae82d8f8a6d4f3c4d790aeb818a70124"
-      },
-      {
-        "type": "DS",
-        "keyTag": 23074,
-        "algorithm": 8,
-        "digestType": 2,
-        "digest": "0178cf851507e3d7c970cc8c52b1ea3ef07246d9399190b6b5c1f7089077a6c7"
-      },
       {
         "type": "DS",
         "keyTag": 41279,
@@ -10767,87 +10683,87 @@
       },
       {
         "type": "GLUE4",
-        "ns": "ns.register.bg.",
+        "ns": "a.nic.bg.",
         "address": "192.92.129.99"
       },
       {
         "type": "GLUE4",
-        "ns": "ns2.register.bg.",
+        "ns": "b.nic.bg.",
         "address": "193.68.3.232"
       },
       {
         "type": "GLUE4",
-        "ns": "ns3.register.bg.",
+        "ns": "c.nic.bg.",
         "address": "193.68.99.99"
       },
       {
         "type": "GLUE4",
-        "ns": "ns4.register.bg.",
+        "ns": "d.nic.bg.",
         "address": "194.0.32.1"
       },
       {
         "type": "GLUE4",
-        "ns": "ns5.register.bg.",
+        "ns": "e.nic.bg.",
         "address": "185.143.80.1"
       },
       {
         "type": "GLUE4",
-        "ns": "sns-pb.isc.org.",
-        "address": "192.5.4.1"
+        "ns": "p.nic.bg.",
+        "address": "204.61.216.110"
       },
       {
         "type": "GLUE6",
-        "ns": "ns.register.bg.",
+        "ns": "a.nic.bg.",
         "address": "2a02:6a80::192:92:129:99"
       },
       {
         "type": "GLUE6",
-        "ns": "ns2.register.bg.",
+        "ns": "b.nic.bg.",
         "address": "2a02:6a80::193:68:3:232"
       },
       {
         "type": "GLUE6",
-        "ns": "ns3.register.bg.",
+        "ns": "c.nic.bg.",
         "address": "2a02:6a80::193:68:99:99"
       },
       {
         "type": "GLUE6",
-        "ns": "ns4.register.bg.",
+        "ns": "d.nic.bg.",
         "address": "2001:678:3c::1"
       },
       {
         "type": "GLUE6",
-        "ns": "ns5.register.bg.",
-        "address": "2a02:6a80::193:68:21:71"
+        "ns": "e.nic.bg.",
+        "address": "2a02:6a80:530e::1"
       },
       {
         "type": "GLUE6",
-        "ns": "sns-pb.isc.org.",
-        "address": "2001:500:2e::1"
+        "ns": "p.nic.bg.",
+        "address": "2001:500:14:6110:ad::1"
       },
       {
         "type": "NS",
-        "ns": "ns.register.bg."
+        "ns": "a.nic.bg."
       },
       {
         "type": "NS",
-        "ns": "ns2.register.bg."
+        "ns": "b.nic.bg."
       },
       {
         "type": "NS",
-        "ns": "ns3.register.bg."
+        "ns": "c.nic.bg."
       },
       {
         "type": "NS",
-        "ns": "ns4.register.bg."
+        "ns": "d.nic.bg."
       },
       {
         "type": "NS",
-        "ns": "ns5.register.bg."
+        "ns": "e.nic.bg."
       },
       {
         "type": "NS",
-        "ns": "sns-pb.isc.org."
+        "ns": "p.nic.bg."
       }
     ]
   },
@@ -13377,17 +13293,17 @@
     "records": [
       {
         "type": "DS",
-        "keyTag": 1529,
-        "algorithm": 8,
-        "digestType": 2,
-        "digest": "17130bca01074440a04ccd3f1f18cc9de61cb8d70960a4ac0e08411900737c48"
-      },
-      {
-        "type": "DS",
         "keyTag": 3734,
         "algorithm": 8,
         "digestType": 2,
         "digest": "5ec62d0b9c87d8b59e901550ff4c0d5366c9d14448fdf8c02112511b6dbb0dbf"
+      },
+      {
+        "type": "DS",
+        "keyTag": 39586,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "5756d7914fa837812cce8869102ead6aa7e08788e84f246bc0f2bc4dc2be989e"
       },
       {
         "type": "GLUE4",
@@ -17695,11 +17611,6 @@
       },
       {
         "type": "GLUE4",
-        "ns": "sns-pb.isc.org.",
-        "address": "192.5.4.1"
-      },
-      {
-        "type": "GLUE4",
         "ns": "switch.nic.cat.",
         "address": "130.59.31.29"
       },
@@ -17730,11 +17641,6 @@
       },
       {
         "type": "GLUE6",
-        "ns": "sns-pb.isc.org.",
-        "address": "2001:500:2e::1"
-      },
-      {
-        "type": "GLUE6",
         "ns": "switch.nic.cat.",
         "address": "2001:620:0:ff::2f"
       },
@@ -17757,10 +17663,6 @@
       {
         "type": "NS",
         "ns": "anyc1.irondns.net."
-      },
-      {
-        "type": "NS",
-        "ns": "sns-pb.isc.org."
       },
       {
         "type": "NS",
@@ -26822,87 +26724,54 @@
       },
       {
         "type": "GLUE4",
-        "ns": "ns1.dns.nic.dealer.",
-        "address": "156.154.144.223"
+        "ns": "ns1.uniregistry.net.",
+        "address": "64.96.1.1"
       },
       {
         "type": "GLUE4",
-        "ns": "ns2.dns.nic.dealer.",
-        "address": "156.154.145.223"
+        "ns": "ns2.uniregistry.info.",
+        "address": "64.96.245.53"
       },
       {
         "type": "GLUE4",
-        "ns": "ns3.dns.nic.dealer.",
-        "address": "156.154.159.223"
+        "ns": "ns3.uniregistry.net.",
+        "address": "185.159.197.3"
       },
       {
         "type": "GLUE4",
-        "ns": "ns4.dns.nic.dealer.",
-        "address": "156.154.156.223"
-      },
-      {
-        "type": "GLUE4",
-        "ns": "ns5.dns.nic.dealer.",
-        "address": "156.154.157.223"
-      },
-      {
-        "type": "GLUE4",
-        "ns": "ns6.dns.nic.dealer.",
-        "address": "156.154.158.223"
+        "ns": "ns4.uniregistry.info.",
+        "address": "185.159.198.3"
       },
       {
         "type": "GLUE6",
-        "ns": "ns1.dns.nic.dealer.",
-        "address": "2610:a1:1071::df"
+        "ns": "ns1.uniregistry.net.",
+        "address": "2620:57:4000:1::1"
       },
       {
         "type": "GLUE6",
-        "ns": "ns2.dns.nic.dealer.",
-        "address": "2610:a1:1072::df"
+        "ns": "ns3.uniregistry.net.",
+        "address": "2620:10a:80aa::3"
       },
       {
         "type": "GLUE6",
-        "ns": "ns3.dns.nic.dealer.",
-        "address": "2610:a1:1073::df"
-      },
-      {
-        "type": "GLUE6",
-        "ns": "ns4.dns.nic.dealer.",
-        "address": "2610:a1:1074::df"
-      },
-      {
-        "type": "GLUE6",
-        "ns": "ns5.dns.nic.dealer.",
-        "address": "2610:a1:1075::df"
-      },
-      {
-        "type": "GLUE6",
-        "ns": "ns6.dns.nic.dealer.",
-        "address": "2610:a1:1076::df"
+        "ns": "ns4.uniregistry.info.",
+        "address": "2620:10a:80ab::3"
       },
       {
         "type": "NS",
-        "ns": "ns1.dns.nic.dealer."
+        "ns": "ns1.uniregistry.net."
       },
       {
         "type": "NS",
-        "ns": "ns2.dns.nic.dealer."
+        "ns": "ns2.uniregistry.info."
       },
       {
         "type": "NS",
-        "ns": "ns3.dns.nic.dealer."
+        "ns": "ns3.uniregistry.net."
       },
       {
         "type": "NS",
-        "ns": "ns4.dns.nic.dealer."
-      },
-      {
-        "type": "NS",
-        "ns": "ns5.dns.nic.dealer."
-      },
-      {
-        "type": "NS",
-        "ns": "ns6.dns.nic.dealer."
+        "ns": "ns4.uniregistry.info."
       }
     ]
   },
@@ -31891,11 +31760,6 @@
         "address": "200.1.123.14"
       },
       {
-        "type": "GLUE4",
-        "ns": "sns-pb.isc.org.",
-        "address": "192.5.4.1"
-      },
-      {
         "type": "GLUE6",
         "ns": "a.nic.es.",
         "address": "2001:67c:21cc:2000::64:41"
@@ -31931,11 +31795,6 @@
         "address": "2001:1398:1:0:200:1:123:14"
       },
       {
-        "type": "GLUE6",
-        "ns": "sns-pb.isc.org.",
-        "address": "2001:500:2e::1"
-      },
-      {
         "type": "NS",
         "ns": "a.nic.es."
       },
@@ -31962,10 +31821,6 @@
       {
         "type": "NS",
         "ns": "ns-ext.nic.cl."
-      },
-      {
-        "type": "NS",
-        "ns": "sns-pb.isc.org."
       }
     ]
   },
@@ -32329,11 +32184,6 @@
         "address": "193.2.221.60"
       },
       {
-        "type": "GLUE4",
-        "ns": "uk.dns.eu.",
-        "address": "195.66.241.178"
-      },
-      {
         "type": "GLUE6",
         "ns": "w.dns.eu.",
         "address": "2001:678:20::28"
@@ -32372,10 +32222,6 @@
       {
         "type": "NS",
         "ns": "si.dns.eu."
-      },
-      {
-        "type": "NS",
-        "ns": "uk.dns.eu."
       }
     ]
   },
@@ -34306,7 +34152,7 @@
       {
         "type": "GLUE4",
         "ns": "i.fi.",
-        "address": "162.88.44.1"
+        "address": "194.0.25.30"
       },
       {
         "type": "GLUE6",
@@ -34351,7 +34197,7 @@
       {
         "type": "GLUE6",
         "ns": "i.fi.",
-        "address": "2600:2000:3008::1"
+        "address": "2001:678:20::30"
       },
       {
         "type": "NS",
@@ -37115,18 +36961,6 @@
         "digest": "23c6caadc9927ee98061f2b52c9b8da6b53f3f648f814a4a86a0faf9843e2c4e"
       },
       {
-        "type": "DS",
-        "keyTag": 42104,
-        "algorithm": 8,
-        "digestType": 2,
-        "digest": "8d913a49c3fa2a39ba0065b4e18ba793e3ad128f7c6c8aa008aefe0a14435dd5"
-      },
-      {
-        "type": "GLUE4",
-        "ns": "d.ext.nic.fr.",
-        "address": "192.5.4.2"
-      },
-      {
         "type": "GLUE4",
         "ns": "d.nic.fr.",
         "address": "194.0.9.1"
@@ -37148,11 +36982,6 @@
       },
       {
         "type": "GLUE6",
-        "ns": "d.ext.nic.fr.",
-        "address": "2001:500:2e::2"
-      },
-      {
-        "type": "GLUE6",
         "ns": "d.nic.fr.",
         "address": "2001:678:c::1"
       },
@@ -37170,10 +36999,6 @@
         "type": "GLUE6",
         "ns": "g.ext.nic.fr.",
         "address": "2001:678:4c::1"
-      },
-      {
-        "type": "NS",
-        "ns": "d.ext.nic.fr."
       },
       {
         "type": "NS",
@@ -42042,9 +41867,24 @@
         "address": "193.218.114.2"
       },
       {
+        "type": "GLUE4",
+        "ns": "ns2.nic.gp.",
+        "address": "193.218.114.34"
+      },
+      {
+        "type": "GLUE4",
+        "ns": "ns-gp.nic.fr.",
+        "address": "194.0.9.1"
+      },
+      {
         "type": "GLUE6",
         "ns": "gp.cctld.authdns.ripe.net.",
         "address": "2001:67c:e0::76"
+      },
+      {
+        "type": "GLUE6",
+        "ns": "ns-gp.nic.fr.",
+        "address": "2001:678:c::1"
       },
       {
         "type": "NS",
@@ -42053,6 +41893,14 @@
       {
         "type": "NS",
         "ns": "ns1.nic.gp."
+      },
+      {
+        "type": "NS",
+        "ns": "ns2.nic.gp."
+      },
+      {
+        "type": "NS",
+        "ns": "ns-gp.nic.fr."
       }
     ]
   },
@@ -42807,18 +42655,8 @@
       },
       {
         "type": "GLUE4",
-        "ns": "ns3.nic.mx.",
-        "address": "200.33.111.1"
-      },
-      {
-        "type": "GLUE4",
         "ns": "pch.gt.",
         "address": "204.61.216.95"
-      },
-      {
-        "type": "GLUE4",
-        "ns": "sns-pb.isc.org.",
-        "address": "192.5.4.1"
       },
       {
         "type": "GLUE4",
@@ -42842,11 +42680,6 @@
       },
       {
         "type": "GLUE6",
-        "ns": "sns-pb.isc.org.",
-        "address": "2001:500:2e::1"
-      },
-      {
-        "type": "GLUE6",
         "ns": "ssdns-tld.nic.cl.",
         "address": "2001:1398:276:0:200:7:5:14"
       },
@@ -42860,15 +42693,7 @@
       },
       {
         "type": "NS",
-        "ns": "ns3.nic.mx."
-      },
-      {
-        "type": "NS",
         "ns": "pch.gt."
-      },
-      {
-        "type": "NS",
-        "ns": "sns-pb.isc.org."
       },
       {
         "type": "NS",
@@ -43446,6 +43271,11 @@
       },
       {
         "type": "GLUE4",
+        "ns": "h.dns.pt.",
+        "address": "194.146.106.138"
+      },
+      {
+        "type": "GLUE4",
         "ns": "gw01.dns.pt.",
         "address": "185.39.208.19"
       },
@@ -43455,9 +43285,9 @@
         "address": "204.61.216.114"
       },
       {
-        "type": "GLUE4",
-        "ns": "sns-pb.isc.org.",
-        "address": "192.5.4.1"
+        "type": "GLUE6",
+        "ns": "h.dns.pt.",
+        "address": "2001:67c:1010:35::53"
       },
       {
         "type": "GLUE6",
@@ -43470,9 +43300,8 @@
         "address": "2001:500:14:6114:ad::1"
       },
       {
-        "type": "GLUE6",
-        "ns": "sns-pb.isc.org.",
-        "address": "2001:500:2e::1"
+        "type": "NS",
+        "ns": "h.dns.pt."
       },
       {
         "type": "NS",
@@ -43481,10 +43310,6 @@
       {
         "type": "NS",
         "ns": "gw03.dns.pt."
-      },
-      {
-        "type": "NS",
-        "ns": "sns-pb.isc.org."
       }
     ]
   },
@@ -43513,11 +43338,6 @@
         "address": "204.61.216.34"
       },
       {
-        "type": "GLUE4",
-        "ns": "sns-pb.isc.org.",
-        "address": "192.5.4.1"
-      },
-      {
         "type": "GLUE6",
         "ns": "a.lactld.org.",
         "address": "2801:14:a000::10"
@@ -43533,11 +43353,6 @@
         "address": "2001:500:14:6034:ad::1"
       },
       {
-        "type": "GLUE6",
-        "ns": "sns-pb.isc.org.",
-        "address": "2001:500:2e::1"
-      },
-      {
         "type": "NS",
         "ns": "a.lactld.org."
       },
@@ -43548,10 +43363,6 @@
       {
         "type": "NS",
         "ns": "gy-ns.anycast.pch.net."
-      },
-      {
-        "type": "NS",
-        "ns": "sns-pb.isc.org."
       }
     ]
   },
@@ -43633,10 +43444,10 @@
       },
       {
         "type": "DS",
-        "keyTag": 53456,
+        "keyTag": 34636,
         "algorithm": 8,
         "digestType": 2,
-        "digest": "fdf7fa4eb122bd1dee85c9cf214511b6d565e3211f60f93468321b640dc8ae43"
+        "digest": "ae832fdb36452fb14a8fd7065a14a20fc4d119a12ff042704ef83a3b8febb213"
       },
       {
         "type": "GLUE4",
@@ -47843,10 +47654,10 @@
     "records": [
       {
         "type": "DS",
-        "keyTag": 44390,
+        "keyTag": 49126,
         "algorithm": 8,
         "digestType": 2,
-        "digest": "3ca93b563be78524ca8c960e368c6dff878aadc105d9054410af02d64d1bc818"
+        "digest": "ba0498d6c8f0ee6f19e08cffc550e2a7afdf34a0d7f2d222b9e8a1bdd0b429ac"
       },
       {
         "type": "GLUE4",
@@ -48156,10 +47967,10 @@
       },
       {
         "type": "DS",
-        "keyTag": 54980,
+        "keyTag": 39292,
         "algorithm": 8,
         "digestType": 2,
-        "digest": "17df03cb251403ded6f535bd35efa85a0d633eaf2a6fae83a642b82933efb25d"
+        "digest": "9a7bcb323988fb7463b63394ac7eaef6131c34333970451df448c5b2c1d7e6a1"
       },
       {
         "type": "GLUE4",
@@ -48221,13 +48032,13 @@
       },
       {
         "type": "GLUE4",
-        "ns": "ns2.ns.il.",
-        "address": "162.88.57.1"
+        "ns": "ns3.ns.il.",
+        "address": "194.0.11.103"
       },
       {
         "type": "GLUE4",
-        "ns": "ns3.ns.il.",
-        "address": "194.0.11.103"
+        "ns": "ns4.ns.il.",
+        "address": "204.61.216.134"
       },
       {
         "type": "GLUE4",
@@ -48255,19 +48066,9 @@
         "address": "128.139.34.240"
       },
       {
-        "type": "GLUE4",
-        "ns": "sns-pb.isc.org.",
-        "address": "192.5.4.1"
-      },
-      {
         "type": "GLUE6",
         "ns": "ns1.ns.il.",
         "address": "2001:67c:1010:31::53"
-      },
-      {
-        "type": "GLUE6",
-        "ns": "ns2.ns.il.",
-        "address": "2600:2000:3005::1"
       },
       {
         "type": "GLUE6",
@@ -48276,13 +48077,13 @@
       },
       {
         "type": "GLUE6",
-        "ns": "lookup.iucc.ac.il.",
-        "address": "2001:bf8:900:6::808b:22f0"
+        "ns": "ns4.ns.il.",
+        "address": "2001:500:14:6134:ad::1"
       },
       {
         "type": "GLUE6",
-        "ns": "sns-pb.isc.org.",
-        "address": "2001:500:2e::1"
+        "ns": "lookup.iucc.ac.il.",
+        "address": "2001:bf8:900:6::808b:22f0"
       },
       {
         "type": "NS",
@@ -48290,11 +48091,11 @@
       },
       {
         "type": "NS",
-        "ns": "ns2.ns.il."
+        "ns": "ns3.ns.il."
       },
       {
         "type": "NS",
-        "ns": "ns3.ns.il."
+        "ns": "ns4.ns.il."
       },
       {
         "type": "NS",
@@ -48315,10 +48116,6 @@
       {
         "type": "NS",
         "ns": "lookup.iucc.ac.il."
-      },
-      {
-        "type": "NS",
-        "ns": "sns-pb.isc.org."
       }
     ]
   },
@@ -49365,13 +49162,6 @@
   },
   "insurance.": {
     "records": [
-      {
-        "type": "DS",
-        "keyTag": 26106,
-        "algorithm": 8,
-        "digestType": 2,
-        "digest": "6fa68e9c22c5591ebb6baf0213849102af30b71b65b51ed890639f8299aad1d8"
-      },
       {
         "type": "DS",
         "keyTag": 48811,
@@ -50444,11 +50234,6 @@
         "address": "193.4.58.51"
       },
       {
-        "type": "GLUE4",
-        "ns": "sns-pb.isc.org.",
-        "address": "192.5.4.1"
-      },
-      {
         "type": "GLUE6",
         "ns": "bes.isnic.is.",
         "address": "2001:500:14:6116:ad::1"
@@ -50474,11 +50259,6 @@
         "address": "2001:67c:6c:58::51"
       },
       {
-        "type": "GLUE6",
-        "ns": "sns-pb.isc.org.",
-        "address": "2001:500:2e::1"
-      },
-      {
         "type": "NS",
         "ns": "bes.isnic.is."
       },
@@ -50497,10 +50277,6 @@
       {
         "type": "NS",
         "ns": "isgate.is."
-      },
-      {
-        "type": "NS",
-        "ns": "sns-pb.isc.org."
       }
     ]
   },
@@ -53142,11 +52918,6 @@
       },
       {
         "type": "GLUE4",
-        "ns": "ns2.dns.business.",
-        "address": "66.135.46.112"
-      },
-      {
-        "type": "GLUE4",
         "ns": "kenic.anycastdns.cz.",
         "address": "185.28.194.194"
       },
@@ -53176,14 +52947,19 @@
         "address": "196.216.168.22"
       },
       {
+        "type": "GLUE4",
+        "ns": "ns2ke.dns.business.",
+        "address": "147.135.106.237"
+      },
+      {
         "type": "GLUE6",
         "ns": "ns.anycast.kenic.or.ke.",
         "address": "2001:500:14:6007:ad::1"
       },
       {
         "type": "GLUE6",
-        "ns": "ns2.dns.business.",
-        "address": "2001:1978:2400:6::112"
+        "ns": "mzizi.kenic.or.ke.",
+        "address": "2001:43f8:10:0:50c0:a8ff:feee:30"
       },
       {
         "type": "GLUE6",
@@ -53191,12 +52967,13 @@
         "address": "2001:43f8:120::22"
       },
       {
-        "type": "NS",
-        "ns": "ns.anycast.kenic.or.ke."
+        "type": "GLUE6",
+        "ns": "ns2ke.dns.business.",
+        "address": "2604:2dc0:200:2eb::237"
       },
       {
         "type": "NS",
-        "ns": "ns2.dns.business."
+        "ns": "ns.anycast.kenic.or.ke."
       },
       {
         "type": "NS",
@@ -53209,6 +52986,10 @@
       {
         "type": "NS",
         "ns": "ns-ke.afrinic.net."
+      },
+      {
+        "type": "NS",
+        "ns": "ns2ke.dns.business."
       }
     ]
   },
@@ -53593,11 +53374,6 @@
         "address": "204.61.216.26"
       },
       {
-        "type": "GLUE4",
-        "ns": "sns-pb.isc.org.",
-        "address": "192.5.4.1"
-      },
-      {
         "type": "GLUE6",
         "ns": "ns.cocca.fr.",
         "address": "2a03:dd40:3::93"
@@ -53608,21 +53384,12 @@
         "address": "2001:500:14:6026:ad::1"
       },
       {
-        "type": "GLUE6",
-        "ns": "sns-pb.isc.org.",
-        "address": "2001:500:2e::1"
-      },
-      {
         "type": "NS",
         "ns": "ns.cocca.fr."
       },
       {
         "type": "NS",
         "ns": "pch.nic.ki."
-      },
-      {
-        "type": "NS",
-        "ns": "sns-pb.isc.org."
       }
     ]
   },
@@ -57212,73 +56979,6 @@
       }
     ]
   },
-  "liaison.": {
-    "records": [
-      {
-        "type": "DS",
-        "keyTag": 6096,
-        "algorithm": 8,
-        "digestType": 2,
-        "digest": "9ed72fb3336f4af86a62f628a8da7c54d751cf7944ed13c0331c2e39adba1ac7"
-      },
-      {
-        "type": "GLUE4",
-        "ns": "ac1.nstld.com.",
-        "address": "192.42.173.30"
-      },
-      {
-        "type": "GLUE4",
-        "ns": "ac2.nstld.com.",
-        "address": "192.42.174.30"
-      },
-      {
-        "type": "GLUE4",
-        "ns": "ac3.nstld.com.",
-        "address": "192.42.175.30"
-      },
-      {
-        "type": "GLUE4",
-        "ns": "ac4.nstld.com.",
-        "address": "192.42.176.30"
-      },
-      {
-        "type": "GLUE6",
-        "ns": "ac1.nstld.com.",
-        "address": "2001:500:120::30"
-      },
-      {
-        "type": "GLUE6",
-        "ns": "ac2.nstld.com.",
-        "address": "2001:500:121::30"
-      },
-      {
-        "type": "GLUE6",
-        "ns": "ac3.nstld.com.",
-        "address": "2001:500:122::30"
-      },
-      {
-        "type": "GLUE6",
-        "ns": "ac4.nstld.com.",
-        "address": "2001:500:123::30"
-      },
-      {
-        "type": "NS",
-        "ns": "ac1.nstld.com."
-      },
-      {
-        "type": "NS",
-        "ns": "ac2.nstld.com."
-      },
-      {
-        "type": "NS",
-        "ns": "ac3.nstld.com."
-      },
-      {
-        "type": "NS",
-        "ns": "ac4.nstld.com."
-      }
-    ]
-  },
   "lidl.": {
     "records": [
       {
@@ -60066,10 +59766,10 @@
     "records": [
       {
         "type": "DS",
-        "keyTag": 51914,
+        "keyTag": 56569,
         "algorithm": 8,
         "digestType": 2,
-        "digest": "22363eb0900ecb4b34c041a952c7151ffc5b56439af354c954ca3a4ea818fbd8"
+        "digest": "811ff979f57d544b7c3c3ae25a39d08b4bbed6cb5099b9c94585bb0895cee96f"
       },
       {
         "type": "GLUE4",
@@ -60292,10 +59992,10 @@
     "records": [
       {
         "type": "DS",
-        "keyTag": 17314,
+        "keyTag": 20752,
         "algorithm": 8,
         "digestType": 2,
-        "digest": "b3d09ea4961045f62a3153ff01689725785d0960a433ac15c44a2ae7069ebb20"
+        "digest": "2bbe0b0c438f336ca96f655dccb9a72d7359064225d9e38a0a09804f9be20415"
       },
       {
         "type": "GLUE4",
@@ -60850,6 +60550,16 @@
       },
       {
         "type": "GLUE4",
+        "ns": "a.tld.ma.",
+        "address": "81.192.171.83"
+      },
+      {
+        "type": "GLUE4",
+        "ns": "a.tld.ma.",
+        "address": "81.192.171.131"
+      },
+      {
+        "type": "GLUE4",
         "ns": "b.tld.ma.",
         "address": "81.192.171.84"
       },
@@ -60885,16 +60595,6 @@
       },
       {
         "type": "GLUE4",
-        "ns": "ns1.registre.ma.",
-        "address": "81.192.171.83"
-      },
-      {
-        "type": "GLUE4",
-        "ns": "ns1.registre.ma.",
-        "address": "81.192.171.131"
-      },
-      {
-        "type": "GLUE4",
         "ns": "ns-ma.nic.fr.",
         "address": "194.0.9.1"
       },
@@ -60902,6 +60602,11 @@
         "type": "GLUE4",
         "ns": "sns-pb.isc.org.",
         "address": "192.5.4.1"
+      },
+      {
+        "type": "GLUE6",
+        "ns": "a.tld.ma.",
+        "address": "2001:4288:1800:186::3"
       },
       {
         "type": "GLUE6",
@@ -60920,11 +60625,6 @@
       },
       {
         "type": "GLUE6",
-        "ns": "ns1.registre.ma.",
-        "address": "2001:4288:1800:186::3"
-      },
-      {
-        "type": "GLUE6",
         "ns": "ns-ma.nic.fr.",
         "address": "2001:678:c::1"
       },
@@ -60932,6 +60632,10 @@
         "type": "GLUE6",
         "ns": "sns-pb.isc.org.",
         "address": "2001:500:2e::1"
+      },
+      {
+        "type": "NS",
+        "ns": "a.tld.ma."
       },
       {
         "type": "NS",
@@ -60948,10 +60652,6 @@
       {
         "type": "NS",
         "ns": "dns.inria.fr."
-      },
-      {
-        "type": "NS",
-        "ns": "ns1.registre.ma."
       },
       {
         "type": "NS",
@@ -62396,12 +62096,12 @@
       },
       {
         "type": "GLUE4",
-        "ns": "nsca.dns.md.",
+        "ns": "nsc.dns.md.",
         "address": "144.217.93.2"
       },
       {
         "type": "GLUE4",
-        "ns": "nsfr.dns.md.",
+        "ns": "nsf.dns.md.",
         "address": "92.222.76.179"
       },
       {
@@ -62411,13 +62111,18 @@
       },
       {
         "type": "GLUE4",
-        "ns": "ns-ext.isc.org.",
-        "address": "204.152.184.64"
-      },
-      {
-        "type": "GLUE4",
         "ns": "ns-int.dns.md.",
         "address": "217.26.144.5"
+      },
+      {
+        "type": "GLUE6",
+        "ns": "nsc.dns.md.",
+        "address": "2607:5300:201:3100::2f69"
+      },
+      {
+        "type": "GLUE6",
+        "ns": "nsf.dns.md.",
+        "address": "2001:41d0:401:3100::7162"
       },
       {
         "type": "GLUE6",
@@ -62425,29 +62130,20 @@
         "address": "2a03:5e80:0:4:192:162:16:19"
       },
       {
-        "type": "GLUE6",
-        "ns": "ns-ext.isc.org.",
-        "address": "2001:4f8:0:2::13"
-      },
-      {
         "type": "NS",
         "ns": "nsb.dns.md."
       },
       {
         "type": "NS",
-        "ns": "nsca.dns.md."
+        "ns": "nsc.dns.md."
       },
       {
         "type": "NS",
-        "ns": "nsfr.dns.md."
+        "ns": "nsf.dns.md."
       },
       {
         "type": "NS",
         "ns": "dns-md.rotld.ro."
-      },
-      {
-        "type": "NS",
-        "ns": "ns-ext.isc.org."
       },
       {
         "type": "NS",
@@ -65895,73 +65591,6 @@
       }
     ]
   },
-  "movistar.": {
-    "records": [
-      {
-        "type": "DS",
-        "keyTag": 25776,
-        "algorithm": 10,
-        "digestType": 2,
-        "digest": "3b7d968230858cffb0cfb1149e5db04e635ea7e99a960cb164ec9298d1a37f2f"
-      },
-      {
-        "type": "GLUE4",
-        "ns": "anycast9.irondns.net.",
-        "address": "195.253.64.11"
-      },
-      {
-        "type": "GLUE4",
-        "ns": "anycast10.irondns.net.",
-        "address": "195.253.64.12"
-      },
-      {
-        "type": "GLUE4",
-        "ns": "anycast23.irondns.net.",
-        "address": "195.253.65.11"
-      },
-      {
-        "type": "GLUE4",
-        "ns": "anycast24.irondns.net.",
-        "address": "195.253.65.12"
-      },
-      {
-        "type": "GLUE6",
-        "ns": "anycast9.irondns.net.",
-        "address": "2a01:5b0:4::b"
-      },
-      {
-        "type": "GLUE6",
-        "ns": "anycast10.irondns.net.",
-        "address": "2a01:5b0:4::c"
-      },
-      {
-        "type": "GLUE6",
-        "ns": "anycast23.irondns.net.",
-        "address": "2a01:5b0:5::b"
-      },
-      {
-        "type": "GLUE6",
-        "ns": "anycast24.irondns.net.",
-        "address": "2a01:5b0:5::c"
-      },
-      {
-        "type": "NS",
-        "ns": "anycast9.irondns.net."
-      },
-      {
-        "type": "NS",
-        "ns": "anycast10.irondns.net."
-      },
-      {
-        "type": "NS",
-        "ns": "anycast23.irondns.net."
-      },
-      {
-        "type": "NS",
-        "ns": "anycast24.irondns.net."
-      }
-    ]
-  },
   "mp.": {
     "records": [
       {
@@ -66219,11 +65848,6 @@
       },
       {
         "type": "GLUE4",
-        "ns": "i.ns.mt.",
-        "address": "192.5.4.1"
-      },
-      {
-        "type": "GLUE4",
         "ns": "p.ns.mt.",
         "address": "204.61.216.45"
       },
@@ -66231,11 +65855,6 @@
         "type": "GLUE6",
         "ns": "f.ns.mt.",
         "address": "2001:660:3005:1::1:2"
-      },
-      {
-        "type": "GLUE6",
-        "ns": "i.ns.mt.",
-        "address": "2001:500:2e::1"
       },
       {
         "type": "GLUE6",
@@ -66253,10 +65872,6 @@
       {
         "type": "NS",
         "ns": "f.ns.mt."
-      },
-      {
-        "type": "NS",
-        "ns": "i.ns.mt."
       },
       {
         "type": "NS",
@@ -66473,13 +66088,6 @@
         "algorithm": 8,
         "digestType": 2,
         "digest": "229739df4f32a081b4e0e4c8d3eff6b263a61cf0cf812ea5c67b7640f1bb21a0"
-      },
-      {
-        "type": "DS",
-        "keyTag": 34597,
-        "algorithm": 8,
-        "digestType": 2,
-        "digest": "573e91cdc458f93df85253b0b94f9c2fa39bbec1d0ff82a2063fe043dfa3a1a8"
       },
       {
         "type": "DS",
@@ -67032,13 +66640,8 @@
       },
       {
         "type": "GLUE4",
-        "ns": "a.na.dyntld.net.",
-        "address": "108.59.162.1"
-      },
-      {
-        "type": "GLUE4",
-        "ns": "b.na.dyntld.net.",
-        "address": "108.59.163.1"
+        "ns": "sdc.omadhina.co.na.",
+        "address": "200.25.20.98"
       },
       {
         "type": "GLUE4",
@@ -67052,23 +66655,8 @@
       },
       {
         "type": "GLUE4",
-        "ns": "merlin.net.na.",
-        "address": "204.152.184.96"
-      },
-      {
-        "type": "GLUE4",
-        "ns": "sns-pb.isc.org.",
-        "address": "192.5.4.1"
-      },
-      {
-        "type": "GLUE6",
-        "ns": "a.na.dyntld.net.",
-        "address": "2a02:e180:5::1"
-      },
-      {
-        "type": "GLUE6",
-        "ns": "b.na.dyntld.net.",
-        "address": "2a02:e180:6::1"
+        "ns": "katima.omadhina.net.",
+        "address": "185.2.66.100"
       },
       {
         "type": "GLUE6",
@@ -67081,17 +66669,8 @@
         "address": "2001:500:14:6035:ad::1"
       },
       {
-        "type": "GLUE6",
-        "ns": "sns-pb.isc.org.",
-        "address": "2001:500:2e::1"
-      },
-      {
         "type": "NS",
-        "ns": "a.na.dyntld.net."
-      },
-      {
-        "type": "NS",
-        "ns": "b.na.dyntld.net."
+        "ns": "sdc.omadhina.co.na."
       },
       {
         "type": "NS",
@@ -67103,11 +66682,7 @@
       },
       {
         "type": "NS",
-        "ns": "merlin.net.na."
-      },
-      {
-        "type": "NS",
-        "ns": "sns-pb.isc.org."
+        "ns": "katima.omadhina.net."
       }
     ]
   },
@@ -69831,11 +69406,6 @@
         "address": "194.0.25.24"
       },
       {
-        "type": "GLUE4",
-        "ns": "sns-pb.isc.org.",
-        "address": "192.5.4.1"
-      },
-      {
         "type": "GLUE6",
         "ns": "ns1.dns.nl.",
         "address": "2001:678:2c:0:194:0:28:53"
@@ -69851,11 +69421,6 @@
         "address": "2001:678:20::24"
       },
       {
-        "type": "GLUE6",
-        "ns": "sns-pb.isc.org.",
-        "address": "2001:500:2e::1"
-      },
-      {
         "type": "NS",
         "ns": "ns1.dns.nl."
       },
@@ -69866,10 +69431,6 @@
       {
         "type": "NS",
         "ns": "ns3.dns.nl."
-      },
-      {
-        "type": "NS",
-        "ns": "sns-pb.isc.org."
       }
     ]
   },
@@ -70824,11 +70385,6 @@
       },
       {
         "type": "GLUE4",
-        "ns": "b.ns.nu.",
-        "address": "65.22.164.1"
-      },
-      {
-        "type": "GLUE4",
         "ns": "c.ns.nu.",
         "address": "192.36.144.107"
       },
@@ -70854,11 +70410,6 @@
       },
       {
         "type": "GLUE6",
-        "ns": "b.ns.nu.",
-        "address": "2a01:8840:10::1"
-      },
-      {
-        "type": "GLUE6",
         "ns": "c.ns.nu.",
         "address": "2a01:3f0:0:301::53"
       },
@@ -70880,10 +70431,6 @@
       {
         "type": "NS",
         "ns": "a.ns.nu."
-      },
-      {
-        "type": "NS",
-        "ns": "b.ns.nu."
       },
       {
         "type": "NS",
@@ -74256,11 +73803,6 @@
         "address": "200.1.176.4"
       },
       {
-        "type": "GLUE4",
-        "ns": "sns-pb.isc.org.",
-        "address": "192.5.4.1"
-      },
-      {
         "type": "GLUE6",
         "ns": "pch.rcp.pe.",
         "address": "2001:500:14:6085:ad::1"
@@ -74269,11 +73811,6 @@
         "type": "GLUE6",
         "ns": "pe1.dnsnode.net.",
         "address": "2001:67c:1010:20::53"
-      },
-      {
-        "type": "GLUE6",
-        "ns": "sns-pb.isc.org.",
-        "address": "2001:500:2e::1"
       },
       {
         "type": "NS",
@@ -74286,10 +73823,6 @@
       {
         "type": "NS",
         "ns": "quipu.rcp.net.pe."
-      },
-      {
-        "type": "NS",
-        "ns": "sns-pb.isc.org."
       }
     ]
   },
@@ -74587,11 +74120,6 @@
         "address": "202.12.31.53"
       },
       {
-        "type": "GLUE4",
-        "ns": "sns-pb.isc.org.",
-        "address": "192.5.4.1"
-      },
-      {
         "type": "GLUE6",
         "ns": "1.ns.ph.",
         "address": "2620:171:805:ad2:7068::1"
@@ -74612,11 +74140,6 @@
         "address": "2001:dd8:12::53"
       },
       {
-        "type": "GLUE6",
-        "ns": "sns-pb.isc.org.",
-        "address": "2001:500:2e::1"
-      },
-      {
         "type": "NS",
         "ns": "1.ns.ph."
       },
@@ -74631,10 +74154,6 @@
       {
         "type": "NS",
         "ns": "ns4.apnic.net."
-      },
-      {
-        "type": "NS",
-        "ns": "sns-pb.isc.org."
       }
     ]
   },
@@ -76111,6 +75630,13 @@
     "records": [
       {
         "type": "DS",
+        "keyTag": 6064,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "2cd7d3d164d8239d4ea8991a62c9667a5ae19fbfbdebeb35cb825d1f6688eea6"
+      },
+      {
+        "type": "DS",
         "keyTag": 39175,
         "algorithm": 8,
         "digestType": 2,
@@ -76603,22 +76129,10 @@
     "records": [
       {
         "type": "DS",
-        "keyTag": 45104,
-        "algorithm": 8,
-        "digestType": 2,
-        "digest": "5f4a1bf0ed0df545553b0d97eeec234de7aaf6bb308f9b6a8c7741ba98720b31"
-      },
-      {
-        "type": "DS",
         "keyTag": 56192,
         "algorithm": 8,
         "digestType": 2,
         "digest": "b49959ab8fff95a45bf5f7130ab1a64c7ef1cefb6f50ca1be003281503325f67"
-      },
-      {
-        "type": "GLUE4",
-        "ns": "d.ext.nic.fr.",
-        "address": "192.5.4.2"
       },
       {
         "type": "GLUE4",
@@ -76642,11 +76156,6 @@
       },
       {
         "type": "GLUE6",
-        "ns": "d.ext.nic.fr.",
-        "address": "2001:500:2e::2"
-      },
-      {
-        "type": "GLUE6",
         "ns": "d.nic.fr.",
         "address": "2001:678:c::1"
       },
@@ -76664,10 +76173,6 @@
         "type": "GLUE6",
         "ns": "g.ext.nic.fr.",
         "address": "2001:678:4c::1"
-      },
-      {
-        "type": "NS",
-        "ns": "d.ext.nic.fr."
       },
       {
         "type": "NS",
@@ -76696,6 +76201,11 @@
       },
       {
         "type": "GLUE4",
+        "ns": "ns1.pitcairn.net.pn.",
+        "address": "204.61.216.136"
+      },
+      {
+        "type": "GLUE4",
         "ns": "ns2.pitcairn.net.pn.",
         "address": "80.68.93.100"
       },
@@ -76705,9 +76215,9 @@
         "address": "77.72.229.254"
       },
       {
-        "type": "GLUE4",
-        "ns": "sns-pb.isc.org.",
-        "address": "192.5.4.1"
+        "type": "GLUE6",
+        "ns": "ns1.pitcairn.net.pn.",
+        "address": "2001:500:14:6136:ad::1"
       },
       {
         "type": "GLUE6",
@@ -76715,13 +76225,12 @@
         "address": "2a01:3f0:0:306::53"
       },
       {
-        "type": "GLUE6",
-        "ns": "sns-pb.isc.org.",
-        "address": "2001:500:2e::1"
+        "type": "NS",
+        "ns": "ns0.pitcairn.net.pn."
       },
       {
         "type": "NS",
-        "ns": "ns0.pitcairn.net.pn."
+        "ns": "ns1.pitcairn.net.pn."
       },
       {
         "type": "NS",
@@ -76730,10 +76239,6 @@
       {
         "type": "NS",
         "ns": "fork.sth.dnsnode.net."
-      },
-      {
-        "type": "NS",
-        "ns": "sns-pb.isc.org."
       }
     ]
   },
@@ -76975,13 +76480,13 @@
       },
       {
         "type": "GLUE4",
-        "ns": "ns3.nic.politie.",
-        "address": "194.0.25.27"
+        "ns": "ns2.nic.politie.",
+        "address": "194.146.106.42"
       },
       {
         "type": "GLUE4",
-        "ns": "sns-pb.isc.org.",
-        "address": "192.5.4.1"
+        "ns": "ns3.nic.politie.",
+        "address": "194.0.25.27"
       },
       {
         "type": "GLUE6",
@@ -76990,13 +76495,13 @@
       },
       {
         "type": "GLUE6",
-        "ns": "ns3.nic.politie.",
-        "address": "2001:678:20::27"
+        "ns": "ns2.nic.politie.",
+        "address": "2001:67c:1010:10::53"
       },
       {
         "type": "GLUE6",
-        "ns": "sns-pb.isc.org.",
-        "address": "2001:500:2e::1"
+        "ns": "ns3.nic.politie.",
+        "address": "2001:678:20::27"
       },
       {
         "type": "NS",
@@ -77004,11 +76509,11 @@
       },
       {
         "type": "NS",
-        "ns": "ns3.nic.politie."
+        "ns": "ns2.nic.politie."
       },
       {
         "type": "NS",
-        "ns": "sns-pb.isc.org."
+        "ns": "ns3.nic.politie."
       }
     ]
   },
@@ -78828,6 +78333,11 @@
       },
       {
         "type": "GLUE4",
+        "ns": "h.dns.pt.",
+        "address": "194.146.106.138"
+      },
+      {
+        "type": "GLUE4",
         "ns": "ns.dns.br.",
         "address": "200.160.0.5"
       },
@@ -78835,11 +78345,6 @@
         "type": "GLUE4",
         "ns": "ns2.nic.fr.",
         "address": "192.93.0.4"
-      },
-      {
-        "type": "GLUE4",
-        "ns": "sns-pb.isc.org.",
-        "address": "192.5.4.1"
       },
       {
         "type": "GLUE6",
@@ -78878,6 +78383,11 @@
       },
       {
         "type": "GLUE6",
+        "ns": "h.dns.pt.",
+        "address": "2001:67c:1010:35::53"
+      },
+      {
+        "type": "GLUE6",
         "ns": "ns.dns.br.",
         "address": "2001:12ff:0:a20::5"
       },
@@ -78885,11 +78395,6 @@
         "type": "GLUE6",
         "ns": "ns2.nic.fr.",
         "address": "2001:660:3005:1::1:2"
-      },
-      {
-        "type": "GLUE6",
-        "ns": "sns-pb.isc.org.",
-        "address": "2001:500:2e::1"
       },
       {
         "type": "NS",
@@ -78921,15 +78426,15 @@
       },
       {
         "type": "NS",
+        "ns": "h.dns.pt."
+      },
+      {
+        "type": "NS",
         "ns": "ns.dns.br."
       },
       {
         "type": "NS",
         "ns": "ns2.nic.fr."
-      },
-      {
-        "type": "NS",
-        "ns": "sns-pb.isc.org."
       }
     ]
   },
@@ -79966,18 +79471,6 @@
         "digest": "fc7f430d839fa81ce34fbbc3c687834184685e3312fa3284354b00aff6c9f2d2"
       },
       {
-        "type": "DS",
-        "keyTag": 48034,
-        "algorithm": 8,
-        "digestType": 2,
-        "digest": "90e84bb9c432aa9f9c4970aa79e6f1d0af2812360b35655404784b914e000bea"
-      },
-      {
-        "type": "GLUE4",
-        "ns": "d.ext.nic.fr.",
-        "address": "192.5.4.2"
-      },
-      {
         "type": "GLUE4",
         "ns": "d.nic.fr.",
         "address": "194.0.9.1"
@@ -79999,11 +79492,6 @@
       },
       {
         "type": "GLUE6",
-        "ns": "d.ext.nic.fr.",
-        "address": "2001:500:2e::2"
-      },
-      {
-        "type": "GLUE6",
         "ns": "d.nic.fr.",
         "address": "2001:678:c::1"
       },
@@ -80021,10 +79509,6 @@
         "type": "GLUE6",
         "ns": "g.ext.nic.fr.",
         "address": "2001:678:4c::1"
-      },
-      {
-        "type": "NS",
-        "ns": "d.ext.nic.fr."
       },
       {
         "type": "NS",
@@ -82489,6 +81973,11 @@
       },
       {
         "type": "GLUE4",
+        "ns": "dns-c.rotld.ro.",
+        "address": "194.0.11.113"
+      },
+      {
+        "type": "GLUE4",
         "ns": "dns-at.rotld.ro.",
         "address": "78.104.145.6"
       },
@@ -82496,11 +81985,6 @@
         "type": "GLUE4",
         "ns": "dns-ro.denic.de.",
         "address": "81.91.161.99"
-      },
-      {
-        "type": "GLUE4",
-        "ns": "sns-pb.isc.org.",
-        "address": "192.5.4.1"
       },
       {
         "type": "GLUE4",
@@ -82519,13 +82003,13 @@
       },
       {
         "type": "GLUE6",
-        "ns": "dns-at.rotld.ro.",
-        "address": "2001:628:453:bb::6"
+        "ns": "dns-c.rotld.ro.",
+        "address": "2001:678:e:113::53"
       },
       {
         "type": "GLUE6",
-        "ns": "sns-pb.isc.org.",
-        "address": "2001:500:2e::1"
+        "ns": "dns-at.rotld.ro.",
+        "address": "2001:628:453:bb::6"
       },
       {
         "type": "GLUE6",
@@ -82544,15 +82028,15 @@
       },
       {
         "type": "NS",
+        "ns": "dns-c.rotld.ro."
+      },
+      {
+        "type": "NS",
         "ns": "dns-at.rotld.ro."
       },
       {
         "type": "NS",
         "ns": "dns-ro.denic.de."
-      },
-      {
-        "type": "NS",
-        "ns": "sns-pb.isc.org."
       },
       {
         "type": "NS",
@@ -83084,11 +82568,6 @@
       },
       {
         "type": "GLUE4",
-        "ns": "k.nic.rs.",
-        "address": "192.5.4.1"
-      },
-      {
-        "type": "GLUE4",
         "ns": "l.nic.rs.",
         "address": "194.146.106.114"
       },
@@ -83106,11 +82585,6 @@
         "type": "GLUE6",
         "ns": "h.nic.rs.",
         "address": "2001:67c:69c::60"
-      },
-      {
-        "type": "GLUE6",
-        "ns": "k.nic.rs.",
-        "address": "2001:500:2e::1"
       },
       {
         "type": "GLUE6",
@@ -83136,10 +82610,6 @@
       {
         "type": "NS",
         "ns": "h.nic.rs."
-      },
-      {
-        "type": "NS",
-        "ns": "k.nic.rs."
       },
       {
         "type": "NS",
@@ -86532,11 +86002,6 @@
       },
       {
         "type": "GLUE4",
-        "ns": "j.ns.se.",
-        "address": "199.254.63.1"
-      },
-      {
-        "type": "GLUE4",
         "ns": "x.ns.se.",
         "address": "213.108.25.4"
       },
@@ -86582,11 +86047,6 @@
       },
       {
         "type": "GLUE6",
-        "ns": "j.ns.se.",
-        "address": "2001:500:2c::1"
-      },
-      {
-        "type": "GLUE6",
         "ns": "x.ns.se.",
         "address": "2001:67c:124c:e000::4"
       },
@@ -86623,10 +86083,6 @@
       {
         "type": "NS",
         "ns": "i.ns.se."
-      },
-      {
-        "type": "NS",
-        "ns": "j.ns.se."
       },
       {
         "type": "NS",
@@ -89736,7 +89192,7 @@
       {
         "type": "GLUE4",
         "ns": "ns1.neoip.com.",
-        "address": "62.90.247.118"
+        "address": "45.83.41.38"
       },
       {
         "type": "GLUE4",
@@ -91479,6 +90935,16 @@
         "type": "GLUE4",
         "ns": "dns-us.st.",
         "address": "198.105.223.67"
+      },
+      {
+        "type": "GLUE6",
+        "ns": "ns1.bahnhof.net.",
+        "address": "2001:9b0:1:104:250:56ff:feb7:5c51"
+      },
+      {
+        "type": "GLUE6",
+        "ns": "dns-st.bahnhof.net.",
+        "address": "2001:9b0:1:601:250:56ff:feb7:46"
       },
       {
         "type": "NS",
@@ -95621,73 +95087,6 @@
       }
     ]
   },
-  "telefonica.": {
-    "records": [
-      {
-        "type": "DS",
-        "keyTag": 50682,
-        "algorithm": 10,
-        "digestType": 2,
-        "digest": "ba54b65fd1ca7c8a097eadfb429096f2edf3ea55460a674bee40563d5344f537"
-      },
-      {
-        "type": "GLUE4",
-        "ns": "anycast9.irondns.net.",
-        "address": "195.253.64.11"
-      },
-      {
-        "type": "GLUE4",
-        "ns": "anycast10.irondns.net.",
-        "address": "195.253.64.12"
-      },
-      {
-        "type": "GLUE4",
-        "ns": "anycast23.irondns.net.",
-        "address": "195.253.65.11"
-      },
-      {
-        "type": "GLUE4",
-        "ns": "anycast24.irondns.net.",
-        "address": "195.253.65.12"
-      },
-      {
-        "type": "GLUE6",
-        "ns": "anycast9.irondns.net.",
-        "address": "2a01:5b0:4::b"
-      },
-      {
-        "type": "GLUE6",
-        "ns": "anycast10.irondns.net.",
-        "address": "2a01:5b0:4::c"
-      },
-      {
-        "type": "GLUE6",
-        "ns": "anycast23.irondns.net.",
-        "address": "2a01:5b0:5::b"
-      },
-      {
-        "type": "GLUE6",
-        "ns": "anycast24.irondns.net.",
-        "address": "2a01:5b0:5::c"
-      },
-      {
-        "type": "NS",
-        "ns": "anycast9.irondns.net."
-      },
-      {
-        "type": "NS",
-        "ns": "anycast10.irondns.net."
-      },
-      {
-        "type": "NS",
-        "ns": "anycast23.irondns.net."
-      },
-      {
-        "type": "NS",
-        "ns": "anycast24.irondns.net."
-      }
-    ]
-  },
   "temasek.": {
     "records": [
       {
@@ -95956,22 +95355,10 @@
     "records": [
       {
         "type": "DS",
-        "keyTag": 40501,
-        "algorithm": 8,
-        "digestType": 2,
-        "digest": "f7619c58a5c6d4c62c74ff3ec3b9dbf575a1b814283cc72fb63ef72861bc9808"
-      },
-      {
-        "type": "DS",
         "keyTag": 63746,
         "algorithm": 8,
         "digestType": 2,
         "digest": "c80a503f9a4594065684e1b4c6cd5c9aaacf855a9f3b4d9b4546970c6c37c0e0"
-      },
-      {
-        "type": "GLUE4",
-        "ns": "d.ext.nic.fr.",
-        "address": "192.5.4.2"
       },
       {
         "type": "GLUE4",
@@ -95995,11 +95382,6 @@
       },
       {
         "type": "GLUE6",
-        "ns": "d.ext.nic.fr.",
-        "address": "2001:500:2e::2"
-      },
-      {
-        "type": "GLUE6",
         "ns": "d.nic.fr.",
         "address": "2001:678:c::1"
       },
@@ -96017,10 +95399,6 @@
         "type": "GLUE6",
         "ns": "g.ext.nic.fr.",
         "address": "2001:678:4c::1"
-      },
-      {
-        "type": "NS",
-        "ns": "d.ext.nic.fr."
       },
       {
         "type": "NS",
@@ -96171,16 +95549,6 @@
         "address": "202.28.0.1"
       },
       {
-        "type": "GLUE4",
-        "ns": "ams.sns-pb.isc.org.",
-        "address": "199.6.1.30"
-      },
-      {
-        "type": "GLUE4",
-        "ns": "sfba.sns-pb.isc.org.",
-        "address": "149.20.64.3"
-      },
-      {
         "type": "GLUE6",
         "ns": "a.thains.co.th.",
         "address": "2001:c38:2000:183::30"
@@ -96201,16 +95569,6 @@
         "address": "2001:500:14:6126:ad::1"
       },
       {
-        "type": "GLUE6",
-        "ns": "ams.sns-pb.isc.org.",
-        "address": "2001:500:60::30"
-      },
-      {
-        "type": "GLUE6",
-        "ns": "sfba.sns-pb.isc.org.",
-        "address": "2001:4f8:0:2::19"
-      },
-      {
         "type": "NS",
         "ns": "a.thains.co.th."
       },
@@ -96229,14 +95587,6 @@
       {
         "type": "NS",
         "ns": "ns.thnic.net."
-      },
-      {
-        "type": "NS",
-        "ns": "ams.sns-pb.isc.org."
-      },
-      {
-        "type": "NS",
-        "ns": "sfba.sns-pb.isc.org."
       }
     ]
   },
@@ -99410,6 +98760,11 @@
       },
       {
         "type": "GLUE4",
+        "ns": "a.lactld.org.",
+        "address": "200.0.68.10"
+      },
+      {
+        "type": "GLUE4",
         "ns": "ns3.nic.mx.",
         "address": "200.33.111.1"
       },
@@ -99424,9 +98779,9 @@
         "address": "193.0.9.50"
       },
       {
-        "type": "GLUE4",
-        "ns": "sns-pb.isc.org.",
-        "address": "192.5.4.1"
+        "type": "GLUE6",
+        "ns": "a.lactld.org.",
+        "address": "2801:14:a000::10"
       },
       {
         "type": "GLUE6",
@@ -99439,9 +98794,8 @@
         "address": "2001:67c:e0::50"
       },
       {
-        "type": "GLUE6",
-        "ns": "sns-pb.isc.org.",
-        "address": "2001:500:2e::1"
+        "type": "NS",
+        "ns": "a.lactld.org."
       },
       {
         "type": "NS",
@@ -99454,10 +98808,6 @@
       {
         "type": "NS",
         "ns": "ripe.nic.tt."
-      },
-      {
-        "type": "NS",
-        "ns": "sns-pb.isc.org."
       }
     ]
   },
@@ -100300,11 +99650,6 @@
         "address": "204.61.216.12"
       },
       {
-        "type": "GLUE4",
-        "ns": "sns-pb.isc.org.",
-        "address": "192.5.4.1"
-      },
-      {
         "type": "GLUE6",
         "ns": "cd1.ns.ua.",
         "address": "2001:678:4::9"
@@ -100325,11 +99670,6 @@
         "address": "2001:500:14:6012:ad::1"
       },
       {
-        "type": "GLUE6",
-        "ns": "sns-pb.isc.org.",
-        "address": "2001:500:2e::1"
-      },
-      {
         "type": "NS",
         "ns": "cd1.ns.ua."
       },
@@ -100344,10 +99684,6 @@
       {
         "type": "NS",
         "ns": "pch.ns.ua."
-      },
-      {
-        "type": "NS",
-        "ns": "sns-pb.isc.org."
       }
     ]
   },
@@ -101214,6 +100550,11 @@
       },
       {
         "type": "GLUE4",
+        "ns": "a.lactld.org.",
+        "address": "200.0.68.10"
+      },
+      {
+        "type": "GLUE4",
         "ns": "b.nic.uy.",
         "address": "164.73.128.70"
       },
@@ -101243,14 +100584,14 @@
         "address": "200.33.111.1"
       },
       {
-        "type": "GLUE4",
-        "ns": "sns-pb.isc.org.",
-        "address": "192.5.4.1"
-      },
-      {
         "type": "GLUE6",
         "ns": "a.nic.uy.",
         "address": "2001:1328:6::5"
+      },
+      {
+        "type": "GLUE6",
+        "ns": "a.lactld.org.",
+        "address": "2801:14:a000::10"
       },
       {
         "type": "GLUE6",
@@ -101273,13 +100614,12 @@
         "address": "2800:a0:53:1002::1"
       },
       {
-        "type": "GLUE6",
-        "ns": "sns-pb.isc.org.",
-        "address": "2001:500:2e::1"
+        "type": "NS",
+        "ns": "a.nic.uy."
       },
       {
         "type": "NS",
-        "ns": "a.nic.uy."
+        "ns": "a.lactld.org."
       },
       {
         "type": "NS",
@@ -101304,10 +100644,6 @@
       {
         "type": "NS",
         "ns": "ns3.nic.mx."
-      },
-      {
-        "type": "NS",
-        "ns": "sns-pb.isc.org."
       }
     ]
   },
@@ -102087,17 +101423,17 @@
     "records": [
       {
         "type": "DS",
-        "keyTag": 9400,
-        "algorithm": 8,
-        "digestType": 2,
-        "digest": "385fdc53c679534605c1e1fbb070e5c86cf109fbd0b6151b991cadd9d33fa389"
-      },
-      {
-        "type": "DS",
         "keyTag": 26134,
         "algorithm": 8,
         "digestType": 2,
         "digest": "925ee924b5bc6876443e476c16eaf5bf02885acadbdf27ca2c87be8eeb7f3b41"
+      },
+      {
+        "type": "DS",
+        "keyTag": 50227,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "5d0d0da59be4750137e7b2b9e44c5a5cc19d5c7cdf5bb542adb7630ff3d1fb90"
       },
       {
         "type": "GLUE4",
@@ -104114,6 +103450,20 @@
   "vu.": {
     "records": [
       {
+        "type": "DS",
+        "keyTag": 56121,
+        "algorithm": 10,
+        "digestType": 1,
+        "digest": "0a1901b122dbb2e5f5807aaa8e39702e2d193628"
+      },
+      {
+        "type": "DS",
+        "keyTag": 56121,
+        "algorithm": 10,
+        "digestType": 2,
+        "digest": "339738eb082d604f2fc2255dfcda3325c0a87d36eb26f546fdb49ae8a4f990b5"
+      },
+      {
         "type": "GLUE4",
         "ns": "ns1.neustar.vu.",
         "address": "37.209.192.6"
@@ -105773,18 +105123,6 @@
         "digest": "8fc2e75050231829a3468f447d14d28c3cb6a7a1de814fdc6287180b06d23111"
       },
       {
-        "type": "DS",
-        "keyTag": 48599,
-        "algorithm": 8,
-        "digestType": 2,
-        "digest": "e96edef3dff8d4abf5b563d9f5365a1d6426a234c77d8cf7e75a3211e21c80fd"
-      },
-      {
-        "type": "GLUE4",
-        "ns": "d.ext.nic.fr.",
-        "address": "192.5.4.2"
-      },
-      {
         "type": "GLUE4",
         "ns": "d.nic.fr.",
         "address": "194.0.9.1"
@@ -105803,11 +105141,6 @@
         "type": "GLUE4",
         "ns": "g.ext.nic.fr.",
         "address": "194.0.36.1"
-      },
-      {
-        "type": "GLUE6",
-        "ns": "d.ext.nic.fr.",
-        "address": "2001:500:2e::2"
       },
       {
         "type": "GLUE6",
@@ -105831,10 +105164,6 @@
       },
       {
         "type": "NS",
-        "ns": "d.ext.nic.fr."
-      },
-      {
-        "type": "NS",
         "ns": "d.nic.fr."
       },
       {
@@ -105853,6 +105182,20 @@
   },
   "whoswho.": {
     "records": [
+      {
+        "type": "DS",
+        "keyTag": 1094,
+        "algorithm": 8,
+        "digestType": 1,
+        "digest": "fe0748df3c28c6b03289bbb55e6418f58544cdac"
+      },
+      {
+        "type": "DS",
+        "keyTag": 1094,
+        "algorithm": 8,
+        "digestType": 2,
+        "digest": "b35d9bcf8c51a71118e63f2d38a06e25418db690dbabfb35f0cf9635959b5e5b"
+      },
       {
         "type": "DS",
         "keyTag": 42079,
@@ -105883,87 +105226,59 @@
       },
       {
         "type": "GLUE4",
-        "ns": "ns1.dns.nic.whoswho.",
-        "address": "156.154.144.180"
+        "ns": "anycast9.irondns.net.",
+        "address": "195.253.64.11"
       },
       {
         "type": "GLUE4",
-        "ns": "ns2.dns.nic.whoswho.",
-        "address": "156.154.145.180"
+        "ns": "anycast10.irondns.net.",
+        "address": "195.253.64.12"
       },
       {
         "type": "GLUE4",
-        "ns": "ns3.dns.nic.whoswho.",
-        "address": "156.154.159.180"
+        "ns": "anycast23.irondns.net.",
+        "address": "195.253.65.11"
       },
       {
         "type": "GLUE4",
-        "ns": "ns4.dns.nic.whoswho.",
-        "address": "156.154.156.180"
-      },
-      {
-        "type": "GLUE4",
-        "ns": "ns5.dns.nic.whoswho.",
-        "address": "156.154.157.180"
-      },
-      {
-        "type": "GLUE4",
-        "ns": "ns6.dns.nic.whoswho.",
-        "address": "156.154.158.180"
+        "ns": "anycast24.irondns.net.",
+        "address": "195.253.65.12"
       },
       {
         "type": "GLUE6",
-        "ns": "ns1.dns.nic.whoswho.",
-        "address": "2610:a1:1071::b4"
+        "ns": "anycast9.irondns.net.",
+        "address": "2a01:5b0:4::b"
       },
       {
         "type": "GLUE6",
-        "ns": "ns2.dns.nic.whoswho.",
-        "address": "2610:a1:1072::b4"
+        "ns": "anycast10.irondns.net.",
+        "address": "2a01:5b0:4::c"
       },
       {
         "type": "GLUE6",
-        "ns": "ns3.dns.nic.whoswho.",
-        "address": "2610:a1:1073::b4"
+        "ns": "anycast23.irondns.net.",
+        "address": "2a01:5b0:5::b"
       },
       {
         "type": "GLUE6",
-        "ns": "ns4.dns.nic.whoswho.",
-        "address": "2610:a1:1074::b4"
-      },
-      {
-        "type": "GLUE6",
-        "ns": "ns5.dns.nic.whoswho.",
-        "address": "2610:a1:1075::b4"
-      },
-      {
-        "type": "GLUE6",
-        "ns": "ns6.dns.nic.whoswho.",
-        "address": "2610:a1:1076::b4"
+        "ns": "anycast24.irondns.net.",
+        "address": "2a01:5b0:5::c"
       },
       {
         "type": "NS",
-        "ns": "ns1.dns.nic.whoswho."
+        "ns": "anycast9.irondns.net."
       },
       {
         "type": "NS",
-        "ns": "ns2.dns.nic.whoswho."
+        "ns": "anycast10.irondns.net."
       },
       {
         "type": "NS",
-        "ns": "ns3.dns.nic.whoswho."
+        "ns": "anycast23.irondns.net."
       },
       {
         "type": "NS",
-        "ns": "ns4.dns.nic.whoswho."
-      },
-      {
-        "type": "NS",
-        "ns": "ns5.dns.nic.whoswho."
-      },
-      {
-        "type": "NS",
-        "ns": "ns6.dns.nic.whoswho."
+        "ns": "anycast24.irondns.net."
       }
     ]
   },
@@ -110016,11 +109331,6 @@
       },
       {
         "type": "GLUE4",
-        "ns": "k.nic.rs.",
-        "address": "192.5.4.1"
-      },
-      {
-        "type": "GLUE4",
         "ns": "l.nic.rs.",
         "address": "194.146.106.114"
       },
@@ -110038,11 +109348,6 @@
         "type": "GLUE6",
         "ns": "h.nic.rs.",
         "address": "2001:67c:69c::60"
-      },
-      {
-        "type": "GLUE6",
-        "ns": "k.nic.rs.",
-        "address": "2001:500:2e::1"
       },
       {
         "type": "GLUE6",
@@ -110068,10 +109373,6 @@
       {
         "type": "NS",
         "ns": "h.nic.rs."
-      },
-      {
-        "type": "NS",
-        "ns": "k.nic.rs."
       },
       {
         "type": "NS",
@@ -110110,13 +109411,13 @@
       },
       {
         "type": "GLUE4",
-        "ns": "p.nic.bg.",
-        "address": "204.61.216.110"
+        "ns": "e.nic.bg.",
+        "address": "185.143.80.1"
       },
       {
         "type": "GLUE4",
-        "ns": "sns-pb.isc.org.",
-        "address": "192.5.4.1"
+        "ns": "p.nic.bg.",
+        "address": "204.61.216.110"
       },
       {
         "type": "GLUE6",
@@ -110140,13 +109441,13 @@
       },
       {
         "type": "GLUE6",
-        "ns": "p.nic.bg.",
-        "address": "2001:500:14:6110:ad::1"
+        "ns": "e.nic.bg.",
+        "address": "2a02:6a80:530e::1"
       },
       {
         "type": "GLUE6",
-        "ns": "sns-pb.isc.org.",
-        "address": "2001:500:2e::1"
+        "ns": "p.nic.bg.",
+        "address": "2001:500:14:6110:ad::1"
       },
       {
         "type": "NS",
@@ -110166,11 +109467,11 @@
       },
       {
         "type": "NS",
-        "ns": "p.nic.bg."
+        "ns": "e.nic.bg."
       },
       {
         "type": "NS",
-        "ns": "sns-pb.isc.org."
+        "ns": "p.nic.bg."
       }
     ]
   },
@@ -111548,11 +110849,6 @@
         "address": "193.2.221.60"
       },
       {
-        "type": "GLUE4",
-        "ns": "uk.dns.eu.",
-        "address": "195.66.241.178"
-      },
-      {
         "type": "GLUE6",
         "ns": "w.dns.eu.",
         "address": "2001:678:20::28"
@@ -111591,10 +110887,6 @@
       {
         "type": "NS",
         "ns": "si.dns.eu."
-      },
-      {
-        "type": "NS",
-        "ns": "uk.dns.eu."
       }
     ]
   },
@@ -115191,18 +114483,8 @@
       },
       {
         "type": "GLUE4",
-        "ns": "sns-pb.isc.org.",
-        "address": "192.5.4.1"
-      },
-      {
-        "type": "GLUE4",
         "ns": "nsext-pch.aedns.ae.",
         "address": "199.4.137.1"
-      },
-      {
-        "type": "GLUE6",
-        "ns": "sns-pb.isc.org.",
-        "address": "2001:500:2e::1"
       },
       {
         "type": "GLUE6",
@@ -115216,10 +114498,6 @@
       {
         "type": "NS",
         "ns": "ns2.aedns.ae."
-      },
-      {
-        "type": "NS",
-        "ns": "sns-pb.isc.org."
       },
       {
         "type": "NS",
@@ -115820,6 +115098,66 @@
       }
     ]
   },
+  "xn--mgbcpq6gpa1a.": {
+    "records": [
+      {
+        "type": "GLUE4",
+        "ns": "a.nic.xn--mgbcpq6gpa1a.",
+        "address": "194.169.218.115"
+      },
+      {
+        "type": "GLUE4",
+        "ns": "b.nic.xn--mgbcpq6gpa1a.",
+        "address": "185.24.64.115"
+      },
+      {
+        "type": "GLUE4",
+        "ns": "c.nic.xn--mgbcpq6gpa1a.",
+        "address": "212.18.248.115"
+      },
+      {
+        "type": "GLUE4",
+        "ns": "d.nic.xn--mgbcpq6gpa1a.",
+        "address": "212.18.249.115"
+      },
+      {
+        "type": "GLUE6",
+        "ns": "a.nic.xn--mgbcpq6gpa1a.",
+        "address": "2001:67c:13cc::1:115"
+      },
+      {
+        "type": "GLUE6",
+        "ns": "b.nic.xn--mgbcpq6gpa1a.",
+        "address": "2a04:2b00:13cc::1:115"
+      },
+      {
+        "type": "GLUE6",
+        "ns": "c.nic.xn--mgbcpq6gpa1a.",
+        "address": "2a04:2b00:13ee::115"
+      },
+      {
+        "type": "GLUE6",
+        "ns": "d.nic.xn--mgbcpq6gpa1a.",
+        "address": "2a04:2b00:13ff::115"
+      },
+      {
+        "type": "NS",
+        "ns": "a.nic.xn--mgbcpq6gpa1a."
+      },
+      {
+        "type": "NS",
+        "ns": "b.nic.xn--mgbcpq6gpa1a."
+      },
+      {
+        "type": "NS",
+        "ns": "c.nic.xn--mgbcpq6gpa1a."
+      },
+      {
+        "type": "NS",
+        "ns": "d.nic.xn--mgbcpq6gpa1a."
+      }
+    ]
+  },
   "xn--mgberp4a5d4ar.": {
     "records": [
       {
@@ -115831,101 +115169,101 @@
       },
       {
         "type": "GLUE4",
-        "ns": "i.nic.net.sa.",
-        "address": "212.26.18.3"
-      },
-      {
-        "type": "GLUE4",
-        "ns": "n.nic.net.sa.",
-        "address": "194.146.106.102"
-      },
-      {
-        "type": "GLUE4",
-        "ns": "p.nic.net.sa.",
-        "address": "204.61.216.41"
-      },
-      {
-        "type": "GLUE4",
-        "ns": "s.nic.net.sa.",
-        "address": "37.107.223.170"
-      },
-      {
-        "type": "GLUE4",
-        "ns": "s2.nic.net.sa.",
-        "address": "37.107.255.170"
-      },
-      {
-        "type": "GLUE4",
-        "ns": "ns1.nic.net.sa.",
+        "ns": "c1.dns.sa.",
         "address": "86.111.192.9"
       },
       {
         "type": "GLUE4",
-        "ns": "ns2.nic.net.sa.",
+        "ns": "c2.dns.sa.",
         "address": "86.111.196.9"
       },
       {
-        "type": "GLUE6",
-        "ns": "i.nic.net.sa.",
-        "address": "2001:1490:0:800::3"
+        "type": "GLUE4",
+        "ns": "i1.dns.sa.",
+        "address": "212.138.118.118"
+      },
+      {
+        "type": "GLUE4",
+        "ns": "n1.dns.sa.",
+        "address": "194.146.106.102"
+      },
+      {
+        "type": "GLUE4",
+        "ns": "p1.dns.sa.",
+        "address": "204.61.216.41"
+      },
+      {
+        "type": "GLUE4",
+        "ns": "s1.dns.sa.",
+        "address": "37.107.223.170"
+      },
+      {
+        "type": "GLUE4",
+        "ns": "s2.dns.sa.",
+        "address": "37.107.255.170"
       },
       {
         "type": "GLUE6",
-        "ns": "n.nic.net.sa.",
-        "address": "2001:67c:1010:26::53"
-      },
-      {
-        "type": "GLUE6",
-        "ns": "p.nic.net.sa.",
-        "address": "2001:500:14:6041:ad::1"
-      },
-      {
-        "type": "GLUE6",
-        "ns": "s.nic.net.sa.",
-        "address": "2001:16a0:1:3002::2"
-      },
-      {
-        "type": "GLUE6",
-        "ns": "s2.nic.net.sa.",
-        "address": "2001:16a0:2:3002::2"
-      },
-      {
-        "type": "GLUE6",
-        "ns": "ns1.nic.net.sa.",
+        "ns": "c1.dns.sa.",
         "address": "2001:67c:130:410::9"
       },
       {
         "type": "GLUE6",
-        "ns": "ns2.nic.net.sa.",
+        "ns": "c2.dns.sa.",
         "address": "2001:67c:130:10::9"
       },
       {
-        "type": "NS",
-        "ns": "i.nic.net.sa."
+        "type": "GLUE6",
+        "ns": "i1.dns.sa.",
+        "address": "2001:1490:0:800::118"
+      },
+      {
+        "type": "GLUE6",
+        "ns": "n1.dns.sa.",
+        "address": "2001:67c:1010:26::53"
+      },
+      {
+        "type": "GLUE6",
+        "ns": "p1.dns.sa.",
+        "address": "2001:500:14:6041:ad::1"
+      },
+      {
+        "type": "GLUE6",
+        "ns": "s1.dns.sa.",
+        "address": "2001:16a0:1:3002::2"
+      },
+      {
+        "type": "GLUE6",
+        "ns": "s2.dns.sa.",
+        "address": "2001:16a0:2:3002::2"
       },
       {
         "type": "NS",
-        "ns": "n.nic.net.sa."
+        "ns": "c1.dns.sa."
       },
       {
         "type": "NS",
-        "ns": "p.nic.net.sa."
+        "ns": "c2.dns.sa."
       },
       {
         "type": "NS",
-        "ns": "s.nic.net.sa."
+        "ns": "i1.dns.sa."
       },
       {
         "type": "NS",
-        "ns": "s2.nic.net.sa."
+        "ns": "n1.dns.sa."
       },
       {
         "type": "NS",
-        "ns": "ns1.nic.net.sa."
+        "ns": "p1.dns.sa."
       },
       {
         "type": "NS",
-        "ns": "ns2.nic.net.sa."
+        "ns": "s1.dns.sa."
+      },
+      {
+        "type": "NS",
+        "ns": "s2.dns.sa."
       }
     ]
   },
@@ -117728,6 +117066,73 @@
       }
     ]
   },
+  "xn--q7ce6a.": {
+    "records": [
+      {
+        "type": "DS",
+        "keyTag": 10705,
+        "algorithm": 7,
+        "digestType": 2,
+        "digest": "0abe3fc3e0d788cc7eda69271c7acb9ed5d23460d381b86253b44c57716a89e9"
+      },
+      {
+        "type": "GLUE4",
+        "ns": "a.xn--q7ce6a.centralnic-dns.com.",
+        "address": "194.169.218.17"
+      },
+      {
+        "type": "GLUE4",
+        "ns": "b.xn--q7ce6a.centralnic-dns.com.",
+        "address": "185.24.64.17"
+      },
+      {
+        "type": "GLUE4",
+        "ns": "c.xn--q7ce6a.centralnic-dns.com.",
+        "address": "212.18.248.17"
+      },
+      {
+        "type": "GLUE4",
+        "ns": "d.xn--q7ce6a.centralnic-dns.com.",
+        "address": "212.18.249.17"
+      },
+      {
+        "type": "GLUE6",
+        "ns": "a.xn--q7ce6a.centralnic-dns.com.",
+        "address": "2001:67c:13cc::1:17"
+      },
+      {
+        "type": "GLUE6",
+        "ns": "b.xn--q7ce6a.centralnic-dns.com.",
+        "address": "2a04:2b00:13cc::1:17"
+      },
+      {
+        "type": "GLUE6",
+        "ns": "c.xn--q7ce6a.centralnic-dns.com.",
+        "address": "2a04:2b00:13ee::17"
+      },
+      {
+        "type": "GLUE6",
+        "ns": "d.xn--q7ce6a.centralnic-dns.com.",
+        "address": "2a04:2b00:13ff::17"
+      },
+      {
+        "type": "NS",
+        "ns": "a.xn--q7ce6a.centralnic-dns.com."
+      },
+      {
+        "type": "NS",
+        "ns": "b.xn--q7ce6a.centralnic-dns.com."
+      },
+      {
+        "type": "NS",
+        "ns": "c.xn--q7ce6a.centralnic-dns.com."
+      },
+      {
+        "type": "NS",
+        "ns": "d.xn--q7ce6a.centralnic-dns.com."
+      }
+    ]
+  },
   "xn--q9jyb4c.": {
     "records": [
       {
@@ -117925,11 +117330,6 @@
         "address": "193.2.221.60"
       },
       {
-        "type": "GLUE4",
-        "ns": "uk.dns.eu.",
-        "address": "195.66.241.178"
-      },
-      {
         "type": "GLUE6",
         "ns": "w.dns.eu.",
         "address": "2001:678:20::28"
@@ -117968,10 +117368,6 @@
       {
         "type": "NS",
         "ns": "si.dns.eu."
-      },
-      {
-        "type": "NS",
-        "ns": "uk.dns.eu."
       }
     ]
   },
@@ -120964,22 +120360,10 @@
     "records": [
       {
         "type": "DS",
-        "keyTag": 38414,
-        "algorithm": 8,
-        "digestType": 2,
-        "digest": "bebff2a39d53f6785b72133af9a0ea7cc420b66ef83262f803b9ecf0e3770a42"
-      },
-      {
-        "type": "DS",
         "keyTag": 50602,
         "algorithm": 8,
         "digestType": 2,
         "digest": "32c66e2c3e3b541b84ab453f7e6e9f12603586422abd2fafe3053574a417a403"
-      },
-      {
-        "type": "GLUE4",
-        "ns": "d.ext.nic.fr.",
-        "address": "192.5.4.2"
       },
       {
         "type": "GLUE4",
@@ -121003,11 +120387,6 @@
       },
       {
         "type": "GLUE6",
-        "ns": "d.ext.nic.fr.",
-        "address": "2001:500:2e::2"
-      },
-      {
-        "type": "GLUE6",
         "ns": "d.nic.fr.",
         "address": "2001:678:c::1"
       },
@@ -121025,10 +120404,6 @@
         "type": "GLUE6",
         "ns": "g.ext.nic.fr.",
         "address": "2001:678:4c::1"
-      },
-      {
-        "type": "NS",
-        "ns": "d.ext.nic.fr."
       },
       {
         "type": "NS",
@@ -121130,11 +120505,6 @@
         "address": "204.61.216.55"
       },
       {
-        "type": "GLUE4",
-        "ns": "sns-pb.isc.org.",
-        "address": "192.5.4.1"
-      },
-      {
         "type": "GLUE6",
         "ns": "za1.dnsnode.net.",
         "address": "2001:67c:1010:19::53"
@@ -121143,11 +120513,6 @@
         "type": "GLUE6",
         "ns": "za-ns.anycast.pch.net.",
         "address": "2001:500:14:6055:ad::1"
-      },
-      {
-        "type": "GLUE6",
-        "ns": "sns-pb.isc.org.",
-        "address": "2001:500:2e::1"
       },
       {
         "type": "NS",
@@ -121160,10 +120525,6 @@
       {
         "type": "NS",
         "ns": "za-ns.anycast.pch.net."
-      },
-      {
-        "type": "NS",
-        "ns": "sns-pb.isc.org."
       }
     ]
   },
