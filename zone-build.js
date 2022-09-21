@@ -7,14 +7,14 @@
 const assert = require('assert');
 const Path = require('path');
 const fs = require('bfile');
-const bio = require('bufio');
+// const bio = require('bufio');
 const {Resource} = require('hsd/lib/dns/resource');
 const util = require('./util');
 
 const ZONE_JSON = Path.resolve(__dirname, 'build', 'root.json');
 const TLD_H = Path.resolve(__dirname, 'build', 'tld.h');
-const TLD_JSON = Path.resolve(__dirname, 'build', 'tld.json');
-const TLD_DB = Path.resolve(__dirname, 'build', 'tld.db');
+// const TLD_JSON = Path.resolve(__dirname, 'build', 'tld.json');
+// const TLD_DB = Path.resolve(__dirname, 'build', 'tld.db');
 
 function prepend(data) {
   assert(data.length <= 512);
@@ -38,6 +38,14 @@ function toHex(data) {
   const cstr = str.replace(/([a-f0-9]{2})/g, '\\x$1');
 
   return `${cstr},`;
+}
+
+function toWire(name) {
+  let str = '  ';
+  str +=    `"\\x${name.length.toString(16).padStart(2, '0')}"`;
+  str +=    `"${name}"`;
+  str +=    '"\\x00",';
+  return str;
 }
 
 const json = fs.readFileSync(ZONE_JSON, 'utf8');
@@ -67,7 +75,7 @@ for (const key of keys) {
   ];
 
   for (const [name] of items)
-    code.push(`  "${name}",`);
+    code.push(toWire(name));
 
   code.push('  NULL');
   code.push('};');
@@ -86,63 +94,63 @@ for (const key of keys) {
   fs.writeFileSync(TLD_H, code.join('\n'));
 }
 
-{
-  const json = [
-    '{'
-  ];
+// {
+//   const json = [
+//     '{'
+//   ];
 
-  for (const [name, blob] of items)
-    json.push(`  "${name}": "${blob.toString('base64')}",`);
+//   for (const [name, blob] of items)
+//     json.push(`  "${name}": "${blob.toString('base64')}",`);
 
-  json[json.length - 1] = json[json.length - 1].slice(0, -1);
-  json.push('}');
-  json.push('');
+//   json[json.length - 1] = json[json.length - 1].slice(0, -1);
+//   json.push('}');
+//   json.push('');
 
-  fs.writeFileSync(TLD_JSON, json.join('\n'));
-}
+//   fs.writeFileSync(TLD_JSON, json.join('\n'));
+// }
 
-{
-  const bw = bio.write(10 << 20);
-  const {data} = bw;
+// {
+//   const bw = bio.write(10 << 20);
+//   const {data} = bw;
 
-  let nameSize = 0;
+//   let nameSize = 0;
 
-  for (const [name] of items) {
-    if (name.length > nameSize)
-      nameSize = name.length;
-  }
+//   for (const [name] of items) {
+//     if (name.length > nameSize)
+//       nameSize = name.length;
+//   }
 
-  if (nameSize > 32)
-    throw new Error('Upgrade serialization!');
+//   if (nameSize > 32)
+//     throw new Error('Upgrade serialization!');
 
-  assert(nameSize <= 63);
+//   assert(nameSize <= 63);
 
-  bw.writeU32(items.length);
-  bw.writeU8(nameSize);
+//   bw.writeU32(items.length);
+//   bw.writeU8(nameSize);
 
-  const offsets = [];
+//   const offsets = [];
 
-  for (const [name] of items) {
-    bw.writeU8(name.length);
-    bw.writeString(name, 'ascii');
-    bw.fill(0x00, nameSize - name.length);
-    offsets.push(bw.offset);
-    bw.writeU32(0);
-  }
+//   for (const [name] of items) {
+//     bw.writeU8(name.length);
+//     bw.writeString(name, 'ascii');
+//     bw.fill(0x00, nameSize - name.length);
+//     offsets.push(bw.offset);
+//     bw.writeU32(0);
+//   }
 
-  for (let i = 0; i < items.length; i++) {
-    const [, blob] = items[i];
-    const {offset} = bw;
-    const pos = offsets[i];
+//   for (let i = 0; i < items.length; i++) {
+//     const [, blob] = items[i];
+//     const {offset} = bw;
+//     const pos = offsets[i];
 
-    bio.writeU32(data, offset, pos);
+//     bio.writeU32(data, offset, pos);
 
-    assert(blob.length <= 512);
-    bw.writeU16(blob.length);
-    bw.writeBytes(blob);
-  }
+//     assert(blob.length <= 512);
+//     bw.writeU16(blob.length);
+//     bw.writeBytes(blob);
+//   }
 
-  const raw = bw.slice();
+//   const raw = bw.slice();
 
-  fs.writeFileSync(TLD_DB, raw);
-}
+//   fs.writeFileSync(TLD_DB, raw);
+// }
