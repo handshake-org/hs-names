@@ -7,14 +7,11 @@
 const assert = require('assert');
 const Path = require('path');
 const fs = require('bfile');
-const bio = require('bufio');
 const {Resource} = require('hsd/lib/dns/resource');
 const util = require('./util');
 
 const ZONE_JSON = Path.resolve(__dirname, 'build', 'root.json');
 const TLD_H = Path.resolve(__dirname, 'build', 'tld.h');
-const TLD_JSON = Path.resolve(__dirname, 'build', 'tld.json');
-const TLD_DB = Path.resolve(__dirname, 'build', 'tld.db');
 
 function prepend(data) {
   assert(data.length <= 512);
@@ -84,65 +81,4 @@ for (const key of keys) {
   code.push('');
 
   fs.writeFileSync(TLD_H, code.join('\n'));
-}
-
-{
-  const json = [
-    '{'
-  ];
-
-  for (const [name, blob] of items)
-    json.push(`  "${name}": "${blob.toString('base64')}",`);
-
-  json[json.length - 1] = json[json.length - 1].slice(0, -1);
-  json.push('}');
-  json.push('');
-
-  fs.writeFileSync(TLD_JSON, json.join('\n'));
-}
-
-{
-  const bw = bio.write(10 << 20);
-  const {data} = bw;
-
-  let nameSize = 0;
-
-  for (const [name] of items) {
-    if (name.length > nameSize)
-      nameSize = name.length;
-  }
-
-  if (nameSize > 32)
-    throw new Error('Upgrade serialization!');
-
-  assert(nameSize <= 63);
-
-  bw.writeU32(items.length);
-  bw.writeU8(nameSize);
-
-  const offsets = [];
-
-  for (const [name] of items) {
-    bw.writeU8(name.length);
-    bw.writeString(name, 'ascii');
-    bw.fill(0x00, nameSize - name.length);
-    offsets.push(bw.offset);
-    bw.writeU32(0);
-  }
-
-  for (let i = 0; i < items.length; i++) {
-    const [, blob] = items[i];
-    const {offset} = bw;
-    const pos = offsets[i];
-
-    bio.writeU32(data, offset, pos);
-
-    assert(blob.length <= 512);
-    bw.writeU16(blob.length);
-    bw.writeBytes(blob);
-  }
-
-  const raw = bw.slice();
-
-  fs.writeFileSync(TLD_DB, raw);
 }

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -ex
+
+./download
+./zone.js
+./zone-build.js
