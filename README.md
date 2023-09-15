@@ -36,6 +36,7 @@ In order to have your domain pre-reserved, there are a few rules implemented in
   - `exit` - Tor.
   - `gnu` - GNUnet (GNS).
   - `i2p` - Invisible Internet Project.
+  - `nostr` - Nostr Protocol
   - `onion` - Tor.
   - `tor` - OnioNS.
   - `zkey` - GNS.
